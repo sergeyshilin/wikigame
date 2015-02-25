@@ -54,7 +54,7 @@
 	<div id="page_header">
 		<?php 
 			if(isset($_GET['page']) && !empty($_GET['page'])) 
-				echo "Текущий счет: ".$_SESSION['counter']."<br>Конечная цель: ". $_SESSION['end'];
+				echo "Текущий счет: ".$_SESSION['counter']."<br>Конечная цель: ". $_SESSION['end']. "&nbsp;&nbsp; || &nbsp;&nbsp; <a href='?page=Alan_Turing'>Вернуться к началу</a>";
 			else 
 				echo "<a href='?page=Alan_Turing'>Старт</a>";
 		?>
