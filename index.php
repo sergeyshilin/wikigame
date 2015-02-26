@@ -37,28 +37,30 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
+              <h3 class="masthead-brand">WikiGame</h3>
+              <!-- <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
                   <li><a href="#">Features</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>
-              </nav>
+              </nav> -->
             </div>
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <h1 class="cover-heading">Get it shorter.</h1>
+            <p class="lead">Complete way from one Wikipedia page to another with a minimum number of steps. Think it easy? </br>Try to play it rught now!</p>
             <p class="lead">
-              <a href="/wiki/Alan_Turing" class="btn btn-lg btn-default">Start</a>
+              <a href="/wiki/Alan_Turing" class="btn btn-lg btn-default">Play it</a>
             </p>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+              <p>Content has taken from  <a href="http://en.wikipedia.org/wiki/Main_Page">en.Wikipedia.org</a>
+                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> -->
+              .</p>
             </div>
           </div>
 

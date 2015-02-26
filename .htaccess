@@ -7,8 +7,6 @@ RewriteBase /wiki/
 RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico)$|index\.php$
     RewriteRule ^(.*)$ $1 [L,QSA]
 
-
-# RewriteRule 	^((?!index.php).*)/$	 game.php?page=$1 		[L,QSA]
 RewriteCond %{REQUEST_URI} ^[\w\-.]+$
 RewriteCond %{REQUEST_FILENAME} (.*)\.(html|php)$
 RewriteCond %1.php -s [OR]
