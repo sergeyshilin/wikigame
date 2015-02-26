@@ -38,7 +38,7 @@
 <body>
 	<div id="page_header">
 		<?php 
-				echo "<p class='text counter'>Steps: <span class='label label-warning'>".$_SESSION['counter']."</span></p>
+				echo "<p class='text counter'>Steps: <span class='label label-danger'>".$_SESSION['counter']."</span></p>
 				<p class='text'>Target: <a href='http://en.wikipedia.org/wiki/".$_SESSION['end']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
 				<p class='text'><span class='label startpage_button label-danger'><a href='/wiki/Alan_Turing'>To start page</a></span></p>";
 		?>
