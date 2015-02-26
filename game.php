@@ -30,36 +30,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Wikipedia Game</title>
-	<style type="text/css">
-		body, html {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-		}
-
-		.zeromargin {
-			margin: 0 !important;
-			border: 0 !important;
-		}
-
-		#page_header {
-			width: 100%;
-			height: 50px;
-			border-bottom: 1px solid #a7d7f9;
-		}
-	</style>
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="page_header">
 		<?php 
-			if(isset($_GET['page']) && !empty($_GET['page'])) 
-				echo "Текущий счет: ".$_SESSION['counter']."<br>Конечная цель: ". $_SESSION['end']. "&nbsp;&nbsp; || &nbsp;&nbsp; <a href='/wiki/Alan_Turing'>Вернуться к началу</a>";
-			else 
-				echo "<a href='/wiki/Alan_Turing'>Старт</a>";
+				echo "<p class='text counter'>Steps: <span class='label label-warning'>".$_SESSION['counter']."</span></p>
+				<p class='text'>Target: <a href='http://en.wikipedia.org/wiki/".$_SESSION['end']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
+				<p class='text'><span class='label startpage_button label-danger'><a href='/wiki/Alan_Turing'>To start page</a></span></p>";
 		?>
 	</div>
 	<?php 
@@ -84,6 +65,6 @@
 			echo "<h1>Вы выиграли! Ваш счет ". $_SESSION['counter']." очков</h1><br>";
 			echo "<h2><a href='/wiki/Alan_Turing'>Начать сначала?</a></h2>";
 		}
-	?>	
+	?>	    
 </body>
 </html>

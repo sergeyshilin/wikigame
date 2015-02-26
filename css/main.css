@@ -1,0 +1,83 @@
+body, html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.zeromargin {
+	margin: 0 !important;
+	padding-top: 50px !important;
+	border: 0 !important;
+}
+
+#page_header {
+	margin: 0 !important;
+	position: fixed;
+	z-index: 999;
+	padding: 3px 30px 5px 20px;
+	width: 100%;
+	height: 30px;
+	opacity: 1;
+	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	background-color: rgb(255, 255, 255);
+	border-bottom: 1px solid #ddd;
+}
+
+#page_header .text {
+	font-family: sans-serif;
+	display: inline-block;
+	float: left;
+}
+
+#page_header .counter {
+	margin-right: 45px;
+	float: right;
+}
+
+.text a {
+	color: #0645ad;
+}
+
+.text a:visited {
+	color: #003366;
+}
+
+.startpage_button {
+	margin-left: 20px;
+}
+
+.label {
+	display: inline;
+	margin-top: -1px !important;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	margin-bottom: 1px;
+}
+
+.label a:hover {
+	text-decoration: none;
+}
+
+.label a:visited {
+	color: #fff;
+}
+
+.label-danger {
+	background-color: #d9534f;
+}
+
+.label-warning {
+	background-color: #f0ad4e;
+}
