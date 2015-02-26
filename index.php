@@ -1,86 +1,80 @@
-<?php
-	session_start();
-
-	$page = "";
-	$_SESSION['end'] = "Bishop_of_Tasmania";
-	$_SESSION['start'] = "Alan_Turing";
-	$_SESSION['win'] = false;
-
-	if(isset($_GET['page']) && !empty($_GET['page'])) {
-		$page = $_GET['page'];
-		$_SESSION['previous'] = $_SESSION['current'];
-		$_SESSION['current'] = $page;
-		if ($_SESSION['previous'] != $_SESSION['current'])
-			$_SESSION['counter'] += 1;
-		if ($_SESSION['current'] == $_SESSION['start'])
-			$_SESSION['counter'] = 0;
-		if($_SESSION['current'] == $_SESSION['end'])
-			$_SESSION['win'] = true;
-	} else {
-		$_SESSION['counter'] = 0;
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Wikipedia Game</title>
-	<style type="text/css">
-		body, html {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-		}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-		.zeromargin {
-			margin: 0 !important;
-			border: 0 !important;
-		}
+    <title>Cover Template for Bootstrap</title>
 
-		#page_header {
-			width: 100%;
-			height: 50px;
-			border-bottom: 1px solid #a7d7f9;
-		}
-	</style>
-	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
-	<script src="js/main.js" type="text/javascript"></script>
-</head>
-<body>
-	<div id="page_header">
-		<?php 
-			if(isset($_GET['page']) && !empty($_GET['page'])) 
-				echo "Текущий счет: ".$_SESSION['counter']."<br>Конечная цель: ". $_SESSION['end']. "&nbsp;&nbsp; || &nbsp;&nbsp; <a href='?page=Alan_Turing'>Вернуться к началу</a>";
-			else 
-				echo "<a href='?page=Alan_Turing'>Старт</a>";
-		?>
-	</div>
-	<?php 
-		include_once('simple_html_dom.php');
- 
-		if(!$_SESSION['win']) {
-			$url = "http://en.wikipedia.org/wiki/".$page;
-			$html = file_get_html($url);
-			// $html = file_get_html('http://en.wikipedia.org/wiki/Alan_Turing');
-			foreach($html->find('link') as $element) { //выборка всех тегов img на странице
-			       echo $element; // построчный вывод содержания всех найденных атрибутов src
-			}
-			foreach($html->find('script') as $element) { //выборка всех тегов img на странице
-			       echo $element; // построчный вывод содержания всех найденных атрибутов src
-			}
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-			//$html->find('div[id=mw-page-base]', 0)->class = 'hidden';
-			$html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
-			$content = $html->find('div[id=content]', 0);
-			echo $content;
-		} else {
-			echo "<h1>Вы выиграли! Ваш счет ". $_SESSION['counter']." очков</h1><br>";
-			echo "<h2><a href='?page=Alan_Turing'>Начать сначала?</a></h2>";
-		}
-	?>	
-</body>
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Cover</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Cover your page.</h1>
+            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">
+              <a href="/wiki/Alan_Turing" class="btn btn-lg btn-default">Start</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
