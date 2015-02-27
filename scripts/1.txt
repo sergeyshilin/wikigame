@@ -1,0 +1,960 @@
+['Mold', 'Rhizopus', 'Wallr.'], 3, 236
+['Mold', 'Heterotroph', 'Natural_environment'], 3, 551
+['Mold', 'Cellulose', 'Tracing_paper'], 3, 733
+['Mold', 'Fumonisin', 'Agitoxin'], 3, 392
+['Mold', 'Zygomycota', 'Paraglomerales'], 3, 564
+['Mold', 'Canadian_English', 'Dictionary_of_Canadianisms_on_Historical_Principles'], 3, 1042
+['Mold', 'Organic_material', 'Water'], 3, 275
+['Mold', 'Penicillin', 'Gamma-Valerolactone'], 3, 887
+['Mold', 'Yeast', 'Multicellular_organism'], 3, 778
+['Mold', 'Haustorium', 'Hypha'], 3, 231
+['Mold', 'Help:Contents', 'Help:Contents'], 3, 314
+['Mold', 'Basidium', 'Dimorphic_fungus'], 3, 235
+['Mold', 'International_Standard_Book_Number', 'ISO_31-4'], 3, 665
+['Mold', 'Cladosporium', 'Conidia'], 3, 229
+['Mold', 'Starch', 'Pedicel_(botany)'], 3, 754
+['Mold', 'Teliospore', 'Teleomorph,_anamorph_and_holomorph'], 3, 241
+['Mold', 'Enzyme', 'Egg_white'], 3, 777
+['Mold', 'National_Public_Radio', 'Noah_Adams'], 3, 868
+['Mold', 'Mold_(disambiguation)', 'Mold_(disambiguation)'], 3, 208
+['Mold', 'Colony_(biology)', 'Biofilm'], 3, 226
+['Bitter_orange', 'Grafting', 'Foliage'], 3, 418
+['Bitter_orange', 'Phytophthora_citricola', 'Kiyomi'], 3, 496
+['Bitter_orange', 'Francisco_Manuel_Blanco', 'Integrated_Authority_File'], 3, 350
+['Bitter_orange', 'Florentine_citron', 'Italian_Renaissance_garden'], 3, 368
+['Bitter_orange', 'Jabara_(citrus)', 'Yuja_hwachae'], 3, 492
+['Bitter_orange', 'Clementine', 'Yuzuquat'], 3, 557
+['Bitter_orange', 'Eremocitrus', 'Ch%C5%ABhai'], 3, 514
+['Bitter_orange', 'Octopamine', 'Neuron'], 3, 2140
+['Bitter_orange', 'Wikispecies', 'Digital_object_identifier'], 3, 366
+['Bitter_orange', 'Marination', 'Lemon'], 3, 402
+['Bitter_orange', 'Laraha', 'Citrus_hybrids'], 3, 494
+['Bitter_orange', 'Citrus_taxonomy#Citrus_relatives', 'Buddhist_offering'], 3, 817
+['Bitter_orange', 'PubMed_Identifier', 'Doctor%E2%80%93patient_relationship'], 3, 451
+['Bitter_orange', 'Fingered_citron', 'Orangery'], 3, 969
+['Bitter_orange', 'Military_Medicine_(journal)', 'Main_Page'], 3, 343
+['Bitter_orange', 'Rosids', 'Huaceae'], 3, 423
+['Bitter_orange', 'Amanatsu', 'Limequat'], 3, 519
+['Bitter_orange', 'Digital_object_identifier', 'X3D'], 3, 755
+['Bitter_orange', 'Zanthoxylum_fagara', 'Citrus_macroptera'], 3, 522
+['Bitter_orange', 'Kumquat', 'Green_tea'], 3, 680
+['World_War_II', 'International_Standard_Book_Number', 'Error_detection'], 3, 2677
+['World_War_II', 'Oder%E2%80%93Neisse_line', 'German-Polish_Border_Treaty'], 3, 2834
+['World_War_II', 'Battle_of_the_Atlantic', 'War_rape'], 3, 3680
+['World_War_II', 'Alessandro_Portelli', 'Help:CS1_errors#invalid_param_val'], 3, 2260
+['World_War_II', 'Battle_of_the_Java_Sea', 'Battle_of_Badung_Strait'], 3, 2379
+['World_War_II', 'Amphibious_assault', 'Infantry'], 3, 2902
+['World_War_II', 'Japanese_invasion_of_Manchuria', 'Fukoku_ky%C5%8Dhei'], 3, 2531
+['World_War_II', 'Liberation_of_Paris', 'Operation_Overlord'], 3, 2864
+['World_War_II', 'Xi%27an_Incident', 'Help:Introduction_to_referencing/1'], 3, 2356
+['World_War_II', 'Chiang_Kai-shek', 'Prime_Minister_of_Japan'], 3, 3556
+['World_War_II', 'Air_University_Press', 'Air_University_Press'], 3, 2206
+['World_War_II', 'A._J._P._Taylor', 'Help:Contents'], 3, 2485
+['World_War_II', 'Aleutian_Islands_Campaign', 'Dutch_Harbor_Naval_Operating_Base_and_Fort_Mears,_U.S._Army'], 3, 2509
+['World_War_II', 'Syrmian_Front', 'Nazi_Germany'], 3, 2661
+['World_War_II', 'International_Standard_Book_Number', 'Process_Specification_Language'], 3, 2677
+['World_War_II', 'Military_history_of_Canada_during_World_War_II', 'HMCS_Chicoutimi_(SSK_879)'], 3, 3139
+['World_War_II', 'Soviet_Studies', 'University_of_Glasgow'], 3, 2220
+['World_War_II', 'JSTOR', 'Aaron_Swartz#JSTOR'], 3, 2261
+['World_War_II', 'Red_Army', 'Wehrmacht'], 3, 2639
+['World_War_II', 'Western_Front_(World_War_II)', 'Czechoslovak_Government-in-Exile'], 3, 3045
+['University', 'Sorbonne', 'Sorbonne'], 3, 733
+['University', 'Krifo_scholio', 'Help:Contents'], 3, 677
+['University', 'Undergraduate_education', 'Lyceum'], 3, 893
+['University', 'Crusades', 'History_of_the_Catholic_Church'], 3, 1754
+['University', 'Education_in_Mongolia', 'Philology'], 3, 779
+['University', 'Education_in_Kiribati', 'Public_domain'], 3, 688
+['University', 'Education', 'Education_in_the_British_Virgin_Islands'], 3, 1535
+['University', 'Help:CS1_errors#accessdate_missing_url', 'COinS'], 3, 892
+['University', 'Education_in_Ethiopia', 'Ethnic_groups_of_Ethiopia'], 3, 876
+['University', 'Educational_psychology', 'Psycholinguistics'], 3, 1450
+['University', 'Public_school_(United_Kingdom)', 'For-profit_education'], 3, 939
+['University', 'Europe', 'Melvin_Ember'], 3, 2501
+['University', 'Arithmetic', 'Integer'], 3, 897
+['University', 'Education_in_Malaysia', 'Sarawak'], 3, 1047
+['University', 'Education_in_Djibouti', 'Education_in_Saint_Helena'], 3, 779
+['University', 'Virtual_school', 'Separate_school'], 3, 771
+['University', 'Catholic_University', 'Universidade_do_Vale_do_Rio_dos_Sinos'], 3, 1037
+['University', 'Education_in_Macau', 'Education_in_Sri_Lanka'], 3, 764
+['University', 'Guild', 'Rent_seeking'], 3, 866
+['University', 'Business_education', 'Education_in_the_Gambia'], 3, 1124
+['Earth', 'Food', 'Rash'], 3, 2526
+['Earth', 'Future_of_the_Earth', 'Arctic_Ocean'], 3, 1850
+['Earth', 'Volcano', 'Bacchus'], 3, 1788
+['Earth', 'International_Standard_Book_Number', 'Code'], 3, 1682
+['Earth', 'Glacier', 'Estuary'], 3, 1740
+['Earth', 'International_Standard_Book_Number', 'Software_maintenance'], 3, 1682
+['Earth', 'Outer_space', 'Women_in_space'], 3, 1972
+['Earth', 'The_Rise_and_Fall_of_the_Great_Powers', 'Investment'], 3, 1261
+['Earth', 'Nitrogen', 'Lithium'], 3, 2494
+['Earth', 'Angular_velocity', 'Speed#Tangential_speed'], 3, 1408
+['Earth', 'Digital_object_identifier', 'ISO_10487'], 3, 1643
+['Earth', 'Atlantic_Ocean', 'Guadeloupe'], 3, 1937
+['Earth', 'Water_vapor', 'NASA'], 3, 1525
+['Earth', 'Mean_anomaly', 'Geostationary_orbit'], 3, 1317
+['Earth', 'Bathymetry', 'International_Standard_Book_Number'], 3, 1450
+['Earth', 'Square_kilometre', 'Main_Page'], 3, 1245
+['Earth', 'Kelvin', 'Letterlike_Symbols'], 3, 1348
+['Earth', 'Protist', 'Basidiomycota'], 3, 1665
+['Earth', 'Bibcode', 'The_Astrophysical_Journal_Letters'], 3, 1220
+['Earth', 'Observable_universe', '2dF_Galaxy_Redshift_Survey'], 3, 1623
+['Rock_music', 'Jan_%26_Dean', 'The_Supremes'], 3, 2058
+['Rock_music', 'Them_(band)', 'Van_Morrison'], 3, 1931
+['Rock_music', 'Drum_kit', 'List_of_marimba_manufacturers'], 3, 2070
+['Rock_music', 'Rancid_(band)', 'Warner_Bros._Records'], 3, 1893
+['Rock_music', 'The_Verve', 'Nick_McCabe'], 3, 1935
+['Rock_music', 'Afro-rock', 'Osibisa'], 3, 1674
+['Rock_music', 'Garage_rock', 'Chicano_rock'], 3, 1959
+['Rock_music', 'Alice_Cooper', 'Dungeons_%26_Dragons'], 3, 2312
+['Rock_music', 'Rock_opera', 'True_Symphonic_Rockestra'], 3, 1701
+['Rock_music', 'Beat_music', 'Skiffle'], 3, 1917
+['Rock_music', 'Marc_Bolan', 'Violent_Femmes'], 3, 2021
+['Rock_music', 'American_rock', 'Sam_Phillips'], 3, 2494
+['Rock_music', 'Pop_music', '1920s'], 3, 1982
+['Rock_music', 'Fleetwood_Mac', 'Piano'], 3, 2147
+['Rock_music', 'Symbolist', 'St%C3%A9phane_Mallarm%C3%A9'], 3, 2835
+['Rock_music', 'Disco', 'Barry_White'], 3, 2532
+['Rock_music', 'Estonian_rock', 'Cuban_rock'], 3, 1778
+['Rock_music', 'MC5', 'White_Panther_Party'], 3, 1899
+['Rock_music', 'The_Birthday_Party_(band)', 'Shivers_(song)'], 3, 1801
+['Rock_music', 'The_Fall_(band)', 'BBC_Four'], 3, 1982
+['Italy', 'Mafia', 'Albanian_mafia'], 3, 2453
+['Italy', 'Filippo_Lippi', 'Palazzo_Medici-Riccardi'], 3, 2431
+['Italy', 'Italian_language', 'Talian_dialect'], 3, 2956
+['Italy', 'Italian_Chamber_of_Deputies', 'Politics_of_Italy'], 3, 2660
+['Italy', 'Central_European_Initiative', 'Poland'], 3, 2376
+['Italy', 'Roman_Empire', 'Vitruvius'], 3, 4466
+['Italy', 'South_Tyrol', 'Shrubs'], 3, 2768
+['Italy', 'Giuseppe_Garibaldi', 'Georgios_Grivas'], 3, 2659
+['Italy', 'White_goods', 'Femtotechnology'], 3, 2619
+['Italy', 'Joint_session', 'Parliament_of_France'], 3, 2396
+['Italy', 'List_of_political_parties_in_Italy', 'Italian_general_election,_1992'], 3, 3150
+['Italy', 'Economy_of_Mali', 'Mali_Empire'], 3, 2536
+['Italy', 'The_Last_Supper_(Leonardo_da_Vinci)', 'Crucifixion'], 3, 2662
+['Italy', 'Joseph_Morewood_Staniforth#Dame_Wales', 'Welsh_coal_strike_of_1898'], 3, 2408
+['Italy', 'Italian_language', 'La_Spezia%E2%80%93Rimini_Line'], 3, 2956
+['Italy', 'Italian_Republic_(Napoleonic)', 'District_of_Milan'], 3, 2463
+['Italy', 'Economy_of_the_United_Kingdom', 'List_of_countries_by_credit_rating'], 3, 3286
+['Italy', 'Italian_nationality_law', 'Naturalization'], 3, 2507
+['Italy', 'Southern_Italy', 'Folklore_of_Italy'], 3, 2792
+['Italy', 'Economy_of_Spain', 'Spanish_art'], 3, 2636
+['Geology', 'Pumice', 'NASA_Earth_Observatory'], 3, 809
+['Geology', 'Absolute_dating', 'Dendrochronology'], 3, 927
+['Geology', 'Lithification', 'Connate_fluids'], 3, 744
+['Geology', 'Glaciology', 'Till'], 3, 931
+['Geology', 'Paleontology', 'International_Standard_Book_Number'], 3, 1419
+['Geology', 'Space_exploration', 'Sweden'], 3, 1700
+['Geology', 'Plate_tectonics', 'Ireland'], 3, 1393
+['Geology', 'Shen_Kuo', 'Yingzao_Fashi'], 3, 1312
+['Geology', 'Petroleum_geology', 'Squeeze_job'], 3, 977
+['Geology', 'Volcanic_ash', 'Silicon_dioxide'], 3, 965
+['Geology', 'Seismology', 'Geodynamo'], 3, 997
+['Geology', 'Building_code', 'Cable'], 3, 812
+['Geology', 'Volcanic_rock', 'Subvolcanic_rock'], 3, 918
+['Geology', 'Slab_(geology)', 'Digital_object_identifier'], 3, 753
+['Geology', 'Lava_flow', 'Volcanology'], 3, 1007
+['Geology', 'Formation_and_evolution_of_the_Solar_System', 'Trojan_asteroid'], 3, 1429
+['Geology', 'Simon_Winchester', 'Dalhousie_University'], 3, 833
+['Geology', 'Rock_(geology)', 'Arkose'], 3, 939
+['Geology', 'International_Standard_Book_Number', 'International_Organization_for_Standardization'], 3, 1203
+['Geology', 'Geophysics', 'Internal_heat'], 3, 1253
+['Radio', 'Guglielmo_Marconi', 'New_Brunswick_Marconi_Station'], 3, 1750
+['Radio', 'David_Edward_Hughes', 'David_Edward_Hughes'], 3, 1054
+['Radio', 'Radio_wave', 'Radio_spectrum'], 3, 1073
+['Radio', 'DVD', 'Phonograph'], 3, 1287
+['Radio', 'Radio_broadcasting', 'Americas'], 3, 1258
+['Radio', 'Punk_subculture', 'Punk_zine'], 3, 1470
+['Radio', 'Other_alphabets_in_Morse_code#Arabic', 'Macintosh_Central_European_encoding'], 3, 1135
+['Radio', 'David_Edward_Hughes', 'Invention_of_radio'], 3, 1054
+['Radio', 'San_Jose,_California', 'Ukiah,_California'], 3, 2783
+['Radio', 'Telecommunications_in_Samoa', 'Telecommunications_in_North_Korea'], 3, 1304
+['Radio', 'Telecommunications_in_Papua_New_Guinea', 'Internet_censorship_in_South_Korea'], 3, 1493
+['Radio', 'Telecommunications_in_Slovenia', 'Telecommunications_in_Serbia'], 3, 1342
+['Radio', 'Telecommunications_in_Lebanon', 'Telecommunications_in_Guadeloupe'], 3, 1414
+['Radio', 'Telecommunications_in_Grenada', 'Telecommunications_in_South_Korea'], 3, 1328
+['Radio', 'Pop_music', 'Traditional_pop_music'], 3, 1236
+['Radio', 'Telecommunications_in_Papua_New_Guinea', 'Telecommunications_in_Tunisia'], 3, 1493
+['Radio', 'Radio_astronomy', 'Galactic_center'], 3, 1238
+['Radio', 'World_War_I', 'Second_Battle_of_the_Masurian_Lakes'], 3, 2703
+['Radio', 'Energy', 'Technology_fusion'], 3, 1893
+['Radio', 'Semaphore_line#History', 'History_of_television'], 3, 1914
+['Computer', 'Human_computer', 'Marlyn_Meltzer'], 3, 889
+['Computer', 'Printer_(computing)', 'Blueprint'], 3, 1078
+['Computer', 'Booting', 'X86'], 3, 1217
+['Computer', 'Arithmetic_logic_unit', '36-bit'], 3, 1040
+['Computer', 'University_of_Pennsylvania', 'University_of_California,_Los_Angeles'], 3, 2103
+['Computer', 'RS-232', 'Programmable_logic_controller'], 3, 974
+['Computer', 'Intel_8008', 'Intel_4004'], 3, 1149
+['Computer', 'Bit', 'Kibibit'], 3, 1093
+['Computer', 'X86-64', 'BSD'], 3, 1121
+['Computer', 'Lunisolar_calendar', 'Dendrochronology'], 3, 1228
+['Computer', 'PowerPC', 'Microsoft'], 3, 1220
+['Computer', 'Isfahan', 'Talkhvoncheh'], 3, 1766
+['Computer', 'Bourne_shell', 'POSIX'], 3, 950
+['Computer', 'Pentium', 'Front-side_bus'], 3, 1352
+['Computer', 'Windows_7', 'Software_license'], 3, 1193
+['Computer', 'DOS', 'S-100_bus'], 3, 1206
+['Computer', 'Z1_(computer)', 'Konrad_Zuse'], 3, 869
+['Computer', 'Compiler', 'Executable'], 3, 1120
+['Computer', 'Konrad_Zuse', 'Plankalk%C3%BCl'], 3, 1010
+['Computer', 'KDE', 'Bahia'], 3, 1247
+['Tennis', 'United_States_Tennis_Association', 'Sport_governing_body'], 3, 736
+['Tennis', 'Rafael_Nadal', 'Quely'], 3, 3290
+['Tennis', 'Hardcourt', 'Help:Category'], 3, 671
+['Tennis', 'US_Open_(tennis)', 'Flushing_Meadows'], 3, 1150
+['Tennis', 'Australian_Open', 'Help:Contents'], 3, 1330
+['Tennis', 'Fabrice_Santoro', 'United_States'], 3, 1896
+['Tennis', 'Cyril_Saulnier', 'France'], 3, 634
+['Tennis', 'Andre_Agassi', 'Beals_Wright'], 3, 2480
+['Tennis', 'Florida', 'Nueva_Esparta'], 3, 2196
+['Tennis', 'Ball_boy', 'Defense_(sports)'], 3, 676
+['Tennis', 'Andre_Agassi', 'Gustavo_Kuerten'], 3, 2480
+['Tennis', 'Chris_Evert', 'Australia'], 3, 2113
+['Tennis', 'Frontenis', 'Indalecio_Sarasqueta'], 3, 883
+['Tennis', 'Jeff_Daniels', 'National_Society_of_Film_Critics_Awards_2005'], 3, 977
+['Tennis', 'Grip_(Tennis)', 'Serve_and_volley'], 3, 678
+['Tennis', 'Sports_Illustrated', 'San_Francisco_49ers'], 3, 925
+['Tennis', 'Rafael_Nadal', 'Marcelo_R%C3%ADos'], 3, 3290
+['Tennis', 'Davis_Cup', '1938_International_Lawn_Tennis_Challenge'], 3, 1822
+['Tennis', 'Lob_(tennis)', 'Summer_Youth_Olympics'], 3, 694
+['Tennis', 'Taekwondo', 'Strike_(attack)'], 3, 1050
+['The_Simpsons', 'Klasky_Csupo', 'The_Rugrats_Movie'], 3, 1735
+['The_Simpsons', 'Catchphrase', 'Catchphrase'], 3, 1475
+['The_Simpsons', 'Eternal_Moonshine_of_the_Simpson_Mind', 'New_York_(magazine)'], 3, 1657
+['The_Simpsons', 'International_Standard_Book_Number', 'Trinity_College,_Dublin'], 3, 1920
+['The_Simpsons', 'Louie_(TV_series)', 'Jeremy_Renner'], 3, 1705
+['The_Simpsons', 'Good_Vibes_(U.S._TV_series)', 'Alan_Tudyk'], 3, 1508
+['The_Simpsons', 'Gracie_Films', 'Broadcast_News_(film)'], 3, 1689
+['The_Simpsons', 'Entertainment_Weekly', 'AARP_The_Magazine'], 3, 1675
+['The_Simpsons', 'USA_Today', 'James_S._Brady_Press_Briefing_Room'], 3, 1793
+['The_Simpsons', 'Adult_animation', 'Digital_puppetry'], 3, 1859
+['The_Simpsons', 'Phenom_(TV_series)', 'William_Devane'], 3, 1552
+['The_Simpsons', 'Anagram', 'Sacred_geometry'], 3, 1617
+['The_Simpsons', 'James_Finlayson_(actor)', '1932_in_film'], 3, 1681
+['The_Simpsons', 'Animated_sitcom', 'Adult_animation'], 3, 1589
+['The_Simpsons', 'Baby_Blues_(US_TV_series)', 'MTV'], 3, 1604
+['The_Simpsons', 'Gunsmoke', 'Adam_Kennedy_(actor)'], 3, 2163
+['The_Simpsons', 'I,_(Annoyed_Grunt)-Bot', 'The_Principal_and_the_Pauper'], 3, 1618
+['The_Simpsons', 'Storyboard', 'Walt_Disney_Feature_Animation'], 3, 1618
+['The_Simpsons', 'So_You_Think_You_Can_Dance_(United_States)', 'Sleeping_At_Last'], 3, 2066
+['The_Simpsons', 'List_of_awards_and_nominations_received_by_The_Simpsons', 'Homer_the_Father'], 3, 2164
+['Lake_Baikal', 'Lake_Tanganyika', 'Coastline_paradox'], 3, 454
+['Lake_Baikal', 'Help:IPA_for_Russian', 'Morris_Halle'], 3, 481
+['Lake_Baikal', 'Authority_control', 'Named-entity_recognition'], 3, 378
+['Lake_Baikal', 'Help:Category', 'Help:Special_characters'], 3, 454
+['Lake_Baikal', 'Demid_Pyanda', 'Siberia'], 3, 381
+['Lake_Baikal', 'Lena_Pillars', 'Kazan_Kremlin'], 3, 373
+['Lake_Baikal', 'Baykal_(disambiguation)', 'Baikal_bullfinch'], 3, 324
+['Lake_Baikal', 'Wrangel_Island', 'Medvezhyi_Islands'], 3, 620
+['Lake_Baikal', 'Great_Lakes', 'International_Standard_Book_Number'], 3, 844
+['Lake_Baikal', 'Virgin_Komi_Forests', 'Curonian_Spit'], 3, 375
+['Lake_Baikal', 'Cottocomephoridae', 'Cottidae'], 3, 327
+['Lake_Baikal', 'Po_dikim_stepyam_Zabaikalya', 'Main_Page'], 3, 333
+['Lake_Baikal', 'Help:CS1_errors#format_missing_url', 'Help:Citation_Style_1'], 3, 534
+['Lake_Baikal', 'Hirudinea', 'Annulus_(zoology)'], 3, 460
+['Lake_Baikal', 'Discharge_(hydrology)', 'Pumped-storage_hydroelectricity'], 3, 344
+['Lake_Baikal', 'Mir-2_(sub)', 'Georgy_Sedov'], 3, 855
+['Lake_Baikal', 'Battle_of_Lake_Baikal', 'Radola_Gajda'], 3, 327
+['Lake_Baikal', 'Rift_lake', 'Siberia'], 3, 336
+['Lake_Baikal', 'Baykal_(disambiguation)', 'Baykalsky_(disambiguation)'], 3, 324
+['Lake_Baikal', 'Russian_language', 'Pedersen%27s_law'], 3, 1228
+['Fifty_Shades_of_Grey', 'The_New_Zealand_Herald', 'Shayne_Currie'], 3, 358
+['Fifty_Shades_of_Grey', 'Fifty_Shades_trilogy', 'Cult_following'], 3, 344
+['Fifty_Shades_of_Grey', 'The_Atlantic', 'The_Middle_East_(magazine)'], 3, 465
+['Fifty_Shades_of_Grey', 'The_New_York_Times', 'Frank_I._Cobb'], 3, 862
+['Fifty_Shades_of_Grey', 'Daily_Express', 'Martin_Townsend_(journalist)'], 3, 751
+['Fifty_Shades_of_Grey', 'Fan_film', 'Spider-Man'], 3, 512
+['Fifty_Shades_of_Grey', 'Focus_Features', 'Owned-and-operated_station'], 3, 611
+['Fifty_Shades_of_Grey', 'Vintage_Books', 'Del_Rey_Books'], 3, 346
+['Fifty_Shades_of_Grey', 'Universal_Pictures', 'Sci_Fi_Universal_(Slovenia)'], 3, 1076
+['Fifty_Shades_of_Grey', 'The_Hollywood_Reporter', 'Cronyism'], 3, 360
+['Fifty_Shades_of_Grey', 'Dominatrix', 'Catsuit'], 3, 329
+['Fifty_Shades_of_Grey', 'Main_Page', 'Allies_of_World_War_II'], 3, 349
+['Fifty_Shades_of_Grey', 'Twilight_fandom', 'List_of_Twilight_characters'], 3, 265
+['Fifty_Shades_of_Grey', 'Main_Page', 'Uhersk%C3%BD_Brod_shooting'], 3, 349
+['Fifty_Shades_of_Grey', 'Shared_universe', 'Ubisoft'], 3, 995
+['Fifty_Shades_of_Grey', 'Fan_fiction', 'Romance_fiction'], 3, 568
+['Fifty_Shades_of_Grey', 'Fan_fiction', 'Dramatic_structure'], 3, 568
+['Fifty_Shades_of_Grey', 'Limits_(BDSM)', 'Sexual_roleplay'], 3, 345
+['Fifty_Shades_of_Grey', 'BDSM', 'Der_Standard'], 3, 912
+['Fifty_Shades_of_Grey', 'Anime_and_manga_fandom', 'Sh%C5%8Dnen'], 3, 559
+['Stephen_Hawking', 'The_Independent_(UK)', 'The_London_Studios'], 3, 1070
+['Stephen_Hawking', 'A_Brief_History_of_Time', 'Black_hole_information_paradox'], 3, 680
+['Stephen_Hawking', 'General_relativity', 'General_relativity#Quantum_gravity'], 3, 2111
+['Stephen_Hawking', 'International_Standard_Book_Number', 'ISO_80000-4'], 3, 1077
+['Stephen_Hawking', 'Dennis_William_Sciama', 'Faraday_Medal'], 3, 734
+['Stephen_Hawking', 'General_relativity', 'James_M._Bardeen'], 3, 2111
+['Stephen_Hawking', 'Fundamental_Physics_Prize', 'Stephen_Hawking'], 3, 727
+['Stephen_Hawking', 'Universal_health_care', 'Iceland'], 3, 703
+['Stephen_Hawking', 'Specsavers', 'Guernsey'], 3, 663
+['Stephen_Hawking', 'Partner-assisted_scanning', 'Augmentative_and_alternative_communication'], 3, 614
+['Stephen_Hawking', 'Robert_Brout', 'Fran%C3%A7ois_Englert'], 3, 724
+['Stephen_Hawking', 'Raymond_Laflamme', 'Linear_optical_quantum_computing'], 3, 673
+['Stephen_Hawking', 'Washington_University_in_St._Louis', 'George_Washington_and_slavery'], 3, 1509
+['Stephen_Hawking', 'LIBRIS', 'National_Library_of_Sweden'], 3, 615
+['Stephen_Hawking', 'Black_hole#Evaporation', 'NASA'], 3, 1651
+['Stephen_Hawking', 'Gary_Gibbons', 'Mathematics_Genealogy_Project'], 3, 666
+['Stephen_Hawking', 'Computer_virus', 'Conficker#Self-defense'], 3, 918
+['Stephen_Hawking', 'Uncertainty_principle', 'Many-Worlds_Interpretation'], 3, 1155
+['Stephen_Hawking', 'The_Grand_Design_(book)', 'The_Washington_Post'], 3, 749
+['Stephen_Hawking', 'Fine-tuned_universe', 'Multiverse'], 3, 862
+['Facebook', 'Bradford', 'Jewish'], 3, 2309
+['Facebook', 'List_of_the_largest_information_technology_companies', 'Hitachi_Consulting'], 3, 1458
+['Facebook', 'Hewlett-Packard', 'Asset'], 3, 1966
+['Facebook', 'Identi.ca', 'Pump.io'], 3, 1252
+['Facebook', 'Quantcast', 'Main_Page'], 3, 1205
+['Facebook', 'Hitachi_Consulting', 'Hitachi,_Ibaraki'], 3, 1269
+['Facebook', 'Eduardo_Saverin', 'Facebook'], 3, 1328
+['Facebook', 'Hack_(programming_language)', 'Facebook'], 3, 1375
+['Facebook', 'Sirius_XM_Holdings', 'Seagate_Technology'], 3, 1556
+['Facebook', 'Rakuten', 'Intuit'], 3, 1491
+['Facebook', 'Chris_Hughes', 'Chris_Kelly_(entrepreneur)'], 3, 1327
+['Facebook', 'Express_Scripts', 'The_Priceline_Group'], 3, 1326
+['Facebook', 'Mixi', 'Social_networking_service'], 3, 1222
+['Facebook', 'Spring.me', 'Xanga'], 3, 1314
+['Facebook', 'TechCrunch', 'Main_Page'], 3, 1247
+['Facebook', 'TechCrunch', 'Joystiq'], 3, 1247
+['Facebook', 'Like_button', 'Gender_differences_in_social_network_service_use'], 3, 1307
+['Facebook', 'Dell', 'Corporate_Social_Responsibility'], 3, 2146
+['Facebook', 'Facebook_F8', 'Peter_Thiel'], 3, 1269
+['Facebook', 'Associated_Whistleblowing_Press#Ljost', 'GlobaLeaks'], 3, 1237
+['FIFA_World_Cup', '1934_FIFA_World_Cup', 'Spain'], 3, 2212
+['FIFA_World_Cup', '1986_FIFA_World_Cup', 'Fallaj_Al-Shanar'], 3, 2811
+['FIFA_World_Cup', 'South_Korea_national_football_team', 'Confederation_of_Independent_Football_Associations'], 3, 4105
+['FIFA_World_Cup', 'FIFA_World_Cup_Trophy', '1970_FIFA_World_Cup_qualification'], 3, 1885
+['FIFA_World_Cup', '1978_FIFA_World_Cup_Final', 'Mario_Kempes'], 3, 1899
+['FIFA_World_Cup', 'France_national_football_team', '1996_European_Football_Championship'], 3, 3711
+['FIFA_World_Cup', '2014_FIFA_World_Cup', '2014_FIFA_World_Cup_Group_C'], 3, 3794
+['FIFA_World_Cup', 'Argentina_national_football_team', 'Defender_(association_football)'], 3, 3921
+['FIFA_World_Cup', 'Sepp_Blatter', 'Alma_mater'], 3, 1787
+['FIFA_World_Cup', 'ConIFA_World_Football_Cup', 'Confederation_of_Independent_Football_Associations'], 3, 1718
+['FIFA_World_Cup', 'FIFA_Women%27s_World_Cup_1991', 'Helen_Nilsson'], 3, 2125
+['FIFA_World_Cup', 'Albania_national_football_team', 'Africa_Cup_of_Nations'], 3, 2663
+['FIFA_World_Cup', '2002_FIFA_World_Cup#First_round', 'Germany_national_football_team'], 3, 3365
+['FIFA_World_Cup', 'Sri_Lanka_national_football_team', 'Defender_(association_football)'], 3, 2015
+['FIFA_World_Cup', 'South_Korea_national_football_team', 'Jung_Sung-ryong'], 3, 4105
+['FIFA_World_Cup', 'National_team_appearances_in_the_FIFA_World_Cup#Results_of_host_nations', 'Romania_national_football_team'], 3, 3173
+['FIFA_World_Cup', '1986_FIFA_World_Cup_Final', '2010_FIFA_World_Cup'], 3, 1923
+['FIFA_World_Cup', 'Japan', 'Industrial_robot'], 3, 2951
+['FIFA_World_Cup', 'South_Korea', 'Timeline_of_Korean_history'], 3, 3046
+['FIFA_World_Cup', 'FIFA_Club_World_Cup', 'Club_de_Regatas_Vasco_da_Gama'], 3, 2365
+['Cristiano_Ronaldo', 'Diving_(association_football)', 'Aggregate_score'], 3, 2045
+['Cristiano_Ronaldo', 'Ballon_d%27Or_2003', 'Czech_Republic'], 3, 2339
+['Cristiano_Ronaldo', 'Real_Madrid_C.F.', '1979%E2%80%9380_European_Cup'], 3, 3594
+['Cristiano_Ronaldo', 'Jamie_Carragher', 'Anfield'], 3, 2340
+['Cristiano_Ronaldo', 'Rolando_(footballer)', 'Sim%C3%A3o_Sabrosa'], 3, 2141
+['Cristiano_Ronaldo', 'Jo%C3%A3o_Moutinho', '2005%E2%80%9306_Primeira_Liga'], 3, 2288
+['Cristiano_Ronaldo', 'UEFA_Champions_League', 'Historical_table_of_the_FIFA_Club_World_Cup'], 3, 2964
+['Cristiano_Ronaldo', 'Portugal_national_football_team#Most_goals', 'Eurico_Gomes'], 3, 3718
+['Cristiano_Ronaldo', 'Juan_Antonio_Pizzi', 'Guillermo_Gorostiza'], 3, 2480
+['Cristiano_Ronaldo', 'Les_Ferdinand', 'Paul_Ince'], 3, 2336
+['Cristiano_Ronaldo', 'Belfast', 'Rates_(tax)'], 3, 2952
+['Cristiano_Ronaldo', 'Kak%C3%A1', 'Dunga'], 3, 2973
+['Cristiano_Ronaldo', 'M%C3%A1rio_Jardel', 'Campeonato_Goiano#List_of_champions'], 3, 2564
+['Cristiano_Ronaldo', 'Manchester_Evening_News', 'West_Midlands_(region)'], 3, 2129
+['Cristiano_Ronaldo', 'Kak%C3%A1', 'Mano_Menezes'], 3, 2973
+['Cristiano_Ronaldo', 'European_Golden_Shoe', 'Socialist_Federal_Republic_of_Yugoslavia'], 3, 2410
+['Cristiano_Ronaldo', 'Ballon_d%27Or_1957', 'Lev_Yashin'], 3, 2143
+['Cristiano_Ronaldo', '2006_FIFA_World_Cup_qualification_(UEFA)', '2006_FIFA_World_Cup_qualification_(CONMEBOL)'], 3, 2326
+['Cristiano_Ronaldo', 'List_of_footballers_with_50_or_more_international_goals', 'Gerd_M%C3%BCller'], 3, 2063
+['Cristiano_Ronaldo', 'Madrid_derby', 'Help:Contents'], 3, 2143
+['Amazon.com', 'Plain_text', 'Checksum'], 3, 1387
+['Amazon.com', 'Vittana', 'Main_Page'], 3, 1249
+['Amazon.com', 'Amazon_S3', 'Google_Storage'], 3, 1468
+['Amazon.com', '.in', '.ae'], 3, 1622
+['Amazon.com', 'Cisco_Systems', 'Western_Digital'], 3, 1813
+['Amazon.com', 'Freescale_Semiconductor', 'Austin_Lyric_Opera'], 3, 1807
+['Amazon.com', 'Quanta_Computer', 'Digital_China'], 3, 1506
+['Amazon.com', 'Sprint_Corporation', 'Windows_Phone'], 3, 2243
+['Amazon.com', 'Amazon_Mechanical_Turk', 'Fire_OS'], 3, 1455
+['Amazon.com', 'Manhattan', 'Fresh_water'], 3, 3029
+['Amazon.com', 'Kindle_Fire_HDX', 'OnePlus_One'], 3, 1543
+['Amazon.com', 'Web_service', 'Phusion_Passenger'], 3, 1350
+['Amazon.com', 'Yahoo!', 'HTC'], 3, 1893
+['Amazon.com', 'Neo-Nazism', 'Freedom_Party_of_Austria'], 3, 2747
+['Amazon.com', 'Chris_Pinkham', 'Entrepreneur'], 3, 1255
+['Amazon.com', 'Charlie_Cheever', 'Sheryl_Sandberg'], 3, 1327
+['Amazon.com', 'Cape_Town', 'Southern_Suburbs_Tatler'], 3, 2172
+['Amazon.com', 'Sports_equipment', 'Sailing'], 3, 1331
+['Amazon.com', 'Orange_S.A.', 'Telecommunications_in_Saint_Kitts_and_Nevis'], 3, 2194
+['Amazon.com', 'Red_Cross', 'Ukraine'], 3, 1767
+['Game_of_Thrones', 'Tales_of_Dunk_and_Egg#The_Hedge_Knight', 'Robert_Silverberg'], 3, 1016
+['Game_of_Thrones', 'Looking', 'G_String_Divas'], 3, 1103
+['Game_of_Thrones', 'One_Night_Stand_(U.S._TV_series)', 'Togetherness_(TV_series)'], 3, 1048
+['Game_of_Thrones', 'Torture_porn', 'Serial_film'], 3, 1259
+['Game_of_Thrones', 'TorrentFreak', 'LokiTorrent'], 3, 996
+['Game_of_Thrones', 'A_Game_of_Thrones', 'World_Fantasy_Award'], 3, 1139
+['Game_of_Thrones', 'James_Cosmo', 'Troy_(film)'], 3, 972
+['Game_of_Thrones', 'Game_of_Thrones_(season_4)', 'A_Golden_Crown'], 3, 1161
+['Game_of_Thrones', 'Art_Parkinson', 'Dark_Touch'], 3, 890
+['Game_of_Thrones', 'Braingames', 'Pr%C3%B3fugos'], 3, 1046
+['Game_of_Thrones', 'The_Ricky_Gervais_Show_(animated_series)', 'Show_Me_a_Hero'], 3, 1125
+['Game_of_Thrones', 'Star_Wars', 'Gary_Kurtz'], 3, 2042
+['Game_of_Thrones', 'ITunes', 'Mike_Markkula'], 3, 1797
+['Game_of_Thrones', 'Malta', 'Sicilia_(Roman_province)'], 3, 2847
+['Game_of_Thrones', 'The_Life_%26_Times_of_Tim', 'The_Mind_of_the_Married_Man'], 3, 1156
+['Game_of_Thrones', 'San_Anton_Palace', 'Princess_Victoria_Melita_of_Saxe-Coburg_and_Gotha'], 3, 903
+['Game_of_Thrones', 'Jaime_Lannister', 'The_Eyrie'], 3, 1792
+['Game_of_Thrones', 'Satellite_Award_for_Best_Television_Series_%E2%80%93_Genre', 'Satellite_Award_for_Best_Art_Direction_and_Production_Design'], 3, 975
+['Game_of_Thrones', 'Little_Britain_USA', 'Epitafios'], 3, 1155
+['Game_of_Thrones', 'Doune_Castle', 'Defensive_wall'], 3, 1147
+['Franz_Kafka', 'International_Standard_Book_Number', 'ISO_14644-4'], 3, 1600
+['Franz_Kafka', 'Carl_Spitteler', 'Sinclair_Lewis'], 3, 1282
+['Franz_Kafka', 'Johann_Christoph_Gottsched', 'Luise_Gottsched'], 3, 1181
+['Franz_Kafka', 'The_Z%C3%BCrau_Aphorisms', 'Fall_of_man'], 3, 1233
+['Franz_Kafka', 'Clemens_Brentano', 'Gerhart_Hauptmann'], 3, 1592
+['Franz_Kafka', 'Hart_Crane', 'Eugene_O%27Neill'], 3, 1263
+['Franz_Kafka', 'The_Metamorphosis', 'Paul_Hindemith'], 3, 1867
+['Franz_Kafka', 'JSTOR', 'Wired_(magazine)'], 3, 1184
+['Franz_Kafka', 'Max_Frisch', 'Rome'], 3, 1810
+['Franz_Kafka', 'Zionism', 'Damascus_Eyalet'], 3, 2798
+['Franz_Kafka', 'Octavo', 'Oxford_University_Press'], 3, 1147
+['Franz_Kafka', 'Ritchie_Robertson', 'Help:Category'], 3, 1134
+['Franz_Kafka', 'A_Message_from_the_Emperor', 'Dearest_Father._Stories_and_Other_Writings'], 3, 1226
+['Franz_Kafka', 'Contemplation_(Kafka)', 'A_Crossbreed'], 3, 1227
+['Franz_Kafka', 'Franz_Kafka_works', 'The_Test_(short_story)'], 3, 1364
+['Franz_Kafka', 'Help:Category', 'Help:Getting_started'], 3, 1276
+['Franz_Kafka', 'International_Standard_Book_Number', 'Barcode_system'], 3, 1600
+['Franz_Kafka', 'Kinsk%C3%BD_Palace_(Prague)', 'Old_Town_(Prague)'], 3, 1146
+['Franz_Kafka', 'Austria-Hungary', 'Bratislava'], 3, 2430
+['Franz_Kafka', 'Marx%27s_theory_of_alienation', 'Theses_on_Feuerbach'], 3, 1347
+['Emma_Watson', '2011_MTV_Movie_Awards', 'Ned_Beatty'], 3, 689
+['Emma_Watson', 'Sean_Connery', 'Hugh_Griffith'], 3, 1292
+['Emma_Watson', 'Goodwill_Ambassador', 'Head_of_mission'], 3, 528
+['Emma_Watson', 'Tarsem_Singh', 'Mike_Newell_(director)'], 3, 524
+['Emma_Watson', 'Benedict_Cumberbatch', 'Sherlock_Holmes'], 3, 968
+['Emma_Watson', 'Alejandro_Amen%C3%A1bar', 'Richard_Dembo'], 3, 649
+['Emma_Watson', 'Forbes', 'Elevation_Partners'], 3, 455
+['Emma_Watson', 'National_Movie_Awards', 'Alice_in_Wonderland_(2010_film)'], 3, 531
+['Emma_Watson', 'Nicolas_Cage', 'Bringing_Out_the_Dead'], 3, 1165
+['Emma_Watson', 'Uruguay', 'New_Zealand'], 3, 1240
+['Emma_Watson', 'The_Perks_of_Being_a_Wallflower_(film)', 'Black_Comedy'], 3, 651
+['Emma_Watson', 'Kenneth_Branagh', 'Peter_Ustinov'], 3, 1115
+['Emma_Watson', 'The_Perks_of_Being_a_Wallflower_(film)', 'Help:Category'], 3, 651
+['Emma_Watson', 'Harry_Potter_(film_series)', 'List_of_British_films_of_2000'], 3, 1117
+['Emma_Watson', 'Michael_Nyqvist', 'Mikael_Blomkvist'], 3, 516
+['Emma_Watson', 'Ezra_Miller', 'Ezra_Miller'], 3, 540
+['Emma_Watson', 'The_Bling_Ring', 'Bling_Ring'], 3, 595
+['Emma_Watson', 'Stagecoach_Theatre_Arts', 'Her_Majesty%27s_theatre'], 3, 492
+['Emma_Watson', 'Britannia_Awards', 'Idris_Elba'], 3, 618
+['Emma_Watson', 'Fair_Trade', 'Willem_Drees'], 3, 962
+['Olympic_Games', 'Synchronized_swimming', 'Diving'], 3, 2547
+['Olympic_Games', 'Field_hockey_at_the_1932_Summer_Olympics', 'William_Boddington'], 3, 2551
+['Olympic_Games', 'Freestyle_skiing_at_the_1998_Winter_Olympics', 'China_at_the_1998_Winter_Olympics'], 3, 2531
+['Olympic_Games', '1972_Summer_Olympics', '2002_Winter_Olympics'], 3, 3141
+['Olympic_Games', 'Judo_at_the_2012_Summer_Olympics', 'Georgia_at_the_2012_Summer_Olympics'], 3, 2655
+['Olympic_Games', 'Nordic_combined_at_the_1984_Winter_Olympics', 'Nordic_combined_at_the_1956_Winter_Olympics'], 3, 2551
+['Olympic_Games', 'Aryan', 'Historical_Vedic_religion'], 3, 2960
+['Olympic_Games', 'Mariam_Mohamed_Hadi_Al_Hilli', 'Fatema_Hameed_Gerashi'], 3, 2441
+['Olympic_Games', 'Isthmian_Games', 'Panhellenic_Games'], 3, 2488
+['Olympic_Games', 'Nigeria_at_the_Olympics', 'Tajikistan_at_the_Olympics'], 3, 2891
+['Olympic_Games', 'Gymnastics_at_the_1972_Summer_Olympics', 'Diving_at_the_1972_Summer_Olympics'], 3, 2644
+['Olympic_Games', 'Austria', 'Social_market_economy'], 3, 3691
+['Olympic_Games', 'Asian_Games', 'Timor-Leste_at_the_Asian_Games'], 3, 3045
+['Olympic_Games', 'Basketball_at_the_2004_Summer_Olympics', 'United_States_at_the_2004_Summer_Olympics'], 3, 2993
+['Olympic_Games', 'Robina_Muqimyar', '2008_Summer_Olympics'], 3, 2467
+['Olympic_Games', 'Basque_pelota_at_the_Summer_Olympics', 'Speed_skating_at_the_Winter_Olympics'], 3, 2576
+['Olympic_Games', 'Olympic_Flame#Torches', 'London'], 3, 2699
+['Olympic_Games', 'Winter_Olympic_Games', 'List_of_participating_nations_at_the_Winter_Olympic_Games'], 3, 3600
+['Olympic_Games', 'Cameroon_at_the_Olympics', 'Philippines_at_the_Olympics'], 3, 2766
+['Olympic_Games', 'Sailing_at_the_1932_Summer_Olympics', 'Santiago_Amat'], 3, 2657
+['Jack_the_Ripper', 'Darkside_(novel)', 'Broken_(Armstrong_novel)'], 3, 402
+['Jack_the_Ripper', 'Berner_Street', 'Jewish'], 3, 325
+['Jack_the_Ripper', 'Vagina', 'Human_leg'], 3, 1098
+['Jack_the_Ripper', 'Assault!_Jack_the_Ripper', 'International_Standard_Book_Number'], 3, 350
+['Jack_the_Ripper', 'Irish_diaspora', 'Canada'], 3, 1219
+['Jack_the_Ripper', 'Matrix_(Doctor_Who_novel)', 'Salvation_(novel)'], 3, 523
+['Jack_the_Ripper', 'From_Hell_letter', 'Cockney'], 3, 361
+['Jack_the_Ripper', 'Pandora%27s_Box_(1929_film)', 'Killer_on_the_Loose'], 3, 515
+['Jack_the_Ripper', 'John_Pizer', 'Abraham_Lincoln'], 3, 578
+['Jack_the_Ripper', 'Andrei_Chikatilo', 'Ilovaisk'], 3, 512
+['Jack_the_Ripper', 'Joseph_Vacher', 'Ard%C3%A8che'], 3, 366
+['Jack_the_Ripper', 'Ripper_(The_Outer_Limits)', 'Gotham_by_Gaslight'], 3, 446
+['Jack_the_Ripper', 'MediEvil_2', 'A_Feast_Unknown'], 3, 437
+['Jack_the_Ripper', 'From_Hell_letter', 'Elizabeth_Stride'], 3, 361
+['Jack_the_Ripper', 'United_Kingdom_of_Great_Britain_and_Ireland', 'Government_of_Ireland_Act_1920'], 3, 1304
+['Jack_the_Ripper', 'Lulu_(opera)', 'Phantom_Blood'], 3, 572
+['Jack_the_Ripper', 'Jack_the_Stripper', 'Freddie_Mills'], 3, 357
+['Jack_the_Ripper', 'Mary_Ann_Nichols', 'Dear_Boss_letter'], 3, 382
+['Jack_the_Ripper', 'Under-Secretary_of_State_for_the_Home_Department', 'James_Brokenshire'], 3, 518
+['Jack_the_Ripper', 'Openshaw_Letter#Jack_the_Ripper', 'Masonic_lodge'], 3, 424
+['Mold', 'Aspergillus', 'Aerobic_organism', 'Main_Page'], 4, 422
+['Mold', 'International_Standard_Book_Number', 'Recommended_retail_price', 'Distribution_(business)'], 4, 715
+['Mold', 'Miso', 'Foxtail_millet', 'Kannada'], 4, 492
+['Mold', 'Decomposition', 'Law', 'Minister_(government)'], 4, 1983
+['Mold', 'Oncom', 'Makassar_(people)', 'Orang_Kuala'], 4, 712
+['Mold', 'Clementine', 'KATU', 'WWHO'], 4, 887
+['Mold', 'Biodegradation', 'List_of_environment_topics', 'Fresh_Air_Fund'], 4, 1673
+['Mold', 'Digital_object_identifier', 'Indecs_Content_Model', 'Help:Contents'], 4, 644
+['Mold', 'Quorn_(food_product)', 'Joel_Fuhrman', 'Veggies_of_Nottingham'], 4, 714
+['Mold', 'Mushroom', 'Areca_nut', 'Telugu_language'], 4, 1444
+['Mold', 'Hydrophobe', 'Digital_object_identifier', 'ISO/IEC_19770'], 4, 774
+['Mold', 'Pycniospore', 'Teleomorph,_anamorph_and_holomorph', 'Lichen'], 4, 285
+['Mold', 'Edward_Abraham', 'Linacre_College,_Oxford', 'Christ_Church,_Oxford'], 4, 469
+['Mold', 'Statin', 'Intravascular_ultrasound', 'Digital_object_identifier'], 4, 1154
+['Mold', 'International_Standard_Book_Number', 'ISO_518', 'Film_base'], 4, 916
+['Mold', 'Fumonisin', 'Clostridium_perfringens', 'Ethylenediaminetetraacetic_acid'], 4, 851
+['Mold', 'Aflatoxin', 'In_vitro', 'Cumulative_incidence'], 4, 740
+['Mold', 'Microbiology', 'Clostridium', 'Clostridium_leptum'], 4, 1048
+['Mold', 'Mycelium', 'Decomposition', 'Microbial_ecology'], 4, 846
+['Mold', 'Zygospore', 'Cell_wall', 'Spore'], 4, 904
+['Bitter_orange', 'Fingered_citron', 'X%C3%A3_%C4%90o%C3%A0i_orange', 'Carcinogen'], 4, 1492
+['Bitter_orange', 'Grapefruit_juice', 'Citron', 'Alexander_the_Great'], 4, 903
+['Bitter_orange', 'Citrus_taxonomy', 'Bizzaria', 'Citrus_unshiu'], 4, 1007
+['Bitter_orange', 'Statin#Drug_interactions', 'PubMed_Identifier', 'Help:Contents'], 4, 1155
+['Bitter_orange', 'Corsican_citron', 'Sour_orange', 'Citrus_longispina'], 4, 842
+['Bitter_orange', 'Reikou', 'Sudachi', 'Citrus_taxonomy#Citrus_relatives'], 4, 742
+['Bitter_orange', 'Cura%C3%A7ao_liqueur', 'List_of_liqueurs', 'Damson'], 4, 1048
+['Bitter_orange', 'Cuba', 'Castroism', 'Little_War_(Cuba)'], 4, 1632
+['Bitter_orange', 'Daidai', 'Citrus_macrophylla', 'Mother_Orange_Tree'], 4, 677
+['Bitter_orange', 'Tangelo', 'Mandelo', 'Oroblanco'], 4, 703
+['Bitter_orange', 'Limeade', 'Citrangequat', 'Triphasia'], 4, 698
+['Bitter_orange', 'Citrus_unshiu', 'Bitter_orange', 'Ch%C5%ABhai'], 4, 857
+['Bitter_orange', 'Citrus_production', 'Palestinian_sweet_lime', 'Citrus_taxonomy#Citrus_relatives'], 4, 765
+['Bitter_orange', 'Succade', 'Italy', 'Croatia'], 4, 2866
+['Bitter_orange', 'Gl%C3%B6gg', 'Turkey', 'Constitutional_Court_of_Turkey'], 4, 2997
+['Bitter_orange', 'PubMed_Identifier', 'GoPubMed', 'Knowledge'], 4, 470
+['Bitter_orange', 'Perfume', 'Bergamot_orange', 'Arizona'], 4, 1064
+['Bitter_orange', 'Limeade', 'Bizzaria', 'Yuukou_mandarin'], 4, 710
+['Bitter_orange', 'Appetite_suppressant', 'Food_and_Drug_Administration', 'Marketed_Health_Products_Directorate'], 4, 1187
+['Bitter_orange', 'Zest_(ingredient)', 'Coriander', 'Dill'], 4, 1133
+['World_War_II', 'International_Standard_Book_Number', 'ISO_15398', 'ISO_31-0'], 4, 3043
+['World_War_II', 'Embargo', 'Trade_and_development', 'Third_World'], 4, 2521
+['World_War_II', 'Battle_of_the_Netherlands', 'Design_1047_battlecruiser', 'Nautical_mile'], 4, 3258
+['World_War_II', 'Blitzkrieg', 'Soviet_partisans', 'Hit-and-run_tactics'], 4, 3487
+['World_War_II', 'Land_warfare', 'List_of_military_writers', 'War_novel'], 4, 2651
+['World_War_II', 'Axis_leaders_of_World_War_II', 'Ministry_of_Education,_Culture,_Sports,_Science_and_Technology', 'Authority_control'], 4, 3044
+['World_War_II', 'Nyasaland_in_World_War_II', 'Vargas_Era#World_War_II', 'First_Brazilian_Republic'], 4, 2621
+['World_War_II', 'Dunkirk_evacuation', 'World_War_II', 'Sant%27Anna_di_Stazzema_massacre'], 4, 4732
+['World_War_II', 'German_camp_brothels_in_World_War_II', 'Timeline_of_World_War_II', 'Index_of_World_War_II_articles_(N)'], 4, 2924
+['World_War_II', 'NATO', 'Organization_of_American_States', 'English_language'], 4, 3725
+['World_War_II', 'Francisco_Franco', 'Jesse_Robredo', 'Corazon_Aquino'], 4, 3518
+['World_War_II', 'Unit_731', 'Empire_of_Japan', 'Constitution_of_Japan'], 4, 4212
+['World_War_II', 'Potsdam_Declaration', 'Empire_of_Japan', 'Privy_Council_(Japan)'], 4, 3605
+['World_War_II', 'Battle_of_Leyte_Gulf', 'Battle_of_the_Java_Sea', 'International_Standard_Book_Number'], 4, 3126
+['World_War_II', 'Treaty_of_San_Francisco', 'Japan%E2%80%93Manchukuo_Protocol', 'Treaty_of_Peace_and_Friendship_between_Japan_and_the_People%27s_Republic_of_China'], 4, 2501
+['World_War_II', 'Battle_of_Tannenberg_Line', 'Siege_of_Sevastopol_(1941%E2%80%9342)', 'Guadalcanal_Campaign'], 4, 3277
+['World_War_II', 'Italian_Social_Republic', 'Manhattan_Project', 'Occupation_of_Japan'], 4, 4384
+['World_War_II', 'London', 'Bromley_College_of_Further_%26_Higher_Education', 'Redbridge_College'], 4, 5233
+['World_War_II', 'France_during_the_Second_World_War', 'Romania_in_World_War_II', 'Danish_resistance_movement'], 4, 3596
+['World_War_II', 'Technology_during_World_War_II', 'Timeline_of_World_War_II_(1941)', 'Lend_Lease'], 4, 3643
+['University', 'Duke_of_Wellington', 'Robert_Dundas,_2nd_Viscount_Melville', 'Robert_Dundas,_2nd_Viscount_Melville'], 4, 2503
+['University', 'Tertiary_education', 'A_Levels', 'Germany'], 4, 1051
+['University', 'Comprehensive_school', 'Hauptschulabschluss', 'Help:Category'], 4, 860
+['University', 'Education_in_Guinea', 'Education_in_Swaziland', 'A-levels'], 4, 867
+['University', 'Education_in_Turkmenistan', 'Education_in_Nepal', 'Education_in_Bhutan'], 4, 789
+['University', 'Postgraduate_education', 'Library_science', 'Mass_deacidification'], 4, 1029
+['University', 'Education_in_Russia', 'Material_culture_in_Russia', 'Outline_of_Russia'], 4, 2925
+['University', 'Education_in_Egypt', 'Education_in_Libya', 'Education_in_the_Gambia'], 4, 964
+['University', 'Education_in_Slovakia', 'Television_in_Slovakia', 'Sport_1'], 4, 1158
+['University', 'Early_Modern_period', 'Martin_Luther', 'Salomo_Glassius'], 4, 2625
+['University', 'Latin_language', 'Old_French', 'Kingdom_of_Cyprus'], 4, 1841
+['University', 'Education_in_Rwanda', 'Rwandan_Civil_War', 'Post-coup_unrest_in_Egypt_(2013%E2%80%9314)'], 4, 1073
+['University', 'Education_in_Peru', 'Education_in_Bolivia', 'History_of_Bolivia_(1809%E2%80%931920)'], 4, 801
+['University', 'Bedel', 'Rudolf_Ackermann', 'Thomas_Rowlandson'], 4, 734
+['University', 'List_of_states_with_limited_recognition', 'Cyprus_dispute', 'Turkish_Federated_State_of_Cyprus'], 4, 1756
+['University', 'National_university', 'National_Technical_University', 'Kazakh_National_Technical_University'], 4, 825
+['University', 'Stanley_Aronowitz', 'Sociology_of_science', 'Michael_Polanyi'], 4, 1122
+['University', 'Education_in_Morocco', 'Education_in_Rwanda', 'Education_in_Tanzania'], 4, 902
+['University', 'Western_Europe', 'Warsaw_Pact', '1986_Black_Sea_incident'], 4, 1719
+['University', 'Education_in_Niger', 'Education_in_Mauritania', 'Education_in_Cape_Verde'], 4, 935
+['Earth', 'Bibcode', 'Help:Category', 'Help:Diff'], 4, 1374
+['Earth', 'Mantle_convection', 'Help:Category', 'Help:Watchlist'], 4, 1452
+['Earth', 'International_Space_Station', 'Progress_M-60', 'SpaceX_CRS-4'], 4, 2847
+['Earth', 'Gaia_(goddess)', 'Trophonius', 'Asclepius'], 4, 1846
+['Earth', 'Acid_rain', 'Hydrogen', 'Cryogen'], 4, 2635
+['Earth', 'Milliseconds', 'Megasecond', 'Solar_calendar'], 4, 1381
+['Earth', 'SI', 'National_Institute_of_Standards_and_Technology', 'Fort_Collins,_Colorado'], 4, 2315
+['Earth', 'Inorganic', 'Organic_compounds', 'Hydrogen_isocyanide'], 4, 1591
+['Earth', 'Life', 'Polyyne', 'Methoxy'], 4, 2905
+['Earth', 'Oceanic_trench', 'Hellenic_Trench', 'Oceanography'], 4, 1636
+['Earth', 'Double_planet', 'Double_star', 'Proper_motion'], 4, 1676
+['Earth', 'Alpine_tundra', 'List_of_deserts', 'North_Island_Volcanic_Plateau'], 4, 1813
+['Earth', 'Flood_basalt', 'Cecil_Edgar_Tilley', 'Robin_Cocks'], 4, 1502
+['Earth', 'Ecliptic', 'Celestial_equator', 'Earth'], 4, 1429
+['Earth', 'Transform_boundary', 'Surf_wave', 'Diving'], 4, 1936
+['Earth', 'Bibcode', 'SIMBAD', 'NASA/IPAC_Extragalactic_Database'], 4, 1243
+['Earth', 'Lithosphere', 'Geosphere', 'Aristotelian_physics'], 4, 1318
+['Earth', 'International_Standard_Book_Number', 'OSI_model', 'Synchronous_digital_hierarchy'], 4, 2495
+['Earth', 'Earth%27s_orbit', 'Geostationary_transfer_orbit', 'Equatorial_coordinate_system'], 4, 1515
+['Earth', 'Bibcode', 'Bibcode', 'Astronomy'], 4, 1236
+['Rock_music', 'Oasis_(band)', 'The_Shock_of_the_Lightning', 'Billboard_(magazine)'], 4, 2316
+['Rock_music', 'Good_ol%27_boy', 'American_South', 'Four_Corners'], 4, 2762
+['Rock_music', 'Robert_Palmer_(writer)', 'Robert_Palmer_(disambiguation)', 'Robert_Roswell_Palmer'], 4, 1769
+['Rock_music', 'Active_rock', 'Math_rock', 'Meter_(music)'], 4, 2145
+['Rock_music', 'Justice_(french_band)', 'Electric_Feel', 'Recording_Industry_Association_of_New_Zealand'], 4, 1975
+['Rock_music', '311_(band)', 'Billboard_200', 'Album'], 4, 2374
+['Rock_music', 'Klaxons', 'UK_Album_Chart', 'Early_British_popular_music'], 4, 2387
+['Rock_music', 'Saint_Vitus_(band)', 'Mournful_Cries', 'The_Walking_Dead_(EP)'], 4, 1814
+['Rock_music', 'Steppenwolf_(band)', 'Magic_Carpet_Ride_(Steppenwolf_song)', 'Welton_Gite'], 4, 2006
+['Rock_music', 'Blue-collar', 'Ruling_class', 'Sociology_of_scientific_knowledge'], 4, 2058
+['Rock_music', 'Surfaris', 'Drum_solo', 'Jazz'], 4, 1773
+['Rock_music', 'Lucy_in_the_Sky_with_Diamonds', 'Judy_in_Disguise_(With_Glasses)', 'List_of_number-one_hits_of_1968_(Germany)'], 4, 2096
+['Rock_music', 'Happy_Mondays', 'Squirrel_and_G-Man_Twenty_Four_Hour_Party_People_Plastic_Face_Carnt_Smile_(White_Out)', 'Michael_Jackson'], 4, 1894
+['Rock_music', 'Symphonic_music', 'French_horn', 'Mouthpiece_(brass)'], 4, 2341
+['Rock_music', 'Yes_(band)', 'Leeds_University', 'Vietnam_National_University,_Ho_Chi_Minh_City'], 4, 3153
+['Rock_music', 'Arthur_(Or_the_Decline_and_Fall_of_the_British_Empire)', 'Preservation_Act_1', 'Low_Budget_(album)'], 4, 1976
+['Rock_music', 'Sweetheart_of_the_Rodeo', 'Michael_Clarke_(musician)', 'Ballad_of_Easy_Rider_(album)'], 4, 2306
+['Rock_music', 'Puddle_of_Mudd', 'The_Pitch_(newspaper)', 'Cincinnati_CityBeat'], 4, 1871
+['Rock_music', 'Shai_Hulud_(band)', '7_Angels_7_Plagues', '7_Angels_7_Plagues'], 4, 1883
+['Rock_music', 'Pete_Seeger', 'American_Civil_Liberties_Union', 'Intelligent_design'], 4, 2936
+['Italy', 'Gross_domestic_product', 'List_of_Brazilian_states_by_gross_domestic_product', 'List_of_countries_by_population'], 4, 3007
+['Italy', 'Eight_per_thousand', 'No_taxation_without_representation', 'War_of_the_Regulation'], 4, 2922
+['Italy', 'Piero_della_Francesca', 'Madonna_del_parto', 'Ark_of_the_Covenant'], 4, 2533
+['Italy', 'Economy_of_Saudi_Arabia', 'OPEC', 'Reflection_seismology'], 4, 3107
+['Italy', 'Trench_warfare', 'Kaiserpfalz', 'Palas'], 4, 3331
+['Italy', 'Polish_Armed_Forces', 'French_Armed_Forces', 'Tourism_in_France'], 4, 3441
+['Italy', 'List_of_beaches_in_Italy', 'Cesenatico', 'Cesenatico'], 4, 2859
+['Italy', 'Palazzo_Madama', 'Cigoli', 'Caravaggio'], 4, 2404
+['Italy', 'European_Union', 'Douzelage', 'Portugal'], 4, 4203
+['Italy', 'Arab_Spring', 'Tawakel_Karman', 'International_reactions_to_the_Bahraini_uprising_(2011%E2%80%93present)'], 4, 4374
+['Italy', 'Autonomous_region', 'Administrative_village', 'Federal_territory'], 4, 3146
+['Italy', 'Chamber_of_Deputies_(Italy)', 'Capital_punishment_in_Italy', 'Capital_punishment_in_Switzerland'], 4, 2889
+['Italy', 'Perugia', 'Pope_Clement_V', 'Pope'], 4, 3369
+['Italy', 'Secondary_education_in_Italy', 'Ancient_Greek', 'Proto-Greek_language'], 4, 3069
+['Italy', 'Law_enforcement_in_Italy', 'Law_enforcement_in_Hungary', 'Law_enforcement_in_Portugal'], 4, 2778
+['Italy', 'Economy_of_Mexico', 'Luis_Echeverr%C3%ADa', 'Titoism'], 4, 3247
+['Italy', 'Victor_Emmanuel_III', 'Eritrea', 'Tuberculosis'], 4, 4245
+['Italy', 'Francisco_Franco', 'Josef_Dietrich', 'Georg_Lindemann'], 4, 4711
+['Italy', 'Juan_dela_Cruz', 'National_personification', 'Norway'], 4, 2847
+['Italy', '2006_Winter_Olympics', '1988_Summer_Olympics', 'Trinidad_and_Tobago_at_the_1988_Summer_Olympics'], 4, 3953
+['Geology', 'Plate_tectonics', 'Earth', 'Digital_object_identifier'], 4, 2597
+['Geology', 'Oceanography', 'Skeleton', 'Endoskeleton'], 4, 1457
+['Geology', 'Geographic_information_systems', 'Longitude', 'International_Earth_Rotation_and_Reference_Systems_Service'], 4, 1593
+['Geology', 'Thermochronology', 'Main_Page', 'Clark_Terry'], 4, 855
+['Geology', 'International_Standard_Book_Number', 'ISO/IEC_11404', 'Language-independent_specification'], 4, 1217
+['Geology', 'International_Standard_Book_Number', 'ISO/IEC_21827', 'ISO_10303-28'], 4, 1565
+['Geology', 'Stratigraphy', 'Mass_wasting', 'Earthworks_(engineering)'], 4, 1068
+['Geology', 'Erosion', 'River_morphology', 'Geomorphology'], 4, 1190
+['Geology', 'Earth', 'Hydrogen', 'Iron'], 4, 3138
+['Geology', 'Uranium-thorium_dating', 'Uranium-thorium_dating', 'Uranium'], 4, 781
+['Geology', 'Biogeochemistry', 'Periodic_table', 'Valence_shell'], 4, 1966
+['Geology', 'Geomagnetism', 'Digital_object_identifier', 'ISO/IEC_8859-12'], 4, 1614
+['Geology', 'Upper_mantle', 'Earth', 'Earth_Day'], 4, 2072
+['Geology', 'Simon_Winchester', 'American_citizen', 'Iraq_War'], 4, 1024
+['Geology', 'Cocos_Plate', 'Altiplano_Plate', 'Iberian_Plate'], 4, 1013
+['Geology', 'Phoenix_lander', 'The_War_of_the_Worlds_(radio)', 'Hey_Arnold!'], 4, 2710
+['Geology', 'Geodesy', 'Geodynamics', 'Fault_(geology)'], 4, 1287
+['Geology', 'Protist', 'PubMed_Central', 'NIH_Public_Access_Policy'], 4, 1222
+['Geology', 'Rock_strata', 'Chinle_Formation', 'Oklahoma'], 4, 894
+['Geology', 'Atmosphere_of_Earth', 'Astronaut', 'Non-rocket_spacelaunch'], 4, 1627
+['Radio', 'Telecommunications_in_Peru', 'Electrical_telegraph#History', 'American_Morse_code'], 4, 2154
+['Radio', 'Telecommunications_in_Kiribati', 'Telecommunications_in_American_Samoa', 'Politics_of_American_Samoa'], 4, 1419
+['Radio', 'Very_High_Frequency', 'Telecommunications_in_Azerbaijan', 'Telecommunications_in_Saint_Vincent_and_the_Grenadines'], 4, 2264
+['Radio', 'Refraction', 'Refractive_index', 'Water'], 4, 1333
+['Radio', 'Digital_audio', 'Telecommunications', 'Nikola_Tesla'], 4, 2153
+['Radio', 'Microwave', 'History_of_telecommunication', 'Telecommunications_in_the_Republic_of_the_Congo'], 4, 2533
+['Radio', 'Resonance', 'Tacoma_Narrows_Bridge_(1940)', 'Structurae'], 4, 1326
+['Radio', 'Modern_girl', 'Flapper', 'About.com'], 4, 1120
+['Radio', 'Modulation', 'Trellis_modulation', 'Kbit/s'], 4, 1636
+['Radio', 'News_cycle', 'Sensationalism', 'False_balance'], 4, 1543
+['Radio', 'Radar', 'Digital_signal_processing', 'Electrical_engineering'], 4, 1503
+['Radio', 'Telecommunications_in_the_Solomon_Islands', 'Telecommunications_in_South_Georgia_and_the_South_Sandwich_Islands', 'Tom_Crean_(explorer)'], 4, 1812
+['Radio', 'Other_alphabets_in_Morse_code#Greek', 'Han_unification', 'Code_page_949'], 4, 1698
+['Radio', 'History_of_broadcasting', 'Telecommunications_in_the_Faroe_Islands', 'Telecommunications_in_Jersey'], 4, 1588
+['Radio', 'Telecommunications_in_Seychelles', 'Telecommunications_in_Montenegro', 'Telecommunications_in_Denmark'], 4, 2125
+['Radio', 'FidoNet', 'Talker', 'Sojourn_(online_game)'], 4, 1739
+['Radio', 'FM_subcarrier', 'Muzak_Holdings', 'West_Wing'], 4, 1048
+['Radio', 'Sirius_Satellite_Radio', 'Satellite_dish', 'Telecommunications_in_Liberia'], 4, 1923
+['Radio', 'Capacitor', 'Electrical_impedance#Deriving_the_device-specific_impedances', 'PubMed_Central'], 4, 1534
+['Radio', 'Telecommunications_in_the_Republic_of_Macedonia', 'Macedonians_(ethnic_group)', 'Boris_Trajkovski'], 4, 2281
+['Computer', 'John_von_Neumann', 'Glossary_of_elementary_quantum_mechanics', 'Objective_collapse_theory'], 4, 1995
+['Computer', 'Computer_programming', 'Software_bug', 'Compiler'], 4, 1474
+['Computer', 'Minicomputer', 'Mainframe_computer', 'Mainframe_(disambiguation)'], 4, 1299
+['Computer', 'Magnetic_core_memory', 'Bubble_memory', 'Hard_drive'], 4, 1107
+['Computer', 'United_States_Army', 'United_States_naval_reactors', 'S1W_reactor'], 4, 2858
+['Computer', 'Mechanical_computer', 'Digi-Comp_II', 'Binary_number'], 4, 924
+['Computer', 'Atomic_Energy_Research_Establishment', 'Neutron', 'Beta_decay'], 4, 1686
+['Computer', 'Computer_engineering', 'Business_informatics', 'Technoscience'], 4, 1507
+['Computer', 'Software_bug', 'Elias_Levy', 'Help:Contents'], 4, 1068
+['Computer', 'Leonardo_Torres_y_Quevedo#Analytical_machines', 'University_of_Paris', 'East-West_Schism'], 4, 1179
+['Computer', 'DNA_computing', 'Jack_Kilby', 'Harry_Harlow'], 4, 1776
+['Computer', 'International_Standard_Serial_Number', 'Common_Criteria', 'ISO_31000'], 4, 1690
+['Computer', 'Interpreter_(computing)', 'Parse_tree', 'Sentence_(linguistics)'], 4, 1035
+['Computer', 'Read-only_memory', 'Help:Contents', 'Help:Category'], 4, 1180
+['Computer', 'Graphical_Environment_Manager', 'HP-GL/2', 'Help:Contents'], 4, 1107
+['Computer', 'International_Standard_Book_Number', 'ISO_2709', 'ISO_25178'], 4, 1678
+['Computer', 'Non-Uniform_Memory_Access', 'Help:Contents', 'Help:Wikipedia:_The_Missing_Manual/Introduction'], 4, 1129
+['Computer', 'Word_processing', 'Ichitaro', 'Ted_(word_processor)'], 4, 1125
+['Computer', 'Common_Desktop_Environment', 'X/Open', 'Usenet'], 4, 1089
+['Computer', 'BASIC', 'BBC_BASIC', 'Amstrad_NC100'], 4, 1393
+['Tennis', 'The_Championships,_Wimbledon', '1898_Wimbledon_Championships', '1898_Wimbledon_Championships_%E2%80%93_Men%27s_Singles'], 4, 1639
+['Tennis', 'Tennis_(disambiguation)', 'Cary_Tennis', 'Cary_Tennis'], 4, 625
+['Tennis', 'Tennis_score#Match_score', 'Tennis_scoring_system', 'Isner%E2%80%93Mahut_match_at_the_2010_Wimbledon_Championships'], 4, 726
+['Tennis', 'Lleyton_Hewitt', 'Roger_Federer', 'Patrick_Rafter'], 4, 4663
+['Tennis', 'Synthetic_rubber', 'Cartel', 'Chamber_of_commerce'], 4, 828
+['Tennis', 'Pauline_Betz_Addie', 'Marion_Jones_(tennis)', 'Owen_Davidson'], 4, 1279
+['Tennis', 'Tennis_(disambiguation)', 'Tennis_(disambiguation)', 'Main_Page'], 4, 626
+['Tennis', 'Seed_(sports)', 'Bracket_(tournament)', 'Major_professional_sports_leagues_in_the_United_States_and_Canada'], 4, 641
+['Tennis', 'Glossary_of_tennis', 'Grand_Prix_tennis_circuit', 'International_Series_Gold'], 4, 1019
+['Tennis', 'Instant_replay', 'Major_League_Baseball', 'Italian_Baseball_League'], 4, 1862
+['Tennis', 'Serve_(tennis)', 'Sabine_Lisicki', '2014_Generali_Ladies_Linz'], 4, 1369
+['Tennis', 'Canadian_doubles', 'Teamwork', 'Institute_of_Medicine'], 4, 641
+['Tennis', 'Margaret_Osborne_duPont', 'Henri_Cochet', 'Jean_Borotra'], 4, 3266
+['Tennis', 'Racquet', 'History_of_tennis', 'Wembley_Arena'], 4, 1052
+['Tennis', 'Olympic_Games', 'Malta_at_the_Olympics', 'Central_African_Republic_at_the_Olympics'], 4, 3352
+['Tennis', 'The_Royal_Tenenbaums', 'Mutato_Muzika', '200_Cigarettes'], 4, 906
+['Tennis', 'Daphne_Akhurst_Cozens', 'James_Willard', 'Australia'], 4, 967
+['Tennis', 'Tennis', 'Roger_Federer', '1999_French_Open_%E2%80%93_Men%27s_Singles'], 4, 3780
+['Tennis', 'Commonwealth_Bank_Tournament_of_Champions', 'Korea_Open_(tennis)', 'Russia'], 4, 982
+['Tennis', 'History_of_tennis', 'The_Championships,_Wimbledon', 'Sergiy_Stakhovsky'], 4, 1798
+['The_Simpsons', 'The_Simpsons_Theme', 'Go_Simpsonic_with_The_Simpsons', 'Cape_Feare'], 4, 1800
+['The_Simpsons', 'List_of_Bob%27s_Burgers_characters', 'Temporary_work', 'Workers%27_compensation'], 4, 1968
+['The_Simpsons', 'The_Simpsons_(season_13)', 'Mike_Reiss', 'Harvard_Lampoon'], 4, 1969
+['The_Simpsons', 'Main_Page', 'Westinghouse_Atom_Smasher', 'Washington_Mall'], 4, 2245
+['The_Simpsons', 'Klasky_Csupo', 'Products_produced_from_The_Simpsons', 'Politics_in_The_Simpsons'], 4, 1932
+['The_Simpsons', 'The_Chronicles_of_Narnia#Television', 'Aslan', 'J._R._R._Tolkien'], 4, 2229
+['The_Simpsons', 'The_Critic', 'Atom.com', 'MtvU'], 4, 1926
+['The_Simpsons', 'Garfield_merchandise', 'Breckin_Meyer', 'Film_director'], 4, 1764
+['The_Simpsons', 'Saturn_Award_for_Best_Network_Television_Series', 'Beauty_and_the_Beast', 'Edith_Pattou'], 4, 1793
+['The_Simpsons', 'The_Simpsons_(season_14)', 'Mike_Scully', 'The_Republican_(Springfield)'], 4, 2089
+['The_Simpsons', 'List_of_Late_Night_with_Conan_O%27Brien_episodes_(season_8)', 'Malachy_McCourt', 'One_Life_to_Live'], 4, 1972
+['The_Simpsons', 'UGO_Networks', '21st_Century_Fox', 'Broadcom'], 4, 2055
+['The_Simpsons', 'USA_Today', 'The_Tennessean', 'Battle_Creek_Enquirer'], 4, 2038
+['The_Simpsons', 'NBCNews.com', 'IVillage', 'Television_Without_Pity'], 4, 2111
+['The_Simpsons', 'The_Simpsons_(season_1)', 'List_of_The_Simpsons_characters#Kearney_Zzyzwicz', 'Mona_Simpson_(The_Simpsons)'], 4, 2433
+['The_Simpsons', 'George_Meyer', 'Jon_Vitti', 'Biblioth%C3%A8que_nationale_de_France'], 4, 1726
+['The_Simpsons', 'List_of_Conan_episodes_(2010%E2%80%9311)', 'Atticus_Shaffer', 'Patricia_Heaton'], 4, 2160
+['The_Simpsons', 'Variety_(magazine)', 'The_New_York_Times', 'The_McClatchy_Company'], 4, 2151
+['The_Simpsons', 'Pamela_Hayden', 'Hey_Arnold!', 'TeenNick'], 4, 1742
+['The_Simpsons', 'The_Pink_Panther_2', 'Kevin_Kline', 'The_Extra_Man_(film)'], 4, 2093
+['Lake_Baikal', 'Invasive_species', 'Trophic_mutualism', 'Mutualism_(biology)'], 4, 1230
+['Lake_Baikal', 'Daouria', 'Help:IPA_for_Russian', 'Help:IPA_for_Fijian'], 4, 523
+['Lake_Baikal', 'Biodiversity', 'Polar_ice_cap', 'Polar_ice_cap'], 4, 1499
+['Lake_Baikal', 'Bolghar', 'Kazan', 'Yoshkar-Ola'], 4, 843
+['Lake_Baikal', 'Thymallus', 'Salmoniformes', 'Gonorynchiformes'], 4, 591
+['Lake_Baikal', 'Inflow_(hydrology)', 'Rain', 'Adiabatic_lapse_rate'], 4, 1000
+['Lake_Baikal', 'National_Diet_Library', 'Help:Contents', 'Help:Merging'], 4, 500
+['Lake_Baikal', 'Yakuts', 'Yakutian_horse', 'Horse_racing'], 4, 568
+['Lake_Baikal', 'Novodevichy_Convent', 'Sikhote-Alin', 'Far_Eastern_Federal_District'], 4, 552
+['Lake_Baikal', 'Coregonus_baicalensis', 'Coregonus_fontanae', 'Breiter_Luzin'], 4, 497
+['Lake_Baikal', 'Rosatom', 'Pressurized_water_reactor', 'Electrical_generator'], 4, 523
+['Lake_Baikal', 'Historic_Centre_of_Saint_Petersburg_and_Related_Groups_of_Monuments', 'Taytsy', 'Taytsy'], 4, 458
+['Lake_Baikal', 'Mysovaya', 'Administrative_divisions_of_the_Republic_of_Buryatia', 'Administrative_divisions_of_Khabarovsk_Krai'], 4, 538
+['Lake_Baikal', 'Polychaetes', 'Prostomium', 'Help:Contents'], 4, 509
+['Lake_Baikal', 'Biomass', 'Shingle_weaver', 'Vise'], 4, 911
+['Lake_Baikal', 'Great_Lakes', 'Chicago', 'Darien,_Illinois'], 4, 3387
+['Lake_Baikal', 'Small_Sea_Strait', 'Russian_language', 'Lach_dialects'], 4, 1240
+['Lake_Baikal', 'Wrangel_Island', 'Jeannette_Island', 'De_Long_Islands'], 4, 690
+['Lake_Baikal', 'Nerchinsk', 'Nerchinsky_District', 'Russian_language'], 4, 519
+['Lake_Baikal', 'Golomyanka', 'Actinopterygii', 'Synbranchiformes'], 4, 854
+['Fifty_Shades_of_Grey', 'Fifty_Shades_Freed', 'Fan_fiction', 'Flaming_(Internet)'], 4, 608
+['Fifty_Shades_of_Grey', 'The_Huffington_Post', 'AOL_Desktop', 'Patch_Media'], 4, 507
+['Fifty_Shades_of_Grey', 'Songfic', 'Beautiful_Bastard', 'Fan_fiction'], 4, 344
+['Fifty_Shades_of_Grey', 'The_Weeknd', 'Spin_(magazine)', 'Britpop'], 4, 711
+['Fifty_Shades_of_Grey', 'Harry_Potter_fandom', 'Interactive', 'Main_Page'], 4, 669
+['Fifty_Shades_of_Grey', 'Fifty_Shades_trilogy', 'Andrew_Shaffer', 'The_Early_Show'], 4, 361
+['Fifty_Shades_of_Grey', 'The_Hunger_Games', 'The_Hunger_Games_(film_series)', 'Jeffrey_Wright_(actor)'], 4, 567
+['Fifty_Shades_of_Grey', 'The_Weeknd', '2011_Polaris_Music_Prize', 'Shotgun_Jimmie'], 4, 590
+['Fifty_Shades_of_Grey', 'Fifty_Shades_Freed', 'Paperback', 'Dell_Books'], 4, 409
+['Fifty_Shades_of_Grey', 'Self-insertion', 'Author_surrogate', 'FanFiction.Net'], 4, 349
+['Fifty_Shades_of_Grey', 'Publishers_Weekly', 'English_language', 'Modern_English'], 4, 1671
+['Fifty_Shades_of_Grey', 'Stephenie_Meyer', 'Midnight_Sun_(novel)', 'Catherine_Hardwicke'], 4, 490
+['Fifty_Shades_of_Grey', 'Fifty_Shades_of_Grey', 'Publishers_Weekly', 'World_War_I'], 4, 528
+['Fifty_Shades_of_Grey', 'Eating_disorder', 'M%C3%BCnchausen_syndrome', 'Pervasive_developmental_disorder'], 4, 1484
+['Fifty_Shades_of_Grey', 'Virginity', 'Shame_society', 'Disinformation'], 4, 744
+['Fifty_Shades_of_Grey', 'List_of_Twilight_characters', 'Facebook', 'LinkedIn'], 4, 1676
+['Fifty_Shades_of_Grey', 'Fan_film', 'Gaming_convention', 'Otaku'], 4, 625
+['Fifty_Shades_of_Grey', 'Today_(U.S._TV_program)', 'Tennis_on_NBC', 'World_Series'], 4, 1182
+['Fifty_Shades_of_Grey', 'International_Standard_Book_Number', 'ISO_13584', 'ISO_13584'], 4, 721
+['Fifty_Shades_of_Grey', 'Trade_Descriptions_Act_1968', 'List_of_Acts_and_Measures_of_the_National_Assembly_for_Wales', 'List_of_Statutory_Instruments_of_the_United_Kingdom,_1988'], 4, 549
+['Stephen_Hawking', 'Gibbons%E2%80%93Hawking%E2%80%93York_boundary_term', 'Help:Contents', 'Help:Navigation'], 4, 780
+['Stephen_Hawking', 'Bernard_Carr', 'Bernard_Carr', 'California_Institute_of_Technology'], 4, 655
+['Stephen_Hawking', 'Jane_Wilde_Hawking', 'Black_hole_thermodynamics', 'Fuzzball_(string_theory)'], 4, 923
+['Stephen_Hawking', 'Virtual_International_Authority_File', 'National_Library_of_Australia', 'ANZAC_Parade,_Canberra'], 4, 960
+['Stephen_Hawking', 'Jane_Wilde_Hawking', 'Black_Holes_and_Baby_Universes_and_Other_Essays', 'The_Large_Scale_Structure_of_Space-Time'], 4, 701
+['Stephen_Hawking', 'Cosmology', 'Absolute_time_and_space', 'History_of_timekeeping_devices'], 4, 1289
+['Stephen_Hawking', 'Wolf_Prize_in_Agriculture', 'United_States', 'Articles_of_Confederation'], 4, 2768
+['Stephen_Hawking', 'Andrew_Gemant_Award', 'American_Institute_of_Physics', 'Physics_and_Astronomy_Classification_Scheme'], 4, 687
+['Stephen_Hawking', 'Invasion_of_Iraq', 'North_Korea', 'Korean_language'], 4, 3188
+['Stephen_Hawking', 'Yakir_Aharonov', 'Chien-Shiung_Wu', 'George_E._Mueller'], 4, 2045
+['Stephen_Hawking', 'Scopus', 'Subscription_business_model', 'Satellite_radio'], 4, 745
+['Stephen_Hawking', 'Pneumonia', 'Influenza_B', 'Rimantadine'], 4, 1397
+['Stephen_Hawking', 'Fine-tuned_universe', 'Argument_from_design', 'Muhammad_Iqbal'], 4, 1869
+['Stephen_Hawking', 'John_Archibald_Wheeler', 'American_Association_for_the_Advancement_of_Science', 'John_Wesley_Powell'], 4, 1276
+['Stephen_Hawking', 'Scientific_wager', 'Penthouse_magazine', 'Tom_Hilditch'], 4, 795
+['Stephen_Hawking', 'International_Standard_Book_Number', 'Check_digit', 'SFRY'], 4, 1163
+['Stephen_Hawking', 'Jane_Wilde_Hawking', 'Stephen_Hawking_in_popular_culture', 'Don%27t_Fear_the_Roofer'], 4, 935
+['Stephen_Hawking', 'Help:Footnotes', 'Help:Archiving_a_talk_page', 'Help:Archiving_a_talk_page/Old_page'], 4, 783
+['Stephen_Hawking', 'Lucy_Hawking', 'University_College,_Oxford', 'Sir_William_Dunn_School_of_Pathology'], 4, 872
+['Stephen_Hawking', 'Big_Bang', 'International_Standard_Book_Number', 'ISO_26000'], 4, 1895
+['Facebook', 'WebOS', 'SHR_(operating_system)', 'Restrictions_on_cell_phone_use_while_driving_in_the_United_States'], 4, 1864
+['Facebook', 'TSMC', 'Sony', 'West_Japan_Railway_Company'], 4, 2674
+['Facebook', 'Google', 'Booz_Allen_Hamilton', 'Operation_AntiSec'], 4, 2939
+['Facebook', 'HTML', 'Wikitext', 'Creole_(markup)'], 4, 2254
+['Facebook', 'Austin', 'Pearland,_Texas', 'Missouri_City,_Texas'], 4, 3324
+['Facebook', 'Metro_(British_newspaper)', 'Newspaper_circulation', 'List_of_newspapers_in_Turkey'], 4, 1655
+['Facebook', 'Quantcast', 'Hadoop', 'Apache_ActiveMQ'], 4, 1480
+['Facebook', 'Social_capital', 'Human_capital', 'Human_Capital_Management'], 4, 1687
+['Facebook', 'Marc_Maiffret', 'Mark_Zuckerberg', 'Fortune_(magazine)'], 4, 1574
+['Facebook', 'Viadeo', 'Keek', 'AsianAve'], 4, 1562
+['Facebook', 'Jaiku', 'Capazoo', 'Capazoo'], 4, 1670
+['Facebook', 'Migme', 'Perth', 'Cricket'], 4, 1948
+['Facebook', 'Social_impact_of_the_Internet#Social_networking_and_entertainment', 'Email', 'Message_delivery_agent'], 4, 1931
+['Facebook', 'Tor2web', 'Help:Contents', 'Help:Wikipedia:_The_Missing_Manual/Editing,_Creating,_and_Maintaining_Articles/Who_Did_What:_Page_Histories_and_Reverting'], 4, 1395
+['Facebook', 'Comparison_of_online_dating_websites', 'Matchmaker.com', 'Webmonkey'], 4, 1261
+['Facebook', 'KPN', 'Ricoh', 'Toshiba'], 4, 2482
+['Facebook', 'NASDAQ', 'Algorithmic_trading', 'Yield_(finance)'], 4, 1736
+['Facebook', 'SK_Hynix', 'Korea_Exchange', 'Deutsche_B%C3%B6rse'], 4, 1753
+['Facebook', 'Hack_(programming_language)', 'Static_typing', 'Composite_type'], 4, 1713
+['Facebook', 'Silicon_Valley', 'Eimac', 'Radar'], 4, 2251
+['FIFA_World_Cup', 'Chile_national_football_team', 'Huachipato', 'Copa_Sudamericana'], 4, 2909
+['FIFA_World_Cup', 'Peru_national_football_team', 'Club_Universitario_de_Deportes', 'Josimar_Vargas'], 4, 3471
+['FIFA_World_Cup', 'UEFA', 'East_Germany', 'Alsace-Lorraine'], 4, 4206
+['FIFA_World_Cup', 'Sepp_Blatter', 'FIFA_Women%27s_World_Cup_awards', 'United_States'], 4, 2273
+['FIFA_World_Cup', 'Qatar_national_football_team', 'Bahrain_national_football_team', 'Saleh_Farhan'], 4, 3398
+['FIFA_World_Cup', '2002_FIFA_World_Cup', 'David_Seaman', 'Steve_McManaman'], 4, 3969
+['FIFA_World_Cup', 'World_Cup_of_Pool', 'Philippines', '2001_EDSA_Revolution'], 4, 5098
+['FIFA_World_Cup', 'Netherlands_national_football_team', 'Giovanni_van_Bronckhorst', 'Nigel_de_Jong'], 4, 3821
+['FIFA_World_Cup', 'Romania_national_football_team', 'K%C3%A1roly_Weichelt', 'Vilmos_Zombori'], 4, 3526
+['FIFA_World_Cup', '1978_FIFA_World_Cup', 'Main_Page', 'Beyond_Our_Ken'], 4, 2627
+['FIFA_World_Cup', '1934_FIFA_World_Cup', 'List_of_players_who_have_appeared_in_multiple_FIFA_World_Cups', 'Jim_Leighton'], 4, 2569
+['FIFA_World_Cup', 'S%C3%A1ndor_Kocsis', 'Quique_Hern%C3%A1ndez', 'Juli%C3%A1n_Rubio'], 4, 2641
+['FIFA_World_Cup', '1998_FIFA_World_Cup', 'Pierluigi_Collina', '1974_European_Cup_Final'], 4, 3530
+['FIFA_World_Cup', 'Italy', 'Belgium', 'Secretary_General_of_the_Council_of_Europe'], 4, 5543
+['FIFA_World_Cup', 'Roller_Derby_World_Cup', 'Women%27s_Lacrosse_World_Cup', 'European_Lacrosse_Championships'], 4, 2037
+['FIFA_World_Cup', 'Overtime_(sports)#Association_football', 'FIBA', 'FIBA_Oceania'], 4, 2491
+['FIFA_World_Cup', 'Brazil', 'Military_Police_(Brazil)', 'Main_Page'], 4, 3673
+['FIFA_World_Cup', 'United_States', 'National_symbols_of_the_United_States', 'The_Star-Spangled_Banner'], 4, 4042
+['FIFA_World_Cup', '1998_FIFA_World_Cup', 'Football_at_the_Island_Games', 'ConIFA_World_Football_Cup'], 4, 3603
+['FIFA_World_Cup', 'Adidas_Tango', 'Adidas_Tricolore', '2006_FIFA_World_Cup'], 4, 1974
+['Cristiano_Ronaldo', 'Raul_Meireles', 'Man_of_the_match', 'All-star_game'], 4, 2564
+['Cristiano_Ronaldo', 'PFA_Team_of_the_Year#Premier_League', 'Steven_Gerrard', 'Magistrates%27_Court_(England_and_Wales)'], 4, 3062
+['Cristiano_Ronaldo', 'Maxi_Rodr%C3%ADguez', 'Mario_Boy%C3%A9', 'San_Lorenzo_de_Almagro'], 4, 2743
+['Cristiano_Ronaldo', 'Gianluigi_Buffon', '2010%E2%80%9311_UEFA_Europa_League', '2009%E2%80%9310_S%C3%BCper_Lig'], 4, 5949
+['Cristiano_Ronaldo', 'Lionel_Messi', '2014_FIFA_World_Cup_qualification#Top_goalscorers', '2014_FIFA_World_Cup_qualification_%E2%80%93_CAF_Third_Round#Nigeria_v_Ethiopia'], 4, 4513
+['Cristiano_Ronaldo', 'Liverpool_F.C.', 'Italy', 'Gio_Ponti'], 4, 5422
+['Cristiano_Ronaldo', 'Alfredo_Di_St%C3%A9fano', 'David_Beckham', 'Gary_Shaw'], 4, 4787
+['Cristiano_Ronaldo', 'Alfredo_Di_St%C3%A9fano', 'Frank_Rijkaard', 'Rec.Sport.Soccer_Statistics_Foundation'], 4, 4367
+['Cristiano_Ronaldo', 'UEFA_Team_of_the_Year#Team_of_the_Year_2009', 'England', 'King%27s_College,_Cambridge'], 4, 5422
+['Cristiano_Ronaldo', 'UEFA_Team_of_the_Year#Team_of_the_Year_2009', 'Tottenham_Hotspur_F.C.', 'Wigan_Athletic_F.C.'], 4, 4011
+['Cristiano_Ronaldo', 'Glenn_Hoddle', 'FA_Premier_League_1994-95', 'Newcastle_United_F.C.'], 4, 3725
+['Cristiano_Ronaldo', 'List_of_European_Cup_and_UEFA_Champions_League_top_scorers#European_Cup_and_UEFA_Champions_League_top_goalscorer_by_seasons', '2007%E2%80%9308_UEFA_Champions_League', '2007%E2%80%9308_UEFA_Champions_League_group_stage#Barcelona_v_Stuttgart'], 4, 4058
+['Cristiano_Ronaldo', 'Miguel_Monteiro', 'Deco', 'Pedro_Miguel_da_Silva_Mendes'], 4, 2642
+['Cristiano_Ronaldo', 'List_of_UEFA_Champions_League_hat-tricks', 'Real_Madrid_C.F.', 'Santiago_Bernab%C3%A9u_Stadium'], 4, 4451
+['Cristiano_Ronaldo', 'Germany_national_football_team', 'Luxembourg_national_football_team', 'F91_Dudelange'], 4, 4481
+['Cristiano_Ronaldo', 'List_of_European_Cup_and_UEFA_Champions_League_top_scorers#European_Cup_and_UEFA_Champions_League_top_goalscorer_by_seasons', 'England', 'Maritime_climate'], 4, 5369
+['Cristiano_Ronaldo', 'Portuguese_Football_Federation', 'OFC_President%27s_Cup', 'Main_Page'], 4, 2262
+['Cristiano_Ronaldo', 'David_Silva', 'Lithuania_national_football_team', 'Mindaugas_Kalonas'], 4, 3281
+['Cristiano_Ronaldo', 'David_Taylor_(footballer,_born_1965)', 'Newtown_F.C.', '1996%E2%80%9397_League_of_Wales'], 4, 2274
+['Cristiano_Ronaldo', 'Ryan_Giggs', 'Nemanja_Vidi%C4%87', 'Ruud_van_Nistelrooy'], 4, 3424
+['Amazon.com', 'Matt_Williams_(Internet_entrepreneur)', 'Dallas,_Texas', 'Mark_Cuban'], 4, 3093
+['Amazon.com', 'Kyocera', 'FAMAE', 'Willys_FAMAE_Corvo'], 4, 2266
+['Amazon.com', 'ComiXology', 'Amazon_DynamoDB', 'Internet_Movie_Database'], 4, 1659
+['Amazon.com', 'Winchester,_Kentucky', 'Erlanger,_Kentucky', 'United_States'], 4, 2093
+['Amazon.com', 'Green_Lantern', 'Black_Hand_(comics)', 'Justice_League_Unlimited'], 4, 1882
+['Amazon.com', 'Sears_Canada', 'Sherway_Gardens', 'Splendid_China_Mall'], 4, 1476
+['Amazon.com', 'Hardcover', 'Hardcover', 'Book_trimming'], 4, 1325
+['Amazon.com', 'Web_hosting', 'Linux', 'Enlightenment_(software)'], 4, 2583
+['Amazon.com', 'WikiLeaks', 'International_Standard_Book_Number', 'ISO/IEC_8652'], 4, 2163
+['Amazon.com', 'NetEase', 'Online_game', 'Quake_Live'], 4, 1550
+['Amazon.com', 'Amazon_Kindle', 'Kobo_Inc.', 'REDgroup_Retail'], 4, 2200
+['Amazon.com', 'Cognizant', 'United_States', 'Abortion_in_the_United_States'], 4, 3741
+['Amazon.com', 'Deloitte', 'Avaya', 'Lucent'], 4, 2385
+['Amazon.com', 'Amazon_Web_Services', 'Amazon_Route_53', 'Amazon_Cloud_Drive'], 4, 1693
+['Amazon.com', 'Amsterdam', 'Dam_Square', 'Help:Category'], 4, 3051
+['Amazon.com', 'CACI', 'Xiaomi', 'China'], 4, 1956
+['Amazon.com', 'Baen_Free_Library', 'Booktrack', 'Kobo_Aura_HD'], 4, 1492
+['Amazon.com', 'STMicroelectronics', 'Rakuten', 'Asus'], 4, 2113
+['Amazon.com', 'Borders_Group', 'Board_game', 'Help:Contents'], 4, 2040
+['Amazon.com', 'Brian_Krueger', 'Amazon_Publishing', 'Amazon_Relational_Database_Service'], 4, 1485
+['Game_of_Thrones', 'Braingames', 'The_No._1_Ladies%27_Detective_Agency_(TV_series)', 'Hung_(TV_series)'], 4, 1383
+['Game_of_Thrones', 'Maurice_Druon', 'Jean-Philippe_Lecat', 'Authority_control'], 4, 979
+['Game_of_Thrones', 'Little_Bart', 'London_Zoo', 'Hippopotamus'], 4, 1684
+['Game_of_Thrones', 'Wars_of_the_Roses', 'Richard_III_of_England', 'Anne_Neville,_16th_Countess_of_Warwick'], 4, 2147
+['Game_of_Thrones', 'Cersei_Lannister', 'A_Game_of_Thrones', 'A_Feast_for_Crows'], 4, 1248
+['Game_of_Thrones', 'Maisie_Williams', 'HBO', 'Television_receive-only'], 4, 2280
+['Game_of_Thrones', 'Copyright_infringement_of_audio-visual_works', 'Space_shifting', 'Format_shifting'], 4, 1267
+['Game_of_Thrones', 'Primetime_Emmy_Award_for_Outstanding_Main_Title_Design', 'Magic_City_(TV_series)', 'Mitch_Glazer'], 4, 1216
+['Game_of_Thrones', 'Super_%C3%89cran', 'CFTK-TV', 'Kilowatt'], 4, 1629
+['Game_of_Thrones', 'Rector%27s_Palace,_Dubrovnik', 'Main_Page', 'Hurricane_Ingrid'], 4, 991
+['Game_of_Thrones', 'The_Independent', 'BT_TV', 'PhonepayPlus'], 4, 2165
+['Game_of_Thrones', 'Conversations_with_Dead_People', 'Back_to_the_Future', 'Melora_Hardin'], 4, 1628
+['Game_of_Thrones', 'Polygon_(website)', 'Telecommuting', 'Labor_camp'], 4, 1354
+['Game_of_Thrones', 'Friday_Night_Lights_(TV_series)', 'Friday_Night_Lights_(film)', 'Greedy_(film)'], 4, 1478
+['Game_of_Thrones', 'A_Feast_for_Crows', 'Locus_(magazine)', 'Barbarian'], 4, 1240
+['Game_of_Thrones', 'Mad_Men', 'AMC_Networks', 'CBS_Reality'], 4, 1944
+['Game_of_Thrones', 'Jaime_Lannister', 'Others_(A_Song_of_Ice_and_Fire)', 'List_of_awards_and_nominations_received_by_Game_of_Thrones'], 4, 1964
+['Game_of_Thrones', 'John_from_Cincinnati', 'Unscripted', 'G_String_Divas'], 4, 1326
+['Game_of_Thrones', 'World_of_A_Song_of_Ice_and_Fire', 'House_Tyrell', 'Viserys_Targaryen'], 4, 2074
+['Game_of_Thrones', 'Io9', 'Jalopnik', 'Top_Gear_(2002_TV_series)'], 4, 1008
+['Franz_Kafka', 'J%C3%B8rn_Utzon', 'Kingo_Houses', 'Additive_Architecture'], 4, 1427
+['Franz_Kafka', 'Zsuzsa_B%C3%A1nk', 'Thomas_Brussig', 'Thomas_Brussig'], 4, 1349
+['Franz_Kafka', 'International_Standard_Book_Number', 'ISO/IEC_38500', 'ISO_15897'], 4, 1968
+['Franz_Kafka', 'Parables_and_Paradoxes', 'The_Aeroplanes_At_Brescia', 'The_Aeroplanes_at_Brescia'], 4, 1269
+['Franz_Kafka', 'Minimalism', 'Patricia_Johanson', 'Salt_Marsh_Harvest_Mouse'], 4, 2082
+['Franz_Kafka', 'Jos%C3%A9_Saramago', 'Di%C3%A1rio_de_Not%C3%ADcias', 'International_Standard_Book_Number'], 4, 1517
+['Franz_Kafka', 'Clotilde_von_Derp', 'Authority_control', 'Legislative_act'], 4, 1246
+['Franz_Kafka', 'Edgard_Var%C3%A8se', 'Strahlen', 'Main_Page'], 4, 1619
+['Franz_Kafka', 'Francis_Picabia', 'Library_of_Congress_Control_Number', 'Librarian'], 4, 1241
+['Franz_Kafka', 'The_Starry_Night', 'Saint-Paul_Asylum,_Saint-R%C3%A9my_(Van_Gogh_series)', 'International_Standard_Book_Number'], 4, 1594
+['Franz_Kafka', 'International_Standard_Book_Number', 'Unified_Modeling_Language', 'Systems_analysis'], 4, 2180
+['Franz_Kafka', 'Christian_Kracht', 'Lenin', 'Hungarian_Working_People%27s_Party'], 4, 2424
+['Franz_Kafka', 'Nibelungenlied', 'Johann_Christian_G%C3%BCnther', 'Johann_Wolfgang_von_Goethe'], 4, 1468
+['Franz_Kafka', 'Ter%C3%A9zia_Mora', 'Martin_Opitz', 'International_Standard_Name_Identifier'], 4, 1394
+['Franz_Kafka', 'A_Message_from_the_Emperor', 'The_Village_Schoolmaster', 'Investigations_of_a_Dog'], 4, 1331
+['Franz_Kafka', 'James_Ensor', 'Royal_Museums_of_Fine_Arts_of_Belgium', 'Mus%C3%A9e_des_Beaux_Arts_(poem)'], 4, 1256
+['Franz_Kafka', 'Literary_executor', 'German_language', 'Alsatian_language'], 4, 2224
+['Franz_Kafka', 'Jaroslav_R%C3%B3na', 'Franz_Kafka', 'Naturopathy'], 4, 2257
+['Franz_Kafka', 'Samuel_Beckett', 'Irish_Literary_Revival', 'Irish_poetry'], 4, 2156
+['Franz_Kafka', 'Kinsk%C3%BD_Palace_(Prague)', 'Kilian_Ignaz_Dientzenhofer', 'Allgemeine_Deutsche_Biographie'], 4, 1201
+['Emma_Watson', 'Elle_(magazine)', 'Hachette_Distribution_Services', 'Conran_Octopus'], 4, 827
+['Emma_Watson', 'Chris_Tucker', 'Angelina_Jolie', 'Ruby_Dee'], 4, 1509
+['Emma_Watson', 'Tribeca_Film_Festival', 'The_Rocket_(2013_film)', 'AACTA_Award_for_Best_Editing'], 4, 591
+['Emma_Watson', 'Fair_Trade', 'Frithjof_Schmidt', 'Lambert_van_Nistelrooij'], 4, 1840
+['Emma_Watson', 'Adam_Sandler', 'Academy_of_Motion_Picture_Arts_and_Sciences', 'Academy_Juvenile_Award'], 4, 1253
+['Emma_Watson', 'Michael_Caine', 'Will_Rogers', 'Joplin,_Missouri'], 4, 1902
+['Emma_Watson', 'Burberry', 'Land_Securities', 'Minerva_(property_firm)'], 4, 1091
+['Emma_Watson', 'Hermione_Granger', 'Gryffindor', 'Subjects_at_Hogwarts#Defence_Against_the_Darks_Arts'], 4, 992
+['Emma_Watson', 'UN_Women', 'International_Women%27s_Day', 'New_Year'], 4, 851
+['Emma_Watson', '2013_MTV_Movie_Awards', 'Ryan_Lewis', '50_Cent'], 4, 918
+['Emma_Watson', 'Britannia_Awards', 'Will_Wright_(game_designer)', 'Electronic_Arts'], 4, 1085
+['Emma_Watson', 'Matt_Stone', 'List_of_South_Park_families', 'South_Park'], 4, 1179
+['Emma_Watson', 'Lindsay_Lohan', 'Lindsay_(TV_series)', 'Blackboard_Wars'], 4, 1037
+['Emma_Watson', 'Seth_Rogen', 'Kung_Fu_Panda_2', 'Rotten_Tomatoes'], 4, 1105
+['Emma_Watson', 'Harry_Potter_and_the_Goblet_of_Fire_(film)', 'Harry_Potter_and_the_Deathly_Hallows_%E2%80%93_Part_2_(video_game)', 'Eurogamer'], 4, 916
+['Emma_Watson', 'Stanley_Kubrick', 'David_Frost', 'Frost/Nixon_(film)'], 4, 1583
+['Emma_Watson', 'Britannia_Awards', 'Bob_Shaye', 'Will_Wright_(game_designer)'], 4, 708
+['Emma_Watson', '2011_MTV_Movie_Awards', 'Expedition_Africa', 'Mountain_Men_(TV_series)'], 4, 892
+['Emma_Watson', 'Oxfordshire', 'West_Oxfordshire', 'Carterton,_Oxfordshire'], 4, 1187
+['Emma_Watson', 'The_Daily_Telegraph', 'Pirate_radio_in_the_United_Kingdom', 'Daily_Star_Sunday'], 4, 1328
+['Olympic_Games', 'Volleyball_at_the_2004_Summer_Olympics', 'Adriana_Behar', 'Rio_de_Janeiro'], 4, 2661
+['Olympic_Games', 'Alpine_skiing_at_the_1992_Winter_Olympics', 'Help:Category', 'Help:Wikipedia:_The_Missing_Manual/Formatting_and_Illustrating_Articles/Adding_Images'], 4, 2791
+['Olympic_Games', 'Field_hockey_at_the_2008_Summer_Olympics', 'Paola_Vukojicic', 'Jorgelina_Rimoldi'], 4, 3001
+['Olympic_Games', 'Rugby_football', 'Gus_Risman', 'Joe_Jones_(rugby)'], 4, 3152
+['Olympic_Games', 'Table_tennis_at_the_2012_Summer_Olympics', 'International_Table_Tennis_Federation', 'World_Armwrestling_Federation'], 4, 2830
+['Olympic_Games', 'Alpine_skiing_at_the_1960_Winter_Olympics', 'FIS_Alpine_World_Ski_Championships_2019', 'Cortina_d%27Ampezzo'], 4, 2704
+['Olympic_Games', 'Chinese_Taipei_at_the_Olympics', 'Turkey_at_the_Olympics', 'Turkey'], 4, 3312
+['Olympic_Games', 'Mauritius_at_the_Olympics', 'Boxing_at_the_2008_Summer_Olympics', 'Rakhim_Chakhkiev'], 4, 3003
+['Olympic_Games', 'Volleyball_at_the_2020_Summer_Olympics', 'Olympic_sports', 'Canoeing'], 4, 3445
+['Olympic_Games', 'Badminton_at_the_2004_Summer_Olympics', 'United_Kingdom', 'Dutch_Maiden'], 4, 5308
+['Olympic_Games', 'Maryam_Yusuf_Jamal', 'S%C3%BCreyya_Ayhan', '2003_World_Championships_in_Athletics_%E2%80%93_Women%27s_1500_metres'], 4, 2792
+['Olympic_Games', 'Lacrosse_at_the_1904_Summer_Olympics', 'Archery_at_the_1904_Summer_Olympics', 'List_of_Olympic_venues_in_archery'], 4, 2621
+['Olympic_Games', '1998_World_Youth_Games', 'Jamaica', 'Alcoa'], 4, 3579
+['Olympic_Games', '2010_Winter_Olympics', 'LGBT', 'Transgender'], 4, 3705
+['Olympic_Games', 'Water_polo_at_the_1900_Summer_Olympics', 'Tennis_at_the_1900_Summer_Olympics', 'Georges_de_la_Chapelle'], 4, 2637
+['Olympic_Games', '2014_Winter_Olympics', 'Figure_skating_at_the_2014_Winter_Olympics', 'Figure_skating_at_the_2014_Winter_Olympics_%E2%80%93_Men%27s_singles'], 4, 3599
+['Olympic_Games', 'International_Olympic_Committee', 'World_War_I', '1918_flu_pandemic'], 4, 4565
+['Olympic_Games', 'United_States_Olympic_Committee', 'Main_Page', 'Loren_Pankratz'], 4, 2814
+['Olympic_Games', 'Swimming_at_the_2008_Summer_Olympics', 'Myanmar_at_the_2008_Summer_Olympics', 'Malta_at_the_2008_Summer_Olympics'], 4, 3707
+['Olympic_Games', 'Paralympic_Games', 'Arctic_Winter_Games', 'Indian_Empire_Games'], 4, 3640
+['Jack_the_Ripper', 'Killer_on_the_Loose', 'BBC_Radio_One_Live_in_Concert_(Thin_Lizzy_album)', 'The_Sun_Goes_Down_(Thin_Lizzy_song)'], 4, 598
+['Jack_the_Ripper', 'Time_After_Time_(Alexander_novel)', 'Ripper_(video_game)', 'The_Prowler_in_the_City_at_the_Edge_of_the_World'], 4, 579
+['Jack_the_Ripper', 'Frederick_Abberline', 'Blandford_Forum', 'Blackmore_Vale'], 4, 672
+['Jack_the_Ripper', 'Jack_the_Ripper_(1988_TV_series)', 'Armand_Assante', 'John_Gotti'], 4, 757
+['Jack_the_Ripper', 'Sanctuary_for_All', 'End_of_Nights', 'Torchwood'], 4, 627
+['Jack_the_Ripper', 'Victorian_era', 'Chloroform', 'DCG-IV'], 4, 3055
+['Jack_the_Ripper', 'Osborn_Street', 'Night_club', 'Yazoo_(band)'], 4, 851
+['Jack_the_Ripper', 'Frederick_Abberline', 'Graphic_novel', 'Comics_by_country'], 4, 758
+['Jack_the_Ripper', 'Offender_profiling', 'The_New_Yorker', 'Quadrant_(magazine)'], 4, 992
+['Jack_the_Ripper', 'Elizabeth_Stride', 'Sir_William_Gull,_1st_Baronet', 'Clapham'], 4, 588
+['Jack_the_Ripper', 'Night_of_the_Ripper', 'American_Gothic_(novel)', 'The_Shambler_from_the_Stars_(Short_Story)'], 4, 499
+['Jack_the_Ripper', 'David_Canter', 'Help:Category', 'Help:Using_talk_pages'], 4, 490
+['Jack_the_Ripper', 'George_Lusk', 'From_Hell_(film)', 'Wildcats_(comics)'], 4, 638
+['Jack_the_Ripper', 'Vagina', 'Skene%27s_gland', 'Urethra'], 4, 1261
+['Jack_the_Ripper', 'River_Thames', 'English_Channel', 'Dieppe_Raid'], 4, 2430
+['Jack_the_Ripper', 'Whitechapel_murders', 'Walter_Dew', 'Scotland_Yard'], 4, 635
+['Jack_the_Ripper', 'Pimlico', 'Conservation_area#United_Kingdom', 'Protected_areas_of_Papua_New_Guinea'], 4, 820
+['Jack_the_Ripper', 'Gotham_by_Gaslight', 'Joker_(comics)', 'Joker_(playing_card)'], 4, 1409
+['Jack_the_Ripper', 'East_End_of_London', 'Queen_Mary,_University_of_London', 'University_of_Sunderland'], 4, 1716
+['Jack_the_Ripper', 'Jack_the_Ripper_suspects', 'Sir_Robert_Anderson', 'Criminal_Investigation_Department'], 4, 659
