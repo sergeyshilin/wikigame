@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	require_once('WayParser.php');
+
+	way = new WayParser();
 
 	$page = "";
 	$_SESSION['end'] = "Bishop_of_Tasmania";
