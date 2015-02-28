@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- made by www.metatags.org -->
+    <meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
+    <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
+    <meta name="author" content="metatags generator">
+    <meta name="robots" content="index, nofollow">
+    <meta name="revisit-after" content="3 days">
+    <title>WikiWalker | Get it shorter</title>
+    <!-- wikipedia, game, walk -->
+
     <link rel="icon" href="../../favicon.ico">
-
-    <title>WikiGame | Get it shorter</title>
-
     <!-- Bootstrap core CSS -->
     <link href="/wiki/css/bootstrap.min.css" rel="stylesheet">
 

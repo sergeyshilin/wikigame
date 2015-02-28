@@ -40,7 +40,15 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Wikipedia Game</title>
+	<!-- made by www.metatags.org -->
+    <meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
+    <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
+    <meta name="author" content="metatags generator">
+    <meta name="robots" content="index, nofollow">
+    <meta name="revisit-after" content="3 days">
+    <title>WikiWalker | Get it shorter</title>
+    <!-- wikipedia, game, walk -->
+	
 	<script src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
