@@ -21,10 +21,11 @@
 			$_SESSION['previous'] = "";
             $_SESSION['current'] = $page;
 		}
-		if($_SESSION['current'] == $_SESSION['end']) {
+		if($_SESSION['current'] == $_SESSION['end'] && !empty($_SERVER['HTTP_REFERER'])) {
 			$_SESSION['win'] = true;
-			// unset($_SESSION['start']);
-			// unset($_SESSION['end']);
+		} else if($_SESSION['current'] == $_SESSION['end'] && empty($_SERVER['HTTP_REFERER'])) {
+			$_SESSION['counter'] = 0;
+			header('Location: '.$_SESSION["start"]);
 		}
 
 	} else {

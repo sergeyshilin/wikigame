@@ -34,7 +34,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">WikiGame</h3>
+              <h3 class="masthead-brand">WikiWalker</h3>
               <!-- <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
@@ -49,7 +49,7 @@
             <h1 class="cover-heading">Get it shorter.</h1>
             <p class="lead">Complete way from one Wikipedia page to another with a minimum number of steps. Think it easy? </br>Try to play it right now!</p>
             <p class="lead">
-              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Play it</a>
+              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Play now</a>
             </p>
           </div>
 
