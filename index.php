@@ -11,11 +11,11 @@
     <title>WikiGame | Get it shorter</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/wiki/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <link href="/wiki/css/cover.css" rel="stylesheet">
+    <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -70,10 +70,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="/wiki/js/jquery.min.js"></script>
+    <script src="/wiki/js/bootstrap.min.js"></script>
+    <script src="/wiki/assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/wiki/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
