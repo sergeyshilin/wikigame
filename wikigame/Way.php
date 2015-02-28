@@ -11,11 +11,14 @@
 		}
 
 		public function getStartPoint() {
-			return str_replace('\'', '', $this->way[0]);
+			$result = str_replace('\'', '', $this->way[0]);
+			$result = preg_replace('/\s+/', '', $result);
+			return $result;
 		}
 
 		public function getEndPoint() {
 			$result = str_replace('\'', '', $this->way[count($this->way) -1]);
+			$result = preg_replace('/\s+/', '', $result);
 			return $result;
 		}
 
