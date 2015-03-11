@@ -67,7 +67,17 @@
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
-    <meta content="http://wikiwalker.ru/assets/img/forsocials.jpg" property="og:image">
+    <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+    <meta property="og:title" content="WikiWalker - Get it shorter!" />
+    <?php 
+    	if($_SESSION['win']) {
+    		echo '<meta property="og:url" content="http://wikiwalker.ru/'.$_SESSION["hash"].'" />';
+    		echo '<meta property="og:description" content="
+    			Congrats! You have completed your way from '.str_replace("_", " ", $_SESSION["start"]).' 
+				to '.str_replace("_", " ", $_SESSION["end"]).' with '.$_SESSION["counter"].' steps. 
+    		" />';
+    	}
+    ?>
     <title>WikiWalker | Get it shorter</title>
     <!-- wikipedia, game, walk -->
 	
