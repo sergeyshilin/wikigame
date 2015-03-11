@@ -26,11 +26,12 @@ class Tree:
     def get_way(self, url):
 
         if not len(self.fin):
-            self.fin.append(url[len(url_start):])
+            self.fin.append(url)
+            # self.fin.append(url[len(url_start):]) #it's essential for english links
         
         page = urllib.urlopen(url).read()
         sleep(1)
-
+        page = page[page.index("<div id=\"content\" class=\"mw-body\" role=\"main\">"):page.index("<div id=\"mw-navigation\">")]
         links =  self.get_all_links(page)
         
         if self.current_depth != self.max_depth:
@@ -38,14 +39,12 @@ class Tree:
 
             length = len(links) - 1
             self.sum+=length
-
             try:
                 self.next_page = links[randint(0, length)]
             except:
                 self.next_page = links[0]
 
             self.fin.append(url_start + self.next_page)
-
             return self.get_way(url_start + self.next_page)
         else:
             return self.fin
@@ -69,10 +68,9 @@ class Tree:
             links.append(next_page)
 
     def isCorrectname(self, name):
-        if self.pr_name == name:
+        if ':' in name or '#' in name:
             return False
-        self.pr_name = name
-        return False if ":" in name and not "Help" in name else True
+        return True
 
     def get_sum(self):
         return self.sum
@@ -197,6 +195,8 @@ if __name__ == "__main__":
     #             "AC/DC"
     #             ]
     url_list = [
+    "https://ru.wikipedia.org/wiki/%D0%93%D0%B0%D1%83%D1%81%D1%81,_%D0%9A%D0%B0%D1%80%D0%BB_%D0%A4%D1%80%D0%B8%D0%B4%D1%80%D0%B8%D1%85",
+    "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D1%82%D0%BE%D1%80,_%D0%93%D0%B5%D0%BE%D1%80%D0%B3",
     "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D1%82%D0%BE%D1%80,_%D0%93%D0%B5%D0%BE%D1%80%D0%B3",
     "https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BA%D0%BB%D0%B5%D0%BC%D0%B8%D1%88%D0%B5%D0%B2,_%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87",
     "https://ru.wikipedia.org/wiki/%D0%93%D0%B0%D1%83%D1%81%D1%81,_%D0%9A%D0%B0%D1%80%D0%BB_%D0%A4%D1%80%D0%B8%D0%B4%D1%80%D0%B8%D1%85",
@@ -227,7 +227,8 @@ if __name__ == "__main__":
     for max_length in range(2, 5):
         tree.set_max_length(max_length)
         for url_end in url_list:
-            url = url_start + url_end
+            url = url_end
+            # url = url_start + url_end # it's for english links
             for i in range(7):
                 links = tree.get_way(url)
                 string = str(links) + ', ' + str(len(links)) + ', ' + str(tree.get_sum()) + '\n'
