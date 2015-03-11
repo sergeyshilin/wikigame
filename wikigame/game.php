@@ -67,13 +67,13 @@
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
-    <meta content="http://wikiwalker.ru/assets/img/forsocials.jpg" property="og:image">
+    <meta content="assets/img/forsocials.jpg" property="og:image">
     <title>WikiWalker | Get it shorter</title>
     <!-- wikipedia, game, walk -->
 	
 	<script src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="image_src" href="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+	<link rel="image_src" href="assets/img/forsocials.jpg" />
 	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </head>
@@ -114,7 +114,7 @@
 			$title = "WikiWalker - Get it shorter!";
 			$desc = "Congrats! You have completed your way from ".str_replace("_", " ", $_SESSION["start"])." 
 			to ".str_replace("_", " ", $_SESSION["end"])." with ".$_SESSION["counter"]." steps. ";
-			$img = "http://wikiwalker.ru/assets/img/forsocials.jpg";
+			$img = "assets/img/forsocials.jpg";
 			echo <<<EOF
 			    <link href="css/bootstrap.min.css" rel="stylesheet">
 
