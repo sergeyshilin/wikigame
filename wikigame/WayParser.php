@@ -35,6 +35,10 @@
 			return $result;
 		}
 
+		public function getWays() {
+			return $this->waysarr;
+		}
+
 		public function setLang($_lang) {
 			$this->lang = $_lang;
 		}

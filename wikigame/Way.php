@@ -8,7 +8,7 @@
 		private $links = 0;
 
 		public function __construct($_id, $_depth, $_links) {
-			if(!is_array($id)) {
+			if(!is_array($_id)) {
 				$this->id = $_id;
 				$this->setWayInfo();
 			} else {
@@ -69,7 +69,7 @@
 			return rawurldecode(substr(strrchr($node, "/"), 1));
 		}
 
-		public static function createHash() {
+		public function createHash() {
 			return substr(md5(Way::getName($this->getStartPoint()) . Way::getName($this->getEndPoint())), 0, 7);
 		}
 
