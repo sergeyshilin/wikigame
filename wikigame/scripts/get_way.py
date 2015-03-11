@@ -11,6 +11,7 @@ import math
 
 global url_start 
 url_start = "http://ru.wikipedia.org/wiki/"
+#url_start = "http://en.wikipedia.org/wiki/" # for english links
 
 class Tree:
     
@@ -26,12 +27,17 @@ class Tree:
     def get_way(self, url):
 
         if not len(self.fin):
+            # if list with results is empty we need to add start link of our way
             self.fin.append(url)
             # self.fin.append(url[len(url_start):]) #it's essential for english links
         
         page = urllib.urlopen(url).read()
         sleep(1)
+        
+        #we want to get links only from content
         page = page[page.index("<div id=\"content\" class=\"mw-body\" role=\"main\">"):page.index("<div id=\"mw-navigation\">")]
+        
+        #get all correct links from this url
         links =  self.get_all_links(page)
         
         if self.current_depth != self.max_depth:
@@ -39,6 +45,7 @@ class Tree:
 
             length = len(links) - 1
             self.sum+=length
+            
             try:
                 self.next_page = links[randint(0, length)]
             except:
