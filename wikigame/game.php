@@ -62,30 +62,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<!-- made by www.metatags.org -->
-	<?php
-		if($_SESSION['win']) {
-			require_once('Way.php');
-			echo '<meta property="og:image" content="assets/img/forsocials.png" />';
-			echo '<meta property="og:title" content="WikiWalker - Get it shorter!" />';
-			echo '<meta property="og:description" content="Congrats! You have completed your way from '
-			.str_replace("_", " ", $_SESSION["start"]).' to '.str_replace("_", " ", $_SESSION["end"]).' 
-			with '.$_SESSION["counter"].' steps. " />';
-			// echo '<meta name="description" content="Congrats! You have completed your way from '
-			// .str_replace("_", " ", $_SESSION["start"]).' to '.str_replace("_", " ", $_SESSION["end"]).' 
-			// with '.$_SESSION["counter"].' steps. " />';
-		}
-	?>
 	<meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
     <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
+    <meta content="http://wikiwalker.ru/assets/img/forsocials.jpg" property="og:image">
     <title>WikiWalker | Get it shorter</title>
     <!-- wikipedia, game, walk -->
 	
 	<script src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="image_src" href="assets/img/forsocials.png" />
+	<link rel="image_src" href="http://wikiwalker.ru/assets/img/forsocials.jpg" />
 	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </head>
@@ -122,6 +110,11 @@
 		} else {
 			$count = $_SESSION['counter'];
 			$hash = $_SESSION['hash'];
+			$url = "http://wikiwalker.ru/".$hash;
+			$title = "WikiWalker - Get it shorter!";
+			$desc = "Congrats! You have completed your way from ".str_replace("_", " ", $_SESSION["start"])." 
+			to ".str_replace("_", " ", $_SESSION["end"])." with ".$_SESSION["counter"]." steps. ";
+			$img = "http://wikiwalker.ru/assets/img/forsocials.jpg";
 			echo <<<EOF
 			    <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -157,7 +150,7 @@
 			            <p class="lead">
 			            	You have completed your way with <span class="label label-danger">$count</span> points. 
 			            	Like it? <br>Share your result with your friends!
-			            	<div class="share42init"></div>
+			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
 			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Play again</a>
 			            </p>
