@@ -1,3 +1,8 @@
+<?php
+  if(isset($_GET['game']) && !empty($_GET['game'])) {
+      header('Location: /wiki/'.$_GET['game']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

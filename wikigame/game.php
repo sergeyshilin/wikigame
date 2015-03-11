@@ -2,12 +2,34 @@
 	session_start();
 
 	if(isset($_GET['page']) && !empty($_GET['page'])) {
+		require_once('WayParser.php'); 
+
+		if(WayParser::isMD5Hash($_GET['page'])) {
+			$way = WayParser::getWayByHash($_GET['page']);
+			if(!empty($way)) {
+				$_SESSION['end'] = Way::getName($way->getEndPoint());
+				$_SESSION['start'] = Way::getName($way->getStartPoint());
+				$_SESSION['startlink'] = $way->getStartPoint();
+				$_SESSION['endlink'] = $way->getEndPoint();
+				$_SESSION['win'] = false;
+				$_SESSION['lang'] = $way->getLang();
+				$_SESSION['hash'] = $way->getHash();
+				header('Location: '.$_SESSION["start"]);
+			} else {
+				header('Location: /');
+			}
+		}
+
+
 		if(empty($_SESSION['start']) || empty($_SESSION['end']) || $_GET['page'] == "Main_Page") {
-			require_once('WayParser.php'); 
-			$way = (new WayParser())->getRandomWay();
-			$_SESSION['end'] = $way->getEndPoint();
-			$_SESSION['start'] = $way->getStartPoint();
+			$way = WayParser::getRandomWay();
+			$_SESSION['end'] = Way::getName($way->getEndPoint());
+			$_SESSION['start'] = Way::getName($way->getStartPoint());
+			$_SESSION['startlink'] = $way->getStartPoint();
+			$_SESSION['endlink'] = $way->getEndPoint();
 			$_SESSION['win'] = false;
+			$_SESSION['lang'] = $way->getLang();
+			$_SESSION['hash'] = $way->getHash();
 			header('Location: '.$_SESSION["start"]);
 		}
 
@@ -61,7 +83,7 @@
 				echo "
 				<div id='page_header'>
 				<p class='text counter'>Steps: <span class='label label-danger'>".$_SESSION['counter']."</span></p>
-				<p class='text'>Target: <a href='http://en.wikipedia.org/wiki/".$_SESSION['end']."' target='_blank'>". str_replace("_", " ", rawurldecode($_SESSION['end'])). "</a></p>
+				<p class='text'>Target: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
 				<p class='text'><span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>To start page</a></span></p>
 				</div>";
 		?>
@@ -69,9 +91,8 @@
 		include_once('simple_html_dom.php');
  
 		if(!$_SESSION['win']) {
-			$url = "http://en.wikipedia.org/wiki/".$page;
+			$url = "https://".$_SESSION['lang'].".wikipedia.org/wiki/".$page;
 			$html = file_get_html($url);
-			// $html = file_get_html('http://en.wikipedia.org/wiki/Alan_Turing');
 			foreach($html->find('link') as $element) { //выборка всех тегов img на странице
 			       echo $element; // построчный вывод содержания всех найденных атрибутов src
 			}
@@ -79,12 +100,12 @@
 			       echo $element; // построчный вывод содержания всех найденных атрибутов src
 			}
 
-			//$html->find('div[id=mw-page-base]', 0)->class = 'hidden';
 			$html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
 			$content = $html->find('div[id=content]', 0);
 			echo $content;
 		} else {
 			$count = $_SESSION['counter'];
+			$hash = $_SESSION['hash'];
 			echo <<<EOF
 			    <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -92,6 +113,9 @@
 			    <link href="css/cover.css" rel="stylesheet">
 			    <script src="assets/js/ie-emulation-modes-warning.js"></script>
 			    <script type="text/javascript" src="assets/share42/share42.js"></script>
+			    <script type="text/javascript">
+			    	window.history.pushState("", "Title", "/?game=$hash");
+			    </script>
 
 				<div class="site-wrapper">
 
@@ -101,7 +125,7 @@
 
 			          <div class="masthead clearfix">
 			            <div class="inner">
-			              <h3 class="masthead-brand">WikiGame</h3>
+			              <h3 class="masthead-brand">WikiWalker</h3>
 			              <!-- <nav>
 			                <ul class="nav masthead-nav">
 			                  <li class="active"><a href="#">Home</a></li>

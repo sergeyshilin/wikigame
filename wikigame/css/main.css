@@ -8,11 +8,12 @@ body, html {
 
 .zeromargin {
 	margin: 0 !important;
-	padding-top: 50px !important;
+	padding-top: 30px !important;
 	border: 0 !important;
 }
 
 #page_header {
+	top: 0;
 	margin: 0 !important;
 	position: fixed;
 	z-index: 999;
