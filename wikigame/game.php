@@ -2,8 +2,7 @@
 	session_start();
 
 	if(isset($_GET['page']) && !empty($_GET['page'])) {
-		require_once('WayParser.php'); 
-
+		require_once('WayParser.php');
 		if(WayParser::isMD5Hash($_GET['page'])) {
 			$way = WayParser::getWayByHash($_GET['page']);
 			if(!empty($way)) {
@@ -63,7 +62,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<!-- made by www.metatags.org -->
-    <meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
+	<?php
+		if($_SESSION['win']) {
+			require_once('Way.php');
+			echo '<meta property="og:image" content="assets/img/forsocials.png" />';
+			echo '<meta property="og:title" content="WikiWalker - Get it shorter!" />';
+			echo '<meta property="og:description" content="Congrats! You have completed your way from '
+			.str_replace("_", " ", $_SESSION["start"]).' to '.str_replace("_", " ", $_SESSION["end"]).' 
+			with '.$_SESSION["counter"].' steps. " />';
+			// echo '<meta name="description" content="Congrats! You have completed your way from '
+			// .str_replace("_", " ", $_SESSION["start"]).' to '.str_replace("_", " ", $_SESSION["end"]).' 
+			// with '.$_SESSION["counter"].' steps. " />';
+		}
+	?>
+	<meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
     <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
@@ -73,6 +85,7 @@
 	
 	<script src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="image_src" href="assets/img/forsocials.png" />
 	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </head>
@@ -82,9 +95,12 @@
 			if(!$_SESSION['win'])
 				echo "
 				<div id='page_header'>
-				<p class='text counter'>Steps: <span class='label label-danger'>".$_SESSION['counter']."</span></p>
-				<p class='text'>Target: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
-				<p class='text'><span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>To start page</a></span></p>
+					<p class='text'>Your target: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
+					<p class='text'>&nbsp;&nbsp;Your steps: ".$_SESSION['counter']."</p>
+					<p class='text right'>
+						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Restart</a></span>
+						<span class='label newgame_button label-success'><a href='/wiki/Main_Page'>New game</a></span>
+					</p>
 				</div>";
 		?>
 	<?php 

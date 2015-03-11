@@ -35,7 +35,7 @@ body, html {
 	float: left;
 }
 
-#page_header .counter {
+#page_header .right {
 	margin-right: 45px;
 	float: right;
 }
@@ -50,6 +50,10 @@ body, html {
 
 .startpage_button {
 	margin-left: 20px;
+}
+
+.newgame_button {
+
 }
 
 .label {
@@ -81,6 +85,10 @@ body, html {
 
 .label-warning {
 	background-color: #f0ad4e;
+}
+
+.label-success {
+	background-color: #5cb85c;
 }
 
 .share42init {
