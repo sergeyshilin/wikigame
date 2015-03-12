@@ -2,9 +2,15 @@
 	session_start();
 
 	if(isset($_GET['page']) && !empty($_GET['page'])) {
+		require_once('wikigame/DBHelper.php');
 		require_once('WayParser.php');
-		if(WayParser::isMD5Hash($_GET['page'])) {
-			$way = WayParser::getWayByHash($_GET['page']);
+
+		$page = $_GET['page'];
+        $page = htmlspecialchars($page); // Escape HTML.
+        $page = DBHelper::escape($page); // Escape SQL.
+
+		if(WayParser::isMD5Hash($page)) {
+			$way = WayParser::getWayByHash($page);
 			if(!empty($way)) {
 				$_SESSION['end'] = Way::getName($way->getEndPoint());
 				$_SESSION['start'] = Way::getName($way->getStartPoint());
@@ -20,7 +26,7 @@
 		}
 
 
-		if(empty($_SESSION['start']) || empty($_SESSION['end']) || $_GET['page'] == "Main_Page") {
+		if(empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
 			$way = WayParser::getRandomWay();
 			$_SESSION['end'] = Way::getName($way->getEndPoint());
 			$_SESSION['start'] = Way::getName($way->getStartPoint());
@@ -32,7 +38,6 @@
 			header('Location: '.$_SESSION["start"]);
 		}
 
-		$page = $_GET['page'];
 		$_SESSION['previous'] = $_SESSION['current'];
 		$_SESSION['current'] = $page;
 		if ($_SESSION['current'] != $_SESSION['previous'] && !$_SESSION['win'])

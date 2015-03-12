@@ -1,6 +1,10 @@
 <?php
   if(isset($_GET['game']) && !empty($_GET['game'])) {
-      header('Location: /wiki/'.$_GET['game']);
+      $game = $_GET['game'];
+      $game = htmlspecialchars($game); // Escape HTML.
+      require_once('wikigame/DBHelper.php');
+      $game = DBHelper::escape($game); // Escape SQL.
+      header('Location: /wiki/'.$game);
   }
 ?>
 <!DOCTYPE html>
