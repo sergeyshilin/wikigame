@@ -158,7 +158,7 @@
 			          <div class="inner cover">
 			            <h1 class="cover-heading">Поздравляем!</h1>
 			            <p class="lead">
-			            	Вы завершили свой маршрут! Количество переходов: <span class="label label-danger">$count</span>. 
+			            	Вы завершили свой маршрут! Количество переходов: <span class="label label-danger">$count</span> 
 			            	Понравилось? <br>Поделись результатом с друзьями!
 			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
