@@ -5,8 +5,8 @@ Options -Indexes -Multiviews
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|showways\.php$
-    RewriteRule ^(.*)$ $1 [L,QSA]
+# RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|showways\.php$
+#    RewriteRule ^(.*)$ $1 [L,QSA]
 
 RewriteRule 	^(.*)$     index.php?game=$1 		[L,QSA]
 # не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
