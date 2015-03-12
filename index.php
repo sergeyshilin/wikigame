@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- made by www.metatags.org -->
-    <meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
-    <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
+    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик" />
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
@@ -56,9 +56,9 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Get it shorter.</h1>
-            <p class="lead">Complete way from one Wikipedia page to another with a minimum number of steps. Think it easy? </br>Try to play it right now!</p>
+            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальнок количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
             <p class="lead">
-              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Play now</a>
+              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Играть</a>
             </p>
           </div>
 

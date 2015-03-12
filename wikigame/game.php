@@ -62,8 +62,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<!-- made by www.metatags.org -->
-	<meta name="description" content="Complete way from one Wikipedia page to another with a minimum number of steps." />
-    <meta name="keywords" content="wikipedia, wiki, walker, game, interactive, articles, short, way, route, walk, play, enjoy, fun, study, entertainment, education" />
+	<meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик" />
     <meta name="author" content="metatags generator">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
@@ -96,8 +96,8 @@
 					<p class='text'>Your target: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
 					<p class='text'>&nbsp;&nbsp;Your steps: ".$_SESSION['counter']."</p>
 					<p class='text right'>
-						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Restart</a></span>
-						<span class='label newgame_button label-success'><a href='/wiki/Main_Page'>New game</a></span>
+						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Начать заново</a></span>
+						<span class='label newgame_button label-success'><a href='/wiki/Main_Page'>Новая игра</a></span>
 					</p>
 				</div>";
 		?>
