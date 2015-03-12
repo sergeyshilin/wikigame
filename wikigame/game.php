@@ -64,7 +64,7 @@
 	<!-- made by www.metatags.org -->
 	<meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
     <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик" />
-    <meta name="author" content="metatags generator">
+    <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
     <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
