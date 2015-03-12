@@ -162,14 +162,14 @@
 			            	Понравилось? <br>Поделись результатом с друзьями!
 			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
-			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Play again</a>
+			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Играть снова</a>
 			            </p>
 			          </div>
 
 			          <div class="mastfoot">
 			            <div class="inner">
-			              <p>Content has taken from  <a href="http://en.wikipedia.org/wiki/Main_Page">en.Wikipedia.org</a>
-			                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> -->
+			              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>
+			                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
 			              .</p>
 			            </div>
 			          </div>
