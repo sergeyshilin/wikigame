@@ -15,7 +15,7 @@
     <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
-    <title>WikiWalker | Get it shorter</title>
+    <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 
     <link rel="icon" href="../../favicon.ico">

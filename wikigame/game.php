@@ -68,7 +68,7 @@
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
     <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
-    <meta property="og:title" content="WikiWalker - Get it shorter!" />
+    <meta property="og:title" content="WikiWalker - Пройди свой путь" />
     <?php 
     	if($_SESSION['win']) {
     		echo '<meta property="og:url" content="http://wikiwalker.ru/'.$_SESSION["hash"].'" />';
@@ -78,7 +78,7 @@
     		" />';
     	}
     ?>
-    <title>WikiWalker | Get it shorter</title>
+    <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 	
 	<script src="js/jquery.min.js"></script>
