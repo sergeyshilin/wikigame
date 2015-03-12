@@ -2,7 +2,7 @@
 	session_start();
 
 	if(isset($_GET['page']) && !empty($_GET['page'])) {
-		require_once('wikigame/DBHelper.php');
+		require_once('DBHelper.php');
 		require_once('WayParser.php');
 
 		$page = $_GET['page'];
