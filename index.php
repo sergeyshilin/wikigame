@@ -55,8 +55,8 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Get it shorter.</h1>
-            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальнок количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
+            <h1 class="cover-heading">Пройди свой путь.</h1>
+            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
             <p class="lead">
               <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Играть</a>
             </p>
@@ -64,7 +64,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Content has taken from  <a href="http://en.wikipedia.org/wiki/Main_Page">en.Wikipedia.org</a>
+              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>
                 <!-- , by <a href="http://vk.com/true_pk">true_pk</a> -->
               .</p>
             </div>

@@ -93,8 +93,8 @@
 			if(!$_SESSION['win'])
 				echo "
 				<div id='page_header'>
-					<p class='text'>Your target: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
-					<p class='text'>&nbsp;&nbsp;Your steps: ".$_SESSION['counter']."</p>
+					<p class='text'>Ваша цель: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
+					<p class='text'>&nbsp;&nbsp;Количество шагов: ".$_SESSION['counter']."</p>
 					<p class='text right'>
 						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Начать заново</a></span>
 						<span class='label newgame_button label-success'><a href='/wiki/Main_Page'>Новая игра</a></span>
@@ -121,9 +121,9 @@
 			$count = $_SESSION['counter'];
 			$hash = $_SESSION['hash'];
 			$url = "http://wikiwalker.ru/".$hash;
-			$title = "WikiWalker - Get it shorter!";
-			$desc = "Congrats! You have completed your way from ".str_replace("_", " ", $_SESSION["start"])." 
-			to ".str_replace("_", " ", $_SESSION["end"])." with ".$_SESSION["counter"]." steps. ";
+			$title = "WikiWalker - Пройди свой путь!";
+			$desc = "Поздравляем! Вы прошли от страницы ".str_replace("_", " ", $_SESSION["start"])." 
+			до страницы ".str_replace("_", " ", $_SESSION["end"]).". Количество шагов: ".$_SESSION["counter"].". ";
 			$img = "http://wikiwalker.ru/assets/img/forsocials.jpg";
 			echo <<<EOF
 			    <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -156,10 +156,10 @@
 			          </div>
 
 			          <div class="inner cover">
-			            <h1 class="cover-heading">Congratulations!</h1>
+			            <h1 class="cover-heading">Поздравляем!</h1>
 			            <p class="lead">
-			            	You have completed your way with <span class="label label-danger">$count</span> points. 
-			            	Like it? <br>Share your result with your friends!
+			            	Вы завершили свой маршрут! Количество переходов: <span class="label label-danger">$count</span>. 
+			            	Понравилось? <br>Поделись результатом с друзьями!
 			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
 			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Play again</a>
