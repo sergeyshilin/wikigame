@@ -13,6 +13,17 @@
 			return DBHelper::getAssoc("SELECT * FROM categories");
 		}
 
+		private function getWayInfoToShow($way, $route) {
+			return [
+						"id" => $way["id"], 
+						"hash" => $way["hash"], 
+						"depth" => $way["depth"], 
+						"links" => $way["links"],
+						"verified" => $way["verified"],
+						"way" => $route
+					];
+		}
+
 		public function getWaysByCat($cat) {
 			require_once('Way.php');
 
@@ -22,29 +33,36 @@
 			$prev_id = $ways[0]["id"];
 			$cur_id = 0;
 			$route = array();
-			foreach ($ways as $way) {
+			for($i = 0; $i < count($ways); $i++) {
+				$way = $ways[$i];
 				$cur_id = $way["id"];
 
 				if($cur_id != $prev_id) {
-					array_push($result, [
-										"id" => $way["id"], 
-										"hash" => $way["hash"], 
-										"depth" => $way["depth"], 
-										"links" => $way["links"],
-										"verified" => $way["verified"],
-										"way" => $route
-									]
-						);
+					array_push($result, $this->getWayInfoToShow($ways[$i-1], $route));
 					unset($route);
 					$route = array();
 				}
 
 				array_push($route, $way["link"]);
 
+				if($i == count($ways) - 1) {
+					array_push($result, $this->getWayInfoToShow($ways[$i-1], $route));
+				}
+
+
 				$prev_id = $cur_id;
 			}
 
 			return $result;
 		}
+
+		public function updateVerificationInCat($cat_id, $verify) {
+			return DBHelper::update("UPDATE ways SET verified='{$verify}' WHERE cat_id = '{$cat_id}'");
+		}
+
+		public function deleteWayByHash($hash) {
+			return DBHelper::delete("DELETE FROM `ways` WHERE hash = '{$hash}'");
+		}
+
 	}
 ?>

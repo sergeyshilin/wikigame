@@ -170,3 +170,12 @@ body, html {
 #way div {
 	display: inline;
 }
+
+.jslink {
+	cursor: pointer;
+	color: blue;
+}
+
+.jslink:hover {
+	text-decoration: underline;
+}

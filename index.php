@@ -96,7 +96,7 @@
           <div class="mastfoot">
             <div class="inner">
               <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
-                Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">В контакте</a>
+                Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
               .</p>
             </div>
           </div>
@@ -117,18 +117,24 @@
           </div>
           <div class="modal-body">
             <div class="list-group">
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Ученые</h4>
-                <p class="list-group-item-text">Кельвин, Остроградский, Беклемишев,...</p>
+              <a href="/wiki/Main_Page" class="list-group-item active">
+                <h4 class="list-group-item-heading">Случайный</h4>
+                <p class="list-group-item-text">Будет выбран случайный маршрут</p>
               </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Биология</h4>
-                <p class="list-group-item-text">Всякие молекулы, ядра, нуклеоны и пр</p>
-              </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Фильмы</h4>
-                <p class="list-group-item-text">"50 оттенков серого" и прочая шелуха</p>
-              </a>
+              <?php
+                
+                require_once('wikigame/WayUtils.php');
+                $utils = new WayUtils();
+                $cats = $utils->getCategories();
+
+                foreach ($cats as $cat) {
+                  echo "<a href='/wiki/Main_Page?cat=".$cat["id"]."' class='list-group-item'>";
+                  echo "<h4 class='list-group-item-heading'>".$cat["name"]."</h4>";
+                  echo "<p class='list-group-item-text'>".$cat["description"]."</p>";
+                  echo "</a>";
+                }
+
+              ?>
             </div>
           </div>
         </div>

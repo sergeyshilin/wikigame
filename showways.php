@@ -24,12 +24,24 @@
 
 		$ways = $editor->getWaysByCat($id);
 
+		echo "<div class='way'>
+				<div class='number'>Number</div>
+				<div class='hash'>Hash</div>
+				<div class='way_nodes'>Links</div>
+				<div class='depth'>Depth</div>
+				<div class='links'>Links</div>
+				<div class='verified'>
+					<input type='checkbox' class='all' />Verify All
+				</div>
+				<div class='delete'>Delete</div>
+			</div>";
+
 		for($i = 0; $i < count($ways); $i++) {
 			$number = $i + 1;
 			$checked = $ways[$i]["verified"] ? "checked" : "";
-			echo "<div class='way'>";
+			echo "<div class='way' id='".$ways[$i]["hash"]."'>";
 			echo "<div class='number'>".$number."</div>";
-			echo "<div class='hash'>".$ways[$i]["hash"]."</div>";
+			echo "<div class='hash'><a href='/".$ways[$i]["hash"]."' target='_blank'>".$ways[$i]["hash"]."</a></div>";
 			echo "<div class='way_nodes'>";
 
 			foreach ($ways[$i]["way"] as $node) {
@@ -39,10 +51,12 @@
 
 			echo "</div>";
 			echo "<div class='depth'>".$ways[$i]["depth"]. "</div><div class='links'>".$ways[$i]["links"]."</div>";
-			echo "<div class='verified'><input type='checkbox' ".$checked."/></div>";
-			echo "<div class='delete'><a href='#' class='link'>Удалить</a></div>";
+			echo "<div class='verified'><input type='checkbox' class='check' disabled ".$checked."/></div>";
+			echo "<div class='delete'><a onclick='deleteWay(\"".$ways[$i]["hash"]."\")' class='link jslink'>Удалить</a></div>";
 			echo "</div>";
 		}
+
+		echo "<a class='jslink' onclick='saveAllInCat(".$id.");'>Сохранить</a>";
 
 	} else {
 		$cats = $editor->getCategories();
