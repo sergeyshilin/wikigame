@@ -1,3 +1,11 @@
+<?php
+
+	header('Content-Type: text/html; charset=utf-8');
+
+	include 'authorize.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +21,6 @@
 <?php
 	// xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
 
-	header('Content-Type: text/html; charset=utf-8');
 	require_once('wikigame/WayUtils.php');
 	require_once('wikigame/Way.php');
 
