@@ -11,6 +11,8 @@
    	<body>
    		<div id="showways">
 <?php
+	// xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
+
 	header('Content-Type: text/html; charset=utf-8');
 	require_once('wikigame/WayUtils.php');
 	require_once('wikigame/Way.php');
@@ -49,6 +51,17 @@
 			echo "<h3><a href='?cat=".$cat["id"]."'>".$cat["name"]."</a></h3>";
 		}
 	}
+
+	// $xhprof_data = xhprof_disable('/tmp');
+
+	// $XHPROF_ROOT = "/var/www/xhprof/";
+	// include_once $XHPROF_ROOT . "/xhprof_lib/utils/xhprof_lib.php";
+	// include_once $XHPROF_ROOT . "/xhprof_lib/utils/xhprof_runs.php";
+
+	// $xhprof_runs = new XHProfRuns_Default();
+	// $run_id = $xhprof_runs->save_run($xhprof_data, "xhprof_testing");
+
+	// echo "<a href='http://domain1/xhprof/index.php?run={$run_id}&source=xhprof_testing' target='_blank'>XHProf report</a>";
 
 ?>
 		</div>
