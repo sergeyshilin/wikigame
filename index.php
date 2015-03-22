@@ -123,16 +123,16 @@
               </a>
               <?php
                 
-                require_once('wikigame/WayUtils.php');
-                $utils = new WayUtils();
-                $cats = $utils->getCategories();
+                // require_once('wikigame/WayUtils.php');
+                // $utils = new WayUtils();
+                // $cats = $utils->getCategories();
 
-                foreach ($cats as $cat) {
-                  echo "<a href='/wiki/Main_Page?cat=".$cat["id"]."' class='list-group-item'>";
-                  echo "<h4 class='list-group-item-heading'>".$cat["name"]."</h4>";
-                  echo "<p class='list-group-item-text'>".$cat["description"]."</p>";
-                  echo "</a>";
-                }
+                // foreach ($cats as $cat) {
+                //   echo "<a href='/wiki/Main_Page?cat=".$cat["id"]."' class='list-group-item'>";
+                //   echo "<h4 class='list-group-item-heading'>".$cat["name"]."</h4>";
+                //   echo "<p class='list-group-item-text'>".$cat["description"]."</p>";
+                //   echo "</a>";
+                // }
 
               ?>
             </div>
