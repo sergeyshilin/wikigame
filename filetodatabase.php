@@ -1,8 +1,9 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
+	include 'authorize.php';
 	require_once('wikigame/WayParser.php'); 
 
-	$parser = new WayParser('wikigame/scripts/results/films_unsorted.txt');
+	$parser = new WayParser('wikigame/scripts/results/tecnic_unsorted.txt');
 	$parser->setLang('ru');
-	$parser->writeWays(3);
+	$parser->writeWays(6);
 ?>

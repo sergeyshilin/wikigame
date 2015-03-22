@@ -44,10 +44,13 @@
 			$this->lang = $_lang;
 		}
 
-		public static function getRandomWay() {
+		public static function getRandomWay($cat = 0) {
 			require_once('DBHelper.php');
 			require_once('Way.php');
-			$way = DBHelper::getAssoc("SELECT * FROM ways WHERE verified = 1 order by RAND() LIMIT 1")[0];
+			if($cat == 0)
+				$way = DBHelper::getAssoc("SELECT * FROM ways WHERE verified = 1 order by RAND() LIMIT 1")[0];
+			else 
+				$way = DBHelper::getAssoc("SELECT * FROM ways WHERE cat_id = '{$cat}' AND verified = 1 order by RAND() LIMIT 1")[0];
 			return new Way($way["id"], $way["depth"], $way["links"]);
 		}
 

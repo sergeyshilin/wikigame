@@ -5,9 +5,17 @@
 		require_once('DBHelper.php');
 		require_once('WayParser.php');
 
+		$cat = 0;
+
 		$page = $_GET['page'];
         $page = htmlspecialchars($page); // Escape HTML.
         $page = DBHelper::escape($page); // Escape SQL.
+
+        if(isset($_GET["cat"]) && !empty($_GET["cat"])) {
+        	$cat = $_GET["cat"];
+        	$cat = htmlspecialchars($cat); // Escape HTML.
+	        $cat = DBHelper::escape($cat); // Escape SQL.
+        }
 
 		if(WayParser::isMD5Hash($page)) {
 			$way = WayParser::getWayByHash($page);
@@ -27,7 +35,8 @@
 
 
 		if(empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
-			$way = WayParser::getRandomWay();
+			$way = WayParser::getRandomWay($cat);
+			$_SESSION['cat'] = $cat;
 			$_SESSION['end'] = Way::getName($way->getEndPoint());
 			$_SESSION['start'] = Way::getName($way->getStartPoint());
 			$_SESSION['startlink'] = $way->getStartPoint();
@@ -173,7 +182,8 @@
 
 			          <div class="mastfoot">
 			            <div class="inner">
-			              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>
+			              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a></br>
+			              Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
 			                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
 			              .</p>
 			            </div>

@@ -5,7 +5,7 @@ Options -Indexes -Multiviews
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|showways\.php|filetodatabase\.php$
+RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|actions\/(.*)|showways\.php|filetodatabase\.php$
 	RewriteRule ^(.*)$ $1 [L,QSA]
 
 RewriteRule 	^(.*)$     index.php?game=$1 		[L,QSA]

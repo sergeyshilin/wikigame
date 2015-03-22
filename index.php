@@ -41,6 +41,18 @@
         text-decoration: none;
       }
 
+      #cats {
+        color: #333;
+        text-shadow: none !important;
+      }
+
+      #cats .modal-dialog {
+        width: 400px;
+      }
+
+      .list-group {
+        text-align: left;
+      }
     </style>
 
     <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
@@ -77,14 +89,14 @@
             <h1 class="cover-heading">Пройди свой путь.</h1>
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
             <p class="lead">
-              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Играть</a>
+              <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats">Играть</button>
             </p>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
               <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
-                Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">В контакте</a>
+                Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
               .</p>
             </div>
           </div>
@@ -93,6 +105,40 @@
 
       </div>
 
+    </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="cats" tabindex="-1" role="dialog" aria-labelledby="categories" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="categories">Категория</h4>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <a href="/wiki/Main_Page" class="list-group-item active">
+                <h4 class="list-group-item-heading">Случайный</h4>
+                <p class="list-group-item-text">Будет выбран случайный маршрут</p>
+              </a>
+              <?php
+                
+                // require_once('wikigame/WayUtils.php');
+                // $utils = new WayUtils();
+                // $cats = $utils->getCategories();
+
+                // foreach ($cats as $cat) {
+                //   echo "<a href='/wiki/Main_Page?cat=".$cat["id"]."' class='list-group-item'>";
+                //   echo "<h4 class='list-group-item-heading'>".$cat["name"]."</h4>";
+                //   echo "<p class='list-group-item-text'>".$cat["description"]."</p>";
+                //   echo "</a>";
+                // }
+
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap core JavaScript

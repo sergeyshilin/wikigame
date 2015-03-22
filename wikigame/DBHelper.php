@@ -18,6 +18,17 @@ class DBHelper {
         return true;
     }
 
+    public static function delete($query) 
+    {
+        require_once('SQLConfig.php');
+        $sqlconfig = new SQLConfig();
+        $mysqli = $sqlconfig->getMysqli();
+        $result = $mysqli->query($query);
+        if($result === TRUE)
+            return true;
+        return false;
+    }
+
     public static function insert($query)
     {
         require_once('SQLConfig.php');
