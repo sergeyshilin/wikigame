@@ -82,6 +82,12 @@
 
 			return $result;
 		}
+
+		public static function substrNodeName($string, $chars = 50) {
+		    preg_match('/^.{0,' . $chars. '}(?:.*?)\b/iu', $string, $matches);
+		    $new_string = $matches[0];
+		    return ($new_string === $string) ? $string : $new_string . '&hellip;';
+		}
 	}
 
 ?>

@@ -24,19 +24,20 @@
 
 		for($i = 0; $i < count($ways); $i++) {
 			$number = $i + 1;
-			$checked = $way[$i]["verified"] ? "checked" : "";
+			$checked = $ways[$i]["verified"] ? "checked" : "";
 			echo "<div class='way'>";
 			echo "<div class='number'>".$number."</div>";
 			echo "<div class='hash'>".$ways[$i]["hash"]."</div>";
 			echo "<div class='way_nodes'>";
 
 			foreach ($ways[$i]["way"] as $node) {
-				echo "<div class='node'><a href='".Way::getUrl($node)."'>".Way::getName($node)."</a></div>";
+				echo "<div class='node'><a href='".Way::getUrl($node)."' target='_blank'>";
+				echo Way::getName($node)."</a></div>";
 			}
 
 			echo "</div>";
 			echo "<div class='depth'>".$ways[$i]["depth"]. "</div><div class='links'>".$ways[$i]["links"]."</div>";
-			echo "<div class='verified'><input type='checkbox' checked='".$checked."'/></div>";
+			echo "<div class='verified'><input type='checkbox' ".$checked."/></div>";
 			echo "<div class='delete'><a href='#' class='link'>Удалить</a></div>";
 			echo "</div>";
 		}

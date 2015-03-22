@@ -17,7 +17,7 @@
 			require_once('Way.php');
 
 			$result = [];
-			$ways = DBHelper::getAssoc("SELECT * FROM ways WHERE cat_id = '{$cat}' LIMIT 10");
+			$ways = DBHelper::getAssoc("SELECT * FROM ways WHERE cat_id = '{$cat}'");
 
 
 			foreach ($ways as $way) {
