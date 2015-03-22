@@ -6,9 +6,10 @@
 
 		public function __construct($_path) {
 			require_once('Way.php');
-			if(func_get_args() > 0)
+			if(func_get_args() > 0) {
 				$this->path = $_path;
-			$this->waysarr = $this->getWaysArray($this->path);
+				$this->waysarr = $this->getWaysArray($this->path);
+			}
 		}
 
 		private function getWaysArray($path) {
@@ -46,7 +47,7 @@
 		public static function getRandomWay() {
 			require_once('DBHelper.php');
 			require_once('Way.php');
-			$way = DBHelper::getAssoc("SELECT * FROM ways order by RAND() LIMIT 1")[0];
+			$way = DBHelper::getAssoc("SELECT * FROM ways WHERE verified = 1 order by RAND() LIMIT 1")[0];
 			return new Way($way["id"], $way["depth"], $way["links"]);
 		}
 
@@ -61,7 +62,7 @@
 			return count($way) > 0 ? (new Way($way["id"], $way["depth"], $way["links"])) : NULL;
 		}
 
-		public function writeWays() {
+		public function writeWays($cat) {
 			require_once('SQLConfig.php');
 			$sqlconfig = new SQLConfig();
 	        $mysqli = $sqlconfig->getMysqli();
@@ -73,7 +74,7 @@
 				$links = $way->getLinksCount();
 				$complexity = 0;
 				$lang = $this->lang;
-				if($mysqli->query("INSERT INTO ways VALUES(NULL, '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0)") === TRUE) {
+				if($mysqli->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0, 0)") === TRUE) {
 					$id = $mysqli->insert_id;
 					$this->writeNode($mysqli, $id, $way->getWay(), 0, NULL);
 				}

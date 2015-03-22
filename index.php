@@ -28,6 +28,21 @@
 
     <!-- Custom styles for this template -->
     <link href="/wiki/css/cover.css" rel="stylesheet">
+    <style type="text/css">
+      .vklink {
+        padding: 1px 4px;
+        background-color: rgba(0, 0, 51, 0.4);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+      }
+
+      .vklink:hover{
+        text-decoration: none;
+      }
+
+    </style>
+
     <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -68,8 +83,8 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>
-                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> -->
+              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
+                Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">В контакте</a>
               .</p>
             </div>
           </div>
