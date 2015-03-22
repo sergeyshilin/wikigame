@@ -41,6 +41,18 @@
         text-decoration: none;
       }
 
+      #cats {
+        color: #333;
+        text-shadow: none !important;
+      }
+
+      #cats .modal-dialog {
+        width: 400px;
+      }
+
+      .list-group {
+        text-align: left;
+      }
     </style>
 
     <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
@@ -77,7 +89,7 @@
             <h1 class="cover-heading">Пройди свой путь.</h1>
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
             <p class="lead">
-              <a href="/wiki/Main_Page" class="btn btn-lg btn-success">Играть</a>
+              <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats">Играть</button>
             </p>
           </div>
 
@@ -93,6 +105,34 @@
 
       </div>
 
+    </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="cats" tabindex="-1" role="dialog" aria-labelledby="categories" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="categories">Категория</h4>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Ученые</h4>
+                <p class="list-group-item-text">Кельвин, Остроградский, Беклемишев,...</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Биология</h4>
+                <p class="list-group-item-text">Всякие молекулы, ядра, нуклеоны и пр</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Фильмы</h4>
+                <p class="list-group-item-text">"50 оттенков серого" и прочая шелуха</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap core JavaScript
