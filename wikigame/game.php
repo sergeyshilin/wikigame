@@ -128,8 +128,13 @@
 			       echo $element; // построчный вывод содержания всех найденных атрибутов src
 			}
 
+			foreach ($html->find('span.mw-editsection') as $element) {
+		        $element->outertext = '';
+		    }
+
 			$html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
 			$content = $html->find('div[id=content]', 0);
+			// $content = str_replace($editsection, "", $content);	
 			echo $content;
 		} else {
 			$count = $_SESSION['counter'];
