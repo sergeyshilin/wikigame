@@ -111,7 +111,7 @@
 					<p class='text'>&nbsp;&nbsp;Количество шагов: ".$_SESSION['counter']."</p>
 					<p class='text right'>
 						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Начать заново</a></span>
-						<span class='label newgame_button label-success'><a href='/wiki/Main_Page'>Новая игра</a></span>
+						<span class='label newgame_button label-success'><a href='/wiki/Main_Page?cat=".$_SESSION["cat"]."'>Новая игра</a></span>
 					</p>
 				</div>";
 		?>
