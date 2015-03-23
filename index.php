@@ -46,10 +46,6 @@
         text-shadow: none !important;
       }
 
-      #cats .modal-dialog {
-        width: 400px;
-      }
-
       .list-group {
         text-align: left;
       }
@@ -95,7 +91,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
+              <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
                 Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
               .</p>
             </div>

@@ -144,6 +144,10 @@
 			$desc = "Поздравляем! Вы прошли от страницы ".str_replace("_", " ", $_SESSION["start"])." 
 			до страницы ".str_replace("_", " ", $_SESSION["end"]).". Количество шагов: ".$_SESSION["counter"].". ";
 			$img = "http://wikiwalker.ru/assets/img/forsocials.jpg";
+			$start_page = str_replace("_", " ", $_SESSION["start"]);
+			$start_page_link = $_SESSION["startlink"];
+			$end_page = str_replace("_", " ", $_SESSION["end"]);
+			$end_page_link = $_SESSION["endlink"];
 			echo <<<EOF
 			    <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -177,8 +181,10 @@
 			          <div class="inner cover">
 			            <h1 class="cover-heading">Поздравляем!</h1>
 			            <p class="lead">
-			            	Вы завершили свой маршрут! Количество переходов: <span class="label label-danger">$count</span> 
-			            	Понравилось? <br>Поделись результатом с друзьями!
+			            	Вы завершили свой маршрут! Количество переходов: <span class="label label-danger">$count</span>
+			            	Начальная страница: <span class="label label-warning">$start_page</span> </br>
+			            	Конечная страница: <span class="label label-warning">$end_page</span> </br> 
+			            	Понравилось? Поделись результатом с друзьями!
 			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
 			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Играть снова</a>
@@ -187,7 +193,7 @@
 
 			          <div class="mastfoot">
 			            <div class="inner">
-			              <p>Содержимое взято с сайта <a href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a></br>
+			              <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a></br>
 			              Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
 			                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
 			              .</p>
