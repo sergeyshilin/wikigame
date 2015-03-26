@@ -113,7 +113,7 @@
 			$end_page = str_replace("_", " ", $_SESSION["end"]);
 			$end_page_link = $_SESSION["endlink"];
 
-			if(!$_SESSION['win'])
+			if(!$_SESSION['win']) {
 				echo <<<EOF
 				<div class="bootstrap-compatible">
 					<!-- Fixed navbar -->
@@ -156,6 +156,7 @@ EOF;
 				    </nav>
 				</div>
 EOF;
+			}
 
 		?>
 	<?php 
