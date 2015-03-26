@@ -24,32 +24,11 @@
 
     <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
-    <link href="/wiki/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
 
     <!-- Custom styles for this template -->
     <link href="/wiki/css/cover.css" rel="stylesheet">
-    <style type="text/css">
-      .vklink {
-        padding: 1px 4px;
-        background-color: rgba(0, 0, 51, 0.4);
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-      }
-
-      .vklink:hover{
-        text-decoration: none;
-      }
-
-      #cats {
-        color: #333;
-        text-shadow: none !important;
-      }
-
-      .list-group {
-        text-align: left;
-      }
-    </style>
 
     <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
 
