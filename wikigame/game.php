@@ -95,25 +95,71 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 	
-	<script src="js/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
 	<link rel="image_src" href="http://wikiwalker.ru/assets/img/forsocials.jpg" />
-	<script type="text/javascript" language="JavaScript" src="js/jquery.min.js"></script>
-	<script src="js/main.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap-compatible.min.css">
+	
+	<script type="text/javascript" language="JavaScript" src="/wiki/js/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/wiki/js/bootstrap.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/wiki/js/main.js" ></script>
 </head>
 <body>
 	
 		<?php 
-			if(!$_SESSION['win'])
-				echo "
-				<div id='page_header'>
-					<p class='text'>Ваша цель: <a href='".$_SESSION['endlink']."' target='_blank'>". str_replace("_", " ", $_SESSION['end']). "</a></p>
-					<p class='text'>&nbsp;&nbsp;Количество шагов: ".$_SESSION['counter']."</p>
-					<p class='text right'>
-						<span class='label startpage_button label-danger'><a href='/wiki/".$_SESSION['start']."'>Начать заново</a></span>
-						<span class='label newgame_button label-success'><a href='/wiki/Main_Page?cat=".$_SESSION["cat"]."'>Новая игра</a></span>
-					</p>
-				</div>";
+			$cat = $_SESSION["cat"] ? "?cat=".$_SESSION["cat"] : "";
+			$count = $_SESSION['counter'];
+			$start_page = str_replace("_", " ", $_SESSION["start"]);
+			$start_page_link = $_SESSION["startlink"];
+			$end_page = str_replace("_", " ", $_SESSION["end"]);
+			$end_page_link = $_SESSION["endlink"];
+
+			if(!$_SESSION['win']) {
+				echo <<<EOF
+				<div class="bootstrap-compatible">
+					<!-- Fixed navbar -->
+				    <nav class="navbar navbar-default navbar-fixed-top">
+				      <div class="container">
+				        <div class="navbar-header">
+				          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				          </button>
+				          <a class="navbar-brand" href="/">WikiWalker</a>
+				        </div>
+				        <div id="navbar" class="navbar-collapse collapse">
+				          <ul class="nav navbar-nav">
+				            <li><a target="_blank" href="$end_page_link">Ваша цель: <span class="jslink">$end_page</span></a></li>
+				            <li><a>Количество шагов: $count</a></li>
+				          </ul>
+				          <ul class="nav navbar-nav navbar-right">
+				            <li class="hovered"><a href="/wiki/$start_page">Начать заново</a></li>
+				            <li class="hovered"><a href="/wiki/Main_Page$cat">Новая игра</a></li>
+				            <li class="dropdown hovered">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Сменить категорию <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu">
+				              	<li><a href="/wiki/Main_Page">Случайный маршрут</a></li>
+				              	<li class="divider"></li>
+EOF;
+								require_once('WayUtils.php');
+				                $utils = new WayUtils();
+				                $cats = $utils->getCategories();
+
+				                foreach ($cats as $cat) {
+				                  echo "<li><a href='/wiki/Main_Page?cat=".$cat["id"]."'>".$cat["name"]."</a></li>";
+				                }
+							echo <<<EOF
+				              </ul>
+				            </li>
+				          </ul>
+				        </div><!--/.nav-collapse -->
+				      </div>
+				    </nav>
+				</div>
+EOF;
+			}
+
 		?>
 	<?php 
 		include_once('simple_html_dom.php');
@@ -150,10 +196,9 @@
 			$end_page = str_replace("_", " ", $_SESSION["end"]);
 			$end_page_link = $_SESSION["endlink"];
 			echo <<<EOF
-			    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+				<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
 			    <!-- Custom styles for this template -->
-			    <link href="css/cover.css" rel="stylesheet">
+			    <link href="/wiki/css/cover.css" rel="stylesheet">
 			    <script src="assets/js/ie-emulation-modes-warning.js"></script>
 			    <script type="text/javascript" src="assets/share42/share42.js"></script>
 			    <script type="text/javascript">
@@ -211,8 +256,6 @@
 			    <!-- Bootstrap core JavaScript
 			    ================================================== -->
 			    <!-- Placed at the end of the document so the pages load faster -->
-			    <script src="js/jquery.min.js"></script>
-			    <script src="js/bootstrap.min.js"></script>
 			    <script src="assets/js/docs.min.js"></script>
 			    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 			    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
