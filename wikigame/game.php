@@ -130,15 +130,17 @@
 				        </div>
 				        <div id="navbar" class="navbar-collapse collapse">
 				          <ul class="nav navbar-nav">
-				            <li class="active"><a target="_blank" href="$end_page_link">Ваша цель: $end_page</a></li>
+				            <li><a target="_blank" href="$end_page_link">Ваша цель: <span class="jslink">$end_page</span></a></li>
 				            <li><a>Количество шагов: $count</a></li>
 				          </ul>
 				          <ul class="nav navbar-nav navbar-right">
-				            <li><a href="/wiki/$start_page">Начать заново</a></li>
-				            <li><a href="/wiki/Main_Page$cat">Новая игра</a></li>
-				            <li class="dropdown">
+				            <li class="hovered"><a href="/wiki/$start_page">Начать заново</a></li>
+				            <li class="hovered"><a href="/wiki/Main_Page$cat">Новая игра</a></li>
+				            <li class="dropdown hovered">
 				              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Сменить категорию <span class="caret"></span></a>
 				              <ul class="dropdown-menu" role="menu">
+				              	<li><a href="/wiki/Main_Page">Случайный маршрут</a></li>
+				              	<li class="divider"></li>
 EOF;
 								require_once('WayUtils.php');
 				                $utils = new WayUtils();
