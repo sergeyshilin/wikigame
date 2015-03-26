@@ -137,6 +137,7 @@
 			// $content = str_replace($editsection, "", $content);	
 			echo $content;
 		} else {
+			$cat = $_SESSION["cat"] ? "?cat=".$_SESSION["cat"] : "";
 			$count = $_SESSION['counter'];
 			$hash = $_SESSION['hash'];
 			$url = "http://wikiwalker.ru/".$hash;
@@ -187,7 +188,8 @@
 			            	Понравилось? Поделись результатом с друзьями!
 			            	<div class="share42init" data-description="$desc" data-image="$img" data-url="$url" data-title="$title"></div>
 			            <p class="lead">
-			              <a href="/wiki/Main_Page" class="btn btn-lg btn-success congrats_playagain">Играть снова</a>
+			            	<a href="/$hash" class="btn btn-lg btn-success congrats_playagain">Повторить</a>
+			              	<a href="/wiki/Main_Page$cat" class="btn btn-lg btn-success congrats_playagain">Новая игра</a>
 			            </p>
 			          </div>
 
