@@ -196,9 +196,9 @@
 			          <div class="mastfoot">
 			            <div class="inner">
 			              <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a></br>
-			              Поддержи проект! Вступай в группу <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
+			              Следи за интересными маршрутами в нашей группе <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
 			                <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
-			              .</p>
+			              </p>
 			            </div>
 			          </div>
 
