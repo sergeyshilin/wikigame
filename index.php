@@ -62,7 +62,7 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Пройди свой путь.</h1>
-            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов. Думаешь это просто? </br>Попробуй сыграть прямо сейчас!</p>
+            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов. Думаешь, это просто? </br>Попробуй сыграть прямо сейчас!</p>
             <p class="lead">
               <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats">Играть</button>
             </p>
