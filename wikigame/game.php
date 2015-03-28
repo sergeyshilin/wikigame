@@ -46,9 +46,6 @@
 			header('Location: '.$_SESSION["start"]);
 		}
 
-		// if (empty($_SERVER['HTTP_REFERER']))
-		// 	header('Location: '.$_SESSION["start"]);
-
 		$_SESSION['previous'] = $_SESSION['current'];
 		$_SESSION['current'] = $page;
 		if ($_SESSION['current'] != $_SESSION['previous'] && !$_SESSION['win'])
@@ -110,15 +107,16 @@
 <body>
 	
 		<?php 
-			$cat = $_SESSION["cat"] ? "?cat=".$_SESSION["cat"] : "";
-			$count = $_SESSION['counter'];
-			$start_page = str_replace("_", " ", $_SESSION["start"]);
-			$start_page_link = $_SESSION["startlink"];
-			$end_page = str_replace("_", " ", $_SESSION["end"]);
-			$end_page_link = $_SESSION["endlink"];
-			$referer = $_SERVER['HTTP_REFERER'];
 
-			if(!$_SESSION['win']) {
+		if(!$_SESSION['win']) {
+				$cat = $_SESSION["cat"] ? "?cat=".$_SESSION["cat"] : "";
+				$count = $_SESSION['counter'];
+				$start_page = str_replace("_", " ", $_SESSION["start"]);
+				$start_page_link = $_SESSION["startlink"];
+				$end_page = str_replace("_", " ", $_SESSION["end"]);
+				$end_page_link = $_SESSION["endlink"];
+				$referer = $_SERVER['HTTP_REFERER'];
+
 				echo <<<EOF
 				<div class="bootstrap-compatible">
 					<!-- Fixed navbar -->
