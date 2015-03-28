@@ -53,7 +53,7 @@
 		$_SESSION['current'] = $page;
 		if ($_SESSION['current'] != $_SESSION['previous'] && !$_SESSION['win'])
 			$_SESSION['counter'] += 1;
-		if ($_SESSION['current'] == $_SESSION['start']) {
+		if ($_SESSION['current'] == $_SESSION['start'] && !$_SESSION['win']) {
 			$_SESSION['counter'] = 0;
 			$_SESSION['previous'] = "";
             $_SESSION['current'] = $page;
@@ -61,7 +61,8 @@
 		if($_SESSION['current'] == $_SESSION['end'] && !empty($_SERVER['HTTP_REFERER'])) {
 			$_SESSION['win'] = true;
 		} else if((empty($_SERVER['HTTP_REFERER'])) &&
-					(($_SESSION['current'] == $_SESSION['end']) || ($_SESSION['current'] != $_SESSION['start']))) {
+					(($_SESSION['current'] == $_SESSION['end']) || ($_SESSION['current'] != $_SESSION['start']))
+					&& !$_SESSION['win']) {
 			$_SESSION['counter'] = 0;
 			header('Location: '.$_SESSION["start"]);
 		}
