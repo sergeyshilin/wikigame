@@ -33,7 +33,6 @@
 			}
 		}
 
-
 		if(empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
 			$way = WayParser::getRandomWay($cat);
 			$_SESSION['cat'] = $cat;
@@ -47,6 +46,9 @@
 			header('Location: '.$_SESSION["start"]);
 		}
 
+		// if (empty($_SERVER['HTTP_REFERER']))
+		// 	header('Location: '.$_SESSION["start"]);
+
 		$_SESSION['previous'] = $_SESSION['current'];
 		$_SESSION['current'] = $page;
 		if ($_SESSION['current'] != $_SESSION['previous'] && !$_SESSION['win'])
@@ -58,7 +60,8 @@
 		}
 		if($_SESSION['current'] == $_SESSION['end'] && !empty($_SERVER['HTTP_REFERER'])) {
 			$_SESSION['win'] = true;
-		} else if($_SESSION['current'] == $_SESSION['end'] && empty($_SERVER['HTTP_REFERER'])) {
+		} else if((empty($_SERVER['HTTP_REFERER'])) &&
+					(($_SESSION['current'] == $_SESSION['end']) || ($_SESSION['current'] != $_SESSION['start']))) {
 			$_SESSION['counter'] = 0;
 			header('Location: '.$_SESSION["start"]);
 		}
@@ -112,6 +115,7 @@
 			$start_page_link = $_SESSION["startlink"];
 			$end_page = str_replace("_", " ", $_SESSION["end"]);
 			$end_page_link = $_SESSION["endlink"];
+			$referer = $_SERVER['HTTP_REFERER'];
 
 			if(!$_SESSION['win']) {
 				echo <<<EOF
