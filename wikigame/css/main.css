@@ -27,8 +27,26 @@ body, html {
 
 }
 
-.share42init {
-	margin-top: -13px;
+.sharebtn {
+    display: inline-block;
+    background-image: url(http://share.pluso.ru/img/pluso-like/square/big/01.png);
+    margin: 5px 0 0 5px;
+    padding: 0;
+    width: 40px !important;
+    height: 40px !important;
+    cursor: pointer;
+}
+.vk {
+    background-position: -168px 0;
+}
+.fb {
+    background-position: -0px 0;
+}
+.gp {
+    background-position:-252px 0;
+}
+.tw {
+    background-position: -42px 0;
 }
 
 .congrats_playagain {

@@ -89,6 +89,7 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
     <meta property="og:description" content="WikiWalker" />
     <meta property="og:url" content="http://wikiwalker.ru/" />
     <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+    <meta property="og:image:url" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
 
     <meta name="title" content="WikiWalker" />
     <meta name="description" content="WikiWalker - Пройди свой путь" />

@@ -4,9 +4,7 @@ $count = $_SESSION['counter'];
 $hash = $_SESSION['hash'];
 $url = "http://wikiwalker.ru/" . $hash;
 $title = "WikiWalker - Пройди свой путь!";
-$desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . "
-до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ". ";
-$img = "http://wikiwalker.ru/assets/img/forsocials.jpg";
+$desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
 $start_page_link = $_SESSION["startlink"];
 $end_page = str_replace("_", " ", $_SESSION["end"]);
@@ -17,7 +15,6 @@ $end_page_link = $_SESSION["endlink"];
 <!-- Custom styles for this template -->
 <link href="/wiki/css/cover.css" rel="stylesheet">
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
-<script type="text/javascript" src="assets/share42/share42.js"></script>
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
 </script>
@@ -28,28 +25,26 @@ $end_page_link = $_SESSION["endlink"];
             <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">WikiWalker</h3>
-                    <!-- <nav>
-                      <ul class="nav masthead-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Contact</a></li>
-                      </ul>
-                    </nav> -->
                 </div>
             </div>
 
             <div class="inner cover">
                 <h1 class="cover-heading">Поздравляем!</h1>
 
-                <p class="lead">
+                <p class="lead" style="margin-bottom: 0">
                     Вы завершили свой маршрут! Количество переходов: <span
                         class="label label-danger"><?= $count ?></span>
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
                     Понравилось? Поделись результатом с друзьями!
+                </p>
 
-                <div class="share42init" data-description="<?= $desc ?>" data-image="<?= $img ?>" data-url="<?= $url ?>"
-                     data-title="<?= $title ?>"></div>
+                <div id="sharebtns" style="margin-bottom: 20px">
+                    <a id="share_vk" class="sharebtn vk"></a>
+                    <a id="share_fb" class="sharebtn fb"></a>
+                    <a id="share_gp" class="sharebtn gp"></a>
+                    <a id="share_tw" class="sharebtn tw"></a>
+                </div>
                 <p class="lead">
                     <a href="/<?= $hash ?>" class="btn btn-lg btn-success congrats_playagain">Повторить</a>
                     <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain">Новая игра</a>
@@ -72,6 +67,30 @@ $end_page_link = $_SESSION["endlink"];
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/wiki/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="/wiki/js/parse-1.4.0.min.js"></script>
+<script src="/wiki/js/classes/Share.js"></script>
+<script language="JavaScript">
+    Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
+
+    var url = "<?=$url?>";
+    var title = "<?=$title?>";
+    var description = "<?=$desc?>";
+    var share = new Share(url, title, description);
+    $(document).ready(function() {
+        share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
+            var parseFile = new Parse.File("share.png", {base64: base64img});
+            parseFile.save().then(function () {
+                share.pimg = parseFile.url();
+                $("#share_vk").click(function() {share.vkontakte()});
+                $("#share_fb").click(function() {share.facebook()});
+                $("#share_gp").click(function() {share.googleplus()});
+                $("#share_tw").click(function() {share.twitter()});
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+</script>
