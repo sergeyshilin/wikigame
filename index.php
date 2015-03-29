@@ -26,6 +26,10 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
     <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
 
+    <meta name="title" content="WikiWalker - Пройди свой путь" />
+    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <link rel="image_src" href="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 

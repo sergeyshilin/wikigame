@@ -89,8 +89,11 @@
     <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
     <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
 
+    <meta name="title" content="WikiWalker - Пройди свой путь" />
+    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <link rel="image_src" href="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+
     <title>WikiWalker - Пройди свой путь</title>
-    <!-- wikipedia, game, walk -->
 
 	<link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap-compatible.min.css">
