@@ -9,8 +9,7 @@ class DBHelper {
         return $string;
     }
 
-    public static function run($query)
-    {
+    public static function run($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
@@ -18,19 +17,17 @@ class DBHelper {
         return true;
     }
 
-    public static function delete($query) 
-    {
+    public static function delete($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
         $result = $mysqli->query($query);
-        if($result === TRUE)
+        if ($result === TRUE)
             return true;
         return false;
     }
 
-    public static function insert($query)
-    {
+    public static function insert($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
@@ -43,8 +40,7 @@ class DBHelper {
         return NULL;
     }
 
-    public static function update($query) 
-    {
+    public static function update($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
@@ -54,8 +50,7 @@ class DBHelper {
         return false;
     }
 
-    public static function getFirst($query)
-    {
+    public static function getFirst($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
@@ -67,8 +62,7 @@ class DBHelper {
         return NULL;
     }
 
-    public static function getAssoc($query)
-    {
+    public static function getAssoc($query) {
         require_once('SQLConfig.php');
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();

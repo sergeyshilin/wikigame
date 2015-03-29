@@ -1,68 +1,70 @@
 <?php
-	/**
-	* Way Editor class
-	*/
-	class WayUtils {
-		
-		public function __construct() {
-			require_once('DBHelper.php');
-			require_once('WayParser.php');
-		}
 
-		public function getCategories() {
-			return DBHelper::getAssoc("SELECT * FROM categories");
-		}
+/**
+ * Way Editor class
+ */
+class WayUtils {
 
-		private function getWayInfoToShow($way, $route) {
-			return [
-						"id" => $way["id"], 
-						"hash" => $way["hash"], 
-						"depth" => $way["depth"], 
-						"links" => $way["links"],
-						"verified" => $way["verified"],
-						"way" => $route
-					];
-		}
+    public function __construct() {
+        require_once('DBHelper.php');
+        require_once('WayParser.php');
+    }
 
-		public function getWaysByCat($cat) {
-			require_once('Way.php');
+    public function getCategories() {
+        return DBHelper::getAssoc("SELECT * FROM categories");
+    }
 
-			$result = [];
-			$ways = DBHelper::getAssoc("SELECT w.*, n.link FROM ways w, way_nodes n WHERE cat_id = '{$cat}' AND w.id = n.way_id ORDER BY w.id, n.parent_id");
+    public function getWaysByCat($cat) {
+        require_once('Way.php');
 
-			$prev_id = $ways[0]["id"];
-			$cur_id = 0;
-			$route = array();
-			for($i = 0; $i < count($ways); $i++) {
-				$way = $ways[$i];
-				$cur_id = $way["id"];
+        $result = [];
+        $ways = DBHelper::getAssoc("SELECT w.*, n.link FROM ways w, way_nodes n WHERE cat_id = '{$cat}' AND w.id = n.way_id ORDER BY w.id, n.parent_id");
 
-				if($cur_id != $prev_id) {
-					array_push($result, $this->getWayInfoToShow($ways[$i-1], $route));
-					unset($route);
-					$route = array();
-				}
+        $prev_id = $ways[0]["id"];
+        $cur_id = 0;
+        $route = array();
+        for ($i = 0; $i < count($ways); $i++) {
+            $way = $ways[$i];
+            $cur_id = $way["id"];
 
-				array_push($route, $way["link"]);
+            if ($cur_id != $prev_id) {
+                array_push($result, $this->getWayInfoToShow($ways[$i - 1], $route));
+                unset($route);
+                $route = array();
+            }
 
-				if($i == count($ways) - 1) {
-					array_push($result, $this->getWayInfoToShow($ways[$i-1], $route));
-				}
+            array_push($route, $way["link"]);
+
+            if ($i == count($ways) - 1) {
+                array_push($result, $this->getWayInfoToShow($ways[$i - 1], $route));
+            }
 
 
-				$prev_id = $cur_id;
-			}
+            $prev_id = $cur_id;
+        }
 
-			return $result;
-		}
+        return $result;
+    }
 
-		public function updateVerificationInCat($cat_id, $verify) {
-			return DBHelper::update("UPDATE ways SET verified='{$verify}' WHERE cat_id = '{$cat_id}'");
-		}
+    private function getWayInfoToShow($way, $route) {
+        return [
+            "id" => $way["id"],
+            "hash" => $way["hash"],
+            "depth" => $way["depth"],
+            "links" => $way["links"],
+            "verified" => $way["verified"],
+            "way" => $route
+        ];
+    }
 
-		public function deleteWayByHash($hash) {
-			return DBHelper::delete("DELETE FROM `ways` WHERE hash = '{$hash}'");
-		}
+    public function updateVerificationInCat($cat_id, $verify) {
+        return DBHelper::update("UPDATE ways SET verified='{$verify}' WHERE cat_id = '{$cat_id}'");
+    }
 
-	}
+    public function deleteWayByHash($hash) {
+        return DBHelper::delete("DELETE FROM `ways` WHERE hash = '{$hash}'");
+    }
+
+}
+
 ?>

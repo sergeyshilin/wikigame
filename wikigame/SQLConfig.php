@@ -1,7 +1,6 @@
 <?php
 
-class SQLConfig
-{
+class SQLConfig {
     const SERVERNAME = "mipt-schedule.ru";
     const USER = "wiki";
     const PASSWORD = "walker";
@@ -18,20 +17,20 @@ class SQLConfig
         $this->mysqli->set_charset("utf8");
     }
 
+    public static function getSqlDetails() {
+        return array(
+            'user' => SQLConfig::USER,
+            'pass' => SQLConfig::PASSWORD,
+            'db' => SQLConfig::DATABASE,
+            'host' => SQLConfig::SERVERNAME
+        );
+    }
+
     public function __destruct() {
         $this->mysqli->close();
     }
 
     public function getMysqli() {
         return $this->mysqli;
-    }
-
-    public static function getSqlDetails() {
-        return array(
-            'user' => SQLConfig::USER,
-            'pass' => SQLConfig::PASSWORD,
-            'db'   => SQLConfig::DATABASE,
-            'host' => SQLConfig::SERVERNAME
-        );
     }
 }
