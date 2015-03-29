@@ -108,8 +108,16 @@
 		<?php
 
 		if(!$_SESSION['win']) {
-            include_once("frame/header.php");
-		    include_once('simple_html_dom.php');
+			$cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
+			$count = $_SESSION['counter'];
+			$start_page = str_replace("_", " ", $_SESSION["start"]);
+			$start_page_link = $_SESSION["startlink"];
+			$end_page = str_replace("_", " ", $_SESSION["end"]);
+			$end_page_link = $_SESSION["endlink"];
+			$referer = $_SERVER['HTTP_REFERER'];
+
+            include("frame/header.php");
+		    include('simple_html_dom.php');
 
 			$url = "https://".$_SESSION['lang'].".wikipedia.org/wiki/".$page;
 			$html = file_get_html($url);

@@ -182,3 +182,7 @@ ul.navbar-nav li.hovered a:hover {
 	background-color: #6699FF !important;
 	color: #fff !important;
 }
+
+canvas {
+	display: none !important;
+}
