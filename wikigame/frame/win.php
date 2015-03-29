@@ -52,16 +52,15 @@ $end_page_link = $_SESSION["endlink"];
                      data-title="<?= $title ?>"></div>
                 <p class="lead">
                     <a href="/<?= $hash ?>" class="btn btn-lg btn-success congrats_playagain">Повторить</a>
-                    <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain">Новая
-                        игра</a>
+                    <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain">Новая игра</a>
                 </p>
             </div>
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a></br>
-                        Следи за интересными маршрутами в нашей группе <a class='vklink' target="_blank"
-                                                                          href="http://vk.com/wikiwalker">Вконтакте</a>
+                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
+                        Следи за интересными маршрутами в нашей группе
+                        <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
                         <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
                     </p>
                 </div>

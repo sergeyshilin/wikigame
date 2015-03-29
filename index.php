@@ -65,7 +65,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
                 <h1 class="cover-heading">Пройди свой путь.</h1>
 
                 <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
-                    Думаешь, это просто? </br>Попробуй сыграть прямо сейчас!</p>
+                    Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>
 
                 <p class="lead">
                     <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats">
@@ -76,7 +76,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.</br>
+                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.<br>
                         Поддержи проект! Вступай в группу <a class='vklink' target="_blank"
                                                              href="http://vk.com/wikiwalker">Вконтакте</a>
                         .</p>

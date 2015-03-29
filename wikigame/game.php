@@ -84,8 +84,16 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
     <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
-    <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg"/>
-    <meta property="og:title" content="WikiWalker - Пройди свой путь"/>
+
+    <meta property="og:title" content="WikiWalker - Пройди свой путь" />
+    <meta property="og:description" content="WikiWalker" />
+    <meta property="og:url" content="http://wikiwalker.ru/" />
+    <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+
+    <meta name="title" content="WikiWalker" />
+    <meta name="description" content="WikiWalker - Пройди свой путь" />
+    <link rel="image_src" href="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+
     <?php
     if ($_SESSION['win']) {
         echo '<meta property="og:url" content="http://wikiwalker.ru/' . $_SESSION["hash"] . '" />';
@@ -108,7 +116,6 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 <body>
 
 <?php
-
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
     include_once('simple_html_dom.php');

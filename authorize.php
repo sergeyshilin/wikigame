@@ -35,8 +35,7 @@ echo 'Вы вошли как: ' . $data['username'];
 
 
 // функция разбора заголовка http auth
-function http_digest_parse($txt)
-{
+function http_digest_parse($txt) {
     // защита от отсутствующих данных
     $needed_parts = array('nonce' => 1, 'nc' => 1, 'cnonce' => 1, 'qop' => 1, 'username' => 1, 'uri' => 1, 'response' => 1);
     $data = array();
