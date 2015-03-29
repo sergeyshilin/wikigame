@@ -14,12 +14,18 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- made by www.metatags.org -->
-    <meta name="description"
-          content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
+    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик"/>
     <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
+
+    <meta property="og:title" content="WikiWalker - Пройди свой путь" />
+    <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <meta property="og:url" content="http://wikiwalker.ru/" />
+    <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 

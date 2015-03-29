@@ -82,17 +82,13 @@
     <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
-    <meta property="og:image" content="http://wikiwalker.ru/assets/img/forsocials.jpg" />
+
     <meta property="og:title" content="WikiWalker - Пройди свой путь" />
-    <?php
-    	if($_SESSION['win']) {
-    		echo '<meta property="og:url" content="http://wikiwalker.ru/'.$_SESSION["hash"].'" />';
-    		echo '<meta property="og:description" content="
-    			Congrats! You have completed your way from '.str_replace("_", " ", $_SESSION["start"]).'
-				to '.str_replace("_", " ", $_SESSION["end"]).' with '.$_SESSION["counter"].' steps.
-    		" />';
-    	}
-    ?>
+    <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
+    <meta property="og:url" content="http://wikiwalker.ru/" />
+    <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
+    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
+
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 
