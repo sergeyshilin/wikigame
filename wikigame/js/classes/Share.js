@@ -39,6 +39,9 @@ function Share(purl, ptitle, text) {
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     };
     this.makeImage = function (steps, from, to, callback) {
+        from = from.length > 36 ? from.substring(0, 35) + "..." : from;
+        to = to.length > 36 ? to.substring(0, 35) + "..." : to;
+
         function roundRect(ctx, x, y, width, height, radius) {
             ctx.beginPath();
             ctx.moveTo(x + radius, y);
