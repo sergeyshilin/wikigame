@@ -113,10 +113,10 @@
 
 			$url = "https://".$_SESSION['lang'].".wikipedia.org/wiki/".$page;
 			$html = file_get_html($url);
-			foreach($html->find('link') as $element) { //выборка всех тегов img на странице
+			foreach($html->find('link') as $element) { //выборка всех тегов link на странице
 			       echo $element; // построчный вывод содержания всех найденных атрибутов src
 			}
-			foreach($html->find('script') as $element) { //выборка всех тегов img на странице
+			foreach($html->find('script') as $element) { //выборка всех тегов script на странице
 			       echo $element; // построчный вывод содержания всех найденных атрибутов src
 			}
 
@@ -124,9 +124,31 @@
 		        $element->outertext = '';
 		    }
 
-			$html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
-			$content = $html->find('div[id=content]', 0);
-			// $content = str_replace($editsection, "", $content);
+		    $html->find('div[id=catlinks]', 0)->outertext = '';
+
+		    $html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
+		    $content = $html->find('div[id=content]', 0);
+
+		    $first_cut = "";
+		    foreach ($html->find('span.mw-headline') as $element) {
+		        if(strpos($element->plaintext, "Примечания") !== false
+		        	|| strpos($element->plaintext, "См. также") !== false
+		        	|| strpos($element->plaintext, "Литература") !== false
+		        	|| strpos($element->plaintext, "Ссылки") !== false
+		        	) {
+		        	$first_cut = $element->parent();
+		        	break;
+		        }
+
+		    }
+
+		    if(!empty($first_cut)) {
+		    	$noscript_str = "<noscript>";
+				$startcut_pos = strpos((string)$content, (string)$first_cut);
+				$noscript_pos = strpos($content, $noscript_str, $startcut_pos);
+				$content = substr_replace($content, "", $startcut_pos, $noscript_pos - $startcut_pos);
+		    }
+
 			echo $content;
 		} else {
             include_once('frame/win.php');
