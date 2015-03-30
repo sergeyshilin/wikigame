@@ -1,3 +1,12 @@
+<?php
+    $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
+    $count = $_SESSION['counter'];
+    $start_page =$_SESSION["start"];
+    $start_page_link = $_SESSION["startlink"];
+    $end_page = str_replace("_", " ", $_SESSION["end"]);
+    $end_page_link = $_SESSION["endlink"];
+    $referer = $_SERVER['HTTP_REFERER'];
+?>
 <div class="bootstrap-compatible">
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
