@@ -86,12 +86,12 @@
     <meta property="og:title" content="WikiWalker - Пройди свой путь" />
     <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
     <meta property="og:url" content="http://wikiwalker.ru/" />
-    <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
-    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.png" />
+    <meta property="og:image" content="http://wikiwalker.ru/wiki/img/forsocials.png" />
+    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/img/forsocials.png" />
 
     <meta name="title" content="WikiWalker - Пройди свой путь" />
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
-    <link rel="image_src" href="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+    <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
 
     <title>WikiWalker - Пройди свой путь</title>
 
@@ -100,6 +100,7 @@
 
 	<script type="text/javascript" language="JavaScript" src="/wiki/js/jquery.min.js"></script>
 	<script type="text/javascript" language="JavaScript" src="/wiki/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/wiki/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" language="JavaScript" src="/wiki/js/main.js" ></script>
 </head>
 <body>
@@ -153,5 +154,9 @@
             include_once('frame/win.php');
 		}
 	?>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter28976460 = new Ya.Metrika({id:28976460, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>

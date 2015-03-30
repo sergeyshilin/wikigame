@@ -14,7 +14,6 @@ $end_page_link = $_SESSION["endlink"];
 <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
 <!-- Custom styles for this template -->
 <link href="/wiki/css/cover.css" rel="stylesheet">
-<script src="assets/js/ie-emulation-modes-warning.js"></script>
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
 </script>
@@ -46,8 +45,10 @@ $end_page_link = $_SESSION["endlink"];
                     <a id="share_tw" class="sharebtn tw"></a>
                 </div>
                 <p class="lead">
-                    <a href="/<?= $hash ?>" class="btn btn-lg btn-success congrats_playagain">Повторить</a>
-                    <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain">Новая игра</a>
+                    <a href="/<?= $hash ?>" class="btn btn-lg btn-success congrats_playagain"
+                       onclick="yaCounter28976460.reachGoal('playagain'); return true;">Повторить</a>
+                    <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain"
+                       onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
                 </p>
             </div>
 
@@ -64,12 +65,6 @@ $end_page_link = $_SESSION["endlink"];
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/wiki/assets/js/ie10-viewport-bug-workaround.js"></script>
-
 <script src="/wiki/js/parse-1.4.0.min.js"></script>
 <script src="/wiki/js/classes/Share.js"></script>
 <script language="JavaScript">
@@ -80,14 +75,28 @@ $end_page_link = $_SESSION["endlink"];
     var description = "<?=$desc?>";
     var share = new Share(url, title, description);
     $(document).ready(function() {
+        yaCounter28976460.reachGoal('wingame');
+
         share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
                 share.pimg = parseFile.url();
-                $("#share_vk").click(function() {share.vkontakte()});
-                $("#share_fb").click(function() {share.facebook()});
-                $("#share_gp").click(function() {share.googleplus()});
-                $("#share_tw").click(function() {share.twitter()});
+                $("#share_vk").click(function() {
+                    yaCounter28976460.reachGoal('sharevk');
+                    share.vkontakte();
+                });
+                $("#share_fb").click(function() {
+                    yaCounter28976460.reachGoal('sharefb');
+                    share.facebook();
+                });
+                $("#share_gp").click(function() {
+                    yaCounter28976460.reachGoal('sharegoogle');
+                    share.googleplus();
+                });
+                $("#share_tw").click(function() {
+                    yaCounter28976460.reachGoal('sharetwit');
+                    share.twitter();
+                });
             }, function (error) {
                 console.log(error);
             });

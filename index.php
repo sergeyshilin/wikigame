@@ -23,12 +23,12 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <meta property="og:title" content="WikiWalker - Пройди свой путь" />
     <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
     <meta property="og:url" content="http://wikiwalker.ru/" />
-    <meta property="og:image" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
-    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+    <meta property="og:image" content="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
+    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
 
     <meta name="title" content="WikiWalker - Пройди свой путь" />
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
-    <link rel="image_src" href="http://wikiwalker.ru/wiki/assets/img/forsocials.jpg" />
+    <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
 
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
@@ -40,8 +40,6 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 
     <!-- Custom styles for this template -->
     <link href="/wiki/css/cover.css" rel="stylesheet">
-
-    <script src="/wiki/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -61,13 +59,6 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
             <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">WikiWalker</h3>
-                    <!-- <nav>
-                      <ul class="nav masthead-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Contact</a></li>
-                      </ul>
-                    </nav> -->
                 </div>
             </div>
 
@@ -78,18 +69,17 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
                     Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>
 
                 <p class="lead">
-                    <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats">
-                        Играть
-                    </button>
+                    <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats"
+                            onclick="yaCounter28976460.reachGoal('playgame')">Играть</button>
                 </p>
             </div>
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a>.<br>
-                        Поддержи проект! Вступай в группу <a class='vklink' target="_blank"
-                                                             href="http://vk.com/wikiwalker">Вконтакте</a>
-                        .</p>
+                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
+                        Поддержи проект! Вступай в группу
+                        <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
+                    </p>
                 </div>
             </div>
 
@@ -110,9 +100,8 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
             </div>
             <div class="modal-body">
                 <div class="list-group">
-                    <a href="/wiki/Main_Page" class="list-group-item active">
+                    <a href="/wiki/Main_Page" class="list-group-item active" onclick="yaCounter28976460.reachGoal('cat0'); return true;">
                         <h4 class="list-group-item-heading">Случайный</h4>
-
                         <p class="list-group-item-text">Будет выбран случайный маршрут</p>
                     </a>
                     <?php
@@ -122,7 +111,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
                     $cats = $utils->getCategories();
 
                     foreach ($cats as $cat) {
-                        echo "<a href='/wiki/Main_Page?cat=" . $cat["id"] . "' class='list-group-item'>";
+                        echo "<a href='/wiki/Main_Page?cat=" . $cat["id"] . "' class='list-group-item' onclick='yaCounter28976460.reachGoal(\"cat" . $cat["id"] . "\"); return true;'>";
                         echo "<h4 class='list-group-item-heading'>" . $cat["name"] . "</h4>";
                         echo "<p class='list-group-item-text'>" . $cat["description"] . "</p>";
                         echo "</a>";
@@ -140,37 +129,10 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/wiki/js/jquery.min.js"></script>
 <script src="/wiki/js/bootstrap.min.js"></script>
-<script src="/wiki/assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/wiki/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/wiki/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript">(function (d, w, c) {
-        (w[c] = w[c] || []).push(function () {
-            try {
-                w.yaCounter28976460 = new Ya.Metrika({
-                    id: 28976460,
-                    trackLinks: true,
-                    accurateTrackBounce: true,
-                    trackHash: true
-                });
-            } catch (e) {
-            }
-        });
-        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-            n.parentNode.insertBefore(s, n);
-        };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-            f();
-        }
-    })(document, window, "yandex_metrika_callbacks");</script>
-<noscript>
-    <div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
+<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter28976460 = new Ya.Metrika({id:28976460, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </body>
 </html>

@@ -28,11 +28,13 @@
                     <li><a>Количество шагов: <?= $count ?></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hovered"><a href="/wiki/<?= $start_page ?>">Начать заново</a></li>
-                    <li class="hovered"><a href="/wiki/Main_Page<?= $cat ?>">Новая игра</a></li>
+                    <li class="hovered"><a href="/wiki/<?= $start_page ?>"
+                        onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
+                    <li class="hovered"><a href="/wiki/Main_Page<?= $cat ?>"
+                        onclick="yaCounter28976460.reachGoal('header_newgame'); return true;">Новая игра</a></li>
                     <li class="dropdown hovered">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Сменить
-                            категорию <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Сменить категорию <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/wiki/Main_Page">Случайный маршрут</a></li>
                             <li class="divider"></li>

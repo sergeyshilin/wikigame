@@ -69,7 +69,7 @@ function Share(purl, ptitle, text) {
         }
 
         var pic = new Image();
-        pic.src = "/wiki/assets/img/background.jpg";
+        pic.src = "/wiki/img/background.jpg";
         pic.onload = function() {
             var title = "Поздравляем!";
             var str1 = "Вы завершили свой маршрут! Количество переходов:  ";
