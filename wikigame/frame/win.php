@@ -74,9 +74,10 @@ $end_page_link = $_SESSION["endlink"];
     var title = "<?=$title?>";
     var description = "<?=$desc?>";
     var share = new Share(url, title, description);
-    $(document).ready(function() {
+    $(window).load(function() {
         yaCounter28976460.reachGoal('wingame');
-
+    });
+    $(document).ready(function() {
         share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
