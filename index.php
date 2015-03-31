@@ -20,15 +20,15 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
 
-    <meta property="og:title" content="WikiWalker - Пройди свой путь" />
-    <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
-    <meta property="og:url" content="http://wikiwalker.ru/" />
-    <meta property="og:image" content="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
-    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
+    <meta property="og:title" content="WikiWalker - Пройди свой путь"/>
+    <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
+    <meta property="og:url" content="http://wikiwalker.ru/"/>
+    <meta property="og:image" content="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
+    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
 
-    <meta name="title" content="WikiWalker - Пройди свой путь" />
-    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов." />
-    <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg" />
+    <meta name="title" content="WikiWalker - Пройди свой путь"/>
+    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
+    <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
 
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
@@ -48,14 +48,10 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <![endif]-->
 </head>
 
-<body>
-
+<body class="bootstrap-scope">
 <div class="site-wrapper">
-
     <div class="site-wrapper-inner">
-
         <div class="cover-container">
-
             <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">WikiWalker</h3>
@@ -82,11 +78,8 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
                     </p>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <!-- Modal -->

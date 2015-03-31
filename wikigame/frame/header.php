@@ -7,7 +7,10 @@
     $end_page_link = $_SESSION["endlink"];
     $referer = $_SERVER['HTTP_REFERER'];
 ?>
-<div class="bootstrap-compatible">
+
+<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap-scope.min.css">
+
+<div class="bootstrap-scope">
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">

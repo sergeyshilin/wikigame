@@ -12,13 +12,14 @@ $end_page_link = $_SESSION["endlink"];
 ?>
 
 <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
+
 <!-- Custom styles for this template -->
 <link href="/wiki/css/cover.css" rel="stylesheet">
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
 </script>
 
-<div class="site-wrapper">
+<div class="site-wrapper bootstrap-scope">
     <div class="site-wrapper-inner">
         <div class="cover-container">
             <div class="masthead clearfix">
