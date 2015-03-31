@@ -23,10 +23,6 @@ body, html {
 	margin-left: 20px;
 }
 
-.newgame_button {
-
-}
-
 .sharebtn {
     display: inline-block;
     background-image: url(http://share.pluso.ru/img/pluso-like/square/big/01.png);
@@ -159,22 +155,26 @@ body, html {
 * NAVBAR
 */
 
-.navbar .container {
-	width: 100% !important;
+.navbar {
+    padding: 0;
+}
+
+.navbar li {
+    word-spacing: 0;
 }
 
 .navbar li a {
 	color: #000 !important;
 }
 
+ul.navbar-nav,
 ul.navbar-nav li {
-	margin-bottom: 0;
+    display: block !important;
 }
 
 ul.navbar-nav li.dropdown ul.dropdown-menu li {
 	margin-bottom: 1px !important;
 }
-
 
 ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover,
 ul.navbar-nav li.dropdown.open a.dropdown-toggle,

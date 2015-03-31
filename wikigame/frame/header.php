@@ -11,9 +11,8 @@
 <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap-scope.min.css">
 
 <div class="bootstrap-scope">
-    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                         aria-expanded="false" aria-controls="navbar">
@@ -26,8 +25,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a target="_blank" href="<?= $end_page_link ?>">Ваша цель: <span
-                                class="jslink"><?= $end_page ?></span></a></li>
+                    <li><a target="_blank" href="<?= $end_page_link ?>">Ваша цель: <span class="jslink"><?= $end_page ?></span></a></li>
                     <li><a>Количество шагов: <?= $count ?></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -54,7 +52,6 @@
                     </li
                 </ul>
             </div>
-            <!--/.nav-collapse -->
         </div>
     </nav>
 </div>
