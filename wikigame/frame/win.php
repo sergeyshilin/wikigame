@@ -31,8 +31,7 @@ $end_page_link = $_SESSION["endlink"];
                 <h1 class="cover-heading">Поздравляем!</h1>
 
                 <p class="lead" style="margin-bottom: 0">
-                    Вы завершили свой маршрут! Количество переходов: <span
-                        class="label label-danger"><?= $count ?></span>
+                    Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
                     Понравилось? Поделись результатом с друзьями!
