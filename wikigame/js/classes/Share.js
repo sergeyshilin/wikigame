@@ -5,7 +5,6 @@ function Share(purl, ptitle, text) {
 
     var self = this;
     this.vkontakte = function () {
-        console.log("v done");
         url = 'http://vkontakte.ru/share.php?';
         url += 'url=' + encodeURIComponent(self.purl);
         url += '&title=' + encodeURIComponent(self.ptitle);
@@ -15,14 +14,12 @@ function Share(purl, ptitle, text) {
         this.popup(url);
     };
     this.facebook = function () {
-        console.log("f done");
         url = 'http://www.facebook.com/sharer.php?';
         url += 'u=' + encodeURIComponent(self.purl);
         url += '&t=' + encodeURIComponent(self.ptitle);
         this.popup(url);
     };
     this.twitter = function () {
-        console.log("t done");
         url = 'http://twitter.com/share?';
         url += 'text=' + encodeURIComponent(self.ptitle);
         url += '&url=' + encodeURIComponent(self.purl);
@@ -30,7 +27,6 @@ function Share(purl, ptitle, text) {
         this.popup(url);
     };
     this.googleplus = function () {
-        console.log("t done");
         url = 'https://plus.google.com/share?';
         url += 'url=' + encodeURIComponent(self.purl);
         this.popup(url);
