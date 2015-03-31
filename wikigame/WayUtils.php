@@ -11,7 +11,7 @@ class WayUtils {
     }
 
     public function getCategories() {
-        return DBHelper::getAssoc("SELECT * FROM categories");
+        return DBHelper::getAssoc("SELECT * FROM categories ORDER BY id DESC");
     }
 
     public function getWaysByCat($cat) {
