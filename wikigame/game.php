@@ -109,46 +109,45 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
-    include_once('simple_html_dom.php');
 
-    $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/wiki/" . $page;
-    $html = file_get_html($url);
-    foreach ($html->find('link') as $element) { //выборка всех тегов link на странице
-        echo $element; // построчный вывод содержания всех найденных атрибутов src
-    }
-    foreach ($html->find('script') as $element) { //выборка всех тегов script на странице
-        echo $element; // построчный вывод содержания всех найденных атрибутов src
-    }
+    echo '<div id="content" class="mw-body zeromargin" role="main">';
 
-    foreach ($html->find('span.mw-editsection') as $element) {
-        $element->outertext = '';
-    }
+    $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . $page . "&format=json";
+    $json = file_get_contents($url);
+    $obj = json_decode($json, true);
 
-    $html->find('div[id=catlinks]', 0)->outertext = '';
+    $title = $obj['parse']['title'];
+    $content = $obj['parse']['text']['*'];
 
-    $html->find('div[id=content]', 0)->class = 'mw-body zeromargin';
-    $content = $html->find('div[id=content]', 0);
+    echo '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>';
+    echo '<div id="bodyContent" class="mw-body-content">';
+    echo '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>';
+    echo '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">';
 
-    $first_cut = "";
-    foreach ($html->find('span.mw-headline') as $element) {
-        if (strpos($element->plaintext, "Примечания") !== false
-            || strpos($element->plaintext, "См. также") !== false
-            || strpos($element->plaintext, "Литература") !== false
-            || strpos($element->plaintext, "Ссылки") !== false
-        ) {
-            $first_cut = $element->parent();
+    $positions = array();
+    $lastPos = 0;
+    $needle = '<h2><span class="mw-headline" id="';
+
+    while (($lastPos = strpos($content, $needle, $lastPos))!== false) {
+        $end = strpos($content, '">', $lastPos + strlen($needle));
+        $str = substr($content, $lastPos + strlen($needle), $end - $lastPos - strlen($needle));
+        if (strcmp($str, ".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F") == 0 //Примечания
+            || strcmp($str, ".D0.A1.D0.BC._.D1.82.D0.B0.D0.BA.D0.B6.D0.B5") == 0 // См. также
+            || strcmp($str, ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0") == 0 // Литература
+            || strcmp($str, ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8") == 0) { // Ссылки
+            $cut_pos = $lastPos;
             break;
         }
+        $lastPos = $lastPos + strlen($needle);
     }
 
-    if (!empty($first_cut)) {
-        $noscript_str = "<noscript>";
-        $startcut_pos = strpos((string)$content, (string)$first_cut);
-        $noscript_pos = strpos($content, $noscript_str, $startcut_pos);
-        $content = substr_replace($content, "", $startcut_pos, $noscript_pos - $startcut_pos);
+    if (isset($cut_pos) && $cut_pos > 0) {
+        echo substr($content, 0, $cut_pos);
+    } else {
+        echo $content;
     }
+    echo "</div></div>";
 
-    echo $content;
 } else {
     include_once('frame/win.php');
 }

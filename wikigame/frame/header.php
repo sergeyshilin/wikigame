@@ -9,6 +9,8 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap-scope.min.css">
+<link rel="stylesheet" type="text/css" href="/wiki/css/wiki2.css">
+<link rel="stylesheet" type="text/css" href="/wiki/css/wiki1.css">
 
 <div class="bootstrap-scope">
     <nav class="navbar navbar-default navbar-fixed-top">
