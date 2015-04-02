@@ -46,7 +46,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <![endif]-->
 </head>
 
-<body class="bootstrap-scope">
+<body>
 <div class="site-wrapper">
     <div class="site-wrapper-inner">
         <div class="cover-container">

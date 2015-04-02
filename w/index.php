@@ -102,6 +102,15 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 	<script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="/w/js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" language="JavaScript" src="/w/js/main.js"></script>
+
+    <style>
+        sup.reference,
+        .mw-editsection,
+        .external,
+        .noprint {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 

@@ -192,13 +192,3 @@ ul.navbar-nav li.hovered a:hover {
 canvas {
 	display: none !important;
 }
-
-
-
-
-sup.reference,
-.mw-editsection,
-.external,
-.noprint {
-    display: none !important;
-}
