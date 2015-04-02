@@ -1,6 +1,6 @@
 <?php
 if ($_POST) {
-    require_once('../wikigame/WayUtils.php');
+    require_once('../w/WayUtils.php');
 
     $utils = new WayUtils();
     if ($utils->deleteWayByHash($_POST["hash"]))

@@ -11,10 +11,8 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 $end_page_link = $_SESSION["endlink"];
 ?>
 
-<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
-
-<!-- Custom styles for this template -->
-<link href="/wiki/css/cover.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/w/css/bootstrap.min.css">
+<link href="/w/css/cover.css" rel="stylesheet">
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
 </script>
@@ -65,8 +63,8 @@ $end_page_link = $_SESSION["endlink"];
     </div>
 </div>
 
-<script src="/wiki/js/parse-1.4.0.min.js"></script>
-<script src="/wiki/js/classes/Share.js"></script>
+<script src="/w/js/parse-1.4.0.min.js"></script>
+<script src="/w/js/classes/Share.js"></script>
 <script language="JavaScript">
     Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
 

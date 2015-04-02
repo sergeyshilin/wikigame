@@ -96,12 +96,12 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 
     <title>WikiWalker - Пройди свой путь</title>
 
-    <link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/w/css/main.css">
 
-	<script type="text/javascript" language="JavaScript" src="/wiki/js/jquery.min.js"></script>
-	<script type="text/javascript" language="JavaScript" src="/wiki/js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/wiki/js/ie10-viewport-bug-workaround.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/wiki/js/main.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/w/js/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/main.js"></script>
 </head>
 <body>
 
