@@ -35,9 +35,9 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 
     <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="/w/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/w/css/main.css">
-    <link href="/w/css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/w/res/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/w/res/css/main.css">
+    <link href="/w/res/css/cover.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -115,9 +115,9 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     </div>
 </div>
 
-<script src="/w/js/jquery.min.js"></script>
-<script src="/w/js/bootstrap.min.js"></script>
-<script src="/w/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/w/res/js/jquery.min.js"></script>
+<script src="/w/res/js/bootstrap.min.js"></script>
+<script src="/w/res/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter28976460 = new Ya.Metrika({id:28976460, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->

@@ -12,9 +12,9 @@ include 'authorize.php';
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>WikiWalker - Проверь свой путь</title>
-    <link rel="stylesheet" type="text/css" href="w/css/main.css">
-    <script type="text/javascript" src="w/js/jquery.min.js"></script>
-    <script type="text/javascript" src="w/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="w/res/css/main.css">
+    <script type="text/javascript" src="w/res/js/jquery.min.js"></script>
+    <script type="text/javascript" src="w/res/js/main.js"></script>
 </head>
 <body>
 <div id="showways">

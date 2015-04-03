@@ -96,12 +96,12 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 
     <title>WikiWalker - Пройди свой путь</title>
 
-    <link rel="stylesheet" type="text/css" href="/w/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/w/res/css/main.css">
 
-	<script type="text/javascript" language="JavaScript" src="/w/js/jquery.min.js"></script>
-	<script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/w/js/ie10-viewport-bug-workaround.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/w/js/main.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/w/res/js/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/w/res/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/res/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/res/js/main.js"></script>
 
     <style>
         sup.reference,
@@ -119,44 +119,10 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
 
-    echo '<div id="content" class="mw-body zeromargin" role="main">';
-
-    $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . $page . "&format=json";
-    $json = file_get_contents($url);
-    $obj = json_decode($json, true);
-
-    $title = $obj['parse']['title'];
-    $content = $obj['parse']['text']['*'];
-
-    echo '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>';
-    echo '<div id="bodyContent" class="mw-body-content">';
-    echo '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>';
-    echo '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">';
-
-    $positions = array();
-    $lastPos = 0;
-    $needle = '<h2><span class="mw-headline" id="';
-
-    while (($lastPos = strpos($content, $needle, $lastPos))!== false) {
-        $end = strpos($content, '">', $lastPos + strlen($needle));
-        $str = substr($content, $lastPos + strlen($needle), $end - $lastPos - strlen($needle));
-        if (strcmp($str, ".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F") == 0 //Примечания
-            || strcmp($str, ".D0.A1.D0.BC._.D1.82.D0.B0.D0.BA.D0.B6.D0.B5") == 0 // См. также
-            || strcmp($str, ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0") == 0 // Литература
-            || strcmp($str, ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8") == 0) { // Ссылки
-            $cut_pos = $lastPos;
-            break;
-        }
-        $lastPos = $lastPos + strlen($needle);
-    }
-
-    if (isset($cut_pos) && $cut_pos > 0) {
-        echo substr($content, 0, $cut_pos);
-    } else {
-        echo $content;
-    }
-    echo "</div></div>";
-
+    include_once("classes/PageResolver.php");
+    $resolver = new PageResolver();
+    $pageContent = $resolver->getPage($page);
+    echo $pageContent;
 } else {
     include_once('frame/win.php');
 }
