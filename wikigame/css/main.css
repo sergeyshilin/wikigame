@@ -186,3 +186,13 @@ ul.navbar-nav li.hovered a:hover {
 canvas {
 	display: none !important;
 }
+
+.main_logo {
+	height: 200px;
+	-webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
+    filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));;
+}
+
+.header_logo {
+	height: 160px;
+}

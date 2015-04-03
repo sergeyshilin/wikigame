@@ -54,7 +54,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
         <div class="cover-container">
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">WikiWalker</h3>
+                    <h3 class="masthead-brand"><img class="main_logo" src="logo/logo_white.svg" title="WikiWalker - найди свой путь"></h3>
                 </div>
             </div>
 

@@ -21,7 +21,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">WikiWalker</a>
+                <a class="navbar-brand" href="/">
+                    <img class="header_logo" src="../logo/logo.svg" title="WikiWalker - найди свой путь">
+                </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
