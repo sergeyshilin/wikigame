@@ -8,9 +8,9 @@
     $referer = $_SERVER['HTTP_REFERER'];
 ?>
 
-<link rel="stylesheet" type="text/css" href="/w/res/css/bootstrap-scope.min.css">
-<link rel="stylesheet" type="text/css" href="/w/res/css/wiki2.min.css">
-<link rel="stylesheet" type="text/css" href="/w/res/css/wiki1.min.css">
+<link rel="stylesheet" type="text/css" href="/w/css/bootstrap-scope.min.css">
+<link rel="stylesheet" type="text/css" href="/w/css/wiki-basic.min.css">
+<link rel="stylesheet" type="text/css" href="/w/css/wiki-widgets.min.css">
 
 <div class="bootstrap-scope">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -42,7 +42,7 @@
                             <li><a href="/wiki/Main_Page">Случайный маршрут</a></li>
                             <li class="divider"></li>
                             <?php
-                            require_once('WayUtils.php');
+                            require_once('classes/WayUtils.php');
                             $utils = new WayUtils();
                             $cats = $utils->getCategories();
 

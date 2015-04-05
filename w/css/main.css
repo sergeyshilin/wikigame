@@ -192,3 +192,10 @@ ul.navbar-nav li.hovered a:hover {
 canvas {
 	display: none !important;
 }
+
+#coordinates,
+sup.reference,
+.mw-editsection,
+.noprint {
+    display: none !important;
+}

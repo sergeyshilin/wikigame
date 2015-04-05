@@ -2,8 +2,8 @@
 session_start();
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
-    require_once('DBHelper.php');
-    require_once('WayParser.php');
+    require_once('classes/DBHelper.php');
+    require_once('classes/WayParser.php');
 
     $cat = 0;
 
@@ -96,21 +96,12 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 
     <title>WikiWalker - Пройди свой путь</title>
 
-    <link rel="stylesheet" type="text/css" href="/w/res/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/w/css/main.css">
 
-	<script type="text/javascript" language="JavaScript" src="/w/res/js/jquery.min.js"></script>
-	<script type="text/javascript" language="JavaScript" src="/w/res/js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/w/res/js/ie10-viewport-bug-workaround.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/w/res/js/main.js"></script>
-
-    <style>
-        sup.reference,
-        .mw-editsection,
-        .external,
-        .noprint {
-            display: none !important;
-        }
-    </style>
+	<script type="text/javascript" language="JavaScript" src="/w/js/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/main.js"></script>
 </head>
 <body>
 
