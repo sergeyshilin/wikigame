@@ -196,6 +196,7 @@ canvas {
 #coordinates,
 sup.reference,
 .mw-editsection,
-.noprint {
+.noprint,
+.metadata {
     display: none !important;
 }

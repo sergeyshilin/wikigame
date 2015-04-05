@@ -7,8 +7,9 @@ class PageResolver {
         } else {
             $obj = $this->getContentFromApi($name);
             if ($this->isRedirect($obj["content"])) {
-                $name = $this->extractRedirectPageName($obj["content"]);
-                $obj = $this->getContentFromApi($name);
+                $newName = $this->extractRedirectPageName($obj["content"]);
+                $newObj = $this->getContentFromApi($newName);
+                return $this->printPage($newObj["title"], $newObj["content"], $name, $obj["title"]);
             }
         }
         return $this->printPage($obj["title"], $obj["content"]);
@@ -78,13 +79,17 @@ class PageResolver {
         }
     }
 
-    public function printPage($title, $content) {
-        return '<div id="content" class="mw-body zeromargin" role="main">' .
+    public function printPage($title, $content, $redirect = NULL, $redirecttitle = NULL) {
+        $text = '<div id="content" class="mw-body zeromargin" role="main">' .
          '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>' .
          '<div id="bodyContent" class="mw-body-content">' .
-         '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>' .
-         '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
+         '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>';
+        if (isset($redirect) && !empty($redirect) && isset($redirecttitle) && !empty($redirecttitle)) {
+            $text = $text . '<span class="mw-redirectedfrom">(перенаправлено с «<a href="/wiki/' . $redirect . '" title="' . $redirecttitle . '">' . $redirecttitle . '</a>»)</span>';
+        }
+        $text = $text . '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
          $this->cutFooter($content) .
          "</div></div>";
+        return $text;
     }
 }

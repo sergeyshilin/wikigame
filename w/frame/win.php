@@ -6,9 +6,7 @@ $url = "http://wikiwalker.ru/" . $hash;
 $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
-$start_page_link = $_SESSION["startlink"];
 $end_page = str_replace("_", " ", $_SESSION["end"]);
-$end_page_link = $_SESSION["endlink"];
 ?>
 
 <link rel="stylesheet" type="text/css" href="/w/css/bootstrap.min.css">

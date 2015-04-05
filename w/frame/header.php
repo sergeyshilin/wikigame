@@ -1,16 +1,14 @@
 <?php
     $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
-    $count = $_SESSION['counter'];
     $start_page =$_SESSION["start"];
-    $start_page_link = $_SESSION["startlink"];
     $end_page = str_replace("_", " ", $_SESSION["end"]);
     $end_page_link = $_SESSION["endlink"];
-    $referer = $_SERVER['HTTP_REFERER'];
+    $count = $_SESSION['counter'];
 ?>
 
 <link rel="stylesheet" type="text/css" href="/w/css/bootstrap-scope.min.css">
-<link rel="stylesheet" type="text/css" href="/w/css/wiki-basic.min.css">
-<link rel="stylesheet" type="text/css" href="/w/css/wiki-widgets.min.css">
+<link rel="stylesheet" type="text/css" href="/w/css/wiki-site.min.css">
+<link rel="stylesheet" type="text/css" href="/w/css/wiki-modules.min.css">
 
 <div class="bootstrap-scope">
     <nav class="navbar navbar-default navbar-fixed-top">
