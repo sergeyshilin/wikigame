@@ -1,74 +1,78 @@
 <?php
 session_start();
 
-if (isset($_GET['page']) && !empty($_GET['page'])) {
+try {
     require_once('classes/DBHelper.php');
     require_once('classes/WayParser.php');
 
-    $cat = 0;
-
-    $page = $_GET['page'];
-    $page = htmlspecialchars($page); // Escape HTML.
-    $page = DBHelper::escape($page); // Escape SQL.
-
-    if (isset($_GET["cat"]) && !empty($_GET["cat"])) {
-        $cat = $_GET["cat"];
-        $cat = htmlspecialchars($cat); // Escape HTML.
-        $cat = DBHelper::escape($cat); // Escape SQL.
+    if (!isset($_GET['page']) || empty($_GET['page'])) {
+        throw new Exception();
     }
+
+    $page = escape($_GET['page']);
+    $cat = isset($_GET["cat"]) && !empty($_GET["cat"]) ? escape($_GET["cat"]) : 0;
 
     if (WayParser::isMD5Hash($page)) {
         $way = WayParser::getWayByHash($page);
         if (!empty($way)) {
-            $_SESSION['end'] = Way::getName($way->getEndPoint());
-            $_SESSION['start'] = Way::getName($way->getStartPoint());
-            $_SESSION['startlink'] = $way->getStartPoint();
-            $_SESSION['endlink'] = $way->getEndPoint();
-            $_SESSION['win'] = false;
-            $_SESSION['lang'] = $way->getLang();
-            $_SESSION['hash'] = $way->getHash();
+            wayToSession($way);
             header('Location: ' . $_SESSION["start"]);
         } else {
-            header('Location: /');
+            throw new Exception();
+        }
+    } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
+        $way = WayParser::getRandomWay($cat);
+        wayToSession($way, $cat);
+        header('Location: ' . $_SESSION["start"]);
+    } else if (!$_SESSION['win']) {
+        if (empty($_SERVER['HTTP_REFERER']) && $page != $_SESSION["current"]) {
+            header('Location: ' . $_SESSION["current"]);
+        } else if ($page == $_SESSION['end']) {
+            $_SESSION['win'] = true;
+        } else {
+            include_once("classes/PageResolver.php");
+            $resolver = new PageResolver();
+            $obj = $resolver->isGenerated($page) ? $resolver->getContentFromHtml($page) : $resolver->getContentFromApi($page);
+            if ($resolver->isRedirect($obj["content"])) {
+                $name = $resolver->extractRedirectPageName($obj["content"]);
+                header('Location: ' . $name);
+            } else if ($page == $_SESSION['start']) {
+                $_SESSION['previous'] = "";
+                $_SESSION['current'] = $_SESSION['start'];
+                $_SESSION['counter'] = 0;
+            } else {
+                $_SESSION['previous'] = $_SESSION['current'];
+                $_SESSION['current'] = $page;
+                if ($_SESSION['current'] != $_SESSION['previous']) {
+                    $_SESSION['counter']++;
+                }
+            }
         }
     }
-
-    if (empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
-        $way = WayParser::getRandomWay($cat);
-        $_SESSION['cat'] = $cat;
-        $_SESSION['end'] = Way::getName($way->getEndPoint());
-        $_SESSION['start'] = Way::getName($way->getStartPoint());
-        $_SESSION['startlink'] = $way->getStartPoint();
-        $_SESSION['endlink'] = $way->getEndPoint();
-        $_SESSION['win'] = false;
-        $_SESSION['lang'] = $way->getLang();
-        $_SESSION['hash'] = $way->getHash();
-        header('Location: ' . $_SESSION["start"]);
-    }
-
-    $_SESSION['previous'] = $_SESSION['current'];
-    $_SESSION['current'] = $page;
-    if ($_SESSION['current'] != $_SESSION['previous'] && !$_SESSION['win'])
-        $_SESSION['counter'] += 1;
-    if ($_SESSION['current'] == $_SESSION['start'] && !$_SESSION['win']) {
-        $_SESSION['counter'] = 0;
-        $_SESSION['previous'] = "";
-        $_SESSION['current'] = $page;
-    }
-    if ($_SESSION['current'] == $_SESSION['end'] && !empty($_SERVER['HTTP_REFERER'])) {
-        $_SESSION['win'] = true;
-    } else if ((empty($_SERVER['HTTP_REFERER'])) &&
-        (($_SESSION['current'] == $_SESSION['end']) || ($_SESSION['current'] != $_SESSION['start']))
-        && !$_SESSION['win']
-    ) {
-        $_SESSION['counter'] = 0;
-        header('Location: ' . $_SESSION["start"]);
-    }
-
-} else {
+} catch (Exception $e) {
     session_unset();
     session_destroy();
     header('Location: /');
+}
+
+function escape($str) {
+    $str = htmlspecialchars($str); // Escape HTML.
+    $str = DBHelper::escape($str); // Escape SQL.
+    return $str;
+}
+
+function wayToSession(Way $way, $cat = NULL) {
+    $_SESSION['lang'] = $way->getLang();
+    $_SESSION['cat'] = $cat;
+    $_SESSION['hash'] = $way->getHash();
+    $_SESSION['startlink'] = $way->getStartPoint();
+    $_SESSION['endlink'] = $way->getEndPoint();
+
+    $_SESSION['start'] = Way::getName($way->getStartPoint());
+    $_SESSION['current'] = Way::getName($way->getStartPoint());
+    $_SESSION['end'] = Way::getName($way->getEndPoint());
+
+    $_SESSION['win'] = false;
 }
 ?>
 <!DOCTYPE html>
@@ -109,11 +113,7 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
-
-    include_once("classes/PageResolver.php");
-    $resolver = new PageResolver();
-    $pageContent = $resolver->getPage($page);
-    echo $pageContent;
+    echo $resolver->printPage($obj["title"], $obj["content"]);
 } else {
     include_once('frame/win.php');
 }
