@@ -9,40 +9,40 @@ try {
         throw new Exception();
     }
 
-    $page = escape($_GET['title']);
+    $title = escape($_GET['title']);
     $cat = isset($_GET["cat"]) && !empty($_GET["cat"]) ? escape($_GET["cat"]) : 0;
 
-    if (WayParser::isMD5Hash($page)) {
-        $way = WayParser::getWayByHash($page);
+    if (WayParser::isMD5Hash($title)) {
+        $way = WayParser::getWayByHash($title);
         if (!empty($way)) {
             wayToSession($way);
             header('Location: /wiki/' . $_SESSION["start"]);
         } else {
             throw new Exception();
         }
-    } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
+    } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main_Page") {
         $way = WayParser::getRandomWay($cat);
         wayToSession($way, $cat);
         header('Location: /wiki/' . $_SESSION["start"]);
     } else if (!$_SESSION['win']) {
-        if (empty($_SERVER['HTTP_REFERER']) && $page != $_SESSION["current"]) {
+        if (empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"]) {
             header('Location: /wiki/' . $_SESSION["current"]);
-        } else if ($page == $_SESSION['end']) {
+        } else if ($title == $_SESSION['end']) {
             $_SESSION['win'] = true;
         } else {
             include_once("classes/PageResolver.php");
             $resolver = new PageResolver();
-            $obj = $resolver->isGenerated($page) ? $resolver->getContentFromHtml($page) : $resolver->getContentFromApi($page);
+            $obj = $resolver->isGenerated($title) ? $resolver->getContentFromHtml($title) : $resolver->getContentFromApi($title);
             if ($resolver->isRedirect($obj["content"])) {
                 $name = $resolver->extractRedirectPageName($obj["content"]);
                 header('Location: /wiki/' . $name);
-            } else if ($page == $_SESSION['start']) {
+            } else if ($title == $_SESSION['start']) {
                 $_SESSION['previous'] = "";
                 $_SESSION['current'] = $_SESSION['start'];
                 $_SESSION['counter'] = 0;
             } else {
                 $_SESSION['previous'] = $_SESSION['current'];
-                $_SESSION['current'] = $page;
+                $_SESSION['current'] = $title;
                 if ($_SESSION['current'] != $_SESSION['previous']) {
                     $_SESSION['counter']++;
                 }

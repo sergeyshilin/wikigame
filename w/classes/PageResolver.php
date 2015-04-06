@@ -27,6 +27,17 @@ class PageResolver {
     public function getContentFromHtml($name) {
         include_once('simple_html_dom.php');
         $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/index.php?title=" . $name;
+
+        if (isset($_GET['pagefrom']) && !empty($_GET['pagefrom'])) {
+            $url .= "&pagefrom=" . htmlspecialchars($_GET['pagefrom']);
+        }
+        if (isset($_GET['from']) && !empty($_GET['from'])) {
+            $url .= "&from=" . htmlspecialchars($_GET['from']);
+        }
+        if (isset($_GET['namespace']) && !empty($_GET['namespace'])) {
+            $url .= "&namespace=" . htmlspecialchars($_GET['namespace']);
+        }
+
         $html = file_get_html($url);
 
         foreach ($html->find('a[class=external text]') as $element) {
