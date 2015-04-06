@@ -16,17 +16,17 @@ try {
         $way = WayParser::getWayByHash($page);
         if (!empty($way)) {
             wayToSession($way);
-            header('Location: ' . $_SESSION["start"]);
+            header('Location: /wiki/' . $_SESSION["start"]);
         } else {
             throw new Exception();
         }
     } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $page == "Main_Page") {
         $way = WayParser::getRandomWay($cat);
         wayToSession($way, $cat);
-        header('Location: ' . $_SESSION["start"]);
+        header('Location: /wiki/' . $_SESSION["start"]);
     } else if (!$_SESSION['win']) {
         if (empty($_SERVER['HTTP_REFERER']) && $page != $_SESSION["current"]) {
-            header('Location: ' . $_SESSION["current"]);
+            header('Location: /wiki/' . $_SESSION["current"]);
         } else if ($page == $_SESSION['end']) {
             $_SESSION['win'] = true;
         } else {
@@ -35,7 +35,7 @@ try {
             $obj = $resolver->isGenerated($page) ? $resolver->getContentFromHtml($page) : $resolver->getContentFromApi($page);
             if ($resolver->isRedirect($obj["content"])) {
                 $name = $resolver->extractRedirectPageName($obj["content"]);
-                header('Location: ' . $name);
+                header('Location: /wiki/' . $name);
             } else if ($page == $_SESSION['start']) {
                 $_SESSION['previous'] = "";
                 $_SESSION['current'] = $_SESSION['start'];

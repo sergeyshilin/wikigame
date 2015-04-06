@@ -45,7 +45,7 @@ class PageResolver {
     }
 
     public function isGenerated($title) {
-        return strpos($title, 'Категория:') !== false;
+        return strpos($title, 'Категория:') !== false || strpos($title, 'Служебная:') !== false;
     }
 
     public function extractRedirectPageName($content) {
