@@ -193,10 +193,15 @@ canvas {
 	display: none !important;
 }
 
+#siteSub {
+    display: inline !important;
+}
+
 #coordinates,
 sup.reference,
 .mw-editsection,
 .noprint,
-.metadata {
+.metadata,
+.extiw {
     display: none !important;
 }
