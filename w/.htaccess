@@ -8,7 +8,7 @@ RewriteBase /wiki/
 RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico|php)
     RewriteRule ^(.*)$ $1 [L,QSA]
 
-RewriteRule 	^(.*)$     index.php?page=$1 		[L,QSA]
+RewriteRule ^(.*)$ index.php?title=$1 [L,QSA]
 # не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
 # RedirectMatch 403 /\..*$
 # если директория или файл существуют, использовать их напрямую

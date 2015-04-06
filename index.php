@@ -1,13 +1,3 @@
-<?php
-require_once('w/classes/DBHelper.php');
-
-if (isset($_GET['game']) && !empty($_GET['game'])) {
-    $game = $_GET['game'];
-    $game = htmlspecialchars($game); // Escape HTML.
-    $game = DBHelper::escape($game); // Escape SQL.
-    header('Location: /wiki/' . $game);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

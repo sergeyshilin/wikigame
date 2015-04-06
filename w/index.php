@@ -5,11 +5,11 @@ try {
     require_once('classes/DBHelper.php');
     require_once('classes/WayParser.php');
 
-    if (!isset($_GET['page']) || empty($_GET['page'])) {
+    if (!isset($_GET['title']) || empty($_GET['title'])) {
         throw new Exception();
     }
 
-    $page = escape($_GET['page']);
+    $page = escape($_GET['title']);
     $cat = isset($_GET["cat"]) && !empty($_GET["cat"]) ? escape($_GET["cat"]) : 0;
 
     if (WayParser::isMD5Hash($page)) {
