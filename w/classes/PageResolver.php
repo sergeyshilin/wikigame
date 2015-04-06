@@ -3,6 +3,10 @@
 class PageResolver {
     private static $pageNotFoundMsg = 'В Википедии <b>нет статьи</b> с таким названием.';
     private static $undefinedMsg = 'Неизвестная ошибка.';
+    private static $metaSections = array(
+        ".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F", // Примечания
+        ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0", // Литература
+        ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"); // Ссылки
 
     public function getPage($name) {
         if ($this->isGenerated($name)) {
@@ -76,7 +80,7 @@ class PageResolver {
         return substr($content, $startPos + strlen($needle), $end1 - $startPos - strlen($needle));
     }
 
-    private function cutFooter($content) {
+    private function cutMetaSections($content) {
         $lastPos = 0;
         $needle = "<h2><span class=\"mw-headline\" id=\"";
 
@@ -93,13 +97,11 @@ class PageResolver {
 
         $contentNew = $content;
         foreach ($headers as $key => $header) {
-            $str = $header['str'];
-            if (strcmp($str, ".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F") == 0 // Примечания
-                || strcmp($str, ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0") == 0 // Литература
-                || strcmp($str, ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8") == 0 // Ссылки
-            ) {
-                $contentNew = str_replace(substr($content, $header['pos'], $headers[$key + 1]['pos'] - $header['pos']), "", $content);
-                break;
+            foreach (PageResolver::$metaSections as $meta) {
+                if (strcmp($header['str'], $meta) == 0) {
+                    $contentNew = str_replace(substr($content, $header['pos'], $headers[$key + 1]['pos'] - $header['pos']), "", $contentNew);
+                    break;
+                }
             }
         }
         return $contentNew;
@@ -111,7 +113,7 @@ class PageResolver {
         '<div id="bodyContent" class="mw-body-content">' .
         '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>' .
         '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
-        $this->cutFooter($content) .
+        $this->cutMetaSections($content) .
         "</div></div>";
     }
 
