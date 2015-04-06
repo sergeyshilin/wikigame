@@ -74,6 +74,7 @@ function wayToSession(Way $way, $cat = NULL) {
 
     $_SESSION['win'] = false;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,8 +103,8 @@ function wayToSession(Way $way, $cat = NULL) {
 
     <link rel="stylesheet" type="text/css" href="/w/css/main.css">
 
-	<script type="text/javascript" language="JavaScript" src="/w/js/jquery.min.js"></script>
-	<script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/jquery.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/w/js/bootstrap.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="/w/js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" language="JavaScript" src="/w/js/main.js"></script>
 </head>

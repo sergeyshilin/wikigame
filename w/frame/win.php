@@ -70,27 +70,27 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
     var title = "<?=$title?>";
     var description = "<?=$desc?>";
     var share = new Share(url, title, description);
-    $(window).load(function() {
+    $(window).load(function () {
         yaCounter28976460.reachGoal('wingame');
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
                 share.pimg = parseFile.url();
-                $("#share_vk").click(function() {
+                $("#share_vk").click(function () {
                     yaCounter28976460.reachGoal('sharevk');
                     share.vkontakte();
                 });
-                $("#share_fb").click(function() {
+                $("#share_fb").click(function () {
                     yaCounter28976460.reachGoal('sharefb');
                     share.facebook();
                 });
-                $("#share_gp").click(function() {
+                $("#share_gp").click(function () {
                     yaCounter28976460.reachGoal('sharegoogle');
                     share.googleplus();
                 });
-                $("#share_tw").click(function() {
+                $("#share_tw").click(function () {
                     yaCounter28976460.reachGoal('sharetwit');
                     share.twitter();
                 });
