@@ -1,6 +1,9 @@
 <?php
 
 class PageResolver {
+    private static $pageNotFoundMsg = 'В Википедии <b>нет статьи</b> с таким названием.';
+    private static $undefinedMsg = 'Неизвестная ошибка.';
+
     public function getPage($name) {
         if ($this->isGenerated($name)) {
             $obj = $this->getContentFromHtml($name);
@@ -19,9 +22,16 @@ class PageResolver {
         $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . urlencode(urldecode($name)) . "&format=json";
         $json = file_get_contents($url);
         $obj = json_decode($json, true);
-        $title = $obj['parse']['title'];
-        $content = $obj['parse']['text']['*'];
-        return array("title" => $title, "content" => $content);
+        if (array_key_exists('parse', $obj)) {
+            $title = $obj['parse']['title'];
+            $content = $obj['parse']['text']['*'];
+            return array("title" => $title, "content" => $content);
+        } else if (array_key_exists('error', $obj)) {
+            return array("title" => str_replace('_', ' ', $name),
+                "content" => $this->generateErrorMsg($obj['error']['code'] == 'missingtitle' ? PageResolver::$pageNotFoundMsg : $obj['error']['code']));
+        } else {
+            return array("title" => str_replace('_', ' ', $name), "content" => $this->generateErrorMsg(PageResolver::$undefinedMsg));
+        }
     }
 
     public function getContentFromHtml($name) {
@@ -50,13 +60,13 @@ class PageResolver {
         return array("title" => $title, "content" => $content);
     }
 
+    public function isGenerated($title) {
+        return strpos($title, ':') !== false;
+    }
+
     public function isRedirect($content) {
         $needle = "<div class=\"redirectMsg\">";
         return $needle === "" || strrpos($content, $needle, -strlen($content)) !== FALSE;
-    }
-
-    public function isGenerated($title) {
-        return strpos($title, 'Категория:') !== false || strpos($title, 'Служебная:') !== false;
     }
 
     public function extractRedirectPageName($content) {
@@ -84,7 +94,6 @@ class PageResolver {
         $contentNew = $content;
         foreach ($headers as $key => $header) {
             $str = $header['str'];
-
             if (strcmp($str, ".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F") == 0 // Примечания
                 || strcmp($str, ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0") == 0 // Литература
                 || strcmp($str, ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8") == 0 // Ссылки
@@ -104,5 +113,13 @@ class PageResolver {
         '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
         $this->cutFooter($content) .
         "</div></div>";
+    }
+
+    public function generateErrorMsg($msg) {
+        return '<div id="noarticletext" class="plainlinks" style="padding-left: 2em; padding-right: 2em">' .
+            '<div class="floatright"><a href="//commons.wikimedia.org/wiki/File:Wiki_letter_w_dashed.svg?uselang=ru" class="image"><img alt="Wiki letter w dashed.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/100px-Wiki_letter_w_dashed.svg.png" width="100" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/150px-Wiki_letter_w_dashed.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/200px-Wiki_letter_w_dashed.svg.png 2x" data-file-width="44" data-file-height="44"></a></div>' .
+            '<p>' . $msg . '</p>' .
+            '<p>Вы можете cообщить нам об ошибке на этой странице, написав нам нам на почту <a href="mailto:game@wikiwalker.ru">game@wikiwalker.ru</a> ' .
+            'или в <a href="https://vk.com/wikiwalker" target="_blank">группу <b>ВКонтакте</b></a></p></div>';
     }
 }
