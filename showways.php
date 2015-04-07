@@ -12,17 +12,17 @@ include 'authorize.php';
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>WikiWalker - Проверь свой путь</title>
-    <link rel="stylesheet" type="text/css" href="wikigame/css/main.css">
-    <script type="text/javascript" src="wikigame/js/jquery.min.js"></script>
-    <script type="text/javascript" src="wikigame/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="w/css/main.css">
+    <script type="text/javascript" src="w/js/jquery.min.js"></script>
+    <script type="text/javascript" src="w/js/main.js"></script>
 </head>
 <body>
 <div id="showways">
     <?php
     // xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
 
-    require_once('wikigame/WayUtils.php');
-    require_once('wikigame/Way.php');
+    require_once('w/WayUtils.php');
+    require_once('w/Way.php');
 
     $editor = new WayUtils();
 

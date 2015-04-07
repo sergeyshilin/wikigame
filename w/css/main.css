@@ -155,6 +155,12 @@ body, html {
 * NAVBAR
 */
 
+.bootstrap-scope {
+    position: relative;
+    height: 51px;
+    width: 100%;
+}
+
 .navbar {
     padding: 0;
 }
@@ -190,9 +196,21 @@ canvas {
 .main_logo {
 	height: 20px;
 	-webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
-    filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));;
+    filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
 }
 
 .header_logo {
-	height: 16px;
+    height: 16px;
+}
+
+#siteSub {
+    display: inline !important;
+}
+
+#coordinates,
+sup.reference,
+.mw-editsection,
+.noprint,
+.metadata {
+    display: none !important;
 }

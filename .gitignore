@@ -1,2 +1,3 @@
 .idea/
-logo/Резервная_копия_logo.cdr
+vendor/
+composer.*

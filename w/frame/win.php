@@ -6,15 +6,11 @@ $url = "http://wikiwalker.ru/" . $hash;
 $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
-$start_page_link = $_SESSION["startlink"];
 $end_page = str_replace("_", " ", $_SESSION["end"]);
-$end_page_link = $_SESSION["endlink"];
 ?>
 
-<link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
-
-<!-- Custom styles for this template -->
-<link href="/wiki/css/cover.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/w/css/bootstrap.min.css">
+<link href="/w/css/cover.css" rel="stylesheet">
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
 </script>
@@ -65,8 +61,8 @@ $end_page_link = $_SESSION["endlink"];
     </div>
 </div>
 
-<script src="/wiki/js/parse-1.4.0.min.js"></script>
-<script src="/wiki/js/classes/Share.js"></script>
+<script src="/w/js/parse-1.4.0.min.js"></script>
+<script src="/w/js/Share.js"></script>
 <script language="JavaScript">
     Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
 
@@ -74,27 +70,27 @@ $end_page_link = $_SESSION["endlink"];
     var title = "<?=$title?>";
     var description = "<?=$desc?>";
     var share = new Share(url, title, description);
-    $(window).load(function() {
+    $(window).load(function () {
         yaCounter28976460.reachGoal('wingame');
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
                 share.pimg = parseFile.url();
-                $("#share_vk").click(function() {
+                $("#share_vk").click(function () {
                     yaCounter28976460.reachGoal('sharevk');
                     share.vkontakte();
                 });
-                $("#share_fb").click(function() {
+                $("#share_fb").click(function () {
                     yaCounter28976460.reachGoal('sharefb');
                     share.facebook();
                 });
-                $("#share_gp").click(function() {
+                $("#share_gp").click(function () {
                     yaCounter28976460.reachGoal('sharegoogle');
                     share.googleplus();
                 });
-                $("#share_tw").click(function() {
+                $("#share_tw").click(function () {
                     yaCounter28976460.reachGoal('sharetwit');
                     share.twitter();
                 });

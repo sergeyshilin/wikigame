@@ -75,7 +75,8 @@ class Way {
     }
 
     public static function getName($node) {
-        return rawurldecode(substr(strrchr($node, "/"), 1));
+        $end = strpos($node, 'wiki/');
+        return rawurldecode(substr($node, $end + strlen('wiki/')));
     }
 
     public function getStartPoint() {
