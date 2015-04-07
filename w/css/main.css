@@ -201,7 +201,6 @@ canvas {
 sup.reference,
 .mw-editsection,
 .noprint,
-.metadata,
-.extiw {
+.metadata {
     display: none !important;
 }

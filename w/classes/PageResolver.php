@@ -8,20 +8,6 @@ class PageResolver {
         ".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0", // Литература
         ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"); // Ссылки
 
-    public function getPage($name) {
-        if ($this->isGenerated($name)) {
-            $obj = $this->getContentFromHtml($name);
-        } else {
-            $obj = $this->getContentFromApi($name);
-            if ($this->isRedirect($obj["content"])) {
-                $newName = $this->extractRedirectPageName($obj["content"]);
-                $newObj = $this->getContentFromApi($newName);
-                return $this->printPage($newObj["title"], $newObj["content"], $name, $obj["title"]);
-            }
-        }
-        return $this->printPage($obj["title"], $obj["content"]);
-    }
-
     public function getContentFromApi($name) {
         $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . urlencode(urldecode($name)) . "&format=json";
         $json = file_get_contents($url);
@@ -53,15 +39,9 @@ class PageResolver {
         }
 
         $html = file_get_html($url);
-
-        foreach ($html->find('a[class=external text]') as $element) {
-            $link = $element->href;
-            $element->href = str_replace("//" . $_SESSION['lang'] . ".wikipedia.org", "", $link);
-        }
-
         $title = $html->find('h1[id=firstHeading]', 0)->innertext;
         $content = $html->find('div[id=mw-content-text]', 0);
-        return array("title" => $title, "content" => $content);
+        return array("title" => $title, "content" => (string)$content);
     }
 
     public function isGenerated($title) {
@@ -91,37 +71,107 @@ class PageResolver {
             $lastPos = $lastPos + strlen($needle);
         }
 
-        $needle = "<table class=\"navbox";
-        $lastPos = strpos($content, $needle, $lastPos);
-        $headers[] = $lastPos != false ? array('pos' => $lastPos, 'str' => "") : array('pos' => strlen($content), 'str' => "");
+        $headers[] = array('pos' => strlen($content), 'str' => "");
 
-        $contentNew = $content;
-        foreach ($headers as $key => $header) {
+        for ($i = count($headers) - 1; $i >= 0; $i--) {
             foreach (PageResolver::$metaSections as $meta) {
-                if (strcmp($header['str'], $meta) == 0) {
-                    $contentNew = str_replace(substr($content, $header['pos'], $headers[$key + 1]['pos'] - $header['pos']), "", $contentNew);
+                if (strcmp($headers[$i]['str'], $meta) == 0) {
+                    $content = $this->cut($content, $headers[$i]['pos'], $headers[$i + 1]['pos']);
                     break;
                 }
             }
         }
-        return $contentNew;
+        return $content;
+    }
+
+    public function disarmLinks($content) {
+        $lang = $_SESSION['lang'];
+        $lastPos = 0;
+        $tags = array();
+        while (($tag = $this->substring($content, '<a', '</a>', $lastPos)) !== false) {
+            $tags[] = $tag;
+            $lastPos = $tag['endPos'];
+        }
+
+        for ($i = count($tags) - 1; $i >= 0; $i--) {
+            $link = $this->inside($tags[$i]['str'], 'href="', '"');
+            if ($link !== false) {
+                if ($this->startsWith($link['str'], "/wiki/") ||
+                    $this->startsWith($link['str'], "/w/") ||
+                    $this->startsWith($link['str'], "#")) {
+                    continue;
+                } else if ($this->startsWith($link['str'], "//" . $lang . ".wikipedia.org") ||
+                    $this->startsWith($link['str'], "https://" . $lang . ".wikipedia.org") ||
+                    $this->startsWith($link['str'], "http://" . $lang . ".wikipedia.org")) {
+                    $newLink = $this->substring($link['str'], '/wiki/');
+                    $content = $this->replace($content, $tags[$i]['startPos'] + $link['startPos'], $tags[$i]['startPos'] + $link['endPos'], $newLink['str']);
+                } else {
+                    $linkInside = $this->inside($tags[$i]['str'], '>', '</a>');
+                    $content = $this->replace($content, $tags[$i]['startPos'], $tags[$i]['endPos'], $linkInside['str']);
+                }
+            }
+        }
+
+        return $content;
     }
 
     public function printPage($title, $content) {
+        $content = $this->cutMetaSections($content);
+        $content = $this->disarmLinks($content);
+
         return '<div id="content" class="mw-body zeromargin" role="main">' .
         '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>' .
         '<div id="bodyContent" class="mw-body-content">' .
         '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>' .
         '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
-        $this->cutMetaSections($content) .
+        $content .
         "</div></div>";
     }
 
     public function generateErrorMsg($msg) {
         return '<div id="noarticletext" class="plainlinks" style="padding-left: 2em; padding-right: 2em">' .
-            '<div class="floatright"><a href="//commons.wikimedia.org/wiki/File:Wiki_letter_w_dashed.svg?uselang=ru" class="image"><img alt="Wiki letter w dashed.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/100px-Wiki_letter_w_dashed.svg.png" width="100" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/150px-Wiki_letter_w_dashed.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/200px-Wiki_letter_w_dashed.svg.png 2x" data-file-width="44" data-file-height="44"></a></div>' .
-            '<p>' . $msg . '</p>' .
-            '<p>Вы можете cообщить нам об ошибке на этой странице, написав нам нам на почту <a href="mailto:game@wikiwalker.ru">game@wikiwalker.ru</a> ' .
-            'или в <a href="https://vk.com/wikiwalker" target="_blank">группу <b>ВКонтакте</b></a></p></div>';
+        '<div class="floatright"><a href="//commons.wikimedia.org/wiki/File:Wiki_letter_w_dashed.svg?uselang=ru" class="image"><img alt="Wiki letter w dashed.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/100px-Wiki_letter_w_dashed.svg.png" width="100" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/150px-Wiki_letter_w_dashed.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Wiki_letter_w_dashed.svg/200px-Wiki_letter_w_dashed.svg.png 2x" data-file-width="44" data-file-height="44"></a></div>' .
+        '<p>' . $msg . '</p>' .
+        '<p>Вы можете cообщить нам об ошибке на этой странице, написав нам нам на почту <a href="mailto:game@wikiwalker.ru">game@wikiwalker.ru</a> ' .
+        'или в <a href="https://vk.com/wikiwalker" target="_blank">группу <b>ВКонтакте</b></a></p></div>';
+    }
+
+    private function substring($content, $startStr, $endStr = null, $lastPos = 0) {
+        $startPos = strpos($content, $startStr, $lastPos);
+        if ($startPos === false) return false;
+        if ($endStr != null) {
+            $endPos = strpos($content, $endStr, $startPos + strlen($startStr));
+            if ($endPos === false) return false;
+            $str = substr($content, $startPos, $endPos - $startPos + strlen($endStr));
+            return array('startPos' => $startPos, 'endPos' => $endPos + strlen($endStr), 'str' => $str);
+        } else {
+            $str = substr($content, $startPos);
+            return array('startPos' => $startPos, 'endPos' => strlen($content), 'str' => $str);
+        }
+    }
+
+    private function inside($content, $startStr, $endStr, $lastPos = 0) {
+        $startPos = strpos($content, $startStr, $lastPos);
+        if ($startPos === false) return false;
+        $endPos = strpos($content, $endStr, $startPos + strlen($startStr));
+        if ($endPos === false) return false;
+        $str = substr($content, $startPos + strlen($startStr), $endPos - $startPos - strlen($startStr));
+        return array('startPos' => $startPos + strlen($startStr), 'endPos' => $endPos, 'str' => $str);
+    }
+
+    private function cut($content, $startPos, $endPos) {
+        return substr($content, 0, $startPos) . substr($content, $endPos);
+    }
+
+    private function replace($content, $startPos, $endPos, $newSubStr) {
+        return substr($content, 0, $startPos) . $newSubStr . substr($content, $endPos);
+    }
+
+    function startsWith($haystack, $needle) {
+        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+    }
+
+    function endsWith($haystack, $needle) {
+        return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
     }
 }
