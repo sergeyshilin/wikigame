@@ -98,11 +98,13 @@ class PageResolver {
             if ($link !== false) {
                 if ($this->startsWith($link['str'], "/wiki/") ||
                     $this->startsWith($link['str'], "/w/") ||
-                    $this->startsWith($link['str'], "#")) {
+                    $this->startsWith($link['str'], "#")
+                ) {
                     continue;
                 } else if ($this->startsWith($link['str'], "//" . $lang . ".wikipedia.org") ||
                     $this->startsWith($link['str'], "https://" . $lang . ".wikipedia.org") ||
-                    $this->startsWith($link['str'], "http://" . $lang . ".wikipedia.org")) {
+                    $this->startsWith($link['str'], "http://" . $lang . ".wikipedia.org")
+                ) {
                     $newLink = $this->substring($link['str'], '/wiki/');
                     $content = $this->replace($content, $tags[$i]['startPos'] + $link['startPos'], $tags[$i]['startPos'] + $link['endPos'], $newLink['str']);
                 } else {

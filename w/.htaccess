@@ -5,7 +5,7 @@ Options -Indexes -Multiviews
 RewriteEngine On
 RewriteBase /wiki/
 
-RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico|php)
+RewriteCond %{REQUEST_URI} \.(zip|rar|doc|xls|tif|tiff|docx|xlsx|php)|(css\/(.*)|js\/(.*)|img\/(.*))
     RewriteRule ^(.*)$ $1 [L,QSA]
 
 RewriteRule ^(.*)$ index.php?title=$1 [L,QSA]
