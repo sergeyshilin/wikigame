@@ -62,13 +62,16 @@ class PageResolver {
 
     private function cutMetaSections($content) {
         $lastPos = 0;
-        $needle = "<h2><span class=\"mw-headline\" id=\"";
+        while (($h2 = $this->substring($content, '<h2>', '</h2>', $lastPos)) !== false) {
+            $str = $this->inside($h2['str'], '<span class="mw-headline" id="', '">');
+            $headers[] = array('pos' => $h2['startPos'], 'str' => $str['str']);
+            $lastPos = $h2['endPos'];
+        }
 
-        while (($lastPos = strpos($content, $needle, $lastPos)) !== false) {
-            $end = strpos($content, '">', $lastPos + strlen($needle));
-            $str = substr($content, $lastPos + strlen($needle), $end - $lastPos - strlen($needle));
-            $headers[] = array('pos' => $lastPos, 'str' => $str);
-            $lastPos = $lastPos + strlen($needle);
+        if (($navBox = $this->substring($content, '<table class="navbox', null, $lastPos)) !== false) {
+            $content = $this->cut($content, $navBox['startPos']);
+        } else if (($navBox = $this->substring($content, '<div class="NavFrame', null, $lastPos)) !== false) {
+            $content = $this->cut($content, $navBox['startPos']) . "</div>";
         }
 
         $headers[] = array('pos' => strlen($content), 'str' => "");
@@ -161,8 +164,12 @@ class PageResolver {
         return array('startPos' => $startPos + strlen($startStr), 'endPos' => $endPos, 'str' => $str);
     }
 
-    private function cut($content, $startPos, $endPos) {
-        return substr($content, 0, $startPos) . substr($content, $endPos);
+    private function cut($content, $startPos, $endPos = null) {
+        if ($endPos != null) {
+            return substr($content, 0, $startPos) . substr($content, $endPos);
+        } else {
+            return substr($content, 0, $startPos);
+        }
     }
 
     private function replace($content, $startPos, $endPos, $newSubStr) {
