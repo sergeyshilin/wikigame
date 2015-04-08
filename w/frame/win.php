@@ -20,7 +20,7 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
         <div class="cover-container">
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">WikiWalker</h3>
+                    <h3 style="float:left;"><img class="main_logo" src="/logo/logo_white.svg" title="WikiWalker - найди свой путь"></h3>
                 </div>
             </div>
 
