@@ -5,4 +5,4 @@ require_once('wikigame/WayParser.php');
 
 $parser = new WayParser('wikigame/scripts/results/1.txt');
 $parser->setLang('ru');
-$parser->writeWays(5);
+$parser->writeWays(2);

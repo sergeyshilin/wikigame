@@ -197,8 +197,6 @@ canvas {
 
 .login-button {
 	float: right;
-	margin-top: 24px;
-	margin-right: 10px;
 }
 
 .prettyline {
@@ -219,4 +217,77 @@ canvas {
 	height: 300px;
 	background: url("/wiki/img/logo.svg");
 	background-size: 1000px 300px;
+}
+
+.alert-danger {
+	text-shadow: none;
+}
+
+#registerform input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#registerform input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.form-signin .middle {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin .bottom {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#loginform .form-control,
+#remindpass .form-control,
+#registerform .form-control {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#registerform .form-control {
+	margin-bottom: 0 !important;
+}
+
+.submit-button {
+	font-weight: 400 !important;
+}
+
+#registerform .submit-button {
+	margin-top: 10px;
+}
+
+.socials {
+	margin: 0;
+}
+
+.soclogin {
+	padding: 0 2px;
+}
+
+.login-password {
+	margin-top: 5px;
 }
