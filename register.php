@@ -25,7 +25,10 @@
                     $_REQUEST["password"]
                 );
 
+                $user_id = get_user_by_email_and_password($_REQUEST["email"], md5($_REQUEST["password"]));
+
                 $_SESSION["user_connected"] = true;
+                $_SESSION["user_id"] = $user_id->id;
                 header("Location: /");
 
             }

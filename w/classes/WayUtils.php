@@ -65,12 +65,16 @@ class WayUtils {
         return DBHelper::delete("DELETE FROM `ways` WHERE hash = '{$hash}'");
     }
 
-    public function likeWay($user_id, $way_id, $like) {
-        if(DBHelper::update("UPDATE stats SET like='{$like}' WHERE user_id = '{$user_id}' AND way_id = '{$way_id}'"))
+    public function likeWay($user_id, $way_hash, $like) {
+        if(DBHelper::update("UPDATE stats SET `like`='{$like}' WHERE user_id = '{$user_id}' AND way_id IN (SELECT id FROM ways WHERE hash = '{$way_hash}')"))
             return true;
-        if(DBHelper::insert("INSERT INTO stats (`id`, `user_id`, `way_id`, `like`) VALUES (NULL, '{$user_id}', '{$way_id}', '{$like}')") != NULL)
+        if(DBHelper::insert("INSERT INTO stats (`id`, `user_id`, `way_id`, `like`) SELECT NULL, '{$user_id}', id, '{$like}' FROM ways WHERE hash = '{$way_hash}'") != NULL)
             return true;
         return false;
+    }
+
+    public function getLike($user_id, $way_hash) {
+        return DBHelper::getFirst("SELECT `like` FROM stats WHERE user_id = '{$user_id}' AND way_id IN (SELECT id FROM ways WHERE hash = '{$way_hash}')");
     }
 
 }

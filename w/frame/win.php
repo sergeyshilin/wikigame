@@ -75,6 +75,9 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 
 <script src="/w/js/parse-1.4.0.min.js"></script>
 <script src="/w/js/Share.js"></script>
+<script type="text/javascript">
+    loadLike();
+</script>
 <script language="JavaScript">
     Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
 
