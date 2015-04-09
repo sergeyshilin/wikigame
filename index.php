@@ -35,7 +35,6 @@
           $config = Config::getProviders();   
           $hybridauth = new Hybrid_Auth( $config );
           $adapter = $hybridauth->authenticate( $provider_name );
-          print_r($adapter);
           $user_profile = $adapter->getUserProfile();
         } catch( Exception $e ) {
           echo $e;
@@ -55,6 +54,8 @@
             $provider_name,
             $user_profile->identifier
           );
+
+          $user_exist = get_user_by_provider_and_id( $provider_name, $user_profile->identifier );
         }
        
         // set the user as connected and redirect him
@@ -253,7 +254,7 @@ EOF;
                 </fieldset>
               </form>  
             <?php } else { ?>
-            <p class="text-center"><h3>Вы вошли! ID: <?php print_r($_SESSION["user_id"]); ?></br><a href="?logout">Выйти</a></h3></p>          
+            <p class="text-center"><h3>Вы вошли! ID: <?php echo $_SESSION["user_id"]; ?></br><a href="?logout">Выйти</a></h3></p>          
             <?php } ?>
         </div>
       </div>
