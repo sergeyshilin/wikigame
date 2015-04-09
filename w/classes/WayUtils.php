@@ -65,6 +65,14 @@ class WayUtils {
         return DBHelper::delete("DELETE FROM `ways` WHERE hash = '{$hash}'");
     }
 
+    public function likeWay($user_id, $way_id, $like) {
+        if(DBHelper::update("UPDATE stats SET like='{$like}' WHERE user_id = '{$user_id}' AND way_id = '{$way_id}'"))
+            return true;
+        if(DBHelper::insert("INSERT INTO stats (`id`, `user_id`, `way_id`, `like`) VALUES (NULL, '{$user_id}', '{$way_id}', '{$like}')") != NULL)
+            return true;
+        return false;
+    }
+
 }
 
 ?>

@@ -320,3 +320,7 @@ sup.reference,
 .metadata {
     display: none !important;
 }
+
+span.link-button {
+	cursor: pointer;
+}

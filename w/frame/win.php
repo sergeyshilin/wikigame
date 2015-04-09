@@ -7,9 +7,18 @@ $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
 $end_page = str_replace("_", " ", $_SESSION["end"]);
+
+// require_once('../classes/WayUtils.php');
+/**
+*   Здесь нужно учитывать статистику о пройденном маршруте.
+*   Либо просто записывать минимальное кол-во шагов, за которые пользователь 
+*   прошел данный маршрут, либо кол-во шагов, за которые пользователь прошел данный маршрут 
+*   в этот день (таким образом можно разбивать статистику по времени (день, месяц, год?) )
+*/
 ?>
 
 <link rel="stylesheet" type="text/css" href="/w/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href="/w/css/cover.css" rel="stylesheet">
 <script type="text/javascript">
     window.history.pushState("", "Title", "/?game=<?=$hash?>");
@@ -31,7 +40,10 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                     Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
-                    Понравилось? Поделись результатом с друзьями!
+                    Понравился маршрут? <span class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
+                    <span class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
+                </br>
+                    Поделись результатом с друзьями!
                 </p>
 
                 <div id="sharebtns" style="margin-bottom: 20px">
