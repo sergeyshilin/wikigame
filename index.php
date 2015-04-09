@@ -4,12 +4,23 @@
       $error = false;
       $error_msg = "";
       require_once('hybrid_connect.php');
+      require_once('hybrid/hybridauth/config.php');
+      require_once( "hybrid/hybridauth/Hybrid/Auth.php" );
+
+      if(isset($_GET["logout"])) {
+        $config = Config::getProviders();
+        (new Hybrid_Auth($config))->logoutAllProviders();
+        session_unset();
+        session_destroy();
+        header("Location: /");
+      }
 
       if( isset( $_REQUEST["email"] ) && isset( $_REQUEST["password"] ) ) {
         $user_exist = get_user_by_email_and_password( $_REQUEST["email"], md5($_REQUEST["password"]));
        
         if( $user_exist ) {
           $_SESSION["user_connected"] = true;
+          $_SESSION["user_id"] = $user_exist->id;
           header("Location: /");
         } else {
           $error = !$error;
@@ -21,11 +32,10 @@
        
         try {
           // inlcude HybridAuth library
-          $config   = 'hybrid/hybridauth/config.php';
-          require_once( "hybrid/hybridauth/Hybrid/Auth.php" );
-       
+          $config = Config::getProviders();   
           $hybridauth = new Hybrid_Auth( $config );
           $adapter = $hybridauth->authenticate( $provider_name );
+          print_r($adapter);
           $user_profile = $adapter->getUserProfile();
         } catch( Exception $e ) {
           echo $e;
@@ -50,6 +60,7 @@
         // set the user as connected and redirect him
         $_SESSION["user_connected"] = true;
         $_SESSION["user_adapter"] = $provider_name;
+        $_SESSION["user_id"] = $user_exist->id;
        
         header("Location: /");
       }
@@ -219,19 +230,19 @@ EOF;
                       <div class="col-md-2">
                       </div>
                       <div class="col-md-2 soclogin">
-                        <a class="btn btn-primary btn-block" href="login.php?provider=Vkontakte">
+                        <a class="btn btn-primary btn-block" href="index.php?provider=Vkontakte">
                           <i class="fa fa-vk"></i></a>
                       </div>
                       <div class="col-md-2 soclogin">
-                        <a class="btn btn-primary btn-block" href="login.php?provider=Facebook">
+                        <a class="btn btn-primary btn-block" href="index.php?provider=Facebook">
                           <i class="fa fa-facebook"></i></a>
                       </div>
                       <div class="col-md-2 soclogin">
-                        <a class="btn btn-info btn-block" href="login.php?provider=Twitter">
+                        <a class="btn btn-info btn-block" href="index.php?provider=Twitter">
                           <i class="fa fa-twitter"></i></a>
                       </div>
                       <div class="col-md-2 soclogin">
-                        <a class="btn btn-danger btn-block" href="login.php?provider=google">
+                        <a class="btn btn-danger btn-block" href="index.php?provider=google">
                           <i class="fa fa-google-plus"></i></a>
                       </div>
                       <div class="col-md-2">
@@ -242,7 +253,7 @@ EOF;
                 </fieldset>
               </form>  
             <?php } else { ?>
-            <p class="text-center"><h3>Вы вошли! Здесь могла бы быть ваша реклама</h3></p>          
+            <p class="text-center"><h3>Вы вошли! ID: <?php print_r($_SESSION["user_id"]); ?></br><a href="?logout">Выйти</a></h3></p>          
             <?php } ?>
         </div>
       </div>
