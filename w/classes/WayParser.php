@@ -71,6 +71,9 @@ class WayParser {
         $sqlconfig = new SQLConfig();
         $mysqli = $sqlconfig->getMysqli();
 
+        $hashes = array();
+
+        /* @var $way Way */
         foreach ($this->waysarr as $way) {
             $id = NULL;
             $hash = $way->createHash();
@@ -81,18 +84,26 @@ class WayParser {
             if ($mysqli->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0, 0)") === TRUE) {
                 $id = $mysqli->insert_id;
                 $this->writeNode($mysqli, $id, $way->getWay(), 0, NULL);
+                $hashes[] = $hash;
+            } else {
+                throw new Exception("Can't create way");
             }
         }
 
+        return $hashes;
     }
 
     private function writeNode(&$mysqli, $id, $nodes, $key, $parent_id) {
         $link = Way::getUrl($nodes[$key]);
+        /* @var $mysqli mysqli */
         if ($mysqli->query("INSERT INTO way_nodes VALUES(NULL, '{$id}', '{$link}', '{$parent_id}')") === TRUE) {
             $last_id = $mysqli->insert_id;
             $next_key = $key + 1;
-            if ($next_key < count($nodes))
+            if ($next_key < count($nodes)) {
                 $this->writeNode($mysqli, $id, $nodes, $next_key, $last_id);
+            }
+        } else {
+            throw new Exception("Can't create node");
         }
     }
 

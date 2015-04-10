@@ -28,6 +28,7 @@ try {
         if (empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"]) {
             header('Location: /wiki/' . $_SESSION["current"]);
         } else if ($title == $_SESSION['end']) {
+            $_SESSION['counter']++;
             $_SESSION['win'] = true;
         } else {
             include_once("classes/PageResolver.php");
