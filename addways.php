@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-//include 'authorize.php';
+include 'authorize.php';
 ?>
 
 <html lang="en">
