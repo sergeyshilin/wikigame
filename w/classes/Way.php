@@ -76,7 +76,13 @@ class Way {
 
     public static function getName($node) {
         $end = strpos($node, 'wiki/');
-        return rawurldecode(substr($node, $end + strlen('wiki/')));
+        if($end !== false) {
+            return rawurldecode(substr($node, $end + strlen('wiki/')));
+        } else {
+            $querystr = parse_url($node)["query"];
+            parse_str($querystr, $query);
+            return rawurldecode($query["title"]);
+        }
     }
 
     public function getStartPoint() {

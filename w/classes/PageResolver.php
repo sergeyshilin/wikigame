@@ -1,6 +1,7 @@
 <?php
 
 class PageResolver {
+    private $currentPageLinks;
     private static $pageNotFoundMsg = 'В Википедии <b>нет статьи</b> с таким названием.';
     private static $undefinedMsg = 'Неизвестная ошибка.';
     private static $metaSections = array(
@@ -89,6 +90,8 @@ class PageResolver {
     }
 
     public function disarmLinks($content) {
+        require_once("Way.php");
+        $this->currentPageLinks = array();
         $lang = $_SESSION['lang'];
         $lastPos = 0;
         $tags = array();
@@ -101,9 +104,13 @@ class PageResolver {
             $link = $this->inside($tags[$i]['str'], 'href="', '"');
             if ($link !== false) {
                 if ($this->startsWith($link['str'], "/wiki/") ||
-                    $this->startsWith($link['str'], "/w/") ||
-                    $this->startsWith($link['str'], "#")
-                ) {
+                    $this->startsWith($link['str'], "/w/")
+                    )
+                {
+                    if(count($tags) > 1)
+                        array_push($this->currentPageLinks, Way::getName((string)$link['str']));
+                    continue;
+                } else if($this->startsWith($link['str'], "#")) {
                     continue;
                 } else if ($this->startsWith($link['str'], "//" . $lang . ".wikipedia.org") ||
                     $this->startsWith($link['str'], "https://" . $lang . ".wikipedia.org") ||
@@ -183,5 +190,9 @@ class PageResolver {
 
     function endsWith($haystack, $needle) {
         return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
+    }
+
+    public function getCurrentPageLinks() {
+        return $this->currentPageLinks;
     }
 }

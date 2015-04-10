@@ -25,7 +25,9 @@ try {
         wayToSession($way, $cat);
         header('Location: /wiki/' . $_SESSION["start"]);
     } else if (!$_SESSION['win']) {
-        if (empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"]) {
+        if ((empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"])
+            // ||  (!in_array($_SESSION["current"], $_SESSION["links"]) && !empty($_SESSION["links"]))
+        ) {
             header('Location: /wiki/' . $_SESSION["current"]);
         } else if ($title == $_SESSION['end']) {
             $_SESSION['counter']++;
@@ -40,6 +42,7 @@ try {
             } else if ($title == $_SESSION['start']) {
                 $_SESSION['previous'] = "";
                 $_SESSION['current'] = $_SESSION['start'];
+                $_SESSION["links"] = array();
                 $_SESSION['counter'] = 0;
             } else {
                 $_SESSION['previous'] = $_SESSION['current'];
@@ -72,6 +75,7 @@ function wayToSession(Way $way, $cat = NULL) {
     $_SESSION['start'] = Way::getName($way->getStartPoint());
     $_SESSION['current'] = Way::getName($way->getStartPoint());
     $_SESSION['end'] = Way::getName($way->getEndPoint());
+    $_SESSION['links'] = array();
 
     $_SESSION['win'] = false;
 }
@@ -115,7 +119,23 @@ function wayToSession(Way $way, $cat = NULL) {
 
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
+    $cnt = count($_SESSION["links"]);
+    if($cnt > 0)
+        echo $_SESSION["links"][$cnt-1]."</br>";
+    /**
+    * Вот тут опять ебаный пиздец с редиректами. На странице ссылка на C++
+    * http://wikiwalker.ru/wiki/C%2B%2B
+    * редиректит на статью с названием C. 
+    * Тут тройной пиздец
+    * Ко всему прочему нельзя ходить назад. Страницы с такой ссылкой на предыдущих страницах не было. 
+    * И что ёпт делать?
+    * Короче эту проверка, когда она заработает, надо воткнуть в строку 29 (просто раскоментить)
+    */
+    if(!in_array($_SESSION["current"], $_SESSION["links"]) && !empty($_SESSION["links"])) {
+        echo "БЛЕАААААТЬ";
+    }
     echo $resolver->printPage($obj["title"], $obj["content"]);
+    $_SESSION["links"] = $resolver->getCurrentPageLinks();
 } else {
     include_once('frame/win.php');
 }
