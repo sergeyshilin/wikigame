@@ -21,8 +21,8 @@ include 'authorize.php';
     <?php
     // xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
 
-    require_once('w/WayUtils.php');
-    require_once('w/Way.php');
+    require_once('w/classes/WayUtils.php');
+    require_once('w/classes/Way.php');
 
     $editor = new WayUtils();
 
