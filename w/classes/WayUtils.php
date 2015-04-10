@@ -10,6 +10,10 @@ class WayUtils {
         require_once('WayParser.php');
     }
 
+    public function addCategory($name, $description) {
+        return DBHelper::insert("INSERT INTO categories SET name = '" . $name . "', description = '" . $description . "'");
+    }
+
     public function getCategories() {
         return DBHelper::getAssoc("SELECT * FROM categories ORDER BY id DESC");
     }

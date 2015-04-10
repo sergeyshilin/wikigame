@@ -52,7 +52,7 @@ class Way {
         return $this->lang;
     }
 
-    public function getUrl($string) {
+    public static function getUrl($string) {
         $result = str_replace('\'', '', $string);
         $result = preg_replace('/\s+/', '', $result);
         return $result;
