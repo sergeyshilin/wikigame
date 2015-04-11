@@ -1,7 +1,6 @@
 <?php
 
 class PageResolver {
-    private $currentPageLinks;
     private static $pageNotFoundMsg = 'В Википедии <b>нет статьи</b> с таким названием.';
     private static $undefinedMsg = 'Неизвестная ошибка.';
     private static $metaSections = array(
@@ -10,8 +9,12 @@ class PageResolver {
         ".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8", // Ссылки
         ".D0.98.D1.81.D1.82.D0.BE.D1.87.D0.BD.D0.B8.D0.BA.D0.B8"); // Источники
 
+    public function __construct() {
+        require_once("StringUtils.php");
+    }
+
     public function getContentFromApi($name) {
-        $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . urlencode(urldecode($name)) . "&format=json";
+        $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/api.php?action=parse&page=" . urlencode($name) . "&format=json";
         $json = file_get_contents($url);
         $obj = json_decode($json, true);
         if (array_key_exists('parse', $obj)) {
@@ -28,7 +31,7 @@ class PageResolver {
 
     public function getContentFromHtml($name) {
         include_once('simple_html_dom.php');
-        $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/index.php?title=" . $name;
+        $url = "https://" . $_SESSION['lang'] . ".wikipedia.org/w/index.php?title=" . urlencode($name);
 
         if (isset($_GET['pagefrom']) && !empty($_GET['pagefrom'])) {
             $url .= "&pagefrom=" . htmlspecialchars($_GET['pagefrom']);
@@ -64,16 +67,16 @@ class PageResolver {
 
     private function cutMetaSections($content) {
         $lastPos = 0;
-        while (($h2 = $this->substring($content, '<h2>', '</h2>', $lastPos)) !== false) {
-            $str = $this->inside($h2['str'], '<span class="mw-headline" id="', '">');
+        while (($h2 = StringUtils::substring($content, '<h2>', '</h2>', $lastPos)) !== false) {
+            $str = StringUtils::inside($h2['str'], '<span class="mw-headline" id="', '">');
             $headers[] = array('pos' => $h2['startPos'], 'str' => $str['str']);
             $lastPos = $h2['endPos'];
         }
 
-        if (($navBox = $this->substring($content, '<table class="navbox', null, $lastPos)) !== false) {
-            $content = $this->cut($content, $navBox['startPos']);
-        } else if (($navBox = $this->substring($content, '<div class="NavFrame', null, $lastPos)) !== false) {
-            $content = $this->cut($content, $navBox['startPos']) . "</div>";
+        if (($navBox = StringUtils::substring($content, '<table class="navbox', null, $lastPos)) !== false) {
+            $content = StringUtils::cut($content, $navBox['startPos']);
+        } else if (($navBox = StringUtils::substring($content, '<div class="NavFrame', null, $lastPos)) !== false) {
+            $content = StringUtils::cut($content, $navBox['startPos']) . "</div>";
         }
 
         $headers[] = array('pos' => strlen($content), 'str' => "");
@@ -81,7 +84,7 @@ class PageResolver {
         for ($i = count($headers) - 1; $i >= 0; $i--) {
             foreach (PageResolver::$metaSections as $meta) {
                 if (strcmp($headers[$i]['str'], $meta) == 0) {
-                    $content = $this->cut($content, $headers[$i]['pos'], $headers[$i + 1]['pos']);
+                    $content = StringUtils::cut($content, $headers[$i]['pos'], $headers[$i + 1]['pos']);
                     break;
                 }
             }
@@ -91,54 +94,52 @@ class PageResolver {
 
     public function disarmLinks($content) {
         require_once("Way.php");
-        $this->currentPageLinks = array();
+        $links = array();
         $lang = $_SESSION['lang'];
         $lastPos = 0;
         $tags = array();
-        while (($tag = $this->substring($content, '<a', '</a>', $lastPos)) !== false) {
+        while (($tag = StringUtils::substring($content, '<a', '</a>', $lastPos)) !== false) {
             $tags[] = $tag;
             $lastPos = $tag['endPos'];
         }
 
         for ($i = count($tags) - 1; $i >= 0; $i--) {
-            $link = $this->inside($tags[$i]['str'], 'href="', '"');
+            $link = StringUtils::inside($tags[$i]['str'], 'href="', '"');
             if ($link !== false) {
-                if ($this->startsWith($link['str'], "/wiki/") ||
-                    $this->startsWith($link['str'], "/w/")
-                    )
-                {
-                    if(count($tags) > 1)
-                        array_push($this->currentPageLinks, Way::getName((string)$link['str']));
-                    continue;
-                } else if($this->startsWith($link['str'], "#")) {
-                    continue;
-                } else if ($this->startsWith($link['str'], "//" . $lang . ".wikipedia.org") ||
-                    $this->startsWith($link['str'], "https://" . $lang . ".wikipedia.org") ||
-                    $this->startsWith($link['str'], "http://" . $lang . ".wikipedia.org")
+                if (StringUtils::startsWith($link['str'], "/wiki/") ||
+                    StringUtils::startsWith($link['str'], "/w/")
                 ) {
-                    $newLink = $this->substring($link['str'], '/wiki/');
-                    $content = $this->replace($content, $tags[$i]['startPos'] + $link['startPos'], $tags[$i]['startPos'] + $link['endPos'], $newLink['str']);
+                    $links[] = StringUtils::pageTitle($link['str']);
+                    continue;
+                } else if (StringUtils::startsWith($link['str'], "#")) {
+                    continue;
+                } else if (StringUtils::startsWith($link['str'], "//" . $lang . ".wikipedia.org") ||
+                    StringUtils::startsWith($link['str'], "https://" . $lang . ".wikipedia.org") ||
+                    StringUtils::startsWith($link['str'], "http://" . $lang . ".wikipedia.org")
+                ) {
+                    $newLink = StringUtils::substring($link['str'], '/wiki/');
+                    $links[] = StringUtils::pageTitle($newLink['str']);
+                    $content = StringUtils::replace($content, $tags[$i]['startPos'] + $link['startPos'], $tags[$i]['startPos'] + $link['endPos'], $newLink['str']);
                 } else {
-                    $linkInside = $this->inside($tags[$i]['str'], '>', '</a>');
-                    $content = $this->replace($content, $tags[$i]['startPos'], $tags[$i]['endPos'], $linkInside['str']);
+                    $linkInside = StringUtils::inside($tags[$i]['str'], '>', '</a>');
+                    $content = StringUtils::replace($content, $tags[$i]['startPos'], $tags[$i]['endPos'], $linkInside['str']);
                 }
             }
         }
-
-        return $content;
+        return array('content' => $content, 'links' => $links);
     }
 
     public function printPage($title, $content) {
         $content = $this->cutMetaSections($content);
-        $content = $this->disarmLinks($content);
+        $result = $this->disarmLinks($content);
 
-        return '<div id="content" class="mw-body zeromargin" role="main">' .
-        '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>' .
-        '<div id="bodyContent" class="mw-body-content">' .
-        '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>' .
-        '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
-        $content .
-        "</div></div>";
+        return array('content' => '<div id="content" class="mw-body zeromargin" role="main">' .
+            '<h1 id="firstHeading" class="firstHeading" lang="ru">' . $title . '</h1>' .
+            '<div id="bodyContent" class="mw-body-content">' .
+            '<div id="siteSub">Материал из Википедии — свободной энциклопедии</div>' .
+            '<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr">' .
+            $result['content'] .
+            "</div></div>", 'links' => $result['links']);
     }
 
     public function generateErrorMsg($msg) {
@@ -147,52 +148,5 @@ class PageResolver {
         '<p>' . $msg . '</p>' .
         '<p>Вы можете cообщить нам об ошибке на этой странице, написав нам нам на почту <a href="mailto:game@wikiwalker.ru">game@wikiwalker.ru</a> ' .
         'или в <a href="https://vk.com/wikiwalker" target="_blank">группу <b>ВКонтакте</b></a></p></div>';
-    }
-
-    private function substring($content, $startStr, $endStr = null, $lastPos = 0) {
-        $startPos = strpos($content, $startStr, $lastPos);
-        if ($startPos === false) return false;
-        if ($endStr != null) {
-            $endPos = strpos($content, $endStr, $startPos + strlen($startStr));
-            if ($endPos === false) return false;
-            $str = substr($content, $startPos, $endPos - $startPos + strlen($endStr));
-            return array('startPos' => $startPos, 'endPos' => $endPos + strlen($endStr), 'str' => $str);
-        } else {
-            $str = substr($content, $startPos);
-            return array('startPos' => $startPos, 'endPos' => strlen($content), 'str' => $str);
-        }
-    }
-
-    private function inside($content, $startStr, $endStr, $lastPos = 0) {
-        $startPos = strpos($content, $startStr, $lastPos);
-        if ($startPos === false) return false;
-        $endPos = strpos($content, $endStr, $startPos + strlen($startStr));
-        if ($endPos === false) return false;
-        $str = substr($content, $startPos + strlen($startStr), $endPos - $startPos - strlen($startStr));
-        return array('startPos' => $startPos + strlen($startStr), 'endPos' => $endPos, 'str' => $str);
-    }
-
-    private function cut($content, $startPos, $endPos = null) {
-        if ($endPos != null) {
-            return substr($content, 0, $startPos) . substr($content, $endPos);
-        } else {
-            return substr($content, 0, $startPos);
-        }
-    }
-
-    private function replace($content, $startPos, $endPos, $newSubStr) {
-        return substr($content, 0, $startPos) . $newSubStr . substr($content, $endPos);
-    }
-
-    function startsWith($haystack, $needle) {
-        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
-    }
-
-    function endsWith($haystack, $needle) {
-        return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
-    }
-
-    public function getCurrentPageLinks() {
-        return $this->currentPageLinks;
     }
 }

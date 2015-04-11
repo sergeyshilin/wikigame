@@ -1,7 +1,7 @@
 <?php
 $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
 $start_page = $_SESSION["start"];
-$end_page = str_replace("_", " ", $_SESSION["end"]);
+$end_page = $_SESSION["end"];
 $end_page_link = $_SESSION["endlink"];
 $count = $_SESSION['counter'];
 ?>

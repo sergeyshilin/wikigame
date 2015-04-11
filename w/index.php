@@ -1,18 +1,20 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 
 try {
     require_once('classes/DBHelper.php');
     require_once('classes/WayParser.php');
+    require_once('classes/StringUtils.php');
 
     if (!isset($_GET['title']) || empty($_GET['title'])) {
         throw new Exception();
     }
 
-    $title = escape($_GET['title']);
+    $title = StringUtils::pageTitle(escape(urlencode($_GET['title'])));
     $cat = isset($_GET["cat"]) && !empty($_GET["cat"]) ? escape($_GET["cat"]) : 0;
 
-    if (WayParser::isMD5Hash($title)) {
+    if ($title != "Main Page" && WayParser::isMD5Hash($title)) {
         $way = WayParser::getWayByHash($title);
         if (!empty($way)) {
             wayToSession($way);
@@ -20,16 +22,17 @@ try {
         } else {
             throw new Exception();
         }
-    } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main_Page") {
+    } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main Page") {
         $way = WayParser::getRandomWay($cat);
         wayToSession($way, $cat);
         header('Location: /wiki/' . $_SESSION["start"]);
     } else if (!$_SESSION['win']) {
-        if ((empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"])
-            // ||  (!in_array($_SESSION["current"], $_SESSION["links"]) && !empty($_SESSION["links"]))
+        if ((!isCurrent($title) && empty($_SERVER['HTTP_REFERER']))
+            || (!isStart($title) && !in_array($title, $_SESSION["links"]) && !in_array($title, $_SESSION["path"]))
         ) {
-            header('Location: /wiki/' . $_SESSION["current"]);
-        } else if ($title == $_SESSION['end']) {
+            echo $title;
+            // header('Location: /wiki/' . $_SESSION["current"]);
+        } else if (isEnd($title)) {
             $_SESSION['counter']++;
             $_SESSION['win'] = true;
         } else {
@@ -38,16 +41,19 @@ try {
             $obj = $resolver->isGenerated($title) ? $resolver->getContentFromHtml($title) : $resolver->getContentFromApi($title);
             if ($resolver->isRedirect($obj["content"])) {
                 $name = $resolver->extractRedirectPageName($obj["content"]);
+                $name = StringUtils::pageTitle($name);
+                $_SESSION["links"] = array($name);
                 header('Location: /wiki/' . $name);
-            } else if ($title == $_SESSION['start']) {
+            } else if (isStart($title)) {
                 $_SESSION['previous'] = "";
                 $_SESSION['current'] = $_SESSION['start'];
-                $_SESSION["links"] = array();
+                $_SESSION["path"] = array($title);
                 $_SESSION['counter'] = 0;
             } else {
                 $_SESSION['previous'] = $_SESSION['current'];
                 $_SESSION['current'] = $title;
                 if ($_SESSION['current'] != $_SESSION['previous']) {
+                    $_SESSION["path"][] = $title;
                     $_SESSION['counter']++;
                 }
             }
@@ -72,12 +78,24 @@ function wayToSession(Way $way, $cat = NULL) {
     $_SESSION['startlink'] = $way->getStartPoint();
     $_SESSION['endlink'] = $way->getEndPoint();
 
-    $_SESSION['start'] = Way::getName($way->getStartPoint());
-    $_SESSION['current'] = Way::getName($way->getStartPoint());
-    $_SESSION['end'] = Way::getName($way->getEndPoint());
+    $_SESSION['start'] = StringUtils::pageTitle($way->getStartPoint());
+    $_SESSION['current'] = StringUtils::pageTitle($way->getStartPoint());
+    $_SESSION['end'] = StringUtils::pageTitle($way->getEndPoint());
     $_SESSION['links'] = array();
 
     $_SESSION['win'] = false;
+}
+
+function isStart($title) {
+    return $title == StringUtils::pageTitle($_SESSION['start']);
+}
+
+function isCurrent($title) {
+    return $title == StringUtils::pageTitle($_SESSION['current']);
+}
+
+function isEnd($title) {
+    return $title == StringUtils::pageTitle($_SESSION['end']);
 }
 
 ?>
@@ -104,7 +122,7 @@ function wayToSession(Way $way, $cat = NULL) {
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
 
-    <title>WikiWalker - Пройди свой путь</title>
+    <title>WikiWalker / <?=$title?></title>
 
     <link rel="stylesheet" type="text/css" href="/w/css/main.css">
 
@@ -119,23 +137,9 @@ function wayToSession(Way $way, $cat = NULL) {
 
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
-    $cnt = count($_SESSION["links"]);
-    // if($cnt > 0)
-    //     echo $_SESSION["links"][$cnt-1]."</br>";
-    /**
-    * Вот тут опять ебаный пиздец с редиректами. На странице ссылка на C++
-    * http://wikiwalker.ru/wiki/C%2B%2B
-    * редиректит на статью с названием C. 
-    * Тут тройной пиздец
-    * Ко всему прочему нельзя ходить назад. Страницы с такой ссылкой на предыдущих страницах не было. 
-    * И что ёпт делать?
-    * Короче эту проверка, когда она заработает, надо воткнуть в строку 29 (просто раскоментить)
-    */
-    if(!in_array($_SESSION["current"], $_SESSION["links"]) && !empty($_SESSION["links"])) {
-        echo "БЛЕАААААТЬ";
-    }
-    echo $resolver->printPage($obj["title"], $obj["content"]);
-    $_SESSION["links"] = $resolver->getCurrentPageLinks();
+    $result = $resolver->printPage($obj["title"], $obj["content"]);
+    $_SESSION["links"] = $result['links'];
+    echo $result['content'];
 } else {
     include_once('frame/win.php');
 }
