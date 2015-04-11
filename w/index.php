@@ -120,8 +120,8 @@ function wayToSession(Way $way, $cat = NULL) {
 if (!$_SESSION['win']) {
     include_once("frame/header.php");
     $cnt = count($_SESSION["links"]);
-    if($cnt > 0)
-        echo $_SESSION["links"][$cnt-1]."</br>";
+    // if($cnt > 0)
+    //     echo $_SESSION["links"][$cnt-1]."</br>";
     /**
     * Вот тут опять ебаный пиздец с редиректами. На странице ссылка на C++
     * http://wikiwalker.ru/wiki/C%2B%2B

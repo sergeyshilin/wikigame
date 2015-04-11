@@ -81,6 +81,16 @@ class WayUtils {
         return DBHelper::getFirst("SELECT `like` FROM stats WHERE user_id = '{$user_id}' AND way_id IN (SELECT id FROM ways WHERE hash = '{$way_hash}')");
     }
 
+    public function setWaySteps($user_id, $way_hash, $count) {
+        $steps = DBHelper::getFirst("SELECT `steps` FROM stats WHERE user_id = '{$user_id}' AND way_id IN (SELECT id FROM ways WHERE hash = '{$way_hash}')");
+        if($steps != NULL && $count < $steps) {
+            if(DBHelper::update("UPDATE stats SET `steps`='{$count}' WHERE user_id = '{$user_id}' AND way_id IN (SELECT id FROM ways WHERE hash = '{$way_hash}')"))
+                return true;
+        } else if(DBHelper::insert("INSERT INTO stats (`id`, `user_id`, `way_id`, `steps`) SELECT NULL, '{$user_id}', id, '{$count}' FROM ways WHERE hash = '{$way_hash}'") != NULL)
+            return true;
+        return false;
+    }
+
 }
 
 ?>

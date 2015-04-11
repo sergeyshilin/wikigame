@@ -41,6 +41,7 @@ function listenLikes() {
                     }
                 },
                 error: function() {
+
                 }
             });
     });
@@ -66,6 +67,7 @@ function listenDislikes() {
                     }
                 },
                 error: function() {
+
                 }
             });
     });
@@ -88,9 +90,21 @@ function loadLike() {
             }
         },
         error: function() {
-            /**
-             * nothing to do
-             */
+
+        }
+    });
+}
+
+function setWaySteps() {
+    $.ajax({
+        url: "/actions/setsteps.php",
+        data: {post: 1},
+        type: 'POST',
+        success: function(data) {
+
+        },
+        error: function() {
+
         }
     });
 }
