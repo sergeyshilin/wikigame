@@ -11,7 +11,13 @@ try {
         throw new Exception();
     }
 
-    $title = StringUtils::pageTitle(escape(urlencode($_GET['title'])));
+    preg_match_all('/(\w+)=([^&]+)/', $_SERVER["QUERY_STRING"], $pairs);
+    $_GET = array_combine($pairs[1], $pairs[2]);
+
+    $title = $_GET['title'];
+    $title = escape($title);
+    $title = StringUtils::pageTitle($title);
+
     $cat = isset($_GET["cat"]) && !empty($_GET["cat"]) ? escape($_GET["cat"]) : 0;
 
     if ($title != "Main Page" && WayParser::isMD5Hash($title)) {
@@ -30,8 +36,7 @@ try {
         if ((!isCurrent($title) && empty($_SERVER['HTTP_REFERER']))
             || (!isStart($title) && !in_array($title, $_SESSION["links"]) && !in_array($title, $_SESSION["path"]))
         ) {
-            echo $title;
-            // header('Location: /wiki/' . $_SESSION["current"]);
+            header('Location: /wiki/' . $_SESSION["current"]);
         } else if (isEnd($title)) {
             $_SESSION['counter']++;
             $_SESSION['win'] = true;

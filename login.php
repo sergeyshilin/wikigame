@@ -1,62 +1,64 @@
 <?php
-      session_start();
+session_start();
 
-      if($_SESSION["user_connected"])
+$loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] === true;
+
+if ($loggedIn)
+    header("Location: /");
+
+$error = false;
+$error_msg = "";
+require_once('hybrid_connect.php');
+
+if (isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
+    $user_exist = get_user_by_email_and_password($_REQUEST["email"], md5($_REQUEST["password"]));
+
+    if ($user_exist) {
+        $_SESSION["user_connected"] = true;
         header("Location: /");
+    } else {
+        $error = !$error;
+        $error_msg = "Неверно указаны е-мэйл или пароль";
+    }
+} elseif (isset($_REQUEST["provider"])) {
 
-      $error = false;
-      $error_msg = "";
-      require_once('hybrid_connect.php');
+    $provider_name = $_REQUEST["provider"];
 
-      if( isset( $_REQUEST["email"] ) && isset( $_REQUEST["password"] ) ) {
-        $user_exist = get_user_by_email_and_password( $_REQUEST["email"], md5($_REQUEST["password"]));
-       
-        if( $user_exist ) {
-          $_SESSION["user_connected"] = true;
-          header("Location: /");
-        } else {
-          $error = !$error;
-          $error_msg = "Неверно указаны е-мэйл или пароль";
-        }
-      } elseif( isset( $_REQUEST["provider"] ) ) {
+    try {
+        // inlcude HybridAuth library
+        $config = 'hybrid/hybridauth/config.php';
+        require_once("hybrid/hybridauth/Hybrid/Auth.php");
 
-        $provider_name = $_REQUEST["provider"];
-       
-        try {
-          // inlcude HybridAuth library
-          $config   = 'hybrid/hybridauth/config.php';
-          require_once( "hybrid/hybridauth/Hybrid/Auth.php" );
-       
-          $hybridauth = new Hybrid_Auth( $config );
-          $adapter = $hybridauth->authenticate( $provider_name );
-          $user_profile = $adapter->getUserProfile();
-        } catch( Exception $e ) {
-          echo $e;
-          // header("Location: http://www.example.com/login-error.php");
-        }
-       
-        // check if the current user already have authenticated using this provider before
-        $user_exist = get_user_by_provider_and_id( $provider_name, $user_profile->identifier );
-       
-        // if the used didn't authenticate using the selected provider before
-        // we create a new entry on database.users for him
-        if( ! $user_exist ) {
-          create_new_hybridauth_user(
+        $hybridauth = new Hybrid_Auth($config);
+        $adapter = $hybridauth->authenticate($provider_name);
+        $user_profile = $adapter->getUserProfile();
+    } catch (Exception $e) {
+        echo $e;
+        // header("Location: http://www.example.com/login-error.php");
+    }
+
+    // check if the current user already have authenticated using this provider before
+    $user_exist = get_user_by_provider_and_id($provider_name, $user_profile->identifier);
+
+    // if the used didn't authenticate using the selected provider before
+    // we create a new entry on database.users for him
+    if (!$user_exist) {
+        create_new_hybridauth_user(
             $user_profile->email,
             $user_profile->firstName,
             $user_profile->lastName,
             $provider_name,
             $user_profile->identifier
-          );
-        }
-       
-        // set the user as connected and redirect him
-        $_SESSION["user_connected"] = true;
-        $_SESSION["user_adapter"] = $provider_name;
-       
-        header("Location: /");
-      }
-    ?>
+        );
+    }
+
+    // set the user as connected and redirect him
+    $_SESSION["user_connected"] = true;
+    $_SESSION["user_adapter"] = $provider_name;
+
+    header("Location: /");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,21 +84,12 @@
 
     <title>WikiWalker - Авторизация</title>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/wiki/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
+    <link rel="stylesheet" type="text/css" href="w/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="w/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="w/css/index.css">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/wiki/css/cover.css" >
+    <link rel="stylesheet" type="text/css" href="w/css/cover.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -104,93 +97,39 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
+<div class="wrapper">
+    <?php
+    include_once('w/frame/header_index.php');
+    ?>
 
-    <div class="site-wrapper">
-        <div class="site-wrapper-inner">
-            <div class="cover-container">
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <h3 class="masthead-brand">WikiWalker</h3>
-                    </div>
-                </div>
-
-                <div class="inner cover">
-                      <div class="col-md-6 col-md-offset-3">
-                        <form method="POST" action="login.php" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
-                          <fieldset>
-                              <h3 class="sign-up-title" style="color:#fff; text-align: center">Авторизация</h3>
-                                  <?php 
-                                    if ($error) {
-                                      echo <<<EOF
-                                  <div class="alert alert-danger alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span></button>
-                                    <strong>Ошибка!</strong> $error_msg.
-                                  </div>
-EOF;
-                                  } ?>
-                              <input class="form-control email-title" placeholder="Е-мейл" name="email" type="text" value="<?php echo $_SESSION["user_connected"] ?>">
-                              <input class="form-control" placeholder="Пароль" name="password" type="password" value="">
-                              <a class="pull-right" href="password.php">Забыли пароль?</a>
-                            <div class="checkbox" style="width:140px;">
-                                <label><input name="remember" type="checkbox" value="Remember Me"> Запомнить меня</label>
-                              </div>
-                              <input class="btn btn-lg btn-success btn-block submit-button" type="submit" value="Войти">
-                              <p class="text-center" style="margin-top:10px;">ИЛИ ВОЙТИ ЧЕРЕЗ</p>
-                              <div class="row" id="loginsoc">
-                                <div class="col-md-3">
-                                  <a class="btn btn-primary btn-block" href="login.php?provider=Vkontakte">
-                                    <i class="fa fa-vk"></i></a>
-                                </div>
-                                <div class="col-md-3">
-                                  <a class="btn btn-primary btn-block" href="login.php?provider=Facebook">
-                                    <i class="fa fa-facebook"></i></a>
-                                </div>
-                                <div class="col-md-3">
-                                  <a class="btn btn-info btn-block" href="login.php?provider=Twitter">
-                                    <i class="fa fa-twitter"></i></a>
-                                </div>
-                                <div class="col-md-3">
-                                  <a class="btn btn-danger btn-block" href="login.php?provider=google">
-                                    <i class="fa fa-google-plus"></i></a>
-                                </div>
-                              </div>
-                              <!-- <a class="btn btn-primary btn-block" href="http://bootsnipp.com/login/github">
-                                  <i class="icon-github"></i> Login with Fb</a>
-                              <a class="btn btn-info btn-block" href="http://bootsnipp.com/login/github">
-                                  <i class="icon-github"></i> Login with Twitter</a>
-                              <a class="btn btn-danger btn-block" href="http://bootsnipp.com/login/github">
-                                  <i class="icon-github"></i> Login with Google+</a> -->
-                              <br>
-                              <p class="text-center"><a href="register.php">У вас еще нет учетной записи?</a></p>
-                            </fieldset>
-                          </form>
-                      </div>
-                </div>
-
-                <div class="mastfoot">
-                    <div class="inner">
-                        <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
-                            Поддержи проект! Вступай в группу
-                            <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
-                        </p>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <?php
+                include_once('w/frame/login.php');
+                ?>
             </div>
         </div>
     </div>
 
+    <div class="footer">
+        <div class="container">
+            <p>Содержимое взято с сайта
+                <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
+                Поддержи проект! Вступай в группу
+                <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
+            </p>
+        </div>
+    </div>
+</div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/wiki/js/jquery.min.js"></script>
-<script src="/wiki/js/bootstrap.min.js"></script>
+<script src="w/js/jquery.min.js"></script>
+<script src="w/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/wiki/js/ie10-viewport-bug-workaround.js"></script>
+<script src="w/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter28976460 = new Ya.Metrika({id:28976460, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
