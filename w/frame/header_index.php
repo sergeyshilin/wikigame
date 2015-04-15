@@ -11,10 +11,10 @@
         </div>
         <div class="navbar-header pull-right">
             <?php if (!$loggedIn) {
-                echo '<a id="signup" href="join.php" class="btn btn-success">Зарегистрироваться</a>
-                    <a href="login.php" class="btn btn-default">Войти</a>';
+                echo '<a href="join.php" class="btn btn-success btn-join">Зарегистрироваться</a>
+                    <a href="login.php" class="btn btn-default btn-signin">Войти</a>';
             } else {
-                echo '<a id="signup" href="/wiki/" class="btn btn-default">Выйти</a>';
+                echo '<a href="/wiki/" class="btn btn-default btn-signin">Выйти</a>';
             }
             ?>
 

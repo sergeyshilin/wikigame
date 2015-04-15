@@ -40,7 +40,6 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="w/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="w/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="w/css/index.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -53,6 +52,10 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 
 <body>
 <script>
+    $('.carousel').carousel({
+      interval: 300
+    });
+    
     window.fbAsyncInit = function () {
         FB.init({
             appId: '828289110577673',
@@ -81,19 +84,18 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     <div class="container">
         <div class="row">
             <?php
-            $info = '<h1 class="cover-heading">Пройди свой путь.</h1>
+            $info = '<h1 class="cover-heading">Пройди свой путь</h1>
                 <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
                 Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>';
 
-            if (!$loggedIn) {
-                echo '<div class="col-md-8 greating greating-left">' . $info . '</div><div class="col-md-4">';
-                require("w/frame/join.php");
+                echo '<div class="col-md-8 greating greating">' . $info . '
+                    <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats" ' .
+                    'onclick="yaCounter28976460.reachGoal(\'playgame\')">Одиночная игра</button>
+                    <button type="button" class="btn btn-lg btn-default disabled" data-toggle="modal" data-target="#cats" ' .
+                    'onclick="yaCounter28976460.reachGoal(\'playmulti\')">Мультиплеер</button>
+                </div><div class="col-md-4">';
+                require("w/frame/stats.php");
                 echo '</div>';
-            } else {
-                echo '<div class="col-md-6 col-md-offset-3 greating">' . $info .
-                    '<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats" ' .
-                    'onclick="yaCounter28976460.reachGoal(\'playgame\')">Играть</button></div>';
-            }
             ?>
         </div>
     </div>

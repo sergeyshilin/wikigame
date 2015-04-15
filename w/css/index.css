@@ -50,15 +50,21 @@ a, a:hover {
 
 .navbar-header .header_logo {
     height: 30px;
+    -webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
+    filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
 }
 
 .navbar-header.pull-right {
     margin-right: 0 !important;
-    margin-top: 14px;
+    margin-top: 18px;
 }
 
 .navbar-header.pull-right .btn {
     font-size: 12pt;
+}
+
+.navbar .btn{
+    text-shadow: none;
 }
 
 .greating {
@@ -158,3 +164,18 @@ a, a:hover {
     color: #000;
 }
 
+#stats {
+    color: #333;
+    text-shadow: none !important;
+}
+
+#stats .carousel-inner {
+    box-shadow: none !important;
+}
+
+#stats .carousel-control {
+    background-image: none;
+    color: #333;
+    cursor: pointer;
+    width: 50%;
+}
