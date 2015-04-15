@@ -193,16 +193,22 @@ a, a:hover {
     color: #eee;
 }
 
+#stats .list-group-item.active 
+> .list-group-item-heading {
+    color: #333;
+}
+
 #stats .list-group-item.active {
     background: url('/w/img/stats-heading-back.png') repeat;
-    border-color: #006699;   
+    border-color: #666;
 }
 
 #stats .list-group-item .badge {
     background: url('/w/img/stats-heading-back.png') repeat;
+    color: #333;
 }
 
 #stats .list-group-item.active .badge {
-    background-color: #fff;
-    background-image: none !important;
+    background: url('/w/img/stats-back.png') repeat;
+    color: #eee;
 }
