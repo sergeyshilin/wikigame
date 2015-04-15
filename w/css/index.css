@@ -68,6 +68,7 @@ a, a:hover {
 }
 
 .greating {
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -178,4 +179,30 @@ a, a:hover {
     color: #333;
     cursor: pointer;
     width: 50%;
+}
+
+#stats .list-group-item {
+    background-color: none;
+    background: url('/w/img/stats-back.png') repeat;
+    border-color: #272727;
+}
+
+#stats .list-group-item,
+#stats .list-group-item-heading,
+#stats .list-group-item div {
+    color: #eee;
+}
+
+#stats .list-group-item.active {
+    background: url('/w/img/stats-heading-back.png') repeat;
+    border-color: #006699;   
+}
+
+#stats .list-group-item .badge {
+    background: url('/w/img/stats-heading-back.png') repeat;
+}
+
+#stats .list-group-item.active .badge {
+    background-color: #fff;
+    background-image: none !important;
 }

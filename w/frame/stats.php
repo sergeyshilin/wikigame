@@ -9,28 +9,28 @@
         </a>
         <a href="/fc87692" class="list-group-item">
           <span class="badge">56</span>
-          <h4 class="list-group-item-heading">fc87692</h4>
-          <p class="list-group-item-text">Планеметрия - Гомеоморфизм</p>
+          <h4 class="list-group-item-heading">Планеметрия</h4>
+          <p class="list-group-item-text">Гомеоморфизм</p>
         </a>
         <a href="/fb65962" class="list-group-item">
           <span class="badge">45</span>
-          <h4 class="list-group-item-heading">fb65962</h4>
-          <p class="list-group-item-text">Насекомые - Белая армия</p>
+          <h4 class="list-group-item-heading">Насекомые</h4>
+          <p class="list-group-item-text">Белая армия</p>
         </a>
         <a href="/d4f8b48" class="list-group-item">
           <span class="badge">38</span>
-          <h4 class="list-group-item-heading">d4f8b48</h4>
-          <p class="list-group-item-text">Перигелий - Градус Фаренгейта</p>
+          <h4 class="list-group-item-heading">Перигелий</h4>
+          <p class="list-group-item-text">Градус Фаренгейта</p>
         </a>
         <a href="/2b1ac49" class="list-group-item">
           <span class="badge">33</span>
-          <h4 class="list-group-item-heading">2b1ac49</h4>
-          <p class="list-group-item-text">Черная дыра - Прокрастинация</p>
+          <h4 class="list-group-item-heading">Черная дыра</h4>
+          <p class="list-group-item-text">Прокрастинация</p>
         </a>
         <a href="/c03daa8" class="list-group-item">
           <span class="badge">27</span>
-          <h4 class="list-group-item-heading">c03daa8</h4>
-          <p class="list-group-item-text">Обыкновенный бегемот - Ботинки Буша</p>
+          <h4 class="list-group-item-heading">Обыкновенный бегемот</h4>
+          <p class="list-group-item-text">Ботинки Буша</p>
         </a>
         <a class="list-group-item">
           <h4 class="list-group-item-heading"></h4>
@@ -49,28 +49,28 @@
         </a>
         <a href="/fc87692" class="list-group-item">
           <span class="badge">56</span>
-          <h4 class="list-group-item-heading">fc87692</h4>
-          <p class="list-group-item-text">Планеметрия - Гомеоморфизм</p>
+          <h4 class="list-group-item-heading">Планеметрия</h4>
+          <p class="list-group-item-text">Гомеоморфизм</p>
         </a>
         <a href="/fb65962" class="list-group-item">
           <span class="badge">45</span>
-          <h4 class="list-group-item-heading">fb65962</h4>
-          <p class="list-group-item-text">Насекомые - Белая армия</p>
+          <h4 class="list-group-item-heading">Насекомые</h4>
+          <p class="list-group-item-text">Белая армия</p>
         </a>
         <a href="/d4f8b48" class="list-group-item">
           <span class="badge">38</span>
-          <h4 class="list-group-item-heading">d4f8b48</h4>
-          <p class="list-group-item-text">Перигелий - Градус Фаренгейта</p>
+          <h4 class="list-group-item-heading">Перигелий</h4>
+          <p class="list-group-item-text">Градус Фаренгейта</p>
         </a>
         <a href="/2b1ac49" class="list-group-item">
           <span class="badge">33</span>
-          <h4 class="list-group-item-heading">2b1ac49</h4>
-          <p class="list-group-item-text">Черная дыра - Прокрастинация</p>
+          <h4 class="list-group-item-heading">Черная дыра</h4>
+          <p class="list-group-item-text">Прокрастинация</p>
         </a>
         <a href="/c03daa8" class="list-group-item">
           <span class="badge">27</span>
-          <h4 class="list-group-item-heading">c03daa8</h4>
-          <p class="list-group-item-text">Обыкновенный бегемот - Ботинки Буша</p>
+          <h4 class="list-group-item-heading">Обыкновенный бегемот</h4>
+          <p class="list-group-item-text">Ботинки Буша</p>
         </a>
         <a class="list-group-item">
           <h4 class="list-group-item-heading"></h4>
