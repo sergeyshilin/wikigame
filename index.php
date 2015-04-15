@@ -55,7 +55,7 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
     $('.carousel').carousel({
       interval: 300
     });
-    
+
     window.fbAsyncInit = function () {
         FB.init({
             appId: '828289110577673',
@@ -89,9 +89,9 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
                 Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>';
 
                 echo '<div class="col-md-8 greating greating">' . $info . '
-                    <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#cats" ' .
+                    <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#cats" ' .
                     'onclick="yaCounter28976460.reachGoal(\'playgame\')">Одиночная игра</button>
-                    <button type="button" class="btn btn-lg btn-default disabled" data-toggle="modal" data-target="#cats" ' .
+                    <button type="button" class="btn btn-lg btn-default btn-white" data-toggle="modal" data-target="#multi" ' .
                     'onclick="yaCounter28976460.reachGoal(\'playmulti\')">Мультиплеер</button>
                 </div><div class="col-md-4">';
                 require("w/frame/stats.php");
@@ -143,6 +143,31 @@ if (isset($_GET['game']) && !empty($_GET['game'])) {
 
                     ?>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Multiplayer-->
+<div class="modal fade" id="multi" tabindex="-1" role="dialog" aria-labelledby="multiplayer" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="multiplayer">Уведомление</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Режим Мультиплеер пока недоступен, но мы делаем все возможное, чтобы вы как можно скорее смогли играть один 
+                    на один с друзьями и другими соперниками. Нам очень важна ваша поддержка! Поэтому подписывайтесь на нашу группу
+                    <a href="http://vk.com/wikiwalker">Вконтакте</a> и следите за обновлениями. 
+                    Так же вы можете оставить свои предложения и пожелания, написав нам на почту 
+                    <a href="mailto:game@wikiwalker.ru">game@wikiwalker.ru</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
             </div>
         </div>
     </div>

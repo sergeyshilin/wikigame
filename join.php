@@ -67,11 +67,7 @@ if ($_REQUEST) {
     <title>WikiWalker - Создание учетной записи</title>
 
     <link rel="stylesheet" type="text/css" href="w/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="w/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="w/css/index.css">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="w/css/cover.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -91,7 +87,7 @@ if ($_REQUEST) {
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <?php
-                require_once("w/frame/join.php");
+                    require_once("w/frame/join.php");
                 ?>
             </div>
         </div>

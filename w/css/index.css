@@ -206,17 +206,50 @@ a, a:hover {
     color: #333;
 }
 
-#stats .list-group-item.active {
-    background: url('/w/img/stats-heading-back.png') repeat;
-    border-color: #666;
-}
-
+#stats .list-group-item.active,
 #stats .list-group-item .badge {
-    background: url('/w/img/stats-heading-back.png') repeat;
+    background-image: none;
+    background-color: #e7e7e7;
+    border-color: #666;
     color: #333;
 }
 
 #stats .list-group-item.active .badge {
-    background: url('/w/img/stats-back.png') repeat;
+    background-color: #666;
     color: #eee;
+}
+
+.btn-white {
+    background-color: #e7e7e7 !important;
+    /*border-color: #ccc !important;*/
+}
+
+.btn-white:hover {
+    background-color: #d7d7d7 !important;   
+}
+
+.jslink {
+    cursor: pointer;
+    color: #3399FF !important;
+}
+
+#multi {
+    color: #333;
+    font-size: 16px;
+}
+
+#multi a {
+    color: #0645ad;
+}
+
+.submit-button:focus {
+    outline: 0 !important;
+}
+
+#loginform .row {
+    margin: 0 !important;
+}
+
+#loginform label {
+    font-weight: normal !important;
 }

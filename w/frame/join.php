@@ -1,6 +1,6 @@
 <form method="POST" action="join.php" id="registerform" accept-charset="UTF-8" role="form" class="form-signin">
     <fieldset>
-        <h4 class="sign-up-title" style="color:#fff; text-align: center">Зарегистрироваться</h4>
+        <h3 class="sign-up-title" style="color:#fff; text-align: center">Зарегистрироваться</h3>
         <?php if (isset($error) && $error) {
             echo <<<EOF
         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -15,7 +15,7 @@ EOF;
         <input class="form-control" placeholder="Повторить пароль" name="password_confirmation" type="password" value="">
         <button class="btn btn-lg btn-primary btn-block submit-button" type="submit">Регистрация</button>
 
-        <h4 class="sign-up-title" style="color:#fff; text-align: center">Или войти через:</h4>
+        <h5 class="sign-up-title" style="color:#fff; text-align: center">Или войти через:</h5>
 
         <div class="row socials">
             <div class="col-xs-4 soclogin">
