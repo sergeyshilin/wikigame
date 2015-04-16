@@ -32,12 +32,12 @@ class HybridConfig {
 					),
 					"Google" => array (
 						"enabled" => true,
-						"keys"    => array ( "id" => "594421014880", "secret" => "jY_i94IWplxitXdkRW8QRq2E" ),
+						"keys"    => array ( "id" => "594421014880-fbhlfvovbm8ck3g73tpk0turmt7k5jjc.apps.googleusercontent.com", "secret" => "jY_i94IWplxitXdkRW8QRq2E" ),
 						"scope"           => "https://www.googleapis.com/auth/userinfo.profile ".
                                "https://www.googleapis.com/auth/userinfo.email",
-						"access_type"     => "offline",
-						"approval_prompt" => "force",
-						"hd"              => "wikiwalker.ru"
+						// "access_type"     => "offline",
+						// "approval_prompt" => "force",
+						// "hd"              => "wikiwalker.ru"
 					)
 				),
 
