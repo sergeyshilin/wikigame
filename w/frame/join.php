@@ -1,4 +1,4 @@
-<form method="POST" action="join.php" id="registerform" accept-charset="UTF-8" role="form" class="form-signin">
+<form method="POST" action="/join" id="registerform" accept-charset="UTF-8" role="form" class="form-signin">
     <fieldset>
         <h3 class="sign-up-title" style="color:#fff; text-align: center">Зарегистрироваться</h3>
         <?php if (isset($error) && $error) {
@@ -19,15 +19,15 @@ EOF;
 
         <div class="row socials">
             <div class="col-xs-4 soclogin">
-                <a class="btn btn-primary btn-block" href="index.php?provider=Vkontakte">
+                <a class="btn btn-primary btn-block" href="/join?provider=Vkontakte">
                     <i class="fa fa-vk"></i></a>
             </div>
             <div class="col-xs-4 soclogin">
-                <a class="btn btn-primary btn-block" href="index.php?provider=Facebook">
+                <a class="btn btn-primary btn-block" href="/join?provider=Facebook">
                     <i class="fa fa-facebook"></i></a>
             </div>
             <div class="col-xs-4 soclogin">
-                <a class="btn btn-danger btn-block" href="index.php?provider=google">
+                <a class="btn btn-danger btn-block" href="/join?provider=google">
                     <i class="fa fa-google-plus"></i></a>
             </div>
         </div>

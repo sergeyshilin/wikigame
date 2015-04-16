@@ -25,10 +25,11 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
     $provider_name = $_REQUEST["provider"];
 
     try {
-        // inlcude HybridAuth library
-        $config = 'hybrid/hybridauth/config.php';
+
+        require_once("hybrid/hybridauth/HybridConfig.php");
         require_once("hybrid/hybridauth/Hybrid/Auth.php");
 
+        $config = HybridConfig::getProviders();
         $hybridauth = new Hybrid_Auth($config);
         $adapter = $hybridauth->authenticate($provider_name);
         $user_profile = $adapter->getUserProfile();
@@ -50,11 +51,14 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
             $provider_name,
             $user_profile->identifier
         );
+
+        $user_exist = get_user_by_provider_and_id( $provider_name, $user_profile->identifier );
     }
 
     // set the user as connected and redirect him
     $_SESSION["user_connected"] = true;
     $_SESSION["user_adapter"] = $provider_name;
+    $_SESSION["user_id"] = $user_exist->id;
 
     header("Location: /");
 }

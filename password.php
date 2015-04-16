@@ -24,10 +24,7 @@
     <title>WikiWalker - Восстановление пароля</title>
 
     <link rel="stylesheet" type="text/css" href="/wiki/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/wiki/css/main.css">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/wiki/css/cover.css">
+    <link rel="stylesheet" type="text/css" href="w/css/index.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,40 +36,33 @@
 
 <body>
 
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">WikiWalker</h3>
-                </div>
-            </div>
+<div class="wrapper">
+    <?php
+    include_once('w/frame/header_index.php');
+    ?>
 
-            <div class="inner cover">
-                <div class="col-md-6 col-md-offset-3">
-                    <input name="_token" type="hidden" value="UtPLIEuTzcQX1FmVWHhDT2nnS8IOdkSc0t56tgrQ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <form method="POST" action="/password" id="registerform" accept-charset="UTF-8" role="form" class="form-signin">
                     <fieldset>
-                        <h2>Восстановление пароля</h2>
-                        <input class="form-control" placeholder="Enter your E-mail" name="email" type="text">
-
-                        <p style="margin-top: 10px">
-                            <input class="btn btn-lg btn-success btn-block submit-button" type="submit" value="Восстановить">
-                        </p>
-
-                        <p class="text-center">Помните свой пароль? <a href="login.php">Войти</a></p>
+                        <h3 class="sign-up-title" style="color:#fff; text-align: center">Восстановить пароль</h3>
+                        <input class="form-control" placeholder="Укажите свой Е-мейл" name="pass-reminder" type="text" value="">
+                        <button class="btn btn-lg btn-primary btn-block submit-button" type="submit">Восстановить</button>
+                        <p class="text-center">Помните свой пароль? <a href="/login">Войти</a></p>
                     </fieldset>
-                    </form>
-                </div>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
-                        Поддержи проект! Вступай в группу
-                        <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
-                    </p>
-                </div>
-            </div>
+    <div class="footer">
+        <div class="container">
+            <p>Содержимое взято с сайта
+                <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
+                Поддержи проект! Вступай в группу
+                <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
+            </p>
         </div>
     </div>
 </div>

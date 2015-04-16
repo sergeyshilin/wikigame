@@ -8,7 +8,11 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|actions\/(.*)|hybrid\/(.*)|logo\/(.*)|(.*)\.php$
 	RewriteRule ^(.*)$ $1 [L,QSA]
 
+RewriteRule ^join$ join.php [L,QSA]
+RewriteRule ^login$ login.php [L,QSA]
+RewriteRule ^password$ password.php [L,QSA]
 RewriteRule ^(.*)$ index.php?game=$1 [L,QSA]
+
 # не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
 # RedirectMatch 403 /\..*$
 # если директория или файл существуют, использовать их напрямую

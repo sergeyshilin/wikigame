@@ -11,8 +11,8 @@
         </div>
         <div class="navbar-header pull-right">
             <?php if (!$loggedIn) {
-                echo '<a href="join.php" class="btn btn-primary btn-join">Зарегистрироваться</a>
-                    <a href="login.php" class="btn btn-default btn-white">Войти</a>';
+                echo '<a href="/join" class="btn btn-primary btn-join">Зарегистрироваться</a>
+                    <a href="/login" class="btn btn-default btn-white">Войти</a>';
             } else {
                 echo '<a href="/wiki/" class="btn btn-default btn-white">Выйти</a>';
             }
