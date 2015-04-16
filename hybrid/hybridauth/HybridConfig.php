@@ -34,7 +34,7 @@ class HybridConfig {
 						"enabled" => true,
 						"keys"    => array ( "id" => "594421014880", "secret" => "jY_i94IWplxitXdkRW8QRq2E" ),
 						"scope"           => "https://www.googleapis.com/auth/userinfo.profile ".
-                               "https://www.googleapis.com/auth/userinfo.email"
+                               "https://www.googleapis.com/auth/userinfo.email",
 						"access_type"     => "offline",
 						"approval_prompt" => "force",
 						"hd"              => "wikiwalker.ru"
@@ -45,10 +45,10 @@ class HybridConfig {
 				// You can also set it to
 				// - "error" To log only error messages. Useful in production
 				// - "info" To log info and error messages (ignore debug messages)
-				"debug_mode" => false,
+				"debug_mode" => true,
 
 				// Path to file writable by the web server. Required if 'debug_mode' is not false
-				"debug_file" => "",
+				"debug_file" => "/var/log/hybridauth.log",
 			);
 	}
 }
