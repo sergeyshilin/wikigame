@@ -41,10 +41,9 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
                     Понравился маршрут? 
-                    <?php if($_SESSION["user_connected"]) { ?>
                     <span class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
                     <span class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
-                </br> <?php } ?>
+                </br>
                     Поделись результатом с друзьями!
                 </p>
 
@@ -77,12 +76,12 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 
 <script src="/w/js/parse-1.4.0.min.js"></script>
 <script src="/w/js/Share.js"></script>
-<?php if($_SESSION["user_connected"]) { ?>
 <script type="text/javascript">
-    setWaySteps();
+    <?php if($_SESSION["user_connected"]) { ?>
+        setWaySteps();
+    <?php } ?>
     loadLike();
 </script>
-<?php } ?>
 <script language="JavaScript">
     Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
 

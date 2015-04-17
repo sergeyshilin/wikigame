@@ -8,6 +8,8 @@ $link = mysqli_connect( "wikiwalker.ru", "wiki", "walker", "wikiwalker" );
 function mysqli_query_excute( $sql )
 {
 	global $link;
+
+	mysqli_set_charset($link, "utf8");
  
 	$result = mysqli_query( $link, $sql );
  

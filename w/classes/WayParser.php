@@ -78,10 +78,11 @@ class WayParser {
             $id = NULL;
             $hash = $way->createHash();
             $depth = $way->getDepth();
+            $min = $way->getDepth();
             $links = $way->getLinksCount();
             $complexity = 0;
             $lang = $this->lang;
-            if ($mysqli->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0, 0)") === TRUE) {
+            if ($mysqli->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$min}', '{$links}', '{$complexity}', '{$lang}', 0)") === TRUE) {
                 $id = $mysqli->insert_id;
                 $this->writeNode($mysqli, $id, $way->getWay(), 0, NULL);
                 $hashes[] = $hash;
