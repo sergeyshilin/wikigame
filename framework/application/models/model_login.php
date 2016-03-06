@@ -61,7 +61,6 @@ class Model_login extends Model
     {
         // let generate a random password for the user
         $password = md5(str_shuffle("0123456789abcdefghijklmnoABCDEFGHIJ"));
-
         $this->query(
             "INSERT INTO users
 		(
@@ -71,7 +70,8 @@ class Model_login extends Model
 			last_name,
 			hybridauth_provider_name,
 			hybridauth_provider_uid,
-			created_at
+			created_at,
+			nick
 		)
 		VALUES
 		(
@@ -81,7 +81,8 @@ class Model_login extends Model
 			'$last_name',
 			'$provider_name',
 			'$provider_user_id',
-			NOW()
+			NOW(),
+			''
 		)"
         );
     }

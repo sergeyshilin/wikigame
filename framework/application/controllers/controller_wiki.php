@@ -10,6 +10,8 @@ class Controller_wiki extends Controller{
         $title = $action_param; $cat = $action_data; 
         
         $title = escape($title, $this->model);
+        //$title = StringUtils::pageTitle($title);
+
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
         if (WayParser::isMD5Hash($title)) {
             $way = WayParser::getWayByHash($title, $this->model);
@@ -21,7 +23,6 @@ class Controller_wiki extends Controller{
             }
         } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main_Page") {
             unset_gamesession();
-            session_start();
             $way = WayParser::getRandomWay($cat, $this->model);
             wayToSession($way, $cat, $this->model);
             // echo "STOP";
@@ -32,6 +33,7 @@ class Controller_wiki extends Controller{
             } else if ($title == $_SESSION['end']) {
                 $_SESSION['counter']++;
                 $_SESSION['win'] = true;
+                echo "WINNER";
             } else {
 
                 $resolver = new PageResolver();
@@ -79,20 +81,32 @@ function wayToSession(Way $way, $cat = NULL) {
     $_SESSION['start'] = Way::getName($way->getStartPoint());
     $_SESSION['current'] = Way::getName($way->getStartPoint());
     $_SESSION['end'] = Way::getName($way->getEndPoint());
-
+    $_SESSION["links"] = array();
     $_SESSION['win'] = false;
     // var_dump($_SESSION);
 }
 function unset_gamesession(){
-    unset($_SESSION['lang']);
-    unset($_SESSION['cat']);
-    unset($_SESSION['hash']);
-    unset($_SESSION['startlink']);
-    unset($_SESSION['endlink']);
-    unset($_SESSION['start']);
-    unset($_SESSION['current']);
-    unset($_SESSION['end']);
-    unset($_SESSION['win']);
+    $_SESSION['lang'] = "";
+    $_SESSION['cat'] = "";
+    $_SESSION['hash'] = "";
+    $_SESSION['startlink'] = "";
+    $_SESSION['endlink'] = "";
+    $_SESSION['start'] = "";
+    $_SESSION['current'] = "";
+    $_SESSION['end'] = "";
+    $_SESSION['win'] = "";
+    $_SESSION['counter'] = 0;
+}
+
+
+function isStart($title) {
+    return $title == StringUtils::pageTitle($_SESSION['start']);
+}
+function isCurrent($title) {
+    return $title == StringUtils::pageTitle($_SESSION['current']);
+}
+function isEnd($title) {
+    return $title == StringUtils::pageTitle($_SESSION['end']);
 }
 
 

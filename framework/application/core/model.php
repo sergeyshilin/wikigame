@@ -74,9 +74,9 @@ class Model extends mysqli{
     public function toArray($query){
         $result = $this->query($query);
 
-        if(!result){
+        if(!$result){
             echo mysqli_error($this);
-            die("Stopped at Model->exec()");
+            die("Stopped at Model-> query()");
         }
         return $result->fetch_array();
     }

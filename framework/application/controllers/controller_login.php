@@ -12,6 +12,13 @@ class Controller_login extends Controller
     {
         $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] === true;
 
+        if($action_param == "fail")
+        {
+            $error = !$error;
+            $error_msg = "Такой e-mail уже занят";
+            $this->view->generate("register_form_view.php", "template_view.php", $error, $error_msg);
+            exit();
+        }
         if($action_param == "register" && $_REQUEST && !$loggedIn) {
                 $error = false;
                 $error_msg = "";
@@ -87,16 +94,20 @@ class Controller_login extends Controller
             }
             // check if the current user already have authenticated using this provider before
             $user_exist = $this->model->get_user_by_provider_and_id($provider_name, $user_profile->identifier);
+
             // if the used didn't authenticate using the selected provider before
             // we create a new entry on database.users for him
             if (!$user_exist) {
-                $this->model->create_new_hybridauth_user(
+                $code = $this->model->create_new_hybridauth_user(
                     $user_profile->email,
                     $user_profile->firstName,
                     $user_profile->lastName,
                     $provider_name,
                     $user_profile->identifier
                 );
+                if(!$code){
+                    header("Location: /login/fail");
+                }
                 $user_exist = $this->model->get_user_by_provider_and_id($provider_name, $user_profile->identifier);
             }
             // set the user as connected and redirect him

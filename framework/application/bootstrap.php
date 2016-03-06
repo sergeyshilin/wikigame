@@ -10,5 +10,6 @@ require_once("vendor/WayParser.php");
 require_once("vendor/PageResolver.php");
 require_once("vendor/WayUtils.php");
 require_once('vendor/simple_html_dom.php');
+require_once('vendor/StringUtils.php');
 // var_dump($_SESSION);
 Route::start();
