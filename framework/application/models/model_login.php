@@ -33,7 +33,7 @@ class Model_login extends Model
     /**
      * insert simple user with his email and password
      */
-    function create_new_simple_user($email, $password)
+    function create_new_simple_user($email, $password, $nick)
     {
         $password = md5($password);
         $this->query(
@@ -41,12 +41,14 @@ class Model_login extends Model
 		(
 			email,
 			password,
+			nick,
 			created_at
 		)
 		VALUES
 		(
 			'$email',
 			'$password',
+			'$nick',
 			NOW()
 		)"
         );
@@ -82,5 +84,13 @@ class Model_login extends Model
 			NOW()
 		)"
         );
+    }
+
+    public function checkForUniqueNick($nick)
+    {
+        strip_tags($nick);
+        trim($nick);
+        $result = $this->query("SELECT id FROM users WHERE nick = '$nick'");
+        return $result->fetch_row() == 0;
     }
 }

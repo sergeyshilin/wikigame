@@ -1,1 +1,0 @@
-<?php /*!!!dummy*/include 'application/views/'.$content_view; ?>

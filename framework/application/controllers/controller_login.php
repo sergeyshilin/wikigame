@@ -17,19 +17,29 @@ class Controller_login extends Controller
                 $error_msg = "";
                 if (!empty($_REQUEST["email"]) &&
                     !empty($_REQUEST["password"]) &&
-                    !empty($_REQUEST["password_confirmation"])
+                    !empty($_REQUEST["password_confirmation"] &&
+                    !empty($_REQUEST["nick"]))
                 ) {
                     $user_exist = $this->model->get_user_by_email($_REQUEST["email"]);
                     if ($user_exist) {
                         $error = !$error;
-                        $error_msg = "Пользователь с таким е-мэйл уже существует";
-                    } else if ($_REQUEST["password"] != $_REQUEST["password_confirmation"]) {
+                        $error_msg = "Пользователь с таким e-mail уже существует";
+                    } else if (!preg_match('/.+@.+\..+/i', $_REQUEST["email"])){
+                        $error = !$error;
+                        $error_msg = "Кажется, этот e-mail не корректный";
+                    }
+                    else if ($_REQUEST["password"] != $_REQUEST["password_confirmation"]) {
                         $error = !$error;
                         $error_msg = "Пароли не совпадают";
-                    } else {
+                    } else if(!$this->model->checkForUniqueNick($_REQUEST["nick"])){
+                        $error = !$error_msg;
+                        $error_msg = "Такой никнейм уже занят";
+                    }
+                    else {
                         $this->model->create_new_simple_user(
                             $_REQUEST["email"],
-                            $_REQUEST["password"]
+                            $_REQUEST["password"],
+                            $_REQUEST["nick"]
                         );
                         $user_id = $this->model->
                         get_user_by_email_and_password($_REQUEST["email"], md5($_REQUEST["password"]));
@@ -51,13 +61,14 @@ class Controller_login extends Controller
         $error = false;
         $error_msg = "";
         if (isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
+            $check_email = preg_match('/.+@.+\..+/i', $_REQUEST["email"]);
             $user_exist = $this->model->get_user_by_email_and_password($_REQUEST["email"], md5($_REQUEST["password"]));
-            if ($user_exist) {
+            if ($user_exist && $check_email) {
                 $_SESSION["user_connected"] = true;
                 header("Location: /");
             } else {
                 $error = !$error;
-                $error_msg = "Неверно указаны е-мэйл или пароль";
+                $error_msg = "Неверно указаны e-mail или пароль";
             }
         } elseif ($action_param == "provider") {
             $provider_name = $action_data;
