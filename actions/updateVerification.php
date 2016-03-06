@@ -1,6 +1,6 @@
 <?php
 if ($_POST) {
-    require_once('../w/WayUtils.php');
+    require_once('../w/classes/WayUtils.php');
 
     $utils = new WayUtils();
     if ($utils->updateVerificationInCat($_POST["category"], $_POST["verify"]))

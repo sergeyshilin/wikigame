@@ -1,7 +1,7 @@
 <?php
 $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
 $start_page = $_SESSION["start"];
-$end_page = str_replace("_", " ", $_SESSION["end"]);
+$end_page = $_SESSION["end"];
 $end_page_link = $_SESSION["endlink"];
 $count = $_SESSION['counter'];
 ?>
@@ -25,11 +25,11 @@ $count = $_SESSION['counter'];
                     <img class="header_logo" src="../logo/logo.svg" title="WikiWalker - найди свой путь">
                 </a>
             </div>
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" href="<?= $end_page_link ?>">Ваша цель: <span class="jslink"><?= $end_page ?></span></a></li>
+                <li><a>Количество шагов: <?= $count ?></a></li>
+            </ul>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a target="_blank" href="<?= $end_page_link ?>">Ваша цель: <span class="jslink"><?= $end_page ?></span></a></li>
-                    <li><a>Количество шагов: <?= $count ?></a></li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hovered"><a href="/wiki/<?= $start_page ?>"
                         onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>

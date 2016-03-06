@@ -35,6 +35,10 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
+.masthead {
+  width: 100% !important;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
