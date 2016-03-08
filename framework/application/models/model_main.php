@@ -23,4 +23,13 @@ class Model_Main extends Model{
 			return 0;
 		}
 	}
+	function getGameModes(){
+		$game_modes = array();
+		$result = $this->query("SELECT * FROM game_modes");
+		if($result)
+			while($out = $result->fetch_assoc()) {
+				array_push($game_modes, $out);
+			}
+		return $game_modes;
+	}
 }

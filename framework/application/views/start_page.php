@@ -42,7 +42,22 @@
             background-color: rgba(0, 0, 0, 0);
             width: 60%;
             margin:0 auto;
-
+        }
+        .for-thumbs {
+            width: 760px !important;
+            text-shadow: none;
+        }
+        .thumbnail{
+            float:left;
+            margin: 20px;
+            width:200px;
+        }
+        .small-notif{
+            padding-left:5px;
+            font-size:0.8em;
+        }
+        .for-thumbs a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -81,12 +96,25 @@
             <div class="jumbotron greating greating"> <h1 class="cover-heading">Пройди свой путь</h1>
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
                 Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>
-            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#cats"
-            onclick="yaCounter28976460.reachGoal('playgame')">Одиночная игра</button>
-            <button type="button" class="btn btn-lg btn-default btn-white" data-toggle="modal" data-target="#multi"
-            onclick="yaCounter28976460.reachGoal('playmulti')" disabled>Мультиплеер</button>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="container for-thumbs">
+                <?php foreach($data as $key=>$value):?>
+                    <div class="thumbnail">
+                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a href="<?=$value['link']?>"><?php endif; ?>
+                        <div class="caption">
+                            <?php if((!$loggedIn)&&($value['opened'] == 0)):?>
+                                <span class="glyphicon glyphicon-ban-circle closed-mode"></span><span class="small-notif">авторизуйтесь</span>
+                            <?php endif; ?>
+                            <h3><?=$value["name"]?></h3>
+                            <p><?=$value["desc"]?></p>
+                        </div>
+                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?></a><?php endif; ?>
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </div>
 
     <div class="footer">
         <div class="container">
@@ -97,8 +125,8 @@
             </p>
         </div>
     </div>
-</div>
 
+</div>
 
 <!-- Modal Categories-->
 <div class="modal fade" id="cats" tabindex="-1" role="dialog" aria-labelledby="categories" aria-hidden="true">

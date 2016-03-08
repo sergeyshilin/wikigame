@@ -6,12 +6,11 @@ class Controller_wiki extends Controller{
         $this->view = new View();
     }
     function action_index($action_param = NULL, $action_data = NULL){
+        $title = $action_param; $cat = $action_data;
+//        var_dump($_SESSION);
 
-        $title = $action_param; $cat = $action_data; 
-        
         $title = escape($title, $this->model);
-        //$title = StringUtils::pageTitle($title);
-
+        $title = StringUtils::pageTitle($title);
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
         if (WayParser::isMD5Hash($title)) {
             $way = WayParser::getWayByHash($title, $this->model);
@@ -21,21 +20,24 @@ class Controller_wiki extends Controller{
             } else {
                 throw new Exception();
             }
-        } else if (empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main_Page") {
-            unset_gamesession();
-            $way = WayParser::getRandomWay($cat, $this->model);
-            wayToSession($way, $cat, $this->model);
-            // echo "STOP";
-            header('Location: /wiki/' . $_SESSION["start"]);
+        } else if ((empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main Page")) {
+            if($_SESSION["one_minute"]["started"] !== true) {
+                $way = WayParser::getRandomWay($cat, $this->model);
+                wayToSession($way, $cat, $this->model);
+                if (isset($_SESSION["one_minute"])) {
+                    $_SESSION["one_minute"]["started"] = true;
+                }
+                echo "STOP";
+                //var_dump($_SESSION);
+                header('Location: /wiki/' . $_SESSION["start"]);
+            }
         } else if (!$_SESSION['win']) {
-            if (empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"]) {
+            if (empty($_SERVER['HTTP_REFERER']) && $title != $_SESSION["current"] && !isset($_SESSION["one_minute"])) {
                 header('Location: /wiki/' . $_SESSION["current"]);
             } else if ($title == $_SESSION['end']) {
                 $_SESSION['counter']++;
                 $_SESSION['win'] = true;
-                echo "WINNER";
             } else {
-
                 $resolver = new PageResolver();
                 $obj = $resolver->isGenerated($title) ?
                     $resolver->getContentFromHtml($title) : $resolver->getContentFromApi($title);
@@ -43,6 +45,7 @@ class Controller_wiki extends Controller{
                     $name = $resolver->extractRedirectPageName($obj["content"]);
                     header('Location: /wiki/' . $name);
                 } else if ($title == $_SESSION['start']) {
+//                    echo ($title == $_SESSION['start']) ? "YES" : "NO";
                     $_SESSION['previous'] = "";
                     $_SESSION['current'] = $_SESSION['start'];
                     $_SESSION['counter'] = 0;
@@ -56,13 +59,23 @@ class Controller_wiki extends Controller{
             }
         }
         if (!$_SESSION['win']) {
+            if (isset($_SESSION["one_minute"])) {
+                    echo $obj["content"];
+                    exit();
+            }
             $utils = new WayUtils($this->model);
             $cats = $utils->getCategories();
             $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]), $cats);
-        } else {
-            echo "WINNER";
         }
-        
+        else {
+            if(isset($_SESSION["one_minute"])){
+                header("Location: /one_minute/success");
+                exit();
+            }
+
+            $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
+        }
+
     }
 }
 function escape($str, $db) {
@@ -70,18 +83,16 @@ function escape($str, $db) {
     $str = $db->escape($str); // Escape SQL.
     return $str;
 }
-
 function wayToSession(Way $way, $cat = NULL) {
     $_SESSION['lang'] = $way->getLang();
     $_SESSION['cat'] = $cat;
     $_SESSION['hash'] = $way->getHash();
     $_SESSION['startlink'] = $way->getStartPoint();
     $_SESSION['endlink'] = $way->getEndPoint();
-
-    $_SESSION['start'] = Way::getName($way->getStartPoint());
-    $_SESSION['current'] = Way::getName($way->getStartPoint());
-    $_SESSION['end'] = Way::getName($way->getEndPoint());
-    $_SESSION["links"] = array();
+    $_SESSION['start'] = StringUtils::pageTitle($way->getStartPoint());
+    $_SESSION['current'] = StringUtils::pageTitle($way->getStartPoint());
+    $_SESSION['end'] = StringUtils::pageTitle($way->getEndPoint());
+    $_SESSION['links'] = array();
     $_SESSION['win'] = false;
     // var_dump($_SESSION);
 }
@@ -97,8 +108,6 @@ function unset_gamesession(){
     $_SESSION['win'] = "";
     $_SESSION['counter'] = 0;
 }
-
-
 function isStart($title) {
     return $title == StringUtils::pageTitle($_SESSION['start']);
 }
@@ -108,5 +117,3 @@ function isCurrent($title) {
 function isEnd($title) {
     return $title == StringUtils::pageTitle($_SESSION['end']);
 }
-
-

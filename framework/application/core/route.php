@@ -50,7 +50,7 @@ class Route{
 		}
 		//ПОТОМ КОНТРОЛЛЕР
 		$controller_file = strtolower($controller_name).'.php';
-		
+		//var_dump($_SESSION);
 		$controller_path = "application/controllers/".$controller_file;
 
 		if(file_exists($controller_path)){

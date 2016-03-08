@@ -72,6 +72,7 @@ class Controller_login extends Controller
             $user_exist = $this->model->get_user_by_email_and_password($_REQUEST["email"], md5($_REQUEST["password"]));
             if ($user_exist && $check_email) {
                 $_SESSION["user_connected"] = true;
+                $_SESSION["user_id"] = $user_exist->id;
                 header("Location: /");
             } else {
                 $error = !$error;
