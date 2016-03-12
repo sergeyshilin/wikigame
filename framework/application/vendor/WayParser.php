@@ -23,7 +23,7 @@ class WayParser {
                 $waystr = substr($cell, strpos($cell, '[') + 1, strpos($cell, ']') - 1);
                 $wayarr = explode(', ', $waystr);
                 $cellarr = explode(',', $cell);
-                array_push($result, new Way($wayarr, $cellarr[count($cellarr) - 2], $cellarr[count($cellarr) - 1], $db));
+                array_push($result, new Way($wayarr, $cellarr[count($cellarr) - 2], $cellarr[count($cellarr) - 1], $this->db));
             }
             if (!feof($handle)) {
                 echo "Error: unexpected fgets() fail\n";
@@ -42,6 +42,10 @@ class WayParser {
             $way = $db_->getAssoc("SELECT * FROM ways WHERE verified = 1 ORDER BY RAND() LIMIT 1")[0];
         else
             $way = $db_->getAssoc("SELECT * FROM ways WHERE cat_id = '{$cat}' AND verified = 1 order by RAND() LIMIT 1")[0];
+        return new Way($way["id"], $way["depth"], $way["links"], $db_);
+    }
+    public static function getHitlerWay($db_){
+        $way = $db_->getAssoc("SELECT * FROM ways WHERE verified = 1 ORDER BY RAND() LIMIT 1")[0];
         return new Way($way["id"], $way["depth"], $way["links"], $db_);
     }
 
@@ -73,8 +77,8 @@ class WayParser {
             $links = $way->getLinksCount();
             $complexity = 0;
             $lang = $this->lang;
-            if ($db->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0, 0)") === TRUE) {
-                $id = $db->insert_id;
+            if ($this->db->query("INSERT INTO ways VALUES(NULL, '{$cat}', '{$hash}', '{$depth}', '{$links}', '{$complexity}', '{$lang}', 0, 0, 0)") === TRUE) {
+                $id = $this->db->insert_id;
                 $this->writeNode($db, $id, $way->getWay(), 0, NULL);
                 $hashes[] = $hash;
             } else {

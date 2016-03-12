@@ -20,7 +20,7 @@ class Model_account extends Model{
         $fetched = array();
         $result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, stats.steps
           FROM  `way_nodes` INNER JOIN stats ON stats.way_id = way_nodes.way_id
-          WHERE stats.user_id = '$userid' ORDER BY stats.finished_at");
+          WHERE stats.user_id = '$userid' ORDER BY stats.id DESC");
         while ($out = $result->fetch_array()) {
             if ($out["parent_id"] == 0) {
                 $fetched[$out["way_id"]]["start"] = $out["link"];

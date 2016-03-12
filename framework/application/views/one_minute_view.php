@@ -33,6 +33,9 @@
             margin-top: 10px;
             font-weight: normal;
         }
+        #backarrow:hover{
+            cursor: hand;
+        }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -66,15 +69,14 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
+                    <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
                     <li><a id="_counter">Количество шагов: <span></span></a></li>
                     <li><div id="countdown" style="line-height: 30.24px!important;" class="timeTo timeTo-white"></div></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hovered"><a href="/wiki/<?= $start_page ?>"
+                    <li class="hovered"><a href="/one_minute<?= $start_page ?>"
                                            onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
-                    <li class="hovered"><a href="/wiki/Main_Page<?= $cat ?>"
-                                           onclick="yaCounter28976460.reachGoal('header_newgame'); return true;">Новая игра</a></li>
                     <li class="dropdown hovered">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             Сменить категорию <span class="caret"></span></a>
@@ -94,7 +96,7 @@
     </nav>
 </div>
 <script>
-    var t;
+    window.t = "";
     jQuery.ajax({
         url:"/wiki/Main_Page"
     }).done(function(data){
@@ -105,25 +107,21 @@
     });
 
     function fixLinks(){
-        $("a:not([href^='#'], #navbar *, #navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
     }
 
-    function getWayInfo(){
+    function getWayInfo(fr){
         $.ajax({
             url:"/one_minute/get",
             dataType: "json",
             jsonp: "false"
         }).done(function(data){
-            t = data;
+            window.t = data;
             refreshWindow();
-            if(t.win === true){
-                location.href="/one_minute/success";
-            }
         });
     }
 
     function refreshWindow(){
-        $("#_counter>span").text(t.counter);
         $("#_end").text(t.end);
         $("#_endlink").attr("href", t.endlink);
     }
@@ -132,9 +130,21 @@
         $.ajax({
             url: $(ele).prop("href")
         }).done(function(data){
+            if(data == "win") {
+                location.href="/one_minute/success";
+            }
             $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
         });
     }
+    $("#backarrow").click(function(){
+        jQuery.ajax({
+            url:"/wiki/"+window.t.previous
+        }).done(function(data){
+            $(".bootstrap-scope").after(data);
+            fixLinks();
+            getWayInfo();
+        });
+    })
 </script>

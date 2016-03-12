@@ -18,8 +18,10 @@
             </thead>
         <?php
             foreach($info as $key=>$value){
-                echo "<tr><Td><a target='_blank' href='$value[start]'>".urldecode($value["start"])."</a></Td>
-                <td><a target='_blank' href='$value[end]'>".urldecode($value["end"])."</a></td><td>$value[steps]</td></tr>";
+                $start = StringUtils::pageTitle($value["start"]);
+                $end = StringUtils::pageTitle($value["end"]);
+                echo "<tr><Td><a target='_blank' href='$value[start]'>".$start."</a></Td>
+                <td><a target='_blank' href='$value[end]'>".$end."</a></td><td>$value[steps]" . $value["hash"]."</td></tr>";
             }
         ?>
         </table>

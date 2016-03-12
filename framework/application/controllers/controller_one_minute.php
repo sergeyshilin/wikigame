@@ -6,16 +6,14 @@ class Controller_one_minute extends Controller{
         $this->view = new View();
     }
     function action_index($action_param = null, $action_data = null){
-        if(!(isset($_SESSION['user_connected']) && $_SESSION['user_connected'])){
-            header("Location: /");
-        }
         if($action_param == "get"){
             echo json_encode($_SESSION);
             exit();
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                echo "Вы прошли путь за одну минуту. Это заглушка";
+                $this->model->SaveSuccess();
+                $this->view->generate("success_view.php", "template_view.php");
                 exit();
             }
             else{ header("Location: /"); }

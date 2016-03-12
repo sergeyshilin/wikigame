@@ -82,7 +82,7 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
                             // }
                             ?>
                         </ul>
-                    </li
+                    </li>
                 </ul>
             </div>
         </div>

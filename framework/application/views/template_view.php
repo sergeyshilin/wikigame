@@ -37,3 +37,4 @@
 $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] === true;
 include 'application/views/'.$content_view;
 ?>
+</html>

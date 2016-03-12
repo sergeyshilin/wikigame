@@ -21,14 +21,21 @@ class Controller_wiki extends Controller{
                 throw new Exception();
             }
         } else if ((empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main Page")) {
-            if($_SESSION["one_minute"]["started"] !== true) {
+            if($_SESSION["one_minute"]["started"] !== true || ($_SESSION["hitler"]["started"] !== true)) {
                 $way = WayParser::getRandomWay($cat, $this->model);
-                wayToSession($way, $cat, $this->model);
+                if(isset($_SESSION["hitler"])){
+                    wayToSession($way, $cat, "hitler");
+                }
+                else{
+                    wayToSession($way, $cat);
+                }
                 if (isset($_SESSION["one_minute"])) {
                     $_SESSION["one_minute"]["started"] = true;
                 }
-                echo "STOP";
-                //var_dump($_SESSION);
+                else if(isset($_SESSION["hitler"])) {
+                    $_SESSION["hitler"]["started"] = true;
+                    header('Location: /wiki/' . $_SESSION["start"]);
+                }
                 header('Location: /wiki/' . $_SESSION["start"]);
             }
         } else if (!$_SESSION['win']) {
@@ -60,20 +67,24 @@ class Controller_wiki extends Controller{
         }
         if (!$_SESSION['win']) {
             if (isset($_SESSION["one_minute"])) {
-                    echo $obj["content"];
+                    echo $resolver->printPage($obj["title"], $obj["content"]);
                     exit();
+            }
+            else if (isset($_SESSION["hitler"])) {
+                echo $resolver->printPage($obj["title"], $obj["content"]);
+                exit();
             }
             $utils = new WayUtils($this->model);
             $cats = $utils->getCategories();
             $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]), $cats);
         }
         else {
-            if(isset($_SESSION["one_minute"])){
-                header("Location: /one_minute/success");
+            if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"])){
+                echo "win";
                 exit();
             }
 
-            $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
+            echo "SUCCESS";
         }
 
     }
@@ -83,15 +94,21 @@ function escape($str, $db) {
     $str = $db->escape($str); // Escape SQL.
     return $str;
 }
-function wayToSession(Way $way, $cat = NULL) {
+function wayToSession(Way $way, $cat = NULL, $mode = NULL) {
     $_SESSION['lang'] = $way->getLang();
     $_SESSION['cat'] = $cat;
     $_SESSION['hash'] = $way->getHash();
     $_SESSION['startlink'] = $way->getStartPoint();
-    $_SESSION['endlink'] = $way->getEndPoint();
+    if($mode == "hitler"){
+        $_SESSION['endlink'] = "https://ru.wikipedia.org/wiki/Гитлер,_Адольф";
+        $_SESSION["end"] = "Гитлер, Адольф";
+    }
+    else {
+        $way->getEndPoint();
+        $_SESSION['end'] = StringUtils::pageTitle($way->getEndPoint());
+    }
     $_SESSION['start'] = StringUtils::pageTitle($way->getStartPoint());
     $_SESSION['current'] = StringUtils::pageTitle($way->getStartPoint());
-    $_SESSION['end'] = StringUtils::pageTitle($way->getEndPoint());
     $_SESSION['links'] = array();
     $_SESSION['win'] = false;
     // var_dump($_SESSION);

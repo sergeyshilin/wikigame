@@ -68,6 +68,10 @@ class Way {
         return $this->hash;
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
     public function getLinksCount() {
         return $this->links;
     }
