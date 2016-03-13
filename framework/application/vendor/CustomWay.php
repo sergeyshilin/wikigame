@@ -1,5 +1,6 @@
 <?php
-class CustomWay{
+class CustomWay
+{
     private $id = 0;
     private $hash = "";
     private $startpoint = "";
@@ -14,39 +15,51 @@ class CustomWay{
         $this->setWayInfo();
     }
 
-    private function setWayInfo() {
+    private function setWayInfo()
+    {
         $id = $this->id;
         $info = $this->db->getAssoc("SELECT * FROM custom_ways WHERE id = '{$id}'")[0];
         $this->startpoint = $info["startlink"];
         $this->endpoint = $info["endlink"];
-        $this->hash =$info["hash"];
+        $this->hash = $info["hash"];
     }
 
-    public static function getUrl($string) {
+    public static function getUrl($string)
+    {
         $result = str_replace('\'', '', $string);
         $result = preg_replace('/\s+/', '', $result);
         return $result;
     }
 
-    public function getHash() {
+    public function getHash()
+    {
         return $this->hash;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public static function getName($node) {
+    public static function getName($node)
+    {
         $end = strpos($node, 'wiki/');
         return rawurldecode(substr($node, $end + strlen('wiki/')));
     }
 
-    public function getLang() {
+    public function getLang()
+    {
         return $this->lang;
     }
 
-    public function createHash() {
+    public function createHash()
+    {
         return substr(md5(CustomWay::getName($this->getStartPoint()) . CustomWay::getName($this->getEndPoint())), 0, 7);
+    }
+
+    public static function staticCreateHash($startlink, $endlink)
+    {
+        return substr(md5($startlink . $endlink), 0, 7);
     }
 
     public function getStartPoint() {

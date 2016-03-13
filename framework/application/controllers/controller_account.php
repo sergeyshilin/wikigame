@@ -20,6 +20,7 @@ class Controller_account extends Controller{
         //$this->model->SetNickname($uid, "TTT");
         //echo $this->model->GetRank($uid);
         //var_dump($this->model->FetchPlayedWays($uid));
+
         $this->view->generate("account_view.php", "template_view.php", $a, $this->model->FetchPlayedWays($uid));
     }
 }

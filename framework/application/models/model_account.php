@@ -18,7 +18,7 @@ class Model_account extends Model{
     function FetchPlayedWays($userid)
     {
         $fetched = array();
-        $result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, stats.steps
+        $result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, stats.steps, stats.game_mode
           FROM  `way_nodes` INNER JOIN stats ON stats.way_id = way_nodes.way_id
           WHERE stats.user_id = '$userid' ORDER BY stats.id DESC");
         while ($out = $result->fetch_array()) {
@@ -29,6 +29,10 @@ class Model_account extends Model{
             } else if ($fetched[$out["way_id"]]["end_id"] < $out["parent_id"]) {
                 $fetched[$out["way_id"]]["end_id"] = $out["id"];
                 $fetched[$out["way_id"]]["end"] = $out["link"];
+            }
+            if($out["game_mode"] == 3){
+                $fetched[$out["way_id"]]["end"] =
+                    "https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D1%82%D0%BB%D0%B5%D1%80,_%D0%90%D0%B4%D0%BE%D0%BB%D1%8C%D1%84";
             }
         }
         return $fetched;

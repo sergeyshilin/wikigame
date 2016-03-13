@@ -10,10 +10,20 @@ class Controller_custom_ways extends Controller{
             header("Location: /");
         }
         if($action_param == "set" && (sizeof($_POST) > 0)){
-
+            $hash = CustomWay::staticCreateHash($_POST["startlink"], $_POST["endlink"]);
+            if($this->model->CheckWayIfExists($hash)) {
+                echo "exists";
+            }
+            else {
+                echo ($this->model->AddNewWay($hash, $_POST["startlink"], $_POST["endlink"]) == true) ?
+                    "inserted" : "failed";
+            }
         }
         if($action_param == "del" && $action_data !== null){
-
+            if(!$this->model->DeleteWay($action_data)){
+                header("Location: /");
+            }
+            else header("Location: /account");
         }
         else {
             $this->view->generate("custom_views.php", "template_view.php");
