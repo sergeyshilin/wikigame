@@ -12,10 +12,15 @@ class Controller_wiki extends Controller{
         $title = escape($title, $this->model);
         $title = StringUtils::pageTitle($title);
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
-        if (WayParser::isMD5Hash($title)) {
-            $way = WayParser::getWayByHash($title, $this->model);
+        if (WayParser::isMD5Hash($action_data)) {
+            if($action_param == "way") {$way = WayParser::getWayByHash($action_param, $this->model); }
+            else if($action_param == "custom_way")
+            { $way = WayParser::getCustomWayByHash($action_data, $this->model);}
             if (!empty($way)) {
                 wayToSession($way);
+//                var_dump($way);
+////                var_dump($_SESSION);
+//                exit();
                 header('Location: /wiki/' . $_SESSION["start"]);
             } else {
                 throw new Exception();
@@ -74,9 +79,7 @@ class Controller_wiki extends Controller{
                 echo $resolver->printPage($obj["title"], $obj["content"]);
                 exit();
             }
-            $utils = new WayUtils($this->model);
-            $cats = $utils->getCategories();
-            $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]), $cats);
+            $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
         }
         else {
             if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"])){
@@ -94,7 +97,7 @@ function escape($str, $db) {
     $str = $db->escape($str); // Escape SQL.
     return $str;
 }
-function wayToSession(Way $way, $cat = NULL, $mode = NULL) {
+function wayToSession($way, $cat = NULL, $mode = NULL) {
     $_SESSION['lang'] = $way->getLang();
     $_SESSION['cat'] = $cat;
     $_SESSION['hash'] = $way->getHash();

@@ -127,6 +127,7 @@
     }
 
     function loadAfterClick(ele){
+        $("#countdown").parent().after("<li><a><span class='glyphicon glyphicon-hourglass'></span></a></li>");
         $.ajax({
             url: $(ele).prop("href")
         }).done(function(data){
@@ -136,7 +137,9 @@
             $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $("#countdown").parent().next().remove();
         });
+
     }
     $("#backarrow").click(function(){
         jQuery.ajax({

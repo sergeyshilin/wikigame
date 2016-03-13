@@ -59,6 +59,22 @@
         .for-thumbs a:hover {
             text-decoration: none;
         }
+        .striped-div{
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    #ccc 10px,
+                    #ccc 20px
+                ),
+                    /* on "bottom" */
+                linear-gradient(
+                    to bottom,
+                    #eee,
+                    #999
+                );
+        }
     </style>
 </head>
 
@@ -101,7 +117,7 @@
         <div class="row">
             <div class="container for-thumbs">
                 <?php foreach($data as $key=>$value):?>
-                    <div class="thumbnail">
+                    <div class="thumbnail <?php if((!$loggedIn)&&($value['opened'] == 0)):?> striped-div<?php endif;?> ">
                         <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a href="<?=$value['link']?>"><?php endif; ?>
                         <div class="caption">
                             <?php if((!$loggedIn)&&($value['opened'] == 0)):?>

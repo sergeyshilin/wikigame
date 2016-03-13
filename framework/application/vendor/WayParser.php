@@ -57,6 +57,11 @@ class WayParser {
         $way = $db_->getAssoc("SELECT * FROM ways WHERE hash = '{$hash}'")[0];
         return count($way) > 0 ? (new Way($way["id"], $way["depth"], $way["links"], $db_)) : NULL;
     }
+    public static function getCustomWayByHash($hash, $db_){
+        $way = $db_->getAssoc("SELECT * FROM custom_ways WHERE hash = '{$hash}'")[0];
+//        var_dump($way);
+        return count($way) > 0 ? (new CustomWay($way["id"], $db_)) : NULL;
+    }
 
     public function getWays() {
         return $this->waysarr;

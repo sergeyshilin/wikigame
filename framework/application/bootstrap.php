@@ -6,6 +6,7 @@ require_once("core/view.php");
 require_once("core/controller.php");
 require_once("core/route.php");
 require_once("vendor/Way.php");
+require_once("vendor/CustomWay.php");
 require_once("vendor/WayParser.php");
 require_once("vendor/PageResolver.php");
 require_once("vendor/WayUtils.php");
