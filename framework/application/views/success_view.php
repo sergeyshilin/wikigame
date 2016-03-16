@@ -18,21 +18,16 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 <body>
 <!---->
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
-<link href="/application/css/cover.css" rel="stylesheet">
+<!--<link href="/application/css/cover.css" rel="stylesheet">-->
 <script type="text/javascript">
-    window.history.pushState("", "Title", "/?game=<?=$hash?>");
+    window.history.pushState("", "Title", "/wiki/<?=$hash?>");
 </script>
-<div class="site-wrapper bootstrap-scope">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 style="float:left;"><img class="main_logo" src="/logo/logo_white.svg" title="WikiWalker - найди свой путь"></h3>
-                </div>
-            </div>
-
-            <div class="inner cover">
-                <h1 class="cover-heading">Поздравляем!</h1>
+<div class="wrapper">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+<?php include_once("topbar_frame.php"); ?>
+                <h1 class="cover-heading">Поздравляем! <?=$data?></h1>
 
                 <p class="lead" style="margin-bottom: 0">
                     Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
@@ -52,8 +47,6 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                     <a id="share_tw" class="sharebtn tw"></a>
                 </div>
                 <p class="lead">
-                    <a href="/<?= $hash ?>" class="btn btn-lg btn-success congrats_playagain"
-                       onclick="yaCounter28976460.reachGoal('playagain'); return true;">Повторить</a>
                     <a href="/wiki/Main_Page<?= $cat ?>" class="btn btn-lg btn-success congrats_playagain"
                        onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
                 </p>
@@ -72,8 +65,8 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
     </div>
 </div>
 
-<script src="/w/js/parse-1.4.0.min.js"></script>
-<script src="/w/js/Share.js"></script>
+<script src="/application/js/parse-1.4.0.min.js"></script>
+<script src="/application/js/Share.js"></script>
 <script type="text/javascript">
     <?php if($_SESSION["user_connected"]) { ?>
     setWaySteps();
@@ -86,10 +79,9 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
     var title = "<?=$title?>";
     var description = "<?=$desc?>";
     var share = new Share(url, title, description);
-    $(window).load(function () {
+
         yaCounter28976460.reachGoal('wingame');
-    });
-    $(document).ready(function () {
+
         share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
@@ -114,6 +106,5 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                 console.log(error);
             });
         });
-    });
 </script>
 </body>

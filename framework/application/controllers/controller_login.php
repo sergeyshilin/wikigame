@@ -118,6 +118,6 @@ class Controller_login extends Controller
             header("Location: /");
         }
             //generating form with login
-            $this->view->generate("login_form_view.php", "dummy.php", $error, $error_msg);
+            $this->view->generate("login_frame.php", "template2_view.php", $error, $error_msg);
     }
 }

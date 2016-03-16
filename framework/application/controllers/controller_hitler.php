@@ -12,8 +12,12 @@ class Controller_hitler extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                if($_SESSION["user_connected"]) { $this->model->SaveSuccess(); }
-                $this->view->generate("success_view.php", "template_view.php");
+                $rank = 0;
+                if($_SESSION["user_connected"]) {
+                    $this->model->SaveSuccess();
+                    $rank = $this->model->GetRank($_SESSION["user_id"]);
+                }
+                $this->view->generate("success_view.php", "template_view.php", "hitler", $rank);
                 exit();
             }
             else{ header("Location: /"); }

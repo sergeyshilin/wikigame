@@ -19,14 +19,16 @@
 
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <link rel="image_src" href="application/images/forsocials.jpg"/>
+    <link rel="image_src" href="/application/images/forsocials.jpg"/>
 
-    <title>WikiWalker - Авторизация</title>
-
-    <link rel="stylesheet" type="text/css" href="application/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="application/css/index.css">
+    <title>WikiWalker</title>
+    <link rel="stylesheet" type="text/css" href="/application/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/application/css/index.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+    <script src="/application/js/jquery.min.js"></script>
+    <script src="/application/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/application/js/ie10-viewport-bug-workaround.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -47,7 +49,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <?php
-                include_once('login_frame.php');
+                include 'application/views/'.$content_view;
                 ?>
             </div>
         </div>
@@ -64,7 +66,3 @@
     </div>
 </div>
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../js/ie10-viewport-bug-workaround.js"></script>

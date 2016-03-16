@@ -16,11 +16,15 @@ class Controller_account extends Controller{
         $a["rating"] = $this->model->GetRating($uid);
         $a["rank"] = $this->model->GetRank($uid);
         $a["sum"] = $this->model->GetSumOfPlayed($uid);
+        $a["order"] = $this->model->GetUserOrder($uid);
+        $stats["played"] =  $this->model->FetchPlayedWays($uid);
+        $stats["custom_ways"] = $this->model->GetCustomRoutes($uid);
         //var_dump($a);
         //$this->model->SetNickname($uid, "TTT");
         //echo $this->model->GetRank($uid);
         //var_dump($this->model->FetchPlayedWays($uid));
 
-        $this->view->generate("account_view.php", "template_view.php", $a, $this->model->FetchPlayedWays($uid));
+        $this->view->generate("account_view.php", "template_view.php", $a, $stats,
+            $this->model->GetSumOfModes($uid));
     }
 }

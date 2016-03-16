@@ -9,7 +9,8 @@ class Model_hitler extends Model
         $way = WayParser::getWayByHash($_SESSION["hash"], $this);
         $id = $way->getId();
         $result =
-            $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], 0, 0, 0, 3)");
+            $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], 0, NOW(), 0, 3)");
+        $this->UpdateRating($_SESSION["user_id"], 80);
         if(!$result){echo mysqli_error($this); exit();}
     }
 }

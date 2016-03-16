@@ -3,15 +3,7 @@ class Model_account extends Model{
     function __construct(){
         $this->ConnectDB();
     }
-	function GetRating($userid){
-        return $this->toArray("SELECT SUM(categories.rating) AS sum from categories INNER JOIN ways
-         ON categories.id = ways.cat_id INNER JOIN stats
-          ON stats.way_id = ways.id WHERE stats.user_id = '$userid'");
-    }
-    function GetRank($userid){
-        $rating = $this->GetRating($userid);
-        return (int)sqrt($rating[0]/100);
-    }
+
     function GetSumOfPlayed($userid){
         return $this->toArray("SELECT COUNT(id) FROM stats WHERE user_id = '$userid'");
     }
@@ -37,8 +29,27 @@ class Model_account extends Model{
         }
         return $fetched;
     }
+    function GetCustomRoutes($user_id){
+        return $this->getAssoc("SELECT * FROM custom_ways WHERE user_id = $user_id");
+    }
     function GenerateShortlink($userid){
 
+    }
+
+    function GetUserOrder($user_id){
+        $result = $this->query("SELECT id FROM users ORDER BY rating DESC");
+        $i = 1;
+        while($out = $result->fetch_array()){
+            if($out["id"] == $user_id){break;}
+            $i++;
+        }
+        $total = $this->getAssoc("SELECT COUNT(id) as count FROM users")[0]["count"];
+        return $i ." из ". $total;
+    }
+
+    function GetSumOfModes($user_id){
+        return $this->getAssoc("SELECT game_modes.name, COUNT(stats.id) as count FROM stats  RIGHT JOIN game_modes
+          ON game_modes.id = stats.game_mode WHERE user_id=$user_id GROUP BY game_modes.id");
     }
     function SetNickname($userid, $nick){
         if($this->toArray("SELECT id FROM users WHERE nick= '$nick'") > 0){

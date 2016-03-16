@@ -32,4 +32,7 @@ class Model_Main extends Model{
 			}
 		return $game_modes;
 	}
+	function getLeaders(){
+		return $this->getAssoc("SELECT rating, nick FROM users ORDER BY rating DESC LIMIT 5");
+	}
 }

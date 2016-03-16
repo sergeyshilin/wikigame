@@ -9,6 +9,9 @@ class Controller_Main extends Controller{
 		//Загрузка главной страницы, передачи списка категорий нет
         unset($_SESSION["one_minute"]);
 		unset($_SESSION["hitler"]);
-		$this->view->generate('start_page.php', 'dummy.php', $this->model->getGameModes());
+		unset($_SESSION["compete"]);
+		unset($_SESSION["challenge"]);
+		$this->unset_gamesession();
+		$this->view->generate('start_page.php', 'dummy.php', $this->model->getGameModes(), $this->model->getLeaders());
 	}
 }

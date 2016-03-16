@@ -42,14 +42,21 @@
             background-color: rgba(0, 0, 0, 0);
             width: 60%;
             margin:0 auto;
+            float:left;
+            margin-top:-70px;
+        }
+        #stats{
+            margin-top:34px;
         }
         .for-thumbs {
             width: 760px !important;
             text-shadow: none;
+            float:left;
+            margin-top: -250px;
         }
         .thumbnail{
             float:left;
-            margin: 20px;
+            margin: 5px;
             width:200px;
         }
         .small-notif{
@@ -113,6 +120,40 @@
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
                 Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>
             </div>
+            <div class="col-md-4" style="float:right"><div id="stats" class="carousel slide">
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item">
+                            <div class="list-group" id="top-users">
+                                <a class="list-group-item active">
+                                    <span class="badge">Рейтинг</span>
+                                    <h4 class="list-group-item-heading">Лучшие игроки</h4>
+                                </a>
+                                <?php $i=0; foreach($info as $key=>$value) : ?>
+                                <a class="list-group-item">
+                                    <span class="badge"> <?=$value["rating"]?></span>
+                                    <h4 class="list-group-item-heading"><i class="fa fa-user"></i><?=$value["nick"]?></h4>
+                                    <p class="list-group-item-text"></p>
+                                </a>
+                                <?php $i++; endforeach; ?>
+                                <?php for($i=$i; $i<5;++$i) : ?>
+                                    <a class="list-group-item">
+                                        <span class="badge">15450</span>
+                                        <h4 class="list-group-item-heading"><i class="fa fa-user"></i> Wiki_Master</h4>
+                                        <p class="list-group-item-text">Сыграно: 250 игр</p>
+                                    </a>
+                                <?php endfor; ?>
+                                <a class="list-group-item">
+                                    <h4 class="list-group-item-heading"></h4>
+                                    <p class="list-group-item-text">
+                                    </p><div class="carousel-control left" href="#stats" data-slide="prev">‹</div>
+                                    <div class="carousel-control right" href="#stats" data-slide="next">›</div>
+                                    <p></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
         </div>
         <div class="row">
             <div class="container for-thumbs">
@@ -155,27 +196,27 @@
             </div>
             <div class="modal-body">
                 <div class="list-group">
-                    <a href="/wiki/Main_Page" class="list-group-item active" onclick="yaCounter28976460.reachGoal('cat0'); return true;">
+                    <a href="/wiki/Main_Page" class="list-group-item active" onclick="yaCounter28976460.reachGoal('classic'); return true;">
                         <h4 class="list-group-item-heading">Классический</h4>
 
                         <p class="list-group-item-text">Стандартный режим игры. Без ограничений по времени</p>
                     </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('cat0'); return true;" disabled>
+                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('One_minute'); return true;" disabled>
                         <h4 class="list-group-item-heading">На время</h4>
 
                         <p class="list-group-item-text">Стандартный режим игры. За одну минуту</p>
                     </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('cat0'); return true;" disabled>
+                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('Htiler'); return true;" disabled>
                         <h4 class="list-group-item-heading">Гитлер</h4>
 
                         <p class="list-group-item-text">Просто доберитесь до Адольфа</p>
                     </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('cat0'); return true;" disabled>
+                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('custom_way'); return true;" disabled>
                         <h4 class="list-group-item-heading">Свой маршрут</h4>
 
                         <p class="list-group-item-text"></p>
                     </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('cat0'); return true;" disabled>
+                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('challenge'); return true;" disabled>
                         <h4 class="list-group-item-heading">Дуэль</h4>
 
                         <p class="list-group-item-text">Player vs Player</p>

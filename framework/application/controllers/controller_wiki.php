@@ -18,18 +18,30 @@ class Controller_wiki extends Controller{
             { $way = WayParser::getCustomWayByHash($action_data, $this->model);}
             if (!empty($way)) {
                 wayToSession($way);
-//                var_dump($way);
-////                var_dump($_SESSION);
-//                exit();
+                $_SESSION["custom_way"] = true;
                 header('Location: /wiki/' . $_SESSION["start"]);
             } else {
                 throw new Exception();
             }
-        } else if ((empty($_SESSION['start']) || empty($_SESSION['end']) || $title == "Main Page")) {
-            if($_SESSION["one_minute"]["started"] !== true || ($_SESSION["hitler"]["started"] !== true)) {
-                $way = WayParser::getRandomWay($cat, $this->model);
+        }
+        else if ((empty($_SESSION['start']) || empty($_SESSION['end']) || StringUtils::pageTitle($title) == "Main Page")) {
+            if($_SESSION["one_minute"]["started"] !== true || ($_SESSION["hitler"]["started"] !== true)
+            || $_SESSION["compete"]["started"] !== true || $_SESSION["compete"]["started"] !== true){
+                if(isset($_SESSION["one_minute"]["custom_way"])){
+                    $way = WayParser::getCustomWayByHash($_SESSION["one_minute"]["custom_way"], $this->model);
+                }
+                else {$way = WayParser::getRandomWay($cat, $this->model); }
                 if(isset($_SESSION["hitler"])){
                     wayToSession($way, $cat, "hitler");
+                }
+                else if(isset($_SESSION["challenge"]["way_hash"])){
+                    if($_SESSION["challenge"]["way_type"] == 1){
+                        $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["way_hash"],$this->model);
+                    }
+                    else {
+                        $way = WayParser::getWayByHash($_SESSION["challenge"]["way_hash"],$this->model);
+                    }
+                    wayToSession($way,0);
                 }
                 else{
                     wayToSession($way, $cat);
@@ -41,6 +53,10 @@ class Controller_wiki extends Controller{
                     $_SESSION["hitler"]["started"] = true;
                     header('Location: /wiki/' . $_SESSION["start"]);
                 }
+                else if(isset($_SESSION["compete"])) {
+                    $_SESSION["compete"]["started"] = true;
+                    $_SESSION["compete"]["step"] = 1;
+                }
                 header('Location: /wiki/' . $_SESSION["start"]);
             }
         } else if (!$_SESSION['win']) {
@@ -48,7 +64,15 @@ class Controller_wiki extends Controller{
                 header('Location: /wiki/' . $_SESSION["current"]);
             } else if ($title == $_SESSION['end']) {
                 $_SESSION['counter']++;
-                $_SESSION['win'] = true;
+                if(isset($_SESSION["compete"])){
+                    $_SESSION["compete"]["step"]++;
+                    $way = WayParser::getRandomWay(0, $this->model);
+                    wayToSession($way, 0);
+                    header('Location: /wiki/' . $_SESSION["start"]);
+                }
+                else {
+                    $_SESSION['win'] = true;
+                }
             } else {
                 $resolver = new PageResolver();
                 $obj = $resolver->isGenerated($title) ?
@@ -57,7 +81,6 @@ class Controller_wiki extends Controller{
                     $name = $resolver->extractRedirectPageName($obj["content"]);
                     header('Location: /wiki/' . $name);
                 } else if ($title == $_SESSION['start']) {
-//                    echo ($title == $_SESSION['start']) ? "YES" : "NO";
                     $_SESSION['previous'] = "";
                     $_SESSION['current'] = $_SESSION['start'];
                     $_SESSION['counter'] = 0;
@@ -71,23 +94,23 @@ class Controller_wiki extends Controller{
             }
         }
         if (!$_SESSION['win']) {
-            if (isset($_SESSION["one_minute"])) {
+            if (isset($_SESSION["one_minute"]) || isset($_SESSION["hitler"]) || isset($_SESSION["compete"])
+            || isset($_SESSION["challenge"])) {
+//                $_SESSION["win"]=true;
+//                echo "win"; exit();
                     echo $resolver->printPage($obj["title"], $obj["content"]);
                     exit();
-            }
-            else if (isset($_SESSION["hitler"])) {
-                echo $resolver->printPage($obj["title"], $obj["content"]);
-                exit();
             }
             $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
         }
         else {
-            if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"])){
+            if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"]) || $_SESSION["compete"]["steps"] == 6 ||
+            isset($_SESSION["challenge"])){
                 echo "win";
                 exit();
             }
-
-            echo "SUCCESS";
+            $this->model->UpdateRating($_SESSION["user_id"], 100);
+            $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page");
         }
 
     }
@@ -107,7 +130,7 @@ function wayToSession($way, $cat = NULL, $mode = NULL) {
         $_SESSION["end"] = "Гитлер, Адольф";
     }
     else {
-        $way->getEndPoint();
+        $_SESSION['endlink'] = $way->getEndPoint();
         $_SESSION['end'] = StringUtils::pageTitle($way->getEndPoint());
     }
     $_SESSION['start'] = StringUtils::pageTitle($way->getStartPoint());
@@ -116,18 +139,7 @@ function wayToSession($way, $cat = NULL, $mode = NULL) {
     $_SESSION['win'] = false;
     // var_dump($_SESSION);
 }
-function unset_gamesession(){
-    $_SESSION['lang'] = "";
-    $_SESSION['cat'] = "";
-    $_SESSION['hash'] = "";
-    $_SESSION['startlink'] = "";
-    $_SESSION['endlink'] = "";
-    $_SESSION['start'] = "";
-    $_SESSION['current'] = "";
-    $_SESSION['end'] = "";
-    $_SESSION['win'] = "";
-    $_SESSION['counter'] = 0;
-}
+
 function isStart($title) {
     return $title == StringUtils::pageTitle($_SESSION['start']);
 }

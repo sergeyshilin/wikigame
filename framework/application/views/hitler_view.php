@@ -76,19 +76,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hovered"><a href="/hitler<?= $start_page ?>"
                                            onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
-                    <li class="dropdown hovered">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Сменить категорию <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/wiki/Main_Page">Случайный маршрут</a></li>
-                            <li class="divider"></li>
-                            <?php
-                            // foreach ($cats as $cat) {
-                            //     echo "<li><a href='/wiki/Main_Page?cat=" . $cat["id"] . "'>" . $cat["name"] . "</a></li>";
-                            // }
-                            ?>
-                        </ul>
-                    </li>
+
                 </ul>
             </div>
         </div>

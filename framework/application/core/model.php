@@ -80,4 +80,18 @@ class Model extends mysqli{
         }
         return $result->fetch_array();
     }
+
+    function GetRating($user_id){
+        return $this->getAssoc("SELECT rating FROM users WHERE id=$user_id")[0]["rating"];
+//        return $this->toArray("SELECT SUM(categories.rating) AS sum from categories INNER JOIN ways
+//         ON categories.id = ways.cat_id INNER JOIN stats
+//          ON stats.way_id = ways.id WHERE stats.user_id = '$userid'");
+    }
+    function GetRank($userid){
+        $rating = $this->GetRating($userid);
+        return (int)sqrt($rating/100);
+    }
+    function UpdateRating($user_id, $num){
+        $this->query("UPDATE users SET rating = rating+'{$num}' WHERE id = $user_id");
+    }
 }
