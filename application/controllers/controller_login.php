@@ -24,7 +24,7 @@ class Controller_login extends Controller
                 $error_msg = "";
                 if (!empty($_REQUEST["email"]) &&
                     !empty($_REQUEST["password"]) &&
-                    !empty($_REQUEST["password_confirmation"] &&
+                    !empty($_REQUEST["password_confirmation"]) &&
                     !empty($_REQUEST["nick"]))
                 ) {
                     $user_exist = $this->model->get_user_by_email($_REQUEST["email"]);
