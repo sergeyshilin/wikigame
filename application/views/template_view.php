@@ -22,6 +22,8 @@
     <link rel="image_src" href="application/images/forsocials.jpg"/>
 
     <title>WikiWalker - Авторизация</title>
+    <script src="/application/js/jquery.min.js"></script>
+    <script src="/application/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/index.css">

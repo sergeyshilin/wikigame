@@ -33,6 +33,16 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                     Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
+                    <?php if(isset($_SESSION["user_connected"])):?>
+                        Ваш рейтинг теперь: <?=$data2["new_rating"]?><br>
+                        <?php if($data2["old_rank"] == $data2["new_rank"]):?>
+                            Ваш уровень: <?=$data2["old_rank"]?><br>
+                        <?php endif;?>
+                        <?php if($data2["old_rank"] < $data2["new_rank"]):?>
+                            Ура! Теперь вы на <?=$data2["new_rank"]?>уровне<br>
+                        <?php endif;?>
+
+                    <?php endif; ?>
                     Понравился маршрут?
                     <span class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
                     <span class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>

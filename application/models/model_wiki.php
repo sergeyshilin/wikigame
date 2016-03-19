@@ -18,4 +18,8 @@ class Model_wiki extends Model
             array_push($result, $way[$i]["link"]); 
         return $result;
     }
+    function SaveSuccess($id){
+        $is_custom = (isset($_SESSION["custom"])) ? 1 : 0;
+        $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 1, 100, $is_custom)");
+    }
 }

@@ -82,7 +82,7 @@ class Model extends mysqli{
     }
 
     function GetRating($user_id){
-        return $this->getAssoc("SELECT rating FROM users WHERE id=$user_id")[0]["rating"];
+        return $this->getAssoc("SELECT SUM(ext_info) as sum FROM stats WHERE user_id=$user_id")[0]["sum"];
 //        return $this->toArray("SELECT SUM(categories.rating) AS sum from categories INNER JOIN ways
 //         ON categories.id = ways.cat_id INNER JOIN stats
 //          ON stats.way_id = ways.id WHERE stats.user_id = '$userid'");
@@ -91,7 +91,29 @@ class Model extends mysqli{
         $rating = $this->GetRating($userid);
         return (int)sqrt($rating/100);
     }
-    function UpdateRating($user_id, $num){
-        $this->query("UPDATE users SET rating = rating+'{$num}' WHERE id = $user_id");
+    function SetLike($code = 0, $way_id, $is_hitler){
+        $check = $this->getAssoc("SELECT id FROM likes WHERE way_id=$way_id AND user_id=$_SESSION[user_id]
+        AND is_hitler=$is_hitler")[0];
+        echo $check;
+        echo $way_id;
+        if($check > 0){
+            echo "OK";
+            $this->query("UPDATE likes SET like_value='{$code}'  WHERE way_id=$way_id AND user_id=$_SESSION[user_id]
+            AND is_hitler=$is_hitler");
+            return mysqli_error($this);
+        }
+        else {
+            echo "OK";
+            $this->query("INSERT INTO likes VALUES('', $way_id, $is_hitler, $_SESSION[user_id], $code, NOW())");
+        }
     }
+
+    function GetLike($way_id, $is_hitler){
+        $result = $this->getAssoc("SELECT like_value from likes where way_id=$way_id AND user_id=$_SESSION[user_id]
+        AND is_hitler=$is_hitler")[0]["like_value"];
+        return ($result == "") ? 0 : $result;
+    }
+//    function UpdateRating($user_id, $num){
+//        $this->query("UPDATE users SET rating = rating+'{$num}' WHERE id = $user_id");
+//    }
 }

@@ -71,6 +71,8 @@
                     <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
                     <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
                     <li><a id="_counter">Количество шагов: <span></span></a></li>
+                    <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
+                    <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -84,16 +86,29 @@
 </div>
 <script>
     window.t = "";
+    window.like = 0;
     jQuery.ajax({
         url:"/wiki/Main_Page"
     }).done(function(data){
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
+        syncLikes();
     });
 
     function fixLinks(){
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+    }
+
+    function syncLikes(){
+        $.ajax({
+            url: "/main/like/check"
+        }).done(function(data){
+            console.log(data);
+            window.like = data;
+            if(data == 1){$("#like span").css("border", "1px solid");}
+            if(data == -1){$("#dislike span").css("border", "1px solid");}
+        });
     }
 
     function getWayInfo(fr){
@@ -133,5 +148,39 @@
             fixLinks();
             getWayInfo();
         });
+    })
+    $("#dislike").click(function(){
+        if(window.like == "-1"){
+            $.ajax({
+                url: "/main/like"
+            });
+            $("#dislike span").css("border", "none");
+            syncLikes();
+        }
+        else if(window.like == "0" || window.like == "1"){
+            $.ajax({
+                url: "/main/like/-1"
+            });
+            $("#dislike span").css("border", "1px solid");
+            $("#like span").css("border", "none");
+            syncLikes();
+        }
+    })
+    $("#like").click(function(){
+        if(window.like == "1"){
+            $.ajax({
+                url: "/main/like"
+            });
+            $("#like span").css("border", "none");
+            syncLikes();
+        }
+        else if(window.like == "0" || window.like == "-1"){
+            $.ajax({
+                url: "/main/like/1"
+            });
+            $("#like span").css("border", "1px solid");
+            $("#dislike span").css("border", "none");
+            syncLikes();
+        }
     })
 </script>

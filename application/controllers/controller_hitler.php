@@ -18,6 +18,8 @@ class Controller_hitler extends Controller{
                     $rank = $this->model->GetRank($_SESSION["user_id"]);
                 }
                 $this->view->generate("success_view.php", "template_view.php", "hitler", $rank);
+                unset($_SESSION["hitler"]);
+                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }

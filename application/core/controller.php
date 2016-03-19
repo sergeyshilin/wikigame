@@ -13,6 +13,7 @@ class Controller{
 	function action_index($action_param = null, $action_data = null){}
 
 	function unset_gamesession(){
+		$_SESSION["id"]= "";
 		$_SESSION['lang'] = "";
 		$_SESSION['cat'] = "";
 		$_SESSION['hash'] = "";

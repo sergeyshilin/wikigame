@@ -37,10 +37,10 @@ class Model_account extends Model{
     }
 
     function GetUserOrder($user_id){
-        $result = $this->query("SELECT id FROM users ORDER BY rating DESC");
+        $result = $this->query("SELECT user_id FROM stats GROUP BY user_id ORDER BY SUM( ext_info ) DESC ");
         $i = 1;
         while($out = $result->fetch_array()){
-            if($out["id"] == $user_id){break;}
+            if($out["user_id"] == $user_id){break;}
             $i++;
         }
         $total = $this->getAssoc("SELECT COUNT(id) as count FROM users")[0]["count"];
@@ -48,15 +48,29 @@ class Model_account extends Model{
     }
 
     function GetSumOfModes($user_id){
-        return $this->getAssoc("SELECT game_modes.name, COUNT(stats.id) as count FROM stats  RIGHT JOIN game_modes
-          ON game_modes.id = stats.game_mode WHERE user_id=$user_id GROUP BY game_modes.id");
+        $result = $this->query("SELECT game_modes.id AS gm, COUNT( stats.id ) AS count
+FROM stats
+INNER JOIN game_modes ON game_modes.id = stats.game_mode
+WHERE user_id =$user_id
+GROUP BY game_modes.id");
+        $sum = array("1"=>array("Классический"), "2"=>array("На время"), "3"=>array("Гитлер"), "5"=>array("Дуэль"),
+            "12"=>array("Турнир"));
+        if($result){
+            while($out = $result->fetch_array()){
+                $sum[$out["gm"]][] = $out["count"];
+            }
+        }
+        return $sum;
     }
     function SetNickname($userid, $nick){
-        if($this->toArray("SELECT id FROM users WHERE nick= '$nick'") > 0){
-            return false;
-        }
-        return $this->query("UPDATE users SET users.nick = '$nick' WHERE users.id = $userid") === true;
+        $this->query("UPDATE users SET users.nick = '$nick' WHERE users.id = $userid");
     }
+
+    function CheckNick($nick){
+        return ($this->getAssoc("SELECT id FROM users WHERE nick='{$nick}'")[0] > 0) ? false : true;
+
+    }
+
     function GetNickname($userid){
         return $this->toArray("SELECT nick FROM users WHERE id = $userid");
     }

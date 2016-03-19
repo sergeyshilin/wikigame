@@ -15,9 +15,16 @@ class Controller_challenge extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                $this->model->SaveSuccess($_SESSION["challenge"]["game_hash"]);
+                if(isset($_SESSION["challenge"]["way_type"])){
+                    $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["game_hash"], $this->model);
+                }
+                else{
+                    $way = WayParser::getWayByHash($_SESSION["challenge"]["game_hash"], $this->model);
+                }
+                $id = $way->getId();
+                $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "template_view.php");
+                $this->view->generate("success_view.php", "template_view.php", $rank);
                 exit();
             }
             else{ header("Location: /"); }

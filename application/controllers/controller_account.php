@@ -10,6 +10,16 @@ class Controller_account extends Controller{
         if(!$loggedIn){
             header("Location: /");
         }
+        if($action_param == "savenick"){
+            if(!$this->model->CheckNick($_POST["nick"])){
+                echo "exists";
+            }
+            else {
+                $this->model->SetNickname($_SESSION["user_id"], $_POST["nick"]);
+                echo $_POST["nick"];
+            }
+            exit();
+        }
         $uid = $_SESSION["user_id"];
         $a = [];
         $a["nick"] = $this->model->GetNickname($uid);

@@ -35,4 +35,9 @@ class Model_Main extends Model{
 	function getLeaders(){
 		return $this->getAssoc("SELECT rating, nick FROM users ORDER BY rating DESC LIMIT 5");
 	}
+
+	function refreshCache(){
+		$output = $this->query("SELECT SUM( like_value ), way_id, is_hitler FROM likes GROUP BY way_id
+ORDER BY SUM( like_value ) DESC LIMIT 0,5");
+	}
 }

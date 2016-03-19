@@ -40,6 +40,57 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="/application/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            window.like = 0;
+            syncLikes();
+            function syncLikes(){
+                $.ajax({
+                    url: "/main/like/check"
+                }).done(function(data){
+                    console.log(data);
+                    window.like = data;
+                    if(data == 1){$("#like span").css("border", "1px solid");}
+                    if(data == -1){$("#dislike span").css("border", "1px solid");}
+                });
+            }
+            $("#dislike").click(function(){
+                if(window.like == "-1"){
+                    $.ajax({
+                        url: "/main/like"
+                    });
+                    $("#dislike span").css("border", "none");
+                    syncLikes();
+                }
+                else if(window.like == "0" || window.like == "1"){
+                    $.ajax({
+                        url: "/main/like/-1"
+                    });
+                    $("#dislike span").css("border", "1px solid");
+                    $("#like span").css("border", "none");
+                    syncLikes();
+                }
+            })
+            $("#like").click(function(){
+                if(window.like == "1"){
+                    $.ajax({
+                        url: "/main/like"
+                    });
+                    $("#like span").css("border", "none");
+                    syncLikes();
+                }
+                else if(window.like == "0" || window.like == "-1"){
+                    $.ajax({
+                        url: "/main/like/1"
+                    });
+                    $("#like span").css("border", "1px solid");
+                    $("#dislike span").css("border", "none");
+                    syncLikes();
+                }
+            })
+        })
+    </script>
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap-scope.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-site.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-modules.min.css">
@@ -64,6 +115,8 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
                 <ul class="nav navbar-nav">
                     <li><a target="_blank" href="<?= $end_page_link ?>">Ваша цель: <span class="jslink"><?= $end_page ?></span></a></li>
                     <li><a>Количество шагов: <?= $count ?></a></li>
+                    <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
+                    <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hovered"><a href="/wiki/<?= $start_page ?>"

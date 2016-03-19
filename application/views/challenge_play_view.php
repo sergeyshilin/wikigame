@@ -71,6 +71,8 @@
                     <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
                     <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
                     <li><a id="_counter">Количество шагов: <span></span></a></li>
+                    <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
+                    <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a id="_nick2"> <span></span></a></li>

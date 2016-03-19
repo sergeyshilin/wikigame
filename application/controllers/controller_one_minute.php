@@ -12,12 +12,17 @@ class Controller_one_minute extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                $rank = 0;
                 if($_SESSION["user_connected"]) {
+                    $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                    $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                     $this->model->SaveSuccess();
-                    $rank = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
-                $this->view->generate("success_view.php", "template_view.php", "one_minute", $rank);
+
+                $this->view->generate("success_view.php", "template_view.php", "one_minute", $user_rating);
+                unset($_SESSION["one_minute"]);
+                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }

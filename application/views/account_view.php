@@ -6,13 +6,15 @@
     <div class="row"></div>
     <div class="col-md-4">
         <h2>Общая информация</h2>
-        <h4>Ваш ник: <?= $data["nick"][0] ?></h4>
+        <h4>Ваш ник: <span id="nickval"><?= $data["nick"][0] ?></span><input type="text" id="nickform" style="color:black" value=""> <a id="editnick"><span class="glyphicon glyphicon-pencil"></span></a><a id="savenick"><span class="glyphicon glyphicon-floppy-disk"></span></a></h4>
         <h4>Ваш рейтинг: <? echo ($data["rating"] == null)? 0 : $data["rating"]; ?></h4>
         <h4>Ваш уровень: <?= $data["rank"] ?></h4>
         <h4>Позиция среди всех игроков: <?=$data["order"]?></h4>
         <hr class="hr">
         <h3>Статистика по режимам</h3>
-        <?php foreach($data2 as $k=>$v){echo "<h4>".$v["name"].": ".$v["count"]. "</h4>";}?>
+        <?php foreach($data2 as $k=>$v): ?>
+        <h4><?=$v[0]?>: <?php echo(isset($v[1])) ? $v[1] : 0 ?></h4>
+        <?php endforeach; ?>
     </div>
     <div class="col-md-4">
         <h2>Ваша история игр</h2>
@@ -52,4 +54,34 @@
     </div>
     </div>
 </div>
+<script>
+    $("#nickform").css("visibility", "hidden");
+    $("#savenick").css("visibility", "hidden");
+    $("#editnick").click(function(){
+        var temp = $("#nickval").text();
+        $("#nickval").hide();
+        $("#nickform").css("visibility", "visible");
+        $("#savenick").css("visibility", "visible");
+        $("#nickform").val(temp);
+        $("#editnick").hide();
+    });
+    $("#savenick").click(function(){
+        $.ajax({
+            url: "/account/savenick",
+            data: { nick : $("#nickform").val() },
+            method: "POST"
+        }).done(function(data){
+            if(data == "exists"){
+                alert("Такой ник уже занят");
+            }
+            else{
+                $("#nickval").show();
+                $("#nickform").css("visibility", "hidden");
+                $("#savenick").css("visibility", "hidden");
+                $("#editnick").show();
+                $("#nickval").text(data);
+            }
+        })
+    })
+</script>
 </body>

@@ -7,8 +7,6 @@ class Controller_wiki extends Controller{
     }
     function action_index($action_param = NULL, $action_data = NULL){
         $title = $action_param; $cat = $action_data;
-//        var_dump($_SESSION);
-
         $title = escape($title, $this->model);
         $title = StringUtils::pageTitle($title);
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
@@ -109,8 +107,19 @@ class Controller_wiki extends Controller{
                 echo "win";
                 exit();
             }
-            $this->model->UpdateRating($_SESSION["user_id"], 100);
-            $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page");
+            $user_rating = array();
+            if(isset($_SESSION["user_connected"])){
+                $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                $this->model->SaveSuccess($_SESSION["id"]);
+                $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                $user_rating["new_rating"] = $user_rating["old_rating"] + 100;
+
+            }
+            $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page",
+                $user_rating);
+            unset($_SESSION["custom_way"]);
+            $this->unset_gamesession();
         }
 
     }
@@ -121,6 +130,7 @@ function escape($str, $db) {
     return $str;
 }
 function wayToSession($way, $cat = NULL, $mode = NULL) {
+    $_SESSION["id"] = $way->getId();
     $_SESSION['lang'] = $way->getLang();
     $_SESSION['cat'] = $cat;
     $_SESSION['hash'] = $way->getHash();
