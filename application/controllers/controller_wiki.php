@@ -11,7 +11,7 @@ class Controller_wiki extends Controller{
         $title = StringUtils::pageTitle($title);
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
         if (WayParser::isMD5Hash($action_data)) {
-            if($action_param == "way") {$way = WayParser::getWayByHash($action_param, $this->model); }
+            if($action_param == "way") {$way = WayParser::getWayByHash($action_data, $this->model); }
             else if($action_param == "custom_way")
             { $way = WayParser::getCustomWayByHash($action_data, $this->model);}
             if (!empty($way)) {
@@ -29,9 +29,13 @@ class Controller_wiki extends Controller{
                     $way = WayParser::getCustomWayByHash($_SESSION["one_minute"]["custom_way"], $this->model);
                 }
                 else {$way = WayParser::getRandomWay($cat, $this->model); }
+                if(isset($_SESSION["hitler"]["way_hash"])){
+                    $way = WayParser::getWayByHash($_SESSION["hitler"]["way_hash"], $this->model);
+                }
                 if(isset($_SESSION["hitler"])){
                     wayToSession($way, $cat, "hitler");
                 }
+
                 else if(isset($_SESSION["challenge"]["way_hash"])){
                     if($_SESSION["challenge"]["way_type"] == 1){
                         $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["way_hash"],$this->model);

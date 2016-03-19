@@ -10,9 +10,9 @@ class Model_account extends Model{
     function FetchPlayedWays($userid)
     {
         $fetched = array();
-        $result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, stats.steps, stats.game_mode
+        $result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, stats.steps, stats.game_mode, stats.is_custom
           FROM  `way_nodes` INNER JOIN stats ON stats.way_id = way_nodes.way_id
-          WHERE stats.user_id = '$userid' ORDER BY stats.id DESC");
+          WHERE stats.user_id = '$userid' AND game_mode != 12 ORDER BY stats.id DESC");
         while ($out = $result->fetch_array()) {
             if ($out["parent_id"] == 0) {
                 $fetched[$out["way_id"]]["start"] = $out["link"];
@@ -25,6 +25,10 @@ class Model_account extends Model{
             if($out["game_mode"] == 3){
                 $fetched[$out["way_id"]]["end"] =
                     "https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D1%82%D0%BB%D0%B5%D1%80,_%D0%90%D0%B4%D0%BE%D0%BB%D1%8C%D1%84";
+            }
+            if($out["is_custom"] == 1){
+//                $fetched[$out["way_id"]]["start"] =
+//                $fetched[$out["way_id"]]["start"] =
             }
         }
         return $fetched;

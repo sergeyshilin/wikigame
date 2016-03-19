@@ -27,6 +27,7 @@
     <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <script src="application/js/jquery.min.js"></script>
+    <script src="/application/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="application/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="application/css/index.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -126,23 +127,18 @@
                         <div class="active item">
                             <div class="list-group" id="top-users">
                                 <a class="list-group-item active">
-                                    <span class="badge">Рейтинг</span>
+                                    <span class="upd-stats badge">Обновить</span>
                                     <h4 class="list-group-item-heading">Лучшие игроки</h4>
                                 </a>
                                 <?php $i=0; foreach($info as $key=>$value) : ?>
                                 <a class="list-group-item">
-                                    <span class="badge"> <?=$value["rating"]?></span>
+                                    <span class="badge"> <?=$value["value"]?></span>
                                     <h4 class="list-group-item-heading"><i class="fa fa-user"></i><?=$value["nick"]?></h4>
-                                    <p class="list-group-item-text"></p>
+                                    <p class="list-group-item-text">Сыграно игр: <?=$value["count"]?></p>
                                 </a>
                                 <?php $i++; endforeach; ?>
-                                <?php for($i=$i; $i<5;++$i) : ?>
-                                    <a class="list-group-item">
-                                        <span class="badge">15450</span>
-                                        <h4 class="list-group-item-heading"><i class="fa fa-user"></i> Wiki_Master</h4>
-                                        <p class="list-group-item-text">Сыграно: 250 игр</p>
-                                    </a>
-                                <?php endfor; ?>
+
+
                                 <a class="list-group-item">
                                     <h4 class="list-group-item-heading"></h4>
                                     <p class="list-group-item-text">
@@ -151,8 +147,62 @@
                                     <p></p>
                                 </a>
                             </div>
+
+                        </div>
+                        <div class="item">
+                            <div class="list-group" id="top-users">
+                                <a class="list-group-item active">
+                                    <span class="upd-stats badge">Обновить</span>
+                                    <h4 class="list-group-item-heading">Популярное сегодня</h4>
+                                </a>
+                                <?php $i=0; foreach($data2 as $key=>$value) : ?>
+                                    <a class="list-group-item" href="<?=$value['way_link']?>">
+                                        <span class="badge"> <?=$value["rating"]?></span>
+                                        <h4 class="list-group-item-heading"><?=$value["start"]?></h4>
+                                        <p class="list-group-item-text"><i class="fa fa-angle-right"></i>
+                                        <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> <?=$value["end"]?></p>
+                                    </a>
+                                    <?php $i++; endforeach; ?>
+
+
+                                <a class="list-group-item">
+                                    <h4 class="list-group-item-heading"></h4>
+                                    <p class="list-group-item-text">
+                                    </p><div class="carousel-control left" href="#stats" data-slide="prev">‹</div>
+                                    <div class="carousel-control right" href="#stats" data-slide="next">›</div>
+                                    <p></p>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="item">
+                            <div class="list-group" id="top-users">
+                                <a class="list-group-item active">
+                                    <span class="upd-stats badge">Обновить</span>
+                                    <h4 class="list-group-item-heading">Самое популярное</h4>
+                                </a>
+                                <?php $i=0; foreach($data3 as $key=>$value) : ?>
+                                    <a class="list-group-item" href="<?=$value['way_link']?>">
+                                        <span class="badge"> <?=$value["rating"]?></span>
+                                        <h4 class="list-group-item-heading"><?=$value["start"]?></h4>
+                                        <p class="list-group-item-text"><i class="fa fa-angle-right"></i>
+                                            <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> <?=$value["end"]?></p>
+                                    </a>
+                                    <?php $i++; endforeach; ?>
+
+
+                                <a class="list-group-item">
+                                    <h4 class="list-group-item-heading"></h4>
+                                    <p class="list-group-item-text">
+                                    </p><div class="carousel-control left" href="#stats" data-slide="prev">‹</div>
+                                    <div class="carousel-control right" href="#stats" data-slide="next">›</div>
+                                    <p></p>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
+
                 </div></div>
         </div>
         <div class="row">
@@ -235,3 +285,12 @@
 <script src="application/js/jquery.min.js"></script>
 <script src="application/js/bootstrap.min.js"></script>
 <script src="application/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+    $(".upd-stats").click(function(){
+        $.ajax({
+            url: "/main/upd-stats"
+        }).done(function(){
+            location.href = "/";
+        });
+    })
+</script>

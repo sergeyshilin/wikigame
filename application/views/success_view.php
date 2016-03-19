@@ -2,7 +2,7 @@
 $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
 $count = $_SESSION['counter'];
 $hash = $_SESSION['hash'];
-$url = "http://wikiwalker.ru/" . $hash;
+$url = $_SERVER["SERVER_NAME"] . $hash;
 $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
@@ -20,13 +20,13 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 <!--<link href="/application/css/cover.css" rel="stylesheet">-->
 <script type="text/javascript">
-    window.history.pushState("", "Title", "/wiki/<?=$hash?>");
+    window.history.pushState("", "Title", "/<?=$hash?>");
 </script>
 <div class="wrapper">
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-<?php include_once("topbar_frame.php"); ?>
+    <?php include_once("topbar_frame.php"); ?>
+    <div class="container">
+        <div class="row" style="text-align:center;">
+
                 <h1 class="cover-heading">Поздравляем! <?=$data?></h1>
 
                 <p class="lead" style="margin-bottom: 0">
@@ -39,7 +39,7 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                             Ваш уровень: <?=$data2["old_rank"]?><br>
                         <?php endif;?>
                         <?php if($data2["old_rank"] < $data2["new_rank"]):?>
-                            Ура! Теперь вы на <?=$data2["new_rank"]?>уровне<br>
+                            Ура! Теперь вы на <b><?=$data2["new_rank"]?></b> уровне<br>
                         <?php endif;?>
 
                     <?php endif; ?>
@@ -75,46 +75,71 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
     </div>
 </div>
 
-<script src="/application/js/parse-1.4.0.min.js"></script>
-<script src="/application/js/Share.js"></script>
-<script type="text/javascript">
-    <?php if($_SESSION["user_connected"]) { ?>
-    setWaySteps();
-    <?php } ?>
-    loadLike();
-</script>
-<script language="JavaScript">
-    Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
-    var url = "<?=$url?>";
-    var title = "<?=$title?>";
-    var description = "<?=$desc?>";
-    var share = new Share(url, title, description);
+<script>
 
-        yaCounter28976460.reachGoal('wingame');
+        Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
+        var url = "<?=$url?>";
+        var title = "<?=$title?>";
+        var description = "<?=$desc?>";
+        var share = new Share(url, title, description);
 
-        share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
-            var parseFile = new Parse.File("share.png", {base64: base64img});
-            parseFile.save().then(function () {
-                share.pimg = parseFile.url();
-                $("#share_vk").click(function () {
-                    yaCounter28976460.reachGoal('sharevk');
-                    share.vkontakte();
+        $(window).load(function () {
+            yaCounter28976460.reachGoal('wingame');
+        });
+
+            share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
+                var parseFile = new Parse.File("share.png", {base64: base64img});
+                parseFile.save().then(function () {
+                    share.pimg = parseFile.url();
+
+                }, function (error) {
+                    console.log(error);
                 });
-                $("#share_fb").click(function () {
-                    yaCounter28976460.reachGoal('sharefb');
-                    share.facebook();
-                });
-                $("#share_gp").click(function () {
-                    yaCounter28976460.reachGoal('sharegoogle');
-                    share.googleplus();
-                });
-                $("#share_tw").click(function () {
-                    yaCounter28976460.reachGoal('sharetwit');
-                    share.twitter();
-                });
-            }, function (error) {
-                console.log(error);
             });
+        $("#share_vk").click(function () {
+            yaCounter28976460.reachGoal('sharevk');
+            share.vkontakte();
+        });
+        $("#share_fb").click(function () {
+            yaCounter28976460.reachGoal('sharefb');
+            share.facebook();
+        });
+        $("#share_gp").click(function () {
+            yaCounter28976460.reachGoal('sharegoogle');
+            share.googleplus();
+        });
+        $("#share_tw").click(function () {
+            yaCounter28976460.reachGoal('sharetwit');
+            share.twitter();
         });
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter28976460 = new Ya.Metrika({
+                    id: 28976460,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    trackHash: true
+                });
+            } catch (e) {
+            }
+        });
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");</script>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 </body>

@@ -24,8 +24,12 @@ class Controller_hitler extends Controller{
             }
             else{ header("Location: /"); }
         }
+
         unset($_SESSION["hitler"]);
         $_SESSION["hitler"] = array("starttime" => time());
+        if(WayParser::isMD5Hash($action_param)){
+            $_SESSION["hitler"]["way_hash"] = $action_param;
+        }
         if($action_param == "test") { echo $_SESSION["hitler"]; exit();}
         $this->view->generate("hitler_view.php", "dummy.php");
     }

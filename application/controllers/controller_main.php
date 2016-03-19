@@ -17,8 +17,11 @@ class Controller_Main extends Controller{
 			exit();
 		}
 
-		if($action_param == "upd-stat"){
-
+		if($action_param == "upd-stats"){
+			$this->model->updateLeadersCache();
+			$this->model->updatePopularWaysCache();
+			$this->model->updateAllPopularWaysCache();
+			exit();
 		}
 		//Загрузка главной страницы, передачи списка категорий нет
         unset($_SESSION["one_minute"]);
@@ -26,6 +29,9 @@ class Controller_Main extends Controller{
 		unset($_SESSION["compete"]);
 		unset($_SESSION["challenge"]);
 		$this->unset_gamesession();
-		$this->view->generate('start_page.php', 'dummy.php', $this->model->getGameModes(), $this->model->getLeaders());
+
+
+		$this->view->generate('start_page.php', 'dummy.php', $this->model->getGameModes(), $this->model->getLeaders(),
+				$this->model->getPopularWays(), $this->model->getAllPopularWays());
 	}
 }
