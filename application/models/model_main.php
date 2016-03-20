@@ -102,7 +102,7 @@ ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 	function updatePopularWaysCache(){
 		$temp = $this->getAssoc("SELECT SUM( like_value ) as value, way_id, is_hitler FROM likes
 		WHERE date BETWEEN NOW() - INTERVAL 1 DAY AND NOW() GROUP BY way_id
-		ORDER BY SUM( like_value ) DESC LIMIT 0,5");
+		ORDER BY SUM( like_value ) DESC LIMIT 5");
 		$this->query("TRUNCATE cache_ways_rating");
 		foreach ($temp as $k=>$v) {
 			$this->query("INSERT INTO cache_ways_rating VALUES('', '{$v[way_id]}', '{$v[is_hitler]}', '{$v[value]}')");
@@ -111,7 +111,7 @@ ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 
 	function updateAllPopularWaysCache(){
 		$temp = $this->getAssoc("SELECT SUM( like_value ) as value, way_id, is_hitler FROM likes GROUP BY way_id
-		ORDER BY SUM( like_value ) DESC LIMIT 0,5");
+		ORDER BY SUM( like_value ) DESC LIMIT 5");
 		$this->query("TRUNCATE cache_ways2_rating");
 		foreach ($temp as $k=>$v) {
 			$this->query("INSERT INTO cache_ways_rating2 VALUES('', '{$v[way_id]}', '{$v[is_hitler]}', '{$v[value]}')");

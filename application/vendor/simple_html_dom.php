@@ -11,7 +11,7 @@
  *
  * Paperg - Added case insensitive testing of the value of the selector.
  * Paperg - Added tag_start for the starting index of tags - NOTE: This works but not accurately.
- *  This tag_start gets counted AFTER \r\n have been crushed out, and after the remove_noice calls so it will not reflect the REAL position of the tag in the source,
+ *  This tag_start gets counted AFTER \r\n have been crushed out, and after the remove_noice calls so it will not reflect the REAL position of the tag in the fancybox,
  *  it will almost always be smaller by some amount.
  *  We use this to determine how far into the file the tag in question is.  This "percentage will never be accurate as the $dom->size is the "real" number of bytes the dom was created from.
  *  but for most purposes, it's a really good estimation.
@@ -20,7 +20,7 @@
  * Paperg add the text and plaintext to the selectors for the find syntax.  plaintext implies text in the innertext of a node.  text implies that the tag is a text node.
  * This allows for us to find tags based on the text they contain.
  * Create find_ancestor_tag to see if a tag is - at any level - inside of another specific tag.
- * Paperg: added parse_charset so that we know about the character set of the source document.
+ * Paperg: added parse_charset so that we know about the character set of the fancybox document.
  *  NOTE:  If the user's system has a routine called get_last_retrieve_url_contents_content_type availalbe, we will assume it's returning the content-type header from the
  *  last transfer or curl_exec, and we will parse that and use it in preference to any other method of charset detection.
  *
@@ -776,7 +776,7 @@ class simple_html_dom_node
             $sourceCharset = strtoupper($this->dom->_charset);
             $targetCharset = strtoupper($this->dom->_target_charset);
         }
-        if (is_object($debugObject)) {$debugObject->debugLog(3, "source charset: " . $sourceCharset . " target charaset: " . $targetCharset);}
+        if (is_object($debugObject)) {$debugObject->debugLog(3, "fancybox charset: " . $sourceCharset . " target charaset: " . $targetCharset);}
 
         if (!empty($sourceCharset) && !empty($targetCharset) && (strcasecmp($sourceCharset, $targetCharset) != 0))
         {

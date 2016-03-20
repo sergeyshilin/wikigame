@@ -20,14 +20,15 @@
         <h2>Ваша история игр</h2>
         <table class="table">
             <thead>
-            <tr><td>Старт</td><td>Конец</td><td>Шаги</td></tr>
+            <tr><td>Старт</td><td>Конец</td><td>Шаги</td><td>Потворить</td></tr>
             </thead>
         <?php
             foreach($info["played"] as $key=>$value){
                 $start = StringUtils::pageTitle($value["start"]);
                 $end = StringUtils::pageTitle($value["end"]);
                 echo "<tr><Td><a target='_blank' href='$value[start]'>".$start."</a></Td>
-                <td><a target='_blank' href='$value[end]'>".$end."</a></td><td>$value[steps]" . $value["hash"]."</td></tr>";
+                <td><a target='_blank' href='$value[end]'>".$end."</a></td><td>" . $value["steps"]."</td>".
+                "<td><a href = '$value[gamelink]'><span class='glyphicon glyphicon-play-circle'></span></a></td></tr>";
             }
         ?>
         </table>
@@ -55,33 +56,45 @@
     </div>
 </div>
 <script>
+    function swapElem(data){
+        window.nick = $("#nickval").text(data);
+        $("#nickval").show();
+        $("#nickform").css("visibility", "hidden");
+        $("#savenick").css("visibility", "hidden");
+        $("#editnick").show();
+        $("#nickval").text(data);
+    }
+    window.nick = "";
     $("#nickform").css("visibility", "hidden");
     $("#savenick").css("visibility", "hidden");
     $("#editnick").click(function(){
-        var temp = $("#nickval").text();
+        window.nick = $("#nickval").text();
         $("#nickval").hide();
         $("#nickform").css("visibility", "visible");
         $("#savenick").css("visibility", "visible");
-        $("#nickform").val(temp);
+        $("#nickform").val(window.nick);
         $("#editnick").hide();
     });
     $("#savenick").click(function(){
-        $.ajax({
-            url: "/account/savenick",
-            data: { nick : $("#nickform").val() },
-            method: "POST"
-        }).done(function(data){
-            if(data == "exists"){
-                alert("Такой ник уже занят");
-            }
-            else{
-                $("#nickval").show();
-                $("#nickform").css("visibility", "hidden");
-                $("#savenick").css("visibility", "hidden");
-                $("#editnick").show();
-                $("#nickval").text(data);
-            }
-        })
+        var temp = $("#nickform").val();
+        if (window.nick === temp) {
+            swapElem(window.nick);
+        }
+        else{
+            $.ajax({
+                url: "/account/savenick",
+                data: { nick : $("#nickform").val() },
+                method: "POST"
+            }).done(function(data){
+                if(data == "exists"){
+                    alert("Такой ник уже занят");
+                }
+                else{
+                    swapElem(data);
+                }
+            })
+        }
+
     })
 </script>
 </body>

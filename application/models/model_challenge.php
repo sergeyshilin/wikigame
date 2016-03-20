@@ -23,6 +23,11 @@ class Model_challenge extends Model
             $is_custom = 0;
             $rating = 200;
         }
+        $check = $this->getAssoc("SELECT id from stats WHERE game_mode = 5 and user_id=$_SESSION[user_id] and way_id=$id
+        AND is_custom = $is_custom")[0]["id"];
+        if($check > 0){
+            $rating = 0;
+        }
         $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 5, $rating, $is_custom)");
         $this->query("UPDATE pvp_rooms SET status=1 WHERE hash='{$game_hash}'");
 //        $way = WayParser::getWayByHash($_SESSION["hash"], $this);

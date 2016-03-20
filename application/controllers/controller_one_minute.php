@@ -20,9 +20,9 @@ class Controller_one_minute extends Controller{
                     $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
 
-                $this->view->generate("success_view.php", "template_view.php", "one_minute", $user_rating);
-                unset($_SESSION["one_minute"]);
-                $this->unset_gamesession();
+                $this->view->generate("success_view.php", "template_view.php", "/one_minute", $user_rating);
+//                unset($_SESSION["one_minute"]);
+//                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }

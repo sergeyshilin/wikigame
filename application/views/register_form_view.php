@@ -21,7 +21,6 @@ EOF;
                         } ?>
                         <input class="form-control" placeholder="Email" name="email" type="email" required>
                         <input class="form-control" placeholder="Пароль" name="password" type="password" value="" required>
-                        <input class="form-control" placeholder="Повторить пароль" name="password_confirmation" type="password" value="" required>
                         <input class="form-control" placeholder="Ваш никнейм" name="nick" type="text" value="" required>
                         <button class="btn btn-lg btn-primary btn-block submit-button" type="submit">Регистрация</button>
 

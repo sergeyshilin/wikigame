@@ -123,8 +123,8 @@ class Controller_wiki extends Controller{
 
             $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page",
                 $user_rating);
-            unset($_SESSION["custom_way"]);
-            $this->unset_gamesession();
+//            unset($_SESSION["custom_way"]);
+//            $this->unset_gamesession();
         }
 
     }

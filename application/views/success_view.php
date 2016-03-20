@@ -21,7 +21,11 @@ echo $start_page . $end_page. "&nbsp".$count;
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 <!--<link href="/application/css/cover.css" rel="stylesheet">-->
 <script type="text/javascript">
-    window.history.pushState("", "Title", "/<?=$data?>");
+    window.history.pushState("", "Title", "<?=$data?>");
+    history.pushState(null, null, location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
 </script>
 <div class="wrapper">
     <?php include_once("topbar_frame.php"); ?>
@@ -45,8 +49,8 @@ echo $start_page . $end_page. "&nbsp".$count;
 
                     <?php endif; ?>
                     Понравился маршрут?
-                    <span class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
-                    <span class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
+                    <span id="like" class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
+                    <span id="dislike" class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
                     </br>
                     Поделись результатом с друзьями!
                 </p>
@@ -77,7 +81,7 @@ echo $start_page . $end_page. "&nbsp".$count;
 </div>
 
 <script>
-
+        syncLikes();
         Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
         var url = "<?=$url?>";
         var title = "<?=$title?>";
@@ -116,6 +120,51 @@ echo $start_page . $end_page. "&nbsp".$count;
             yaCounter28976460.reachGoal('sharetwit');
             share.twitter();
         });
+
+        function syncLikes(){
+            $.ajax({
+                url: "/main/like/check"
+            }).done(function(data){
+                console.log(data);
+                window.like = data;
+                if(data == 1){$("#like").css("border", "2px solid white");}
+                if(data == -1){$("#dislike").css("border", "2px solid white");}
+            });
+        }
+        $("#dislike").click(function(){
+            if(window.like == "-1"){
+                $.ajax({
+                    url: "/main/like"
+                });
+                $("#dislike").css("border", "none");
+                syncLikes();
+            }
+            else if(window.like == "0" || window.like == "1"){
+                $.ajax({
+                    url: "/main/like/-1"
+                });
+                $("#dislike").css("border", "2px solid white");
+                $("#like").css("border", "none");
+                syncLikes();
+            }
+        })
+        $("#like").click(function(){
+            if(window.like == "1"){
+                $.ajax({
+                    url: "/main/like"
+                });
+                $("#like").css("border", "none");
+                syncLikes();
+            }
+            else if(window.like == "0" || window.like == "-1"){
+                $.ajax({
+                    url: "/main/like/1"
+                });
+                $("#like").css("border", "2px solid white")
+                $("#dislike").css("border", "none");
+                syncLikes();
+            }
+        })
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) {

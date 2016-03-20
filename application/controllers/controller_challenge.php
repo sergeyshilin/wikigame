@@ -16,15 +16,15 @@ class Controller_challenge extends Controller{
         if($action_param == "success"){
             if($_SESSION["win"]){
                 if(isset($_SESSION["challenge"]["way_type"])){
-                    $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["game_hash"], $this->model);
+                    $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
                 }
                 else{
-                    $way = WayParser::getWayByHash($_SESSION["challenge"]["game_hash"], $this->model);
+                    $way = WayParser::getWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
                 }
                 $id = $way->getId();
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "template_view.php", $rank);
+                $this->view->generate("success_view.php", "template_view.php", "/challenge", $rank);
                 exit();
             }
             else{ header("Location: /"); }

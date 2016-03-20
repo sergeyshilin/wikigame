@@ -17,6 +17,11 @@ class Model_one_minute extends Model
             $is_custom = 0;
         }
         $id = $way->getId();
+        $check = $this->getAssoc("SELECT id from stats WHERE game_mode = 2 and user_id=$_SESSION[user_id] and way_id=$id
+        AND is_custom = $is_custom")[0]["id"];
+        if($check > 0){
+            $rating = 0;
+        }
         $result =
             $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 2, $rating, $is_custom)");
         if(!$result){echo mysqli_error($this); exit();}

@@ -14,7 +14,7 @@ class Controller_login extends Controller
 
         if($action_param == "fail")
         {
-            $error = !$error;
+            $error = true;
             $error_msg = "Такой e-mail уже занят";
             $this->view->generate("register_form_view.php", "template_view.php", $error, $error_msg);
             exit();
@@ -24,9 +24,8 @@ class Controller_login extends Controller
                 $error_msg = "";
                 if (!empty($_REQUEST["email"]) &&
                     !empty($_REQUEST["password"]) &&
-                    !empty($_REQUEST["password_confirmation"]) &&
                     !empty($_REQUEST["nick"]))
-                ) {
+                {
                     $user_exist = $this->model->get_user_by_email($_REQUEST["email"]);
                     if ($user_exist) {
                         $error = !$error;
@@ -35,10 +34,7 @@ class Controller_login extends Controller
                         $error = !$error;
                         $error_msg = "Кажется, этот e-mail не корректный";
                     }
-                    else if ($_REQUEST["password"] != $_REQUEST["password_confirmation"]) {
-                        $error = !$error;
-                        $error_msg = "Пароли не совпадают";
-                    } else if(!$this->model->checkForUniqueNick($_REQUEST["nick"])){
+                    else if(!$this->model->checkForUniqueNick($_REQUEST["nick"])){
                         $error = !$error_msg;
                         $error_msg = "Такой никнейм уже занят";
                     }

@@ -22,6 +22,8 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
+    <script src="/application/js/fancybox/jquery.fancybox.js"></script>
+    <link rel="stylesheet" href="/application/js/fancybox/jquery.fancybox.css" />
     <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -85,6 +87,7 @@
     </nav>
 </div>
 <script>
+    $(".thumbimage").fancybox();
     window.t = "";
     window.like = 0;
     jQuery.ajax({
@@ -98,6 +101,7 @@
 
     function fixLinks(){
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a.image").attr("onclick", "return false");
     }
 
     function syncLikes(){
