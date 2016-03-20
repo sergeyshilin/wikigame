@@ -19,7 +19,8 @@ class Model_wiki extends Model
         return $result;
     }
     function SaveSuccess($id){
-        $is_custom = (isset($_SESSION["custom"])) ? 1 : 0;
-        $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 1, 100, $is_custom)");
+        $is_custom = (isset($_SESSION["custom_way"])) ? 1 : 0;
+        $rating = ($is_custom == 1) ? 0 : 100;
+        $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 1, $rating, $is_custom)");
     }
 }

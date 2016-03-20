@@ -17,11 +17,13 @@ class Model_challenge extends Model
     function SaveSuccess($id, $game_hash){
         if($_SESSION["challenge"]["way_type"] == 1){
             $is_custom = 1;
+            $rating = 0;
         }
         else{
             $is_custom = 0;
+            $rating = 200;
         }
-        $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 5, 200, $is_custom)");
+        $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], NOW(), 5, $rating, $is_custom)");
         $this->query("UPDATE pvp_rooms SET status=1 WHERE hash='{$game_hash}'");
 //        $way = WayParser::getWayByHash($_SESSION["hash"], $this);
 //        $id = $way->getId();

@@ -53,7 +53,7 @@
             width: 760px !important;
             text-shadow: none;
             float:left;
-            margin-top: -250px;
+            margin-top: -40px;
         }
         .thumbnail{
             float:left;
@@ -66,6 +66,9 @@
         }
         .for-thumbs a:hover {
             text-decoration: none;
+        }
+        .upd-stats:hover{
+            cursor:pointer;
         }
         .striped-div{
             background:
@@ -121,7 +124,27 @@
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
                 Думаешь, это просто? <br>Попробуй сыграть прямо сейчас!</p>
             </div>
-            <div class="col-md-4" style="float:right"><div id="stats" class="carousel slide">
+
+        </div>
+        <div class="row">
+            <div class="container for-thumbs">
+                <?php foreach($data as $key=>$value):?>
+                    <div class="thumbnail <?php if((!$loggedIn)&&($value['opened'] == 0)):?> striped-div<?php endif;?> ">
+                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a href="<?=$value['link']?>"><?php endif; ?>
+                        <div class="caption">
+                            <?php if((!$loggedIn)&&($value['opened'] == 0)):?>
+                                <span class="glyphicon glyphicon-ban-circle closed-mode"></span><span class="small-notif">авторизуйтесь</span>
+                            <?php endif; ?>
+                            <h3><?=$value["name"]?></h3>
+                            <p><?=$value["desc"]?></p>
+                        </div>
+                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?></a><?php endif; ?>
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" style="float:right; margin-top: -450px;"><div id="stats" class="carousel slide">
                     <!-- Carousel items -->
                     <div class="carousel-inner">
                         <div class="active item">
@@ -131,12 +154,12 @@
                                     <h4 class="list-group-item-heading">Лучшие игроки</h4>
                                 </a>
                                 <?php $i=0; foreach($info as $key=>$value) : ?>
-                                <a class="list-group-item">
-                                    <span class="badge"> <?=$value["value"]?></span>
-                                    <h4 class="list-group-item-heading"><i class="fa fa-user"></i><?=$value["nick"]?></h4>
-                                    <p class="list-group-item-text">Сыграно игр: <?=$value["count"]?></p>
-                                </a>
-                                <?php $i++; endforeach; ?>
+                                    <a class="list-group-item">
+                                        <span class="badge"> <?=$value["value"]?></span>
+                                        <h4 class="list-group-item-heading"><i class="fa fa-user"></i><?=$value["nick"]?></h4>
+                                        <p class="list-group-item-text">Сыграно игр: <?=$value["count"]?></p>
+                                    </a>
+                                    <?php $i++; endforeach; ?>
 
 
                                 <a class="list-group-item">
@@ -160,7 +183,7 @@
                                         <span class="badge"> <?=$value["rating"]?></span>
                                         <h4 class="list-group-item-heading"><?=$value["start"]?></h4>
                                         <p class="list-group-item-text"><i class="fa fa-angle-right"></i>
-                                        <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> <?=$value["end"]?></p>
+                                            <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> <?=$value["end"]?></p>
                                     </a>
                                     <?php $i++; endforeach; ?>
 
@@ -204,23 +227,6 @@
                     </div>
 
                 </div></div>
-        </div>
-        <div class="row">
-            <div class="container for-thumbs">
-                <?php foreach($data as $key=>$value):?>
-                    <div class="thumbnail <?php if((!$loggedIn)&&($value['opened'] == 0)):?> striped-div<?php endif;?> ">
-                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a href="<?=$value['link']?>"><?php endif; ?>
-                        <div class="caption">
-                            <?php if((!$loggedIn)&&($value['opened'] == 0)):?>
-                                <span class="glyphicon glyphicon-ban-circle closed-mode"></span><span class="small-notif">авторизуйтесь</span>
-                            <?php endif; ?>
-                            <h3><?=$value["name"]?></h3>
-                            <p><?=$value["desc"]?></p>
-                        </div>
-                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?></a><?php endif; ?>
-                    </div>
-                <?php endforeach;?>
-            </div>
         </div>
 
     <div class="footer">

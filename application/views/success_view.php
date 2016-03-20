@@ -7,6 +7,7 @@ $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
 $end_page = str_replace("_", " ", $_SESSION["end"]);
+echo $start_page . $end_page. "&nbsp".$count;
 // require_once('../classes/WayUtils.php');
 /**
  *   Здесь нужно учитывать статистику о пройденном маршруте.
@@ -20,20 +21,20 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 <!--<link href="/application/css/cover.css" rel="stylesheet">-->
 <script type="text/javascript">
-    window.history.pushState("", "Title", "/<?=$hash?>");
+    window.history.pushState("", "Title", "/<?=$data?>");
 </script>
 <div class="wrapper">
     <?php include_once("topbar_frame.php"); ?>
     <div class="container">
         <div class="row" style="text-align:center;">
 
-                <h1 class="cover-heading">Поздравляем! <?=$data?></h1>
+                <h1 class="cover-heading">Поздравляем!</h1>
 
                 <p class="lead" style="margin-bottom: 0">
                     Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
                     Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
                     Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
-                    <?php if(isset($_SESSION["user_connected"])):?>
+                    <?php if(isset($_SESSION["user_connected"]) && !empty($data2)):?>
                         Ваш рейтинг теперь: <?=$data2["new_rating"]?><br>
                         <?php if($data2["old_rank"] == $data2["new_rank"]):?>
                             Ваш уровень: <?=$data2["old_rank"]?><br>
@@ -87,6 +88,7 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
             yaCounter28976460.reachGoal('wingame');
         });
 
+        $(window).load(function(){
             share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
                 var parseFile = new Parse.File("share.png", {base64: base64img});
                 parseFile.save().then(function () {
@@ -96,6 +98,8 @@ $end_page = str_replace("_", " ", $_SESSION["end"]);
                     console.log(error);
                 });
             });
+        })
+
         $("#share_vk").click(function () {
             yaCounter28976460.reachGoal('sharevk');
             share.vkontakte();

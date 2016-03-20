@@ -111,15 +111,16 @@ class Controller_wiki extends Controller{
                 echo "win";
                 exit();
             }
-            $user_rating = array();
             if(isset($_SESSION["user_connected"])){
-                $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
-                $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                if(!isset($_SESSION["custom_way"])){
+                    $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                    $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rating"] = $user_rating["old_rating"] + 100;
+                }
                 $this->model->SaveSuccess($_SESSION["id"]);
-                $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
-                $user_rating["new_rating"] = $user_rating["old_rating"] + 100;
-
             }
+
             $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page",
                 $user_rating);
             unset($_SESSION["custom_way"]);
