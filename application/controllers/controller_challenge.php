@@ -15,7 +15,7 @@ class Controller_challenge extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                if(isset($_SESSION["challenge"]["way_type"])){
+                if(isset($_SESSION["challenge"]["way_type"]) && $_SESSION["challenge"]["way_type"] == 1){
                     $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
                 }
                 else{
@@ -24,6 +24,7 @@ class Controller_challenge extends Controller{
                 $id = $way->getId();
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
+                $this->unset_gamesession();
                 $this->view->generate("success_view.php", "template_view.php", "/challenge", $rank);
                 exit();
             }

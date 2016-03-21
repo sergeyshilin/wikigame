@@ -31,7 +31,7 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 

@@ -22,7 +22,7 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
@@ -159,15 +159,53 @@
             $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $(document).scrollTop(0);
         });
     }
     $("#backarrow").click(function(){
         jQuery.ajax({
             url:"/wiki/"+window.t.previous
         }).done(function(data){
+            $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $(document).scrollTop(0);
         });
+    });
+
+    $("#dislike").click(function(){
+        if(window.like == "-1"){
+            $.ajax({
+                url: "/main/like"
+            });
+            $("#dislike span").css("border", "none");
+            syncLikes();
+        }
+        else if(window.like == "0" || window.like == "1"){
+            $.ajax({
+                url: "/main/like/-1"
+            });
+            $("#dislike span").css("border", "1px solid");
+            $("#like span").css("border", "none");
+            syncLikes();
+        }
+    })
+    $("#like").click(function(){
+        if(window.like == "1"){
+            $.ajax({
+                url: "/main/like"
+            });
+            $("#like span").css("border", "none");
+            syncLikes();
+        }
+        else if(window.like == "0" || window.like == "-1"){
+            $.ajax({
+                url: "/main/like/1"
+            });
+            $("#like span").css("border", "1px solid");
+            $("#dislike span").css("border", "none");
+            syncLikes();
+        }
     })
 </script>

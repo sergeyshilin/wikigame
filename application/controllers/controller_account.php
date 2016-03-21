@@ -7,6 +7,7 @@ class Controller_account extends Controller{
     }
     function action_index($action_param = null, $action_data = null){
         $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] === true;
+        $this->unset_gamesession();
         if(!$loggedIn){
             header("Location: /");
         }

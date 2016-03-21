@@ -24,10 +24,6 @@ class Controller_Main extends Controller{
 			exit();
 		}
 		//Загрузка главной страницы, передачи списка категорий нет
-        unset($_SESSION["one_minute"]);
-		unset($_SESSION["hitler"]);
-		unset($_SESSION["compete"]);
-		unset($_SESSION["challenge"]);
 		$this->unset_gamesession();
 
 

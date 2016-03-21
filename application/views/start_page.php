@@ -24,7 +24,7 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
 
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <script src="application/js/jquery.min.js"></script>
     <script src="/application/js/bootstrap.min.js"></script>

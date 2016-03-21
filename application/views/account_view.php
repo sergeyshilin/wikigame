@@ -45,7 +45,7 @@
                 $end = StringUtils::pageTitle($value["endlink"]);
                 echo "<tr><Td><a target='_blank' href='$value[startlink]'>".$start."</a></Td>
                 <td><a target='_blank' href='$value[endlink]'>".$end."</a></td><td>
-                <a href=/one_minute/".$value["hash"]."><span class='glyphicon glyphicon-time' title='На время'></span></a>".
+                <a href=/one_minute/custom_way/".$value["hash"]."><span class='glyphicon glyphicon-time' title='На время'></span></a>".
                 "<a href=/challenge/custom/".$value["hash"]."><span class='glyphicon glyphicon-send' title='Дуэль'></span></a>".
                 "<a href=/wiki/custom_way/".$value["hash"]."><span class='glyphicon glyphicon-copyright-mark' title='Классический'></span></a>".
                 "</td></tr>";

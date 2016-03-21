@@ -13,10 +13,11 @@ class Controller_wiki extends Controller{
         if (WayParser::isMD5Hash($action_data)) {
             if($action_param == "way") {$way = WayParser::getWayByHash($action_data, $this->model); }
             else if($action_param == "custom_way")
-            { $way = WayParser::getCustomWayByHash($action_data, $this->model);}
+            { $way = WayParser::getCustomWayByHash($action_data, $this->model); $_SESSION["custom_way"] = true;}
             if (!empty($way)) {
                 wayToSession($way);
-                $_SESSION["custom_way"] = true;
+                $_SESSION["playlink"] = ($action_param == "custom_way") ? "wiki/custom_way/".$_SESSION["hash"] :
+                    "wiki/way/".$_SESSION["hash"];
                 header('Location: /wiki/' . $_SESSION["start"]);
             } else {
                 throw new Exception();
@@ -28,12 +29,17 @@ class Controller_wiki extends Controller{
                 if(isset($_SESSION["one_minute"]["custom_way"])){
                     $way = WayParser::getCustomWayByHash($_SESSION["one_minute"]["custom_way"], $this->model);
                 }
+                else if(isset($_SESSION["one_minute"]["way_hash"])){
+                    $way = WayParser::getWayByHash($_SESSION["one_minute"]["way_hash"], $this->model);
+                }
                 else {$way = WayParser::getRandomWay($cat, $this->model); }
+
                 if(isset($_SESSION["hitler"]["way_hash"])){
                     $way = WayParser::getWayByHash($_SESSION["hitler"]["way_hash"], $this->model);
                 }
                 if(isset($_SESSION["hitler"])){
                     wayToSession($way, $cat, "hitler");
+                    $_SESSION["playlink"] = "hitler/".$_SESSION["hash"];
                 }
 
                 else if(isset($_SESSION["challenge"]["way_hash"])){
@@ -50,6 +56,9 @@ class Controller_wiki extends Controller{
                 }
                 if (isset($_SESSION["one_minute"])) {
                     $_SESSION["one_minute"]["started"] = true;
+                    if($_SESSION["playlink"] == ""){
+                        $_SESSION["playlink"] = "one_minute/".$_SESSION["hash"];
+                    }
                 }
                 else if(isset($_SESSION["hitler"])) {
                     $_SESSION["hitler"]["started"] = true;
@@ -58,6 +67,7 @@ class Controller_wiki extends Controller{
                 else if(isset($_SESSION["compete"])) {
                     $_SESSION["compete"]["started"] = true;
                     $_SESSION["compete"]["step"] = 1;
+                    $_SESSION["playlink"] = "compete";
                 }
                 header('Location: /wiki/' . $_SESSION["start"]);
             }
@@ -77,8 +87,8 @@ class Controller_wiki extends Controller{
                 }
             } else {
                 $resolver = new PageResolver();
-                $obj = $resolver->isGenerated($title) ?
-                    $resolver->getContentFromHtml($title) : $resolver->getContentFromApi($title);
+                $obj = $resolver->isGenerated($action_param) ?
+                    $resolver->getContentFromHtml($action_param) : $resolver->getContentFromApi($action_param);
                 if ($resolver->isRedirect($obj["content"])) {
                     $name = $resolver->extractRedirectPageName($obj["content"]);
                     header('Location: /wiki/' . $name);
@@ -104,6 +114,7 @@ class Controller_wiki extends Controller{
                     exit();
             }
             $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
+
         }
         else {
             if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"]) || $_SESSION["compete"]["steps"] == 6 ||
@@ -121,8 +132,8 @@ class Controller_wiki extends Controller{
                 $this->model->SaveSuccess($_SESSION["id"]);
             }
 
-            $this->view->generate("success_view.php", "template_view.php", "Вы прошли маршрут!", "wiki/Main_Page",
-                $user_rating);
+            $this->view->generate("success_view.php", "template_view.php",  "wiki/Main_Page", $user_rating);
+            $this->unset_gamesession();
 //            unset($_SESSION["custom_way"]);
 //            $this->unset_gamesession();
         }

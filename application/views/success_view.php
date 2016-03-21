@@ -2,12 +2,14 @@
 $cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
 $count = $_SESSION['counter'];
 $hash = $_SESSION['hash'];
-$url = $_SERVER["SERVER_NAME"] . $hash;
 $title = "WikiWalker - Пройди свой путь!";
 $desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
 $start_page = str_replace("_", " ", $_SESSION["start"]);
 $end_page = str_replace("_", " ", $_SESSION["end"]);
-echo $start_page . $end_page. "&nbsp".$count;
+$playlink = $_SESSION["playlink"];
+$url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
+//echo $start_page . $end_page. "&nbsp".$count;
+//echo $playlink;
 // require_once('../classes/WayUtils.php');
 /**
  *   Здесь нужно учитывать статистику о пройденном маршруте.
@@ -21,7 +23,7 @@ echo $start_page . $end_page. "&nbsp".$count;
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 <!--<link href="/application/css/cover.css" rel="stylesheet">-->
 <script type="text/javascript">
-    window.history.pushState("", "Title", "<?=$data?>");
+    window.history.pushState("", "", "/<?=$playlink?>");
     history.pushState(null, null, location.href);
     window.onpopstate = function(event) {
         history.go(1);
@@ -91,34 +93,36 @@ echo $start_page . $end_page. "&nbsp".$count;
         $(window).load(function () {
             yaCounter28976460.reachGoal('wingame');
         });
-
-        $(window).load(function(){
+        $(document).ready(function(){
             share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
                 var parseFile = new Parse.File("share.png", {base64: base64img});
                 parseFile.save().then(function () {
                     share.pimg = parseFile.url();
+                    $("#share_vk").click(function () {
+                        yaCounter28976460.reachGoal('sharevk');
+                        share.vkontakte();
+                    });
 
                 }, function (error) {
                     console.log(error);
                 });
-            });
         })
 
-        $("#share_vk").click(function () {
-            yaCounter28976460.reachGoal('sharevk');
-            share.vkontakte();
-        });
-        $("#share_fb").click(function () {
-            yaCounter28976460.reachGoal('sharefb');
-            share.facebook();
-        });
-        $("#share_gp").click(function () {
-            yaCounter28976460.reachGoal('sharegoogle');
-            share.googleplus();
-        });
-        $("#share_tw").click(function () {
-            yaCounter28976460.reachGoal('sharetwit');
-            share.twitter();
+
+
+
+            $("#share_fb").click(function () {
+                yaCounter28976460.reachGoal('sharefb');
+                share.facebook();
+            });
+            $("#share_gp").click(function () {
+                yaCounter28976460.reachGoal('sharegoogle');
+                share.googleplus();
+            });
+            $("#share_tw").click(function () {
+                yaCounter28976460.reachGoal('sharetwit');
+                share.twitter();
+            });
         });
 
         function syncLikes(){

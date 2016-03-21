@@ -20,6 +20,7 @@
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <link rel="image_src" href="/application/images/forsocials.jpg"/>
+    <link rel="icon" href="/application/images/logo/favicon.ico">
 
     <title>WikiWalker</title>
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap.min.css">

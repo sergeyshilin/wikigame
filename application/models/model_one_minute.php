@@ -13,12 +13,13 @@ class Model_one_minute extends Model
             $rating = 0;
         }
         else{
+            var_dump($_SESSION);
             $way = WayParser::getWayByHash($_SESSION["hash"], $this);
             $is_custom = 0;
         }
         $id = $way->getId();
         $check = $this->getAssoc("SELECT id from stats WHERE game_mode = 2 and user_id=$_SESSION[user_id] and way_id=$id
-        AND is_custom = $is_custom")[0]["id"];
+        AND is_custom = $is_custom AND finished_at BETWEEN NOW() - INTERVAL 1 DAY AND NOW()")[0]["id"];
         if($check > 0){
             $rating = 0;
         }

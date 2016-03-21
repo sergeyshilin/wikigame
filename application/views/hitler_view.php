@@ -22,9 +22,9 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
-    <script src="/application/js/fancybox/jquery.fancybox.js"></script>
-    <link rel="stylesheet" href="/application/js/fancybox/jquery.fancybox.css" />
-    <link rel="icon" href="../../favicon.ico">
+    <script src="/application/js/magnific.js"></script>
+    <link rel="stylesheet" href="/application/css/magnific.css" />
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
@@ -87,7 +87,6 @@
     </nav>
 </div>
 <script>
-    $(".thumbimage").fancybox();
     window.t = "";
     window.like = 0;
     jQuery.ajax({
@@ -96,12 +95,19 @@
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
+        setUpUrl();
         syncLikes();
     });
 
+    function setUpUrl(){
+        $.ajax({url: "/one_minute/playlink"}).done(function(data){
+            window.history.pushState("", "", "/"+data);
+        })
+    }
+
     function fixLinks(){
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
-        $("a.image").attr("onclick", "return false");
+        //$("a.image").attr("onclick", "return false");
     }
 
     function syncLikes(){
@@ -139,20 +145,25 @@
             if(data == "win") {
                 location.href="/hitler/success";
             }
-            $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
-            fixLinks();
-            getWayInfo();
+            else{
+                $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
+                fixLinks();
+                getWayInfo();
+                $(document).scrollTop(0);
+            }
         });
     }
     $("#backarrow").click(function(){
         jQuery.ajax({
             url:"/wiki/"+window.t.previous
         }).done(function(data){
+            $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $(document).scrollTop(0);
         });
-    })
+    });
     $("#dislike").click(function(){
         if(window.like == "-1"){
             $.ajax({

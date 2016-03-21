@@ -31,16 +31,20 @@ class Model_account extends Model{
             if($out["game_mode"] == 3){
                 $fetched[$out["way_id"]]["end"] =
                     "https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D1%82%D0%BB%D0%B5%D1%80,_%D0%90%D0%B4%D0%BE%D0%BB%D1%8C%D1%84";
-                $fetched[$out["way_id"]]["gamelink"] = "/hitler";
+                $fetched[$out["way_id"]]["gamelink"] = "/hitler/".$out["hash"];
             }
             if($out["game_mode"] == 2){
-                $fetched[$out["way_id"]]["gamelink"] = "/one_minute";
+                $fetched[$out["way_id"]]["gamelink"] = "/one_minute/".$out["hash"];
+            }
+            if($out["game_mode"] == 1){
+                $fetched[$out["way_id"]]["gamelink"] = "/wiki/way/".$out["hash"];
             }
             if($out["is_custom"] == 1){
 //                $fetched[$out["way_id"]]["start"] =
 //                $fetched[$out["way_id"]]["start"] =
             }
         }
+        $fetched2 = [];
         $result2 = $this->query("SELECT stats.id, stats.game_mode as game_mode, stats.steps, custom_ways.hash, custom_ways.startlink, custom_ways.endlink,
         stats.finished_at as date FROM stats INNER JOIN custom_ways ON stats.way_id=custom_ways.id WHERE stats.user_id = '$userid'
         AND is_custom=1 ORDER BY stats.id DESC");
@@ -60,7 +64,7 @@ class Model_account extends Model{
                 $fetched2[$id]["gamelink"] = "/wiki/custom_way/".$out["hash"];
             }
             if($out["game_mode"] == 2){
-                $fetched2[$id]["gamelink"] = "/one_minute/".$out["hash"];
+                $fetched2[$id]["gamelink"] = "/one_minute/custom_way/".$out["hash"];
             }
         }
         $output = [];

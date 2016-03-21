@@ -20,6 +20,7 @@
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <link rel="image_src" href="application/images/forsocials.jpg"/>
+    <link rel="icon" href="/application/images/logo/favicon.ico">
 
     <title>WikiWalker - Авторизация</title>
     <script src="/application/js/jquery.min.js"></script>
@@ -30,7 +31,11 @@
     <link rel="stylesheet" type="text/css" href="/application/css/index.css">
     <link rel="stylesheet" type="text/css" href="/application/css/main.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+    <style>
+        .inner {
+            text-align: center;
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

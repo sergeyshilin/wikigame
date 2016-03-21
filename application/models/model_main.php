@@ -102,7 +102,7 @@ ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 	function updatePopularWaysCache(){
 		$temp = $this->getAssoc("SELECT SUM( like_value ) as value, way_id, is_hitler FROM likes
 		WHERE date BETWEEN NOW() - INTERVAL 1 DAY AND NOW() GROUP BY way_id
-		ORDER BY SUM( like_value ) DESC LIMIT 5");
+		ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 		$this->query("TRUNCATE cache_ways_rating");
 		foreach ($temp as $k=>$v) {
 			$this->query("INSERT INTO cache_ways_rating VALUES('', '{$v[way_id]}', '{$v[is_hitler]}', '{$v[value]}')");
@@ -111,8 +111,8 @@ ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 
 	function updateAllPopularWaysCache(){
 		$temp = $this->getAssoc("SELECT SUM( like_value ) as value, way_id, is_hitler FROM likes GROUP BY way_id
-		ORDER BY SUM( like_value ) DESC LIMIT 5");
-		$this->query("TRUNCATE cache_ways2_rating");
+		ORDER BY SUM( like_value ) DESC LIMIT 0,5");
+		$this->query("TRUNCATE cache_ways_rating2");
 		foreach ($temp as $k=>$v) {
 			$this->query("INSERT INTO cache_ways_rating2 VALUES('', '{$v[way_id]}', '{$v[is_hitler]}', '{$v[value]}')");
 		}
@@ -120,7 +120,7 @@ ORDER BY SUM( like_value ) DESC LIMIT 0,5");
 
 	function updateLeadersCache(){
 		$temp = $this->getAssoc("SELECT SUM(ext_info) as value, COUNT(ext_info) as count, users.nick  FROM stats INNER JOIN users ON users.id=stats.user_id
-		WHERE finished_at BETWEEN NOW() - INTERVAL 1 DAY AND NOW() GROUP BY users.nick ORDER BY SUM(ext_info) DESC LIMIT 0,5");
+		WHERE finished_at BETWEEN NOW() - INTERVAL 1 DAY AND NOW() AND stats.ext_info > 0 GROUP BY users.nick ORDER BY SUM(ext_info) DESC LIMIT 0,5");
 		$this->query("TRUNCATE cache_user_rating");
 		foreach($temp as $k=>$v){
 			$this->query("INSERT INTO cache_user_rating VALUES('', '{$v[nick]}', '{$v[value]}', '{$v[count]}')");

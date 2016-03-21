@@ -24,5 +24,11 @@ class Controller{
 		$_SESSION['end'] = "";
 		$_SESSION['win'] = "";
 		$_SESSION['counter'] = 0;
+		unset($_SESSION["custom_way"]);
+		unset($_SESSION["playlink"]);
+		unset($_SESSION["one_minute"]);
+		unset($_SESSION["hitler"]);
+		unset($_SESSION["compete"]);
+		unset($_SESSION["challenge"]);
 	}
 }

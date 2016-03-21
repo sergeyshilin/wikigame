@@ -21,21 +21,32 @@ class Controller_one_minute extends Controller{
                 }
 
                 $this->view->generate("success_view.php", "template_view.php", "/one_minute", $user_rating);
+                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }
         }
-        else if($action_param != ""){
+        else if($action_param == "custom_way" && $action_data != ""){
             $_SESSION["one_minute"] = array("starttime" => time());
-            $_SESSION["one_minute"]["custom_way"] = $action_param;
+            $_SESSION["one_minute"]["custom_way"] = $action_data;
+            $_SESSION["playlink"] = "one_minute/custom_way/".$action_data;
             $this->view->generate("one_minute_view.php", "dummy.php");
             exit();
         }
+        else if(WayParser::isMD5Hash($action_param)){
+            $_SESSION["one_minute"] = array("starttime" => time());
+            $_SESSION["one_minute"]["way_hash"] = $action_param;
+            $_SESSION["playlink"] = "one_minute/".$action_param;
+            $this->view->generate("one_minute_view.php", "dummy.php");
+            exit();
+        }
+        else if($action_param == "playlink") { echo $_SESSION["playlink"]; exit();}
         unset($_SESSION["one_minute"]);
         $_SESSION["one_minute"] = array("starttime" => time());
-        if($action_param == "test") { echo $_SESSION["one_minute"]; exit();}
+        if($action_param == "test") { var_dump($_SESSION); exit();}
+
         $this->view->generate("one_minute_view.php", "dummy.php");
     }
 

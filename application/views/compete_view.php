@@ -22,7 +22,7 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
@@ -84,6 +84,7 @@
     </nav>
 </div>
 <script>
+    window.history.pushState("", "", "/<?=$_SESSION["playlink"]?>");
     window.t = "";
     jQuery.ajax({
         url:"/wiki/Main_Page"
@@ -117,29 +118,28 @@
     }
 
     function loadAfterClick(ele){
-        $("#countdown").parent().after("<li><a><span class='glyphicon glyphicon-hourglass'></span></a></li>");
         $.ajax({
             url: $(ele).prop("href")
         }).done(function(data){
             if(data == "win") {
-                location.href="/compete/success";
+                location.href="/hitler/success";
             }
             $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
-            refreshWindow();
-            $("#countdown").parent().next().remove();
+            $(document).scrollTop(0);
         });
-
     }
     $("#backarrow").click(function(){
         jQuery.ajax({
             url:"/wiki/"+window.t.previous
         }).done(function(data){
+            $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $(document).scrollTop(0);
         });
-    })
+    });
 
 </script>

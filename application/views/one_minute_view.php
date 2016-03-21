@@ -22,7 +22,7 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/application/images/logo/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
@@ -47,7 +47,6 @@
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-site.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-modules.min.css">
     <script src="/application/js/jquery.time-to.min.js"></script>
-
 
 </head>
 
@@ -85,6 +84,7 @@
     </nav>
 </div>
 <script>
+
     window.t = "";
     window.like = 0;
     jQuery.ajax({
@@ -93,9 +93,16 @@
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
+        syncLikes();
+        setUpUrl();
         $('#countdown').timeTo(60, function(){ location.href = "/"; });
     });
 
+    function setUpUrl(){
+        $.ajax({url: "/one_minute/playlink"}).done(function(data){
+            window.history.pushState("", "", "/"+data);
+        })
+    }
     function fixLinks(){
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
     }
@@ -129,7 +136,6 @@
     }
 
     function loadAfterClick(ele){
-        $("#countdown").parent().after("<li><a><span class='glyphicon glyphicon-hourglass'></span></a></li>");
         $.ajax({
             url: $(ele).prop("href")
         }).done(function(data){
@@ -140,20 +146,22 @@
                 $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
                 fixLinks();
                 getWayInfo();
-                $("#countdown").parent().next().remove();
+                $(document).scrollTop(0);
             }
-        });
 
+        });
     }
     $("#backarrow").click(function(){
         jQuery.ajax({
             url:"/wiki/"+window.t.previous
         }).done(function(data){
+            $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();
             getWayInfo();
+            $(document).scrollTop(0);
         });
-    })
+    });
     $("#dislike").click(function(){
         if(window.like == "-1"){
             $.ajax({

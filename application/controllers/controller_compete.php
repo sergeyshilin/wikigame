@@ -15,7 +15,8 @@ class Controller_compete extends Controller{
             if($_SESSION["compete"]["steps"] == 6){
                 $this->model->SaveSuccess();
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "template_view.php", "compete", $rank);
+                $this->unset_gamesession();
+                $this->view->generate("success_view.php", "template_view.php", "/compete", $rank);
                 exit();
             }
             else{ header("Location: /"); }
