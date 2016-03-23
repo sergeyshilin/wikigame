@@ -156,10 +156,12 @@
             if(data == "win") {
                 location.href="/challenge/success";
             }
-            $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
-            fixLinks();
-            getWayInfo();
-            $(document).scrollTop(0);
+            else{
+                $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
+                fixLinks();
+                getWayInfo();
+                $(document).scrollTop(0);
+            }
         });
     }
     $("#backarrow").click(function(){

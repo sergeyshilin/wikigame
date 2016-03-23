@@ -21,7 +21,7 @@ class Model_account extends Model{
                 $fetched[$out["way_id"]]["hash"] = $out["hash"];
                 $fetched[$out["way_id"]]["is_custom"] = 0;
                 $fetched[$out["way_id"]]["date"] = $out["date"];
-            } else if ($fetched[$out["way_id"]]["end_id"] < $out["parent_id"]) {
+            } else if ($fetched[$out["way_id"]]["end_id"] < $out["parent_id"] || ($out["id"] > $out["parent_id"])) {
                 $fetched[$out["way_id"]]["end_id"] = $out["id"];
                 $fetched[$out["way_id"]]["end"] = $out["link"];
             }

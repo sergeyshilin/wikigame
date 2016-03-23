@@ -92,7 +92,7 @@
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
-        $('#countdown').timeTo(600, function(){ location.href = "/"; });
+        $('#countdown').timeTo(600, function(){ location.href = "/compete/lose"; });
     });
 
     function fixLinks(){

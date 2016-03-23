@@ -13,7 +13,6 @@ class Model_one_minute extends Model
             $rating = 0;
         }
         else{
-            var_dump($_SESSION);
             $way = WayParser::getWayByHash($_SESSION["hash"], $this);
             $is_custom = 0;
         }

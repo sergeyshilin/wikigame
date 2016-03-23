@@ -95,7 +95,7 @@
         getWayInfo();
         syncLikes();
         setUpUrl();
-        $('#countdown').timeTo(60, function(){ location.href = "/"; });
+        $('#countdown').timeTo(60, function(){ location.href = "/one_minute/lose"; });
     });
 
     function setUpUrl(){

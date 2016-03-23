@@ -11,6 +11,11 @@ class Controller_compete extends Controller{
             echo json_encode($_SESSION);
             exit();
         }
+        if($action_param == "lose"){
+            $this->view->generate("lose_game_view.php", "template_view.php", "/compete");
+            $this->unset_gamesession();
+            exit();
+        }
         if($action_param == "success"){
             if($_SESSION["compete"]["steps"] == 6){
                 $this->model->SaveSuccess();

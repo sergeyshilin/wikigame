@@ -10,6 +10,11 @@ class Controller_one_minute extends Controller{
             echo json_encode($_SESSION);
             exit();
         }
+        if($action_param == "lose"){
+            $this->view->generate("lose_game_view.php", "template_view.php", "/one_minute");
+            $this->unset_gamesession();
+            exit();
+        }
         if($action_param == "success"){
             if($_SESSION["win"]){
                 if($_SESSION["user_connected"]) {
