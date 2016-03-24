@@ -1,17 +1,6 @@
-DirectoryIndex index index.php
-DirectorySlash off
-Options -Indexes -Multiviews
-
 RewriteEngine On
-RewriteBase /
-
-RewriteCond %{REQUEST_URI} \.(css|zip|rar|doc|xls|js|tif|tiff|docx|xlsx)$|actions\/(.*)|logo\/(.*)|(.*)\.php$
-	RewriteRule ^(.*)$ $1 [L,QSA]
-
-RewriteRule ^(.*)$ index.php?game=$1 [L,QSA]
-# не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
-# RedirectMatch 403 /\..*$
-# если директория или файл существуют, использовать их напрямую
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-#    RewriteRule . index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(/|.css)$ [NC]
+RewriteCond %{REQUEST_URI} !(/|.js)$ [NC]
+RewriteRule . index.php [L]
