@@ -1,0 +1,101 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url('/application/images/background.jpg') no-repeat #010101 center center;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
+}
+
+a, a:hover {
+    color: #fff;
+}
+
+.navbar {
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-header {
+    border: none;
+}
+
+.navbar-header.pull-right .btn {
+    font-size: 12pt;
+}
+
+.navbar .btn{
+    text-shadow: none;
+}
+
+.greating {
+    text-align: center;
+}
+
+.greating .lead {
+    line-height: 1.5;
+}
+
+.greating .btn {
+    padding: 10px 40px;
+}
+
+.alert-danger {
+    text-shadow: none;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 9px;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 7px;
+}
+
+.form-signin input.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-signin button {
+    height: 42px;
+    font-size: 17px;
+    font-weight: 400 !important;
+}
+
+.socials {
+    margin: 0;
+}
+
+.fa {
+    font-size: 25px !important;
+    margin-top: 2px;
+}
+
+.soclogin {
+    padding: 0 2px;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.vklink {
+    padding: 1px 4px;
+    background-color: #56789c;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.vklink:hover {
+    text-decoration: none;
+}

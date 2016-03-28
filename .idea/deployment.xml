@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="mcvlad.myjino.ru">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ui_fixes.wikiwalker.egeshki.ru">
     <serverData>
-      <paths name="mcvlad.myjino.ru">
+      <paths name="ui_fixes.wikiwalker.egeshki.ru">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
