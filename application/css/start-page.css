@@ -1,3 +1,10 @@
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
 html, body {
     height: 100%;
 }
@@ -13,8 +20,16 @@ a, a:hover {
     color: #fff;
 }
 
+.btn {
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+
+/* NAVBAR ----------------------------------------------------------------------------------------------------------- */
+
 .navbar {
-    background: none;
+    background: rgba(0, 0, 0, 0.2);
     border: none;
     box-shadow: none;
     border-radius: 0;
@@ -22,50 +37,31 @@ a, a:hover {
     margin-bottom: 10px;
 }
 
-.navbar-header {
-    border: none;
+.navbar .container-fluid {
+    height: 51px;
 }
 
-.navbar-header.pull-right .btn {
-    font-size: 12pt;
+.navbar img.header_logo {
+    margin-top: 16px;
+    height: 25px;
+    -webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
+    filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
 }
 
-.navbar .btn{
-    text-shadow: none;
+/* NAVBAR.SOCLOGIN -------------------------------------------------------------------------------------------------- */
+
+#social-login, .socials {
+    vertical-align: -56%;
+    display: inline-block;
 }
 
-.greating {
-    text-align: center;
+.soclogin {
+    padding: 0 2px;
 }
 
-.greating .lead {
-    line-height: 1.5;
-}
-
-.greating .btn {
-    padding: 10px 40px;
-}
-
-.alert-danger {
-    text-shadow: none;
-}
-
-.form-signin .form-control {
-    position: relative;
-    font-size: 9px;
-    height: auto;
-    padding: 10px;
-    margin-bottom: 7px;
-}
-
-.form-signin input.form-control {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.form-signin button {
-    height: 42px;
-    font-size: 17px;
-    font-weight: 400 !important;
+.soclogin .btn {
+    height: 41px;
+    width: 46px;
 }
 
 .socials {
@@ -77,14 +73,71 @@ a, a:hover {
     margin-top: 2px;
 }
 
-.soclogin {
-    padding: 0 2px;
+.fa-vk {
+    margin-left: -5px;
 }
+
+/* NAVBAR responsive ------------------------------------------------------------------------------------------------ */
+
+@media (min-width: 600px) {
+    .navbar img.header_logo {
+        margin-top: 0;
+        height: 41px;
+    }
+    #social-login:before {
+        content:"Войти через:";
+    }
+    h1 {
+        font-size: 45px;
+    }
+}
+
+/* GREATING ----------------------------------------------------------------------------------------------------------*/
+
+.greating {
+    text-align: center;
+}
+
+.greating h1 {
+    margin-top: 10px;
+}
+
+.greating .lead {
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* GAME TYPES --------------------------------------------------------------------------------------------------------*/
+
+#game-type-grid img {
+    height: 80px;
+    width: 80px;
+}
+#game-type-grid .game-type {
+    text-align: center;
+    background-color: rgba(33, 121, 185, 0.5);
+    margin-top: 60px;
+    margin-bottom: 10px;
+    background-clip:content-box;
+}
+#game-type-grid img {
+    margin-top: -60px;
+}
+#game-type-grid .game-type-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+    margin-top: -15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* FOOTER ------------------------------------------------------------------------------------------------------------*/
 
 .footer {
     width: 100%;
     margin-top: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
 }
 

@@ -26,82 +26,9 @@
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/start-page.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <style>
-        .row-eq-height {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display:         flex;
-        }
-        
-        .navbar {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .navbar .container-fluid {
-            height: 51px;
-        }
-        img.header_logo {
-            margin-top: 16px;
-            height: 25px;
-            -webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
-            filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
-        }
-        .soclogin .btn {
-            height: 41px;
-        }
-        #social-login, .socials {
-            vertical-align: -56%;
-            display: inline-block;
-        }
-        @media (min-width: 600px) {
-            img.header_logo {
-                margin-top: 0;
-                height: 41px;
-            }
-            #social-login:before {
-                content:"Войти через:";
-            }
-            h1 {
-                font-size: 45px;
-            }
-        }
-        .fa-vk {
-            margin-left: -5px;
-        }
-        .btn {
-            -webkit-border-radius:0;
-            -moz-border-radius:0;
-            border-radius:0;
-        }
-
-        #game-type-grid img {
-            height: 80px;
-            width: 80px;
-        }
-        #game-type-grid .game-type {
-            text-align: center;
-            background-color: rgba(33, 121, 185, 0.5);
-            margin-top: 60px;
-            margin-bottom: 10px;
-            background-clip:content-box;
-        }
-        #game-type-grid img {
-            margin-top: -60px;
-        }
-        #game-type-grid .game-type-text {
-            margin-left: 10px;
-            margin-right: 10px;
-            text-align: left;
-            margin-top: -10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    </style>
 </head>
 
 <body>
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <a href="/">
@@ -134,63 +61,65 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="col-lg-8">
-        <div class="greating">
-            <h1>Пройди свой путь</h1>
-            <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
-                Думаешь, это просто? Попробуй сыграть прямо сейчас!</p>
-        </div>
-        <div id="game-type-grid">
-            <div class="row row-eq-height">
-                <div id="type-classical" class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-02.png">
-                    <div class="game-type-text">
-                        <h3 class="">Классический</h3>
-                        <p class="">Стандартная игра без ограничений</p>
+    <div class="row row-eq-height">
+        <div class="col-lg-8">
+            <div class="greating">
+                <h1>Пройди свой путь</h1>
+                <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.
+                    Думаешь, это просто? Попробуй сыграть прямо сейчас!</p>
+            </div>
+            <div id="game-type-grid">
+                <div class="row row-eq-height">
+                    <div id="type-classical" class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-02.png">
+                        <div class="game-type-text">
+                            <h3>Классический</h3>
+                            <p>Стандартная игра без ограничений</p>
+                        </div>
+                    </div>
+                    <div class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-01.png">
+                        <div class="game-type-text">
+                            <h3>На время</h3>
+                            <p>Пройдите маршрут за 1 минуту. Слабо?</p>
+                        </div>
+                    </div>
+                    <div class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-05.png">
+                        <div class="game-type-text">
+                            <h3>Гитлер</h3>
+                            <p>Доберитесь до Гитлера любой ценой!</p>
+                        </div>
                     </div>
                 </div>
-                <div class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-01.png">
-                    <div class="game-type-text">
-                        <h3 class="">На время</h3>
-                        <p class="">Пройдите маршрут за 1 минуту. Слабо?</p>
+                <div class="row row-eq-height">
+                    <div class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-03.png">
+                        <div class="game-type-text">
+                            <h3>Свой маршрут</h3>
+                            <p>Проложите свой маршут, соревнуйтесь со своими друзьями</p>
+                        </div>
                     </div>
-                </div>
-                <div class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-05.png">
-                    <div class="game-type-text">
-                        <h3 class="">Гитлер</h3>
-                        <p class="">Доберитесь до Гитлера любой ценой!</p>
+                    <div class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-04.png">
+                        <div class="game-type-text">
+                            <h3>Дуэль</h3>
+                            <p>Найдите себе соперника и пройдите маршрут первым!</p>
+                        </div>
+                    </div>
+                    <div class="game-type col-xs-4">
+                        <img src="application/images/game_types/wki_icon-06.png">
+                        <div class="game-type-text">
+                            <h3>Турнир</h3>
+                            <p>Пройдите 5 маршрутов подряд за 10 минут и получите 1500 очков!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row row-eq-height">
-                <div class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-03.png">
-                    <div class="game-type-text">
-                        <h3 class="">Свой маршрут</h3>
-                        <p class="">Проложите свой маршут, соревнуйтесь со своими друзьями</p>
-                    </div>
-                </div>
-                <div class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-04.png">
-                    <div class="game-type-text">
-                        <h3 class="">Дуэль</h3>
-                        <p class="">Найдите себе соперника и пройдите маршрут первым!</p>
-                    </div>
-                </div>
-                <div class="game-type col-xs-4">
-                    <img src="application/images/game_types/wki_icon-06.png">
-                    <div class="game-type-text">
-                        <h3 class="">Турнир</h3>
-                        <p class="">Пройдите 5 маршрутов подряд за 10 минут и получите 1500 очков!</p>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="col-lg-4">
-
+        <div class="col-lg-4">
+            
+        </div>
     </div>
 </div>
 
