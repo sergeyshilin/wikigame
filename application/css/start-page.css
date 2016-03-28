@@ -1,9 +1,12 @@
-.row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
+@media (min-width:768px){
+    .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+    }
 }
+
 
 html, body {
     height: 100%;
@@ -12,12 +15,7 @@ html, body {
 body {
     background: url('/application/images/background.jpg') no-repeat #010101 center center;
     background-size: cover;
-    color: #fff;
     text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
-}
-
-a, a:hover {
-    color: #fff;
 }
 
 .btn {
@@ -35,6 +33,7 @@ a, a:hover {
     border-radius: 0;
     padding-top: 10px;
     margin-bottom: 10px;
+    color: #fff;
 }
 
 .navbar .container-fluid {
@@ -43,7 +42,7 @@ a, a:hover {
 
 .navbar img.header_logo {
     margin-top: 16px;
-    height: 25px;
+    height: 20px;
     -webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
     filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
 }
@@ -95,19 +94,31 @@ a, a:hover {
 /* GREATING ----------------------------------------------------------------------------------------------------------*/
 
 .greating {
+    color: #fff;
     text-align: center;
 }
 
 .greating h1 {
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 .greating .lead {
     line-height: 1.5;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
 }
 
 /* GAME TYPES --------------------------------------------------------------------------------------------------------*/
+
+#game-type-grid {
+    color: #fff;
+}
+
+#game-type-grid .row {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 #game-type-grid img {
     height: 80px;
@@ -116,12 +127,13 @@ a, a:hover {
 #game-type-grid .game-type {
     text-align: center;
     background-color: rgba(33, 121, 185, 0.5);
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-top: 72px;
+    margin-bottom: 0px;
     background-clip:content-box;
 }
 #game-type-grid img {
     margin-top: -60px;
+    cursor: pointer;
 }
 #game-type-grid .game-type-text {
     margin-left: 10px;
@@ -130,15 +142,83 @@ a, a:hover {
     margin-top: -15px;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+/* STATISTICS --------------------------------------------------------------------------------------------------------*/
+
+#stats {
+    text-shadow: none !important;
+    margin-top: 26px;
+    margin-bottom: -20px;
+}
+
+#stats .carousel-inner {
+    box-shadow: none !important;
+}
+
+#stats .carousel-control {
+    background-image: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+#stats .list-group-item {
+    background-color: rgba(33, 121, 185, 0.5);
+    border:none;
+    border-radius: 0;
+}
+
+#stats .list-group-item .fa {
+    font-size: 1em !important;
+}
+
+#stats #top-users .list-group-item .fa {
+    font-size: 0.8em !important;
+}
+
+#stats .list-group-item,
+#stats .list-group-item-heading,
+#stats .list-group-item div {
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#stats .list-group-item.active>.list-group-item-heading {
+    color: #333;
+}
+
+#stats .list-group-item.active,
+#stats .list-group-item .badge {
+    background: #e7e7e7 none;
+    border-color: #666;
+    color: #333;
+}
+
+#stats .list-group-item.active .badge {
+    background-color: #666;
+    color: #eee;
+}
+
+#stats .list-group-item-heading {
+    margin-bottom: 0;
 }
 
 /* FOOTER ------------------------------------------------------------------------------------------------------------*/
 
 .footer {
+    color: #fff;
     width: 100%;
     margin-top: 25px;
     margin-bottom: 5px;
     text-align: center;
+}
+
+.footer a,
+.footer a:hover {
+    color: #fff;
 }
 
 .vklink {
@@ -151,4 +231,10 @@ a, a:hover {
 
 .vklink:hover {
     text-decoration: none;
+}
+
+/* MODALS ------------------------------------------------------------------------------------------------------------*/
+
+.modal {
+    text-shadow: none !important;
 }
