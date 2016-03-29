@@ -31,7 +31,7 @@
 <body>
 <div class="wrapper">
     <nav class="header navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container">
             <a href="/">
                 <img class="header_logo" src="/application/images/logo/logo_white.svg" title="WikiWalker - найди свой путь">
             </a>
@@ -61,9 +61,9 @@
         </div>
     </nav>
 
-    <div class="content container-fluid">
+    <div class="content container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 <div class="greating">
                     <h1>Пройди свой путь</h1>
                     <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.<br>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div id="stats" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="active item">
@@ -135,7 +135,7 @@
                                         <p class="list-group-item-text">Сыграно игр: <?= $value["count"] ?></p>
                                     </a>
                                     <?php $i++; endforeach; ?>
-                                <?php while ($i < 8) : ?>
+                                <?php while ($i < 9) : ?>
                                     <a class="list-group-item">
                                         <h4 class="list-group-item-heading">&nbsp</h4>
                                         <p class="list-group-item-text">&nbsp</p>
@@ -164,7 +164,7 @@
                                         <p class="list-group-item-text"><i class="fa fa-arrow-right"></i> <?= $value["end"] ?></p>
                                     </a>
                                     <?php $i++; endforeach; ?>
-                                <?php while ($i < 8) : ?>
+                                <?php while ($i < 9) : ?>
                                     <a class="list-group-item">
                                         <h4 class="list-group-item-heading">&nbsp</h4>
                                         <p class="list-group-item-text">&nbsp</p>
@@ -193,7 +193,7 @@
                                         <p class="list-group-item-text"><i class="fa fa-arrow-right"></i> <?= $value["end"] ?></p>
                                     </a>
                                     <?php $i++; endforeach; ?>
-                                <?php while ($i < 8) : ?>
+                                <?php while ($i < 9) : ?>
                                     <a class="list-group-item">
                                         <h4 class="list-group-item-heading">&nbsp</h4>
                                         <p class="list-group-item-text">&nbsp</p>
@@ -213,7 +213,7 @@
         </div>
     </div>
 
-    <div class="footer container-fluid">
+    <div class="footer container">
         <p>
             Игра основана на контенте сайта
             <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
