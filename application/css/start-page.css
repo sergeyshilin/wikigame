@@ -1,3 +1,25 @@
+/* LAYOUT ------------------------------------------------------------------------------------------------------------*/
+
+html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+
+body {
+    background: url('/application/images/background.jpg') no-repeat #010101 center center;
+    background-size: cover;
+}
+
+.wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+.content {
+    padding-bottom:80px;
+}
+
 @media (min-width:768px){
     .row-eq-height {
         display: -webkit-box;
@@ -5,17 +27,6 @@
         display: -ms-flexbox;
         display:         flex;
     }
-}
-
-
-html, body {
-    height: 100%;
-}
-
-body {
-    background: url('/application/images/background.jpg') no-repeat #010101 center center;
-    background-size: cover;
-    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
 .btn {
@@ -96,6 +107,7 @@ body {
 .greating {
     color: #fff;
     text-align: center;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
 .greating h1 {
@@ -111,6 +123,7 @@ body {
 
 #game-type-grid {
     color: #fff;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
 #game-type-grid .row {
@@ -128,7 +141,7 @@ body {
     text-align: center;
     background-color: rgba(33, 121, 185, 0.5);
     margin-top: 72px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     background-clip:content-box;
 }
 #game-type-grid img {
@@ -167,6 +180,7 @@ body {
     background-color: rgba(33, 121, 185, 0.5);
     border:none;
     border-radius: 0;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
 #stats .list-group-item .fa {
@@ -195,6 +209,7 @@ body {
     background: #e7e7e7 none;
     border-color: #666;
     color: #333;
+    text-shadow: none !important;
 }
 
 #stats .list-group-item.active .badge {
@@ -214,6 +229,10 @@ body {
     margin-top: 25px;
     margin-bottom: 5px;
     text-align: center;
+    position:absolute;
+    bottom:0;
+    left:0;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
 .footer a,
