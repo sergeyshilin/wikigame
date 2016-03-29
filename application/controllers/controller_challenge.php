@@ -83,7 +83,7 @@ class Controller_challenge extends Controller{
             $_SESSION["challenge"]["way_hash"] = $hash;
             $this->model->createRoom($game_hash, $hash, 0);
         }
-        $this->view->generate("challenge_start_view.php", "template2_view.php", $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+        $this->view->generate("challenge_start_view.php", "template_view.php", $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
     }
 
 }

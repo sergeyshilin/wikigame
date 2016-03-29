@@ -24,7 +24,7 @@
     <script src="/application/js/jquery.min.js"></script>
     <script src="/application/js/magnific.js"></script>
     <link rel="stylesheet" href="/application/css/magnific.css" />
-    <link rel="icon" href="/application/images/logo/favicon.ico">
+    <link rel="icon" href="/application/images/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
@@ -65,7 +65,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img class="header_logo" src="/application/images/logo/logo.svg" title="WikiWalker - найди свой путь">
+                    <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">

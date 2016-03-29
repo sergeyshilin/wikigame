@@ -7,7 +7,7 @@
 <script>
     function check() {
         $.ajax({
-            url: "/challenge/wait",
+            url: "/challenge/wait"
         }).done(function (response) {
             if (response == "play") {
                 location.href = "/challenge/play";
