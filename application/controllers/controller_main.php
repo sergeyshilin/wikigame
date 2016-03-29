@@ -27,7 +27,7 @@ class Controller_Main extends Controller{
 		$this->unset_gamesession();
 
 
-		$this->view->generate('start_page.php', 'template_with_background.php', $this->model->getGameModes(), $this->model->getLeaders(),
+		$this->view->generate('start_page.php', 'templates/template_with_background.php', $this->model->getGameModes(), $this->model->getLeaders(),
 				$this->model->getPopularWays(), $this->model->getAllPopularWays());
 	}
 }

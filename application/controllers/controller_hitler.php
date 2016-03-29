@@ -17,7 +17,7 @@ class Controller_hitler extends Controller{
                     $this->model->SaveSuccess();
                     $rank = $this->model->GetRank($_SESSION["user_id"]);
                 }
-                $this->view->generate("success_view.php", "template_view.php", "/hitler", $rank);
+                $this->view->generate("success_view.php", "templates/template_view.php", "/hitler", $rank);
 //                unset($_SESSION["hitler"]);
                 $this->unset_gamesession();
                 exit();

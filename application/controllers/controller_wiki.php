@@ -133,7 +133,7 @@ class Controller_wiki extends Controller{
             }
             $_SESSION["playlink"] = ($_SESSION["custom_way"]) ? "wiki/custom_way/".$_SESSION["hash"] :
                 "wiki/way/".$_SESSION["hash"];
-            $this->view->generate("success_view.php", "template_view.php",  "/wiki/Main_Page", $user_rating);
+            $this->view->generate("success_view.php", "templates/template_view.php",  "/wiki/Main_Page", $user_rating);
             $this->unset_gamesession();
 //            unset($_SESSION["custom_way"]);
 //            $this->unset_gamesession();

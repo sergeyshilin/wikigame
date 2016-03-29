@@ -1,5 +1,5 @@
 <style>
-    .account-view, td, a {
+    .account-view, td, a, a:hover, a:visited {
         color: #fff;
     }
 
@@ -57,6 +57,9 @@
                         "<td><a href = '$value[gamelink]'><span class='glyphicon glyphicon-play-circle'></span></a></td></tr>";
                 }
                 ?>
+                <tr>
+                    <td colspan="4" style="text-align: center"><a href="#">Загрузить еще</a></td>
+                </tr>
             </table>
         </div>
     </div>
@@ -99,6 +102,9 @@
                         </td></tr>";
                 }
                 ?>
+                <tr>
+                    <td colspan="3" style="text-align: center"><a href="#">Загрузить еще</a></td>
+                </tr>
             </table>
         </div>
     </div>

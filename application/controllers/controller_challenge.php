@@ -24,7 +24,7 @@ class Controller_challenge extends Controller{
                 $id = $way->getId();
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "template_view.php", "/challenge", $rank);
+                $this->view->generate("success_view.php", "templates/template_view.php", "/challenge", $rank);
                 $this->unset_gamesession();
                 exit();
             }
@@ -83,7 +83,7 @@ class Controller_challenge extends Controller{
             $_SESSION["challenge"]["way_hash"] = $hash;
             $this->model->createRoom($game_hash, $hash, 0);
         }
-        $this->view->generate("challenge_start_view.php", "template_view.php", $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+        $this->view->generate("challenge_start_view.php", "templates/template_view.php", $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
     }
 
 }
