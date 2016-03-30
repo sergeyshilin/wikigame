@@ -26,8 +26,8 @@ class Controller_Main extends Controller{
 		//Загрузка главной страницы, передачи списка категорий нет
 		$this->unset_gamesession();
 
-
-		$this->view->generate('start_page.php', 'templates/template_with_background.php', $this->model->getGameModes(), $this->model->getLeaders(),
+		$userStatistics = $this->getUserStatistics();
+		$this->view->generate('start_page.php', 'templates/template_with_background.php', $userStatistics, $this->model->getLeaders(),
 				$this->model->getPopularWays(), $this->model->getAllPopularWays());
 	}
 }

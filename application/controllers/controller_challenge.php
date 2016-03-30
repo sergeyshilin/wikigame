@@ -24,7 +24,8 @@ class Controller_challenge extends Controller{
                 $id = $way->getId();
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "templates/template_view.php", "/challenge", $rank);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php", $userStatistics, "/challenge", $rank);
                 $this->unset_gamesession();
                 exit();
             }

@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="/application/css/start-page.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <script src="application/js/jquery.min.js"></script>
+    <script src="/application/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -39,8 +39,8 @@
             <a href="/">
                 <img class="header_logo" src="/application/images/logo_white.svg" title="WikiWalker - найди свой путь">
             </a>
-            <div class="pull-right">
-                <?php if (!$loggedIn) { ?>
+            <?php if (!$loggedIn) { ?>
+                <div class="pull-right">
                     <div id="social-login">
                         <div class="socials row">
                             <div class="soclogin col-xs-4">
@@ -57,29 +57,48 @@
                             </div>
                         </div>
                     </div>
-                <?php } else { ?>
-                    <a href="/account" class="btn btn-default btn-info"><span class="glyphicon glyphicon-user"></span>&nbspМой аккаунт</a>
-                    <a href="/login/exit" class="btn btn-default btn-white">Выйти</a>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } else { ?>
+                <div class="socials pull-right">
+                    <div class="soclogin" style="display: inline-block; font-size: 16px">
+                        <a class="btn btn-primary btn-block user-progress" href="/account">
+                            <div class="progress">
+                                <?php
+                                    $nextLevelScore = (floatval($data["rank"]) + 1)*(floatval($data["rank"]) + 1);
+                                    $progress = floatval($data["rating"])/$nextLevelScore
+                                ?>
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<?= $progress ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $progress ?>%">
+                                    <span class="sr-only"><?= $progress ?>%</span>
+                                </div>
+                            </div>
+                            <p><?= $data["rank"] ?></p>
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </div>
+                    <div class="soclogin" style="display: inline-block">
+                        <a class="btn btn-danger btn-block" href="/login/exit">
+                            <i class="fa fa-sign-out"></i></a>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </nav>
 
-    <div class="content container">
-        <?php include 'application/views/'.$content_view; ?>
-    </div>
-
-    <div class="footer container">
-        <p>
-            Игра основана на контенте сайта
-            <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
-            Поддержи проект! Вступай в группу
-            <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
-        </p>
-    </div>
+<div class="content container">
+    <?php include 'application/views/' . $content_view; ?>
 </div>
 
-<script src="application/js/bootstrap.min.js"></script>
+<div class="footer container">
+    <p>
+        Игра основана на контенте сайта
+        <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
+        Поддержи проект! Вступай в группу
+        <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
+    </p>
+</div>
+</div>
+
+<script src="/application/js/bootstrap.min.js"></script>
 
 </body>
 </html>

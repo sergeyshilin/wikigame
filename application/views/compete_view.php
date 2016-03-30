@@ -6,7 +6,7 @@
     <!-- made by www.metatags.org -->
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик"/>
-    <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
+    
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
     <link rel="stylesheet" type="text/css" href="/application/css/main.css">
@@ -22,7 +22,7 @@
     <title>WikiWalker - Пройди свой путь</title>
     <!-- wikipedia, game, walk -->
     <script src="/application/js/jquery.min.js"></script>
-    <link rel="icon" href="/application/images/favicon.ico">
+    <link rel="icon" href="/application/images/favicon.png">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>

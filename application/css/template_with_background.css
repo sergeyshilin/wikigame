@@ -29,7 +29,7 @@ body {
     }
 }
 
-.btn, .form-control {
+.btn, .form-control, .modal-content, .progress {
     -webkit-border-radius:0;
     -moz-border-radius:0;
     border-radius:0;
@@ -53,19 +53,43 @@ body {
 }
 
 .navbar img.header_logo {
-    margin-top: 10px;
-    height: 20px;
+    margin-top: 0;
+    height: 41px;
     -webkit-filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
     filter: drop-shadow( 0 1px 3px rgba(0,0,0,0.5));
 }
 
-@media (min-width: 600px) {
-    .navbar img.header_logo {
-        margin-top: 0;
-        height: 41px;
-    }
+@media (min-width: 580px) {
     #social-login:before {
         content:"Войти через:";
+    }
+}
+
+@media (max-width: 510px) {
+    .navbar img.header_logo {
+        margin-top: 5px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar img.header_logo {
+        margin-top: 10px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 350px) {
+    .navbar img.header_logo {
+        margin-top: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 310px) {
+    .navbar img.header_logo {
+        margin-top: 19px;
+        height: 10px;
     }
 }
 
@@ -96,6 +120,34 @@ body {
 
 .soclogin .fa-vk {
     margin-left: -5px;
+}
+
+/* NAVBAR.USERBUTTON -------------------------------------------------------------------------------------------------*/
+
+.user-progress {
+    width: 195px !important;
+}
+
+.user-progress .progress {
+    width: 100px;
+    margin-top: 0;
+    margin-bottom: -1px;
+    display: inline-block;
+}
+
+.user-progress p {
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 0;
+    margin-top: -3px;
+    height: 25px;
+    width: 42px;
+}
+
+@media (max-width: 570px) {
+    .user-progress .progress {
+        display: none;
+    }
 }
 
 /* FOOTER ------------------------------------------------------------------------------------------------------------*/

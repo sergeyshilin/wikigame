@@ -5,7 +5,7 @@
             <p class="lead">Пройди путь от одной страницы Википедии до другой за минимальноe количество шагов.<br>
                 Думаешь, это просто? Попробуй сыграть прямо сейчас!</p>
         </div>
-        <div id="game-type-grid">
+        <div class="game-type-grid">
             <div class="row row-eq-height">
                 <div class="game-type col-sm-4">
                     <img src="application/images/game_types/wki_icon-02.png" onclick="goto('wiki/Main_Page')">
@@ -22,8 +22,8 @@
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-05.png" onclick="goto('hitler')">
-                    <div class="game-type-text" onclick="goto('hitler')">
+                    <img src="application/images/game_types/wki_icon-05.png" onclick="showHitlerModal()">
+                    <div class="game-type-text" onclick="showHitlerModal()">
                         <h3>Гитлер</h3>
                         <p>Доберитесь до Гитлера любой ценой!</p>
                     </div>
@@ -159,7 +159,7 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    $( document ).ready(function () {
+    $(document).ready(function () {
         var action = getParameterByName('action');
         switch (action) {
             case 'custom-way-modal':
@@ -181,5 +181,7 @@
     }
 </script>
 
-<?php include 'modals/login_modal.php' ?>
-<?php include 'modals/custom_way_modal.php' ?>
+<?php
+include 'modals/login_modal.php';
+include 'modals/custom_way_modal.php';
+include 'modals/hitler_modal.php'; ?>

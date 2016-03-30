@@ -31,9 +31,6 @@ class Controller_custom_ways extends Controller{
             }
             else header("Location: /account");
         }
-        else {
-            $this->view->generate("custom_way_view.php", "templates/template_with_background.php");
-        }
     }
 
     function CheckCustomLink($link){

@@ -31,8 +31,13 @@
                 <a id="editnick"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a id="savenick" style="display: none"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             </p>
-            <p>Ваш рейтинг: <? echo ($data["rating"] == null) ? 0 : $data["rating"]; ?></p>
+            <?php
+                $rating = ($data["rating"] == null) ? 0 : $data["rating"];
+                $nextLevelScore = (floatval($data["rank"]) + 1)*(floatval($data["rank"]) + 1)*100;
+                $progress = floatval($rating)/$nextLevelScore;
+            ?>
             <p>Ваш уровень: <?= $data["rank"] ?></p>
+            <p>Ваш рейтинг: <? echo $rating . " / " . $nextLevelScore . " (" . intval($progress*100) . "%)" ?></p>
             <p>Позиция среди всех игроков: <?= $data["order"] ?></p>
             <p>&nbsp;</p>
         </div>

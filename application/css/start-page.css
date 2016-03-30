@@ -23,34 +23,34 @@
 
 /* GAME TYPES --------------------------------------------------------------------------------------------------------*/
 
-#game-type-grid {
+.game-type-grid {
     color: #fff;
     text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
 }
 
-#game-type-grid .row {
+.game-type-grid .row {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
 }
 
-#game-type-grid img {
+.game-type-grid img {
     height: 80px;
     width: 80px;
 }
-#game-type-grid .game-type {
+.game-type-grid .game-type {
     text-align: center;
     background-color: rgba(33, 121, 185, 0.4);
     margin-top: 72px;
     margin-bottom: 0;
     background-clip:content-box;
 }
-#game-type-grid img {
+.game-type-grid img {
     margin-top: -60px;
     cursor: pointer;
 }
-#game-type-grid .game-type-text {
+.game-type-grid .game-type-text {
     margin-left: 10px;
     margin-right: 10px;
     text-align: left;
@@ -60,8 +60,13 @@
     cursor: pointer;
 }
 
-#game-type-grid .game-type-text p {
+.game-type-grid .game-type-text p {
     margin-bottom: 6px;
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 /* STATISTICS --------------------------------------------------------------------------------------------------------*/

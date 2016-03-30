@@ -3,10 +3,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- made by www.metatags.org -->
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик"/>
-    <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
     <link rel="stylesheet" type="text/css" href="/application/css/main.css">
@@ -24,7 +22,7 @@
     <script src="/application/js/jquery.min.js"></script>
     <script src="/application/js/magnific.js"></script>
     <link rel="stylesheet" href="/application/css/magnific.css" />
-    <link rel="icon" href="/application/images/favicon.ico">
+    <link rel="icon" href="/application/images/favicon.png">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
