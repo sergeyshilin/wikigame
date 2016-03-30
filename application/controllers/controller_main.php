@@ -12,9 +12,9 @@ class Controller_Main extends Controller{
 			exit();
 		}
 		else if($action_param == "like"){
-
 			echo $this->model->SetLike($action_data, $_SESSION["id"], $is_hitler);
 			exit();
+
 		}
 
 		if($action_param == "upd-stats"){

@@ -19,13 +19,14 @@ class Controller_hitler extends Controller{
                 }
                 $this->view->generate("success_view.php", "template_view.php", "/hitler", $rank);
 //                unset($_SESSION["hitler"]);
-                $this->unset_gamesession();
+//                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }
         }
 
         unset($_SESSION["hitler"]);
+        $this->unset_gamesession();
         $_SESSION["hitler"] = array("starttime" => time());
         if(WayParser::isMD5Hash($action_param)){
             $_SESSION["hitler"]["way_hash"] = $action_param;

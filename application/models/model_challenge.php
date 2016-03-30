@@ -9,7 +9,8 @@ class Model_challenge extends Model
         $this->query("INSERT INTO pvp_rooms VALUES('', $_SESSION[user_id], '', '{$game_hash}', '{$hash}', $way_type, NOW(), 0, 0)");
     }
     function joinRoom($game_hash){
-        return $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
+        $check = $this->getAssoc("SELECT id FROM pvp_rooms WHERE hash='{$game_hash}' AND user1_id = '{$_SESSION[user_id]}'")[0]["id"];
+        return ($check > 0) ? false : $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
     }
     function prepareUser($game_hash){
         return $this->getAssoc("SELECT hash, way_hash, way_type from pvp_rooms WHERE hash='{$game_hash}'")[0];
@@ -52,5 +53,15 @@ class Model_challenge extends Model
 
     function checkIfWinner($game_hash){
         return $this->getAssoc("SELECT status FROM pvp_rooms WHERE hash='{$game_hash}'")[0]["status"] != 0;
+    }
+
+    function setUpQueue(){
+        $check = $this->getAssoc("SELECT id FROM pvp_queues WHERE user_id='$_SESSION[user_id]'")[0]["id"];
+        if($check > 0){
+            $this->query("UPDATE pvp_queues SET date=NOW() WHERE user_id='$_SESSION[user_id]'");
+        }
+        else{
+            $this->query("INSERT INTO pvp_queues VALUES('', '$_SESSION[user_id]', NOW())");
+        }
     }
 }

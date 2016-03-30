@@ -27,6 +27,7 @@ class Controller_compete extends Controller{
             else{ header("Location: /"); }
         }
         unset($_SESSION["compete"]);
+        $this->unset_gamesession();
         $_SESSION["compete"] = array("starttime" => time());
         if($action_param == "test") { echo $_SESSION["compete"]; exit();}
         $this->view->generate("compete_view.php", "dummy.php");

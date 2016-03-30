@@ -13,6 +13,12 @@ class Controller_challenge extends Controller{
             echo json_encode($_SESSION);
             exit();
         }
+        if($action_param == "check_queue"){
+            $this->model->setUpQueue();
+
+            exit();
+        }
+
         if($action_param == "success"){
             if($_SESSION["win"]){
                 if(isset($_SESSION["challenge"]["way_type"]) && $_SESSION["challenge"]["way_type"] == 1){
@@ -68,8 +74,7 @@ class Controller_challenge extends Controller{
             $this->view->generate("challenge_play_view.php", "dummy.php");
             exit();
         }
-
-
+        $this->unset_gamesession();
         $game_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
         $_SESSION["challenge"] = array("starttime" => time(), "game_hash" => $game_hash);
         if($action_param == "custom" && isset($action_data)){

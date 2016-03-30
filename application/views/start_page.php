@@ -130,7 +130,7 @@
             <div class="container for-thumbs">
                 <?php foreach($data as $key=>$value):?>
                     <div class="thumbnail <?php if((!$loggedIn)&&($value['opened'] == 0)):?> striped-div<?php endif;?> ">
-                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a href="<?=$value['link']?>"><?php endif; ?>
+                        <?php if(((int)$loggedIn != $value['opened']) || ($value['opened']) == 1):?><a data-toggle="modal" data-target="#challenge-modal" href="<?=$value['link']?>"><?php endif; ?>
                         <div class="caption">
                             <?php if((!$loggedIn)&&($value['opened'] == 0)):?>
                                 <span class="glyphicon glyphicon-ban-circle closed-mode"></span><span class="small-notif">авторизуйтесь</span>
@@ -240,53 +240,7 @@
     </div>
 
 </div>
-
-<!-- Modal Categories-->
-<div class="modal fade" id="cats" tabindex="-1" role="dialog" aria-labelledby="categories" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="categories">Категория</h4>
-            </div>
-            <div class="modal-body">
-                <div class="list-group">
-                    <a href="/wiki/Main_Page" class="list-group-item active" onclick="yaCounter28976460.reachGoal('classic'); return true;">
-                        <h4 class="list-group-item-heading">Классический</h4>
-
-                        <p class="list-group-item-text">Стандартный режим игры. Без ограничений по времени</p>
-                    </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('One_minute'); return true;" disabled>
-                        <h4 class="list-group-item-heading">На время</h4>
-
-                        <p class="list-group-item-text">Стандартный режим игры. За одну минуту</p>
-                    </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('Htiler'); return true;" disabled>
-                        <h4 class="list-group-item-heading">Гитлер</h4>
-
-                        <p class="list-group-item-text">Просто доберитесь до Адольфа</p>
-                    </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('custom_way'); return true;" disabled>
-                        <h4 class="list-group-item-heading">Свой маршрут</h4>
-
-                        <p class="list-group-item-text"></p>
-                    </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('challenge'); return true;" disabled>
-                        <h4 class="list-group-item-heading">Дуэль</h4>
-
-                        <p class="list-group-item-text">Player vs Player</p>
-                    </a>
-                    <a class="list-group-item" onclick="yaCounter28976460.reachGoal('cat0'); return true;" disabled>
-                        <h4 class="list-group-item-heading">Турнир</h4>
-
-                        <p class="list-group-item-text"></p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<?php include_once("start_page_challenge_frame.php"); ?>
 
 <script src="application/js/jquery.min.js"></script>
 <script src="application/js/bootstrap.min.js"></script>

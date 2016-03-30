@@ -13,7 +13,7 @@
                 location.href = "/challenge/play";
             }
         });
-        upd = setTimeout(check, 10000);
+        upd = setTimeout(check, 1000);
     }
-    var upd = setTimeout(check, 10000);
+    var upd = setTimeout(check, 1000);
 </script>
