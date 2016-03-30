@@ -11,7 +11,7 @@ class Controller_wiki extends Controller{
         $title = StringUtils::pageTitle($title);
         $cat = isset($cat) && !empty($cat) ? escape($cat, $this->model) : 0;
         if (WayParser::isMD5Hash($action_data)) {
-            if($action_param == "way") {$way = WayParser::getWayByHash($action_data, $this->model); }
+            if($action_param == "way") { $way = WayParser::getWayByHash($action_data, $this->model); }
             else if($action_param == "custom_way")
             { $way = WayParser::getCustomWayByHash($action_data, $this->model); $_SESSION["custom_way"] = true;}
             if (!empty($way)) {
@@ -134,7 +134,7 @@ class Controller_wiki extends Controller{
             $_SESSION["playlink"] = ($_SESSION["custom_way"]) ? "wiki/custom_way/".$_SESSION["hash"] :
                 "wiki/way/".$_SESSION["hash"];
             $this->view->generate("success_view.php", "template_view.php",  "/wiki/Main_Page", $user_rating);
-            $this->unset_gamesession();
+//            $this->unset_gamesession();
 //            unset($_SESSION["custom_way"]);
 //            $this->unset_gamesession();
         }

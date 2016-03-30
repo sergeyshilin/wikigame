@@ -26,7 +26,7 @@ class Controller_one_minute extends Controller{
                 }
 
                 $this->view->generate("success_view.php", "template_view.php", "/one_minute", $user_rating);
-                $this->unset_gamesession();
+//                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();
                 exit();
@@ -48,11 +48,15 @@ class Controller_one_minute extends Controller{
             exit();
         }
         else if($action_param == "playlink") { echo $_SESSION["playlink"]; exit();}
-        unset($_SESSION["one_minute"]);
-        $_SESSION["one_minute"] = array("starttime" => time());
-        if($action_param == "test") { var_dump($_SESSION); exit();}
 
-        $this->view->generate("one_minute_view.php", "dummy.php");
+
+        else if($action_param == "test") { var_dump($_SESSION); exit();}
+
+        else {
+            $this->unset_gamesession();
+            $_SESSION["one_minute"] = array("starttime" => time());
+            $this->view->generate("one_minute_view.php", "dummy.php");
+        }
     }
 
 }

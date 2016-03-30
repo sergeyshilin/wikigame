@@ -95,12 +95,14 @@ class Controller_login extends Controller
             // if the used didn't authenticate using the selected provider before
             // we create a new entry on database.users for him
             if (!$user_exist) {
+                $user_nick = 'Wikiwalker' . $this->model->getLastID();
                 $code = $this->model->create_new_hybridauth_user(
                     $user_profile->email,
                     $user_profile->firstName,
                     $user_profile->lastName,
                     $provider_name,
-                    $user_profile->identifier
+                    $user_profile->identifier,
+                    $user_nick
                 );
                 if(!$code){
                     header("Location: /login/fail");

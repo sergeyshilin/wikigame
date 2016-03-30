@@ -118,7 +118,13 @@
             syncLikes();
         });
     }
-
+    function dump(){
+        $.ajax({
+            url: "/one_minute/test"
+        }).done(function(data){
+            console.log(data);
+        })
+    }
     function syncLikes(){
         $.ajax({
             url: "/main/like/check"

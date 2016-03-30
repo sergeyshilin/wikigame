@@ -20,6 +20,7 @@
             <h1 class="cover-heading">
                 <?php if($data == "/one_minute") :?>Упс... Вы не успели пройти маршрут за одну минуту<?php endif;?>
                 <?php if($data == "/compete") :?>К сожалению, время турнира истекло<?php endif;?>
+
             </h1>
 
             <p class="lead" style="margin-bottom: 0">

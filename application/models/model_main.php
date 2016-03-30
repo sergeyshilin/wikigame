@@ -76,7 +76,6 @@ class Model_Main extends Model{
 			if ($out["parent_id"] == 0) {
 				$fetched[$out["way_id"]]["start"] = StringUtils::pageTitle($out["link"]);
 				$fetched[$out["way_id"]]["end_id"] = 0;
-				$fetched[$out["way_id"]]["steps"] = $out["steps"];
 				$fetched[$out["way_id"]]["rating"] = $out["rating"];
 			} else if ($fetched[$out["way_id"]]["end_id"] <= $out["parent_id"]) {
 				$fetched[$out["way_id"]]["end_id"] = $out["id"];
