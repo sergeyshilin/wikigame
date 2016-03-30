@@ -111,6 +111,10 @@
     overflow: hidden;
 }
 
+#stats .list-group-item {
+    padding-bottom: 9px;
+}
+
 #stats .list-group-item.active>.list-group-item-heading {
     color: #333;
 }
