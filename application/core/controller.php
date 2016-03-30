@@ -30,5 +30,6 @@ class Controller{
 		unset($_SESSION["hitler"]);
 		unset($_SESSION["compete"]);
 		unset($_SESSION["challenge"]);
+		unset($_SESSION["classic"]);
 	}
 }
