@@ -13,9 +13,17 @@ class Controller_challenge extends Controller{
             echo json_encode($_SESSION);
             exit();
         }
+//        if($action_param == "start_queue"){
+//            $this->model->setUpQueue();
+//            exit();
+//        }
         if($action_param == "check_queue"){
+            if($this->model->updateQueue()) echo "ready";
+            exit();
+        }
+        if($action_param == "queue"){
             $this->model->setUpQueue();
-
+            $this->view->generate("challenge_queue_view.php", "template2_view.php");
             exit();
         }
 
