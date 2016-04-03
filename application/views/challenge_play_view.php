@@ -15,9 +15,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
-                    <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
-                    <li><a id="_counter">Количество шагов: <span></span></a></li>
+                    <li><a id="_endlink" target="_blank" href="">Цель: <span id="_end" class="jslink"></span></a></li>
+                    <li><a id="backarrow"><span class="glyphicon glyphicon-arrow-left">Назад</span></a></li>
+                    <li><a id="_counter">Шаги: <span></span></a></li>
                     <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
                     <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
                 </ul>

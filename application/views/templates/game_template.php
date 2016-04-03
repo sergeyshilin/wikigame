@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-modules.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/timeTo.css">
-    <link rel="stylesheet" type="text/css" href="/application/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/application/css/game.css">
 
     <script src="/application/js/jquery.min.js"></script>
     <script src="/application/js/jquery.time-to.min.js"></script>

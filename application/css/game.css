@@ -1,0 +1,74 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.zeromargin {
+    margin: 0 !important;
+    border: 0 !important;
+}
+
+#coordinates,
+sup.reference,
+.mw-editsection,
+.noprint,
+.metadata {
+    display: none !important;
+}
+
+/* NAVBAR ------------------------------------------------------------------------------------------------------------*/
+
+.bootstrap-scope {
+    position: relative;
+    height: 51px;
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#game-navbar {
+    border-width: 0 0 1px 0;
+    font-size: 100%;
+    height: 51px;
+}
+
+.navbar-brand {
+    padding-left: 10px !important;
+}
+
+.header_logo {
+    height: 20px;
+}
+
+.ellipse {
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-text {
+    margin: 10px;
+}
+
+/* NAVBAR disable collapse -------------------------------------------------------------------------------------------*/
+
+.navbar-collapse.collapse {
+    display: block !important;
+}
+
+.navbar-nav > li, .navbar-nav {
+    float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: -15px !important;
+}
+
+.navbar-right {
+    float: right !important;
+}

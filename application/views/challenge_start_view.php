@@ -1,5 +1,4 @@
 <div style="color: #fff;">
-    <h2>Дуэль</h2>
     <input class="form-control" placeholder="" id="startlink" type="text" value="<?=$info?>">
     <p>Отправьте эту ссылку своему сопернику. Ждем...</p>
 </div>
