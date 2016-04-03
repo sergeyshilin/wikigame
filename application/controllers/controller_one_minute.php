@@ -41,14 +41,14 @@ class Controller_one_minute extends Controller{
             $_SESSION["one_minute"] = array("starttime" => time());
             $_SESSION["one_minute"]["custom_way"] = $action_data;
             $_SESSION["playlink"] = "one_minute/custom_way/".$action_data;
-            $this->view->generate("one_minute_view.php", "dummy.php");
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
             exit();
         }
         else if(WayParser::isMD5Hash($action_param)){
             $_SESSION["one_minute"] = array("starttime" => time());
             $_SESSION["one_minute"]["way_hash"] = $action_param;
             $_SESSION["playlink"] = "one_minute/".$action_param;
-            $this->view->generate("one_minute_view.php", "dummy.php");
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
             exit();
         }
         else if($action_param == "playlink") { echo $_SESSION["playlink"]; exit();}
@@ -59,7 +59,7 @@ class Controller_one_minute extends Controller{
         else {
             $this->unset_gamesession();
             $_SESSION["one_minute"] = array("starttime" => time());
-            $this->view->generate("one_minute_view.php", "dummy.php");
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
         }
     }
 

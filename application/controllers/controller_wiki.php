@@ -137,7 +137,7 @@ class Controller_wiki extends Controller{
                     echo $resolver->printPage($obj["title"], $obj["content"]);
                     exit();
             }
-            $this->view->generate("ingame_view.php","dummy.php", $resolver->printPage($obj["title"], $obj["content"]));
+            $this->view->generate("ingame_view.php","templates/game_template.php", $resolver->printPage($obj["title"], $obj["content"]));
 
         }
         else {

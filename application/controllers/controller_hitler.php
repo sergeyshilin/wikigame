@@ -45,7 +45,7 @@ class Controller_hitler extends Controller{
             $_SESSION["hitler"]["type"] = $action_param;
         }
         else if($action_param == "test") { var_dump($_SESSION); exit();}
-        $this->view->generate("hitler_view.php", "dummy.php");
+        $this->view->generate("hitler_view.php", "templates/game_template.php");
     }
 
 }

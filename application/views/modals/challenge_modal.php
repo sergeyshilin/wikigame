@@ -8,14 +8,14 @@
             <div class="modal-body">
                 <div class="game-type-grid" style="color: #000; text-shadow: none">
                     <div class="row row-eq-height">
-                        <div class="game-type col-sm-4">
+                        <div class="game-type col-sm-6">
                             <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('/queue')">
                             <div class="game-type-text" onclick="gotoChallenge('/queue')">
                                 <h3>Ожидать соперника</h3>
                                 <p>Сыграть со случайным противником прямо сейчас</p>
                             </div>
                         </div>
-                        <div class="game-type col-sm-4">
+                        <div class="game-type col-sm-6">
                             <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('')">
                             <div class="game-type-text" onclick="gotoChallenge('')">
                                 <h3>Поделиться ссылкой</h3>

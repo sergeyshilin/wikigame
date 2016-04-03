@@ -1,55 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- made by www.metatags.org -->
-    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик"/>
-    
-    <meta name="robots" content="index, nofollow">
-    <meta name="revisit-after" content="3 days">
-    <link rel="stylesheet" type="text/css" href="/application/css/main.css">
-    <meta property="og:title" content="WikiWalker - Пройди свой путь"/>
-    <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <meta property="og:url" content="http://wikiwalker.ru/"/>
-    <meta property="og:image" content="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
-    <meta property="og:image:url" content="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
-    <meta name="title" content="WikiWalker - Пройди свой путь"/>
-    <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
-
-    <title>WikiWalker - Пройди свой путь</title>
-    <!-- wikipedia, game, walk -->
-    <script src="/application/js/jquery.min.js"></script>
-    <link rel="icon" href="/application/images/favicon.png">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <style>
-        ul[style]{
-            line-height: 30.24px!important;
-        }
-        #countdown{
-            margin-top: 10px;
-            font-weight: normal;
-        }
-        #backarrow:hover{
-            cursor: hand;
-        }
-    </style>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/application/css/timeTo.css">
-    <link rel="stylesheet" type="text/css" href="/application/css/bootstrap-scope.min.css">
-    <link rel="stylesheet" type="text/css" href="/application/css/wiki-site.min.css">
-    <link rel="stylesheet" type="text/css" href="/application/css/wiki-modules.min.css">
-    <script src="/application/js/jquery.time-to.min.js"></script>
-
-</head>
-
 <div class="bootstrap-scope">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -72,7 +20,9 @@
                     <li><a id="_counter">Количество шагов: <span></span></a></li>
                     <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
                     <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
-                    <li><div id="countdown" style="line-height: 30.24px!important;" class="timeTo timeTo-white"></div></li>
+                    <li>
+                        <div id="countdown" style="line-height: 30.24px!important;" class="timeTo timeTo-white"></div>
+                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -83,67 +33,74 @@
         </div>
     </nav>
 </div>
-<script>
 
+<script>
     window.t = "";
     window.like = 0;
     jQuery.ajax({
-        url:"/wiki/Main_Page"
-    }).done(function(data){
+        url: "/wiki/Main_Page"
+    }).done(function (data) {
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
         syncLikes();
         setUpUrl();
-        $('#countdown').timeTo(60, function(){ location.href = "/one_minute/lose"; });
+        $('#countdown').timeTo(60, function () {
+            location.href = "/one_minute/lose";
+        });
     });
 
-    function setUpUrl(){
-        $.ajax({url: "/one_minute/playlink"}).done(function(data){
-            window.history.pushState("", "", "/"+data);
+    function setUpUrl() {
+        $.ajax({url: "/one_minute/playlink"}).done(function (data) {
+            window.history.pushState("", "", "/" + data);
         })
     }
-    function fixLinks(){
+    function fixLinks() {
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
     }
 
-    function getWayInfo(fr){
+    function getWayInfo(fr) {
         $.ajax({
-            url:"/one_minute/get",
+            url: "/one_minute/get",
             dataType: "json",
             jsonp: "false"
-        }).done(function(data){
+        }).done(function (data) {
             window.t = data;
             refreshWindow();
             syncLikes();
         });
     }
 
-    function syncLikes(){
+    function syncLikes() {
         $.ajax({
             url: "/main/like/check"
-        }).done(function(data){
+        }).done(function (data) {
             console.log(data);
             window.like = data;
-            if(data == 1){$("#like span").css("border", "1px solid");}
-            if(data == -1){$("#dislike span").css("border", "1px solid");}
+            if (data == 1) {
+                $("#like span").css("border", "1px solid");
+            }
+            if (data == -1) {
+                $("#dislike span").css("border", "1px solid");
+            }
         });
     }
 
-    function refreshWindow(){
+    function refreshWindow() {
         $("#_end").text(t.end);
         $("#_endlink").attr("href", t.endlink);
     }
 
-    function loadAfterClick(ele){
+    function loadAfterClick(ele) {
         $.ajax({
             url: $(ele).prop("href")
-        }).done(function(data){
-            if(data == "win") {
-                location.href="/one_minute/success";
+        }).done(function (data) {
+            if (data == "win") {
+                location.href = "/one_minute/success";
             }
-            else{
-                $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
+            else {
+                $(".bootstrap-scope").nextAll().remove();
+                $(".bootstrap-scope").after(data);
                 fixLinks();
                 getWayInfo();
                 $(document).scrollTop(0);
@@ -151,10 +108,10 @@
 
         });
     }
-    $("#backarrow").click(function(){
+    $("#backarrow").click(function () {
         jQuery.ajax({
-            url:"/wiki/"+window.t.previous
-        }).done(function(data){
+            url: "/wiki/" + window.t.previous
+        }).done(function (data) {
             $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();
@@ -162,15 +119,15 @@
             $(document).scrollTop(0);
         });
     });
-    $("#dislike").click(function(){
-        if(window.like == "-1"){
+    $("#dislike").click(function () {
+        if (window.like == "-1") {
             $.ajax({
                 url: "/main/like"
             });
             $("#dislike span").css("border", "none");
             syncLikes();
         }
-        else if(window.like == "0" || window.like == "1"){
+        else if (window.like == "0" || window.like == "1") {
             $.ajax({
                 url: "/main/like/-1"
             });
@@ -178,16 +135,16 @@
             $("#like span").css("border", "none");
             syncLikes();
         }
-    })
-    $("#like").click(function(){
-        if(window.like == "1"){
+    });
+    $("#like").click(function () {
+        if (window.like == "1") {
             $.ajax({
                 url: "/main/like"
             });
             $("#like span").css("border", "none");
             syncLikes();
         }
-        else if(window.like == "0" || window.like == "-1"){
+        else if (window.like == "0" || window.like == "-1") {
             $.ajax({
                 url: "/main/like/1"
             });

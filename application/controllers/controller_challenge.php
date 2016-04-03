@@ -92,7 +92,7 @@ class Controller_challenge extends Controller{
         }
         if($action_param == "play"){
             if(!isset($_SESSION["challenge"])) { header("Location: /");}
-            $this->view->generate("challenge_play_view.php", "dummy.php");
+            $this->view->generate("challenge_play_view.php", "templates/game_template.php");
             exit();
         }
         $this->unset_gamesession();

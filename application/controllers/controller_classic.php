@@ -32,14 +32,14 @@ class Controller_classic extends Controller{
             $_SESSION["classic"] = array("starttime" => time());
             $_SESSION["classic"]["custom_way"] = $action_data;
             $_SESSION["playlink"] = "classic/custom_way/".$action_data;
-            $this->view->generate("classic_view.php", "dummy.php");
+            $this->view->generate("classic_view.php", "templates/game_template.php");
             exit();
         }
         else if(WayParser::isMD5Hash($action_param)){
             $_SESSION["classic"] = array("starttime" => time());
             $_SESSION["classic"]["way_hash"] = $action_param;
             $_SESSION["playlink"] = "classic/".$action_param;
-            $this->view->generate("classic_view.php", "dummy.php");
+            $this->view->generate("classic_view.php", "templates/game_template.php");
             exit();
         }
         else if($action_param == "playlink") { echo $_SESSION["playlink"]; exit();}
@@ -50,7 +50,7 @@ class Controller_classic extends Controller{
         else {
             $this->unset_gamesession();
             $_SESSION["classic"] = array("starttime" => time());
-            $this->view->generate("classic_view.php", "dummy.php");
+            $this->view->generate("classic_view.php", "templates/game_template.php");
         }
     }
 

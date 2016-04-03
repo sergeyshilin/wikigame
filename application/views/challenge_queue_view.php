@@ -1,7 +1,6 @@
-<p class="lead" style="
-    color: white;
-    text-align: center;
-">В ожидании <strike>чуда...</strike> соперника</p>
+<p class="lead" style="color: white; text-align: center;">
+    В ожидании <span style="text-decoration: line-through;">чуда...</span> соперника
+</p>
 
 <script>
     function check_queue() {
