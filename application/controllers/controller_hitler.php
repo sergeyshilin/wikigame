@@ -25,14 +25,21 @@ class Controller_hitler extends Controller{
             else{ header("Location: /"); }
         }
 
+        if($action_param == "lose"){
+            echo "SORRY, 5 STEPS ONLY!";
+            exit();
+        }
+
         unset($_SESSION["hitler"]);
         $this->unset_gamesession();
-        $_SESSION["hitler"] = array("starttime" => time());
-        if(WayParser::isMD5Hash($action_param)){
-            $_SESSION["hitler"]["way_hash"] = $action_param;
-            $_SESSION["playlink"] = $_SERVER["HTTP_HOST"]."/hitler/".$action_data;
+        $_SESSION["hitler"] = array("starttime" => time(), "type" => "standart");
+        if(WayParser::isMD5Hash($action_data)){
+            $_SESSION["hitler"]["way_hash"] = $action_data;
         }
-        if($action_param == "test") { var_dump($_SESSION); exit();}
+        if($action_param != ""){
+            $_SESSION["hitler"]["type"] = $action_param;
+        }
+        else if($action_param == "test") { var_dump($_SESSION); exit();}
         $this->view->generate("hitler_view.php", "dummy.php");
     }
 

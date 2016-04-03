@@ -46,7 +46,7 @@ class Controller_wiki extends Controller{
                 }
                 if(isset($_SESSION["hitler"])){
                     wayToSession($way, $cat, "hitler");
-                    $_SESSION["playlink"] = "hitler/".$_SESSION["hash"];
+                    $_SESSION["playlink"] = "hitler/".$_SESSION["hitler"]["type"]."/".$_SESSION["hash"];
                 }
 
                 else if(isset($_SESSION["challenge"]["way_hash"])){
@@ -101,12 +101,17 @@ class Controller_wiki extends Controller{
                     $_SESSION['win'] = true;
                 }
             } else {
+                $germany_link = "%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F";
+                if($_SESSION["hitler"]["type"] == "no_germany" && $action_param == $germany_link){
+                    echo "return";
+                    exit();
+                }
                 $resolver = new PageResolver();
                 $obj = $resolver->isGenerated($action_param) ?
                     $resolver->getContentFromHtml($action_param) : $resolver->getContentFromApi($action_param);
                 if ($resolver->isRedirect($obj["content"])) {
                     $name = $resolver->extractRedirectPageName($obj["content"]);
-                    header('Location: /wiki/' . $name);
+                    //header('Location: /wiki/' . $name);
                 } else if ($title == $_SESSION['start']) {
                     $_SESSION['previous'] = "";
                     $_SESSION['current'] = $_SESSION['start'];
@@ -116,6 +121,10 @@ class Controller_wiki extends Controller{
                     $_SESSION['current'] = $title;
                     if ($_SESSION['current'] != $_SESSION['previous']) {
                         $_SESSION['counter']++;
+                        if($_SESSION["hitler"]["type"] == "5_steps" && $_SESSION["counter"] == 5) {
+                            echo "lose";
+                            exit();
+                        }
                     }
                 }
             }

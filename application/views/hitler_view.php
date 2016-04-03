@@ -145,6 +145,12 @@
             if(data == "win") {
                 location.href="/hitler/success";
             }
+            else if(data == "lose"){
+                location.href="/hitler/lose";
+            }
+            else if(data == "return"){
+                alert("Статья о Германии недоступна в этом режиме");
+            }
             else{
                 $(".bootstrap-scope").nextAll().remove(); $(".bootstrap-scope").after(data);
                 fixLinks();

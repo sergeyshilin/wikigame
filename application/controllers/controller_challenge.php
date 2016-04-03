@@ -18,7 +18,17 @@ class Controller_challenge extends Controller{
 //            exit();
 //        }
         if($action_param == "check_queue"){
-            if($this->model->updateQueue()) echo "ready";
+            $room_data = $this->model->updateQueue();
+            if($room_data != false){
+                $this->model->joinRoom($room_data["way_hash"]);
+                $_SESSION["challenge"]["game_hash"] = $room_data["room_hash"];
+                $_SESSION["challenge"]["way_hash"] = $room_data["way_hash"];
+                $_SESSION["challenge"]["way_type"] = 0;
+                $_SESSION["playlink"] = "challenge";
+                if($this->model->finishQueue()){
+                    echo "ready";
+                }
+            }
             exit();
         }
         if($action_param == "queue"){
@@ -83,6 +93,7 @@ class Controller_challenge extends Controller{
             exit();
         }
         $this->unset_gamesession();
+        unset($_SESSION["queue"]);
         $game_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
         $_SESSION["challenge"] = array("starttime" => time(), "game_hash" => $game_hash);
         if($action_param == "custom" && isset($action_data)){

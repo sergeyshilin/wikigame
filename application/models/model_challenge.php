@@ -56,15 +56,18 @@ class Model_challenge extends Model
     }
 
     function setUpQueue(){
+        $this->lockQueueTable();
         $time = time();
-        $check = $this->getAssoc("SELECT * FROM pvp_queues WHERE $time - pvp_queues.date <= 5")[0];
+        $check = $this->getAssoc("SELECT * FROM pvp_queues WHERE $time - pvp_queues.date <= 5 LIMIT 1")[0];
         if($check["id"] > 0){
+            $_SESSION["queue"]["id"] = $check["id"];
             $room_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
             $this->query("UPDATE pvp_queues SET room_hash = '{$room_hash}' WHERE id=$check[id]");
-            $way = WayParser::getRandomWay(0, $this->model);
-            wayToSession($way);
+            $way = WayParser::getRandomWay(0, $this);
             $way_hash = $way->getHash();
-            $this->query("INSERT INTO pvp_rooms VALUES ('', $_SESSION[user_id], '', $way_hash, 0, NOW(), '', 0)");
+            $_SESSION["queue"]["init"] = true;
+            $this->query("INSERT INTO pvp_rooms VALUES ('', $_SESSION[user_id], '', '{$room_hash}','{$way_hash}', 0, NOW(), '', 0)");
+            //echo mysqli_error($this);
         }
         else{
             $time = time();
@@ -72,12 +75,43 @@ class Model_challenge extends Model
             $queue_id = $this->getAssoc("SELECT id FROM pvp_queues ORDER BY id DESC LIMIT 1")[0]["id"];
             $_SESSION["queue"]["id"] = $queue_id;
         }
+        $this->unlockQueueTable();
     }
     function updateQueue(){
+        $this->lockQueueTable();
         $time = time();
         $queue_id = $_SESSION["queue"]["id"];
         $this->query("UPDATE pvp_queues SET date = '{$time}' WHERE id=$queue_id");
-        $check = $this->getAssoc("SELECT room_hash FROM pvp_queues WHERE id=$queue_id")[0]["room_hash"];
-        return ($check > 0) ? true : false;
+
+        $result = $this->getAssoc("SELECT room_hash, pvp_rooms.way_hash as way_hash, pvp_rooms.user1_id as user1_id
+        FROM pvp_queues INNER JOIN pvp_rooms
+        ON pvp_rooms.hash = pvp_queues.room_hash WHERE pvp_queues.id=$queue_id")[0];
+        $this->unlockQueueTable();
+        return (sizeof($result) > 0) ? $result : false;
+    }
+    function finishQueue(){
+        $this->lockQueueTable();
+        $code = false;
+        $game_hash = $_SESSION["challenge"]["game_hash"];
+        if(isset($_SESSION["queue"]["init"])){
+            $check = $this->getAssoc("SELECT user2_id FROM pvp_rooms WHERE hash='{$game_hash}'")[0]["user2_id"];
+            if($check > 0){
+                $code = true;
+            }
+        }
+        else{
+            $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
+            $code = true;
+        }
+        $this->unlockQueueTable();
+        return $code;
+    }
+
+    function lockQueueTable(){
+        $this->query("LOCK TABLES pvp_queues WRITE");
+    }
+
+    function unlockQueueTable(){
+        $this->query("UNLOCK TABLES");
     }
 }

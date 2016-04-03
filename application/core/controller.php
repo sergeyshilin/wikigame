@@ -31,5 +31,6 @@ class Controller{
 		unset($_SESSION["compete"]);
 		unset($_SESSION["challenge"]);
 		unset($_SESSION["classic"]);
+		unset($_SESSION["queue"]);
 	}
 }
