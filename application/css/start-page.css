@@ -41,7 +41,7 @@
 }
 .game-type-grid .game-type {
     text-align: center;
-    background-color: rgba(33, 121, 185, 0.4);
+    background-color: rgba(115, 74, 18, 0.3);
     margin-top: 72px;
     margin-bottom: 0;
     background-clip:content-box;
@@ -88,7 +88,7 @@
 }
 
 #stats .list-group-item {
-    background-color: rgba(33, 121, 185, 0.4);
+    background-color: rgba(112, 66, 20, 0.6);
     border:none;
     border-radius: 0;
     text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
@@ -134,4 +134,16 @@
 
 #stats .list-group-item-heading {
     margin-bottom: 0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: rgba(51, 122, 183, 0.8);
+    border-color: rgba(46, 109, 164, 0.8);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: rgba(217, 83, 79, 0.8);
+    border-color: rgba(212, 63, 58, 0.8);
 }

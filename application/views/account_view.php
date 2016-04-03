@@ -2,9 +2,9 @@
     .account-view, td, a, a:hover, a:visited {
         color: #fff;
     }
-
+    
     .panel {
-        background-color: rgba(33, 121, 185, 0.4);
+        background-color: rgba(112, 66, 20, 0.5);
         padding: 0 10px;
     }
     h2 {
