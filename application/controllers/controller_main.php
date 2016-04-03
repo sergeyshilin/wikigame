@@ -16,7 +16,6 @@ class Controller_Main extends Controller{
 			exit();
 
 		}
-
 		if($action_param == "upd-stats"){
 			$this->model->updateLeadersCache();
 			$this->model->updatePopularWaysCache();

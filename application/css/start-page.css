@@ -1,0 +1,137 @@
+/* GREATING ----------------------------------------------------------------------------------------------------------*/
+
+.greating {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
+}
+
+.greating h1 {
+    margin-top: 10px;
+}
+
+.greating .lead {
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 45px;
+    }
+}
+
+/* GAME TYPES --------------------------------------------------------------------------------------------------------*/
+
+.game-type-grid {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
+}
+
+.game-type-grid .row {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.game-type-grid img {
+    height: 80px;
+    width: 80px;
+}
+.game-type-grid .game-type {
+    text-align: center;
+    background-color: rgba(33, 121, 185, 0.4);
+    margin-top: 72px;
+    margin-bottom: 0;
+    background-clip:content-box;
+}
+.game-type-grid img {
+    margin-top: -60px;
+    cursor: pointer;
+}
+.game-type-grid .game-type-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+    margin-top: -15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.game-type-grid .game-type-text p {
+    margin-bottom: 6px;
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+/* STATISTICS --------------------------------------------------------------------------------------------------------*/
+
+#stats {
+    text-shadow: none !important;
+    margin-top: 18px;
+    margin-bottom: -20px;
+}
+
+#stats .carousel-inner {
+    box-shadow: none !important;
+}
+
+#stats .carousel-control {
+    background-image: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+#stats .list-group-item {
+    background-color: rgba(33, 121, 185, 0.4);
+    border:none;
+    border-radius: 0;
+    text-shadow: 0 1px 3px rgba(1, 0, 0, .5);
+}
+
+#stats .list-group-item .fa {
+    font-size: 1em !important;
+}
+
+#stats #top-users .list-group-item .fa {
+    font-size: 0.8em !important;
+}
+
+#stats .list-group-item,
+#stats .list-group-item-heading,
+#stats .list-group-item div {
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#stats .list-group-item {
+    padding-bottom: 9px;
+}
+
+#stats .list-group-item.active>.list-group-item-heading {
+    color: #333;
+}
+
+#stats .list-group-item.active,
+#stats .list-group-item .badge {
+    background: #e7e7e7 none;
+    border-color: #666;
+    color: #333;
+    text-shadow: none !important;
+}
+
+#stats .list-group-item.active .badge {
+    background-color: #666;
+    color: #eee;
+}
+
+#stats .list-group-item-heading {
+    margin-bottom: 0;
+}

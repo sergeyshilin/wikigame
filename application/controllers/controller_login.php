@@ -58,6 +58,12 @@ class Controller_login extends Controller
             $_SESSION["user_connected"] = true;
             $_SESSION["user_adapter"] = $provider_name;
             $_SESSION["user_id"] = $user_exist->id;
+
+            $vkapi_link = "http://api.vk.com/method/users.get?uids=".$user_profile->identifier."&fields=photo_200,status";
+            $response = file_get_contents($vkapi_link);
+            $info = array_shift(json_decode($response)->response);
+            var_dump($info->photo_200);
+            $_SESSION["user_photo"] = $info->photo_200;
             header("Location: /");
         }
     }
