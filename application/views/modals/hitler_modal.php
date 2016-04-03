@@ -16,8 +16,8 @@
                             </div>
                         </div>
                         <div class="game-type col-sm-4">
-                            <img src="application/images/game_types/wki_icon-05.png" class="invert" onclick="gotoHitler('no-germany')">
-                            <div class="game-type-text" onclick="gotoHitler('no-germany')">
+                            <img src="application/images/game_types/wki_icon-05.png" class="invert" onclick="gotoHitler('no_germany')">
+                            <div class="game-type-text" onclick="gotoHitler('no_germany')">
                                 <h3>Без Германии</h3>
                                 <p>Доберитесь до Гитлера, не используя Германию</p>
                             </div>

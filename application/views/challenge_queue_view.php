@@ -1,4 +1,7 @@
-<h3>В ожидании чуда...</h3>
+<p class="lead" style="
+    color: white;
+    text-align: center;
+">В ожидании <strike>чуда...</strike> соперника</p>
 
 <script>
     function check_queue() {

@@ -33,7 +33,9 @@ class Controller_challenge extends Controller{
         }
         if($action_param == "queue"){
             $this->model->setUpQueue();
-            $this->view->generate("challenge_queue_view.php", "template2_view.php");
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_queue_view.php", "templates/template_with_background.php",
+                $userStatistics);
             exit();
         }
 

@@ -111,7 +111,7 @@ class Controller_wiki extends Controller{
                     $resolver->getContentFromHtml($action_param) : $resolver->getContentFromApi($action_param);
                 if ($resolver->isRedirect($obj["content"])) {
                     $name = $resolver->extractRedirectPageName($obj["content"]);
-                    //header('Location: /wiki/' . $name);
+                    header('Location: /wiki/' . $name);
                 } else if ($title == $_SESSION['start']) {
                     $_SESSION['previous'] = "";
                     $_SESSION['current'] = $_SESSION['start'];
@@ -121,7 +121,7 @@ class Controller_wiki extends Controller{
                     $_SESSION['current'] = $title;
                     if ($_SESSION['current'] != $_SESSION['previous']) {
                         $_SESSION['counter']++;
-                        if($_SESSION["hitler"]["type"] == "5_steps" && $_SESSION["counter"] == 5) {
+                        if($_SESSION["hitler"]["type"] == "5_steps" && $_SESSION["counter"] >= 5) {
                             echo "lose";
                             exit();
                         }
