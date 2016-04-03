@@ -11,10 +11,8 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- made by www.metatags.org -->
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <meta name="keywords" content="википедия, вики, игра, интерактив, развлечение, образование, ссылка, переход, клик"/>
-    <meta name="author" content="Sergey Shilin & Dmitriy Verbitskiy">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="3 days">
     <link rel="stylesheet" type="text/css" href="/application/css/main.css">
@@ -27,73 +25,15 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
     <link rel="image_src" href="http://wikiwalker.ru/wiki/img/forsocials.jpg"/>
-
     <title>WikiWalker - Пройди свой путь</title>
-    <!-- wikipedia, game, walk -->
 
-    <link rel="icon" href="/application/images/logo/favicon.ico">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="icon" href="/application/images/favicon.png">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <script src="/application/js/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            window.like = 0;
-            syncLikes();
-            function syncLikes(){
-                $.ajax({
-                    url: "/main/like/check"
-                }).done(function(data){
-                    console.log(data);
-                    window.like = data;
-                    if(data == 1){$("#like span").css("border", "1px solid");}
-                    if(data == -1){$("#dislike span").css("border", "1px solid");}
-                });
-            }
-            $("#dislike").click(function(){
-                if(window.like == "-1"){
-                    $.ajax({
-                        url: "/main/like"
-                    });
-                    $("#dislike span").css("border", "none");
-                    syncLikes();
-                }
-                else if(window.like == "0" || window.like == "1"){
-                    $.ajax({
-                        url: "/main/like/-1"
-                    });
-                    $("#dislike span").css("border", "1px solid");
-                    $("#like span").css("border", "none");
-                    syncLikes();
-                }
-            })
-            $("#like").click(function(){
-                if(window.like == "1"){
-                    $.ajax({
-                        url: "/main/like"
-                    });
-                    $("#like span").css("border", "none");
-                    syncLikes();
-                }
-                else if(window.like == "0" || window.like == "-1"){
-                    $.ajax({
-                        url: "/main/like/1"
-                    });
-                    $("#like span").css("border", "1px solid");
-                    $("#dislike span").css("border", "none");
-                    syncLikes();
-                }
-            })
-        })
-    </script>
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap-scope.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-site.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/wiki-modules.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <div class="bootstrap-scope">
@@ -108,7 +48,7 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img class="header_logo" src="/application/images/logo/logo.svg" title="WikiWalker - найди свой путь">
+                    <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -128,4 +68,56 @@ $loggedIn = isset($_SESSION['user_connected']) && $_SESSION['user_connected'] ==
         </div>
     </nav>
 </div>
+
 <?php echo $data; ?>
+
+<script>
+    $(document).ready(function(){
+        window.like = 0;
+        syncLikes();
+        function syncLikes(){
+            $.ajax({
+                url: "/main/like/check"
+            }).done(function(data){
+                console.log(data);
+                window.like = data;
+                if(data == 1){$("#like span").css("border", "1px solid");}
+                if(data == -1){$("#dislike span").css("border", "1px solid");}
+            });
+        }
+        $("#dislike").click(function(){
+            if(window.like == "-1"){
+                $.ajax({
+                    url: "/main/like"
+                });
+                $("#dislike span").css("border", "none");
+                syncLikes();
+            }
+            else if(window.like == "0" || window.like == "1"){
+                $.ajax({
+                    url: "/main/like/-1"
+                });
+                $("#dislike span").css("border", "1px solid");
+                $("#like span").css("border", "none");
+                syncLikes();
+            }
+        })
+        $("#like").click(function(){
+            if(window.like == "1"){
+                $.ajax({
+                    url: "/main/like"
+                });
+                $("#like span").css("border", "none");
+                syncLikes();
+            }
+            else if(window.like == "0" || window.like == "-1"){
+                $.ajax({
+                    url: "/main/like/1"
+                });
+                $("#like span").css("border", "1px solid");
+                $("#dislike span").css("border", "none");
+                syncLikes();
+            }
+        })
+    })
+</script>

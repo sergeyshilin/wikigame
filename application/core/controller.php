@@ -33,4 +33,19 @@ class Controller{
 		unset($_SESSION["classic"]);
 		unset($_SESSION["queue"]);
 	}
+
+	function getUserStatistics()
+	{
+		$uid = $_SESSION["user_id"];
+		$rank = $this->model->GetRank($uid);
+		$rating = $this->model->GetRating($uid);
+		$rating = ($rating == null) ? 0 : $rating;
+		$nextLevelScore = (floatval($rank) + 1)*(floatval($rank) + 1)*100;
+		return [
+				"rank" => $rank,
+				"rating" => $rating,
+				"nextLevelScore" => $nextLevelScore,
+				"progress" => floatval($rating)/$nextLevelScore
+		];
+	}
 }

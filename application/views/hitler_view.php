@@ -98,18 +98,15 @@
         setUpUrl();
         syncLikes();
     });
-
     function setUpUrl(){
         $.ajax({url: "/one_minute/playlink"}).done(function(data){
             window.history.pushState("", "", "/"+data);
         })
     }
-
     function fixLinks(){
         $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
         //$("a.image").attr("onclick", "return false");
     }
-
     function syncLikes(){
         $.ajax({
             url: "/main/like/check"
@@ -120,7 +117,6 @@
             if(data == -1){$("#dislike span").css("border", "1px solid");}
         });
     }
-
     function getWayInfo(fr){
         $.ajax({
             url:"/hitler/get",
@@ -131,13 +127,11 @@
             refreshWindow();
         });
     }
-
     function refreshWindow(){
         $("#_counter>span").text(t.counter);
         $("#_end").text(t.end);
         $("#_endlink").attr("href", t.endlink);
     }
-
     function loadAfterClick(ele){
         $.ajax({
             url: $(ele).prop("href")

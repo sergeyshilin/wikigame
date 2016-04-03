@@ -11,7 +11,9 @@ class Controller_one_minute extends Controller{
             exit();
         }
         if($action_param == "lose"){
-            $this->view->generate("lose_game_view.php", "template_view.php", "/one_minute");
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("lose_game_view.php", "templates/template_with_background.php",
+                $userStatistics, "/one_minute");
             $this->unset_gamesession();
             exit();
         }
@@ -25,7 +27,9 @@ class Controller_one_minute extends Controller{
                     $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
 
-                $this->view->generate("success_view.php", "template_view.php", "/one_minute", $user_rating);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/one_minute", $user_rating);
 //                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();

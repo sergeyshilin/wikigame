@@ -12,7 +12,9 @@ class Controller_compete extends Controller{
             exit();
         }
         if($action_param == "lose"){
-            $this->view->generate("lose_game_view.php", "template_view.php", "/compete");
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("lose_game_view.php", "templates/template_with_background.php",
+                $userStatistics, "/compete");
             $this->unset_gamesession();
             exit();
         }
@@ -21,7 +23,9 @@ class Controller_compete extends Controller{
                 $this->model->SaveSuccess();
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
                 $this->unset_gamesession();
-                $this->view->generate("success_view.php", "template_view.php", "/compete", $rank);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/compete", $rank);
                 exit();
             }
             else{ header("Location: /"); }

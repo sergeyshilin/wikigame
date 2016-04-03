@@ -22,12 +22,10 @@ class Controller_account extends Controller{
             exit();
         }
         $uid = $_SESSION["user_id"];
-        $a = [];
-        $a["nick"] = $this->model->GetNickname($uid);
-        $a["rating"] = $this->model->GetRating($uid);
-        $a["rank"] = $this->model->GetRank($uid);
-        $a["sum"] = $this->model->GetSumOfPlayed($uid);
-        $a["order"] = $this->model->GetUserOrder($uid);
+        $userStatistics = $this->getUserStatistics();
+        $userStatistics["nick"] = $this->model->GetNickname($uid);
+        $userStatistics["sum"] = $this->model->GetSumOfPlayed($uid);
+        $userStatistics["order"] = $this->model->GetUserOrder($uid);
         $stats["played"] =  $this->model->FetchPlayedWays($uid);
         $stats["custom_ways"] = $this->model->GetCustomRoutes($uid);
         //var_dump($a);
@@ -35,7 +33,7 @@ class Controller_account extends Controller{
         //echo $this->model->GetRank($uid);
         //var_dump($this->model->FetchPlayedWays($uid));
 
-        $this->view->generate("account_view.php", "template_view.php", $a, $stats,
+        $this->view->generate("account_view.php", "templates/template_with_background.php", $userStatistics, $stats,
             $this->model->GetSumOfModes($uid));
     }
 }
