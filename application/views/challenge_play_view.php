@@ -1,32 +1,19 @@
 <div class="bootstrap-scope">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav id="game-navbar" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a id="_endlink" target="_blank" href="">Цель: <span id="_end" class="jslink"></span></a></li>
-                    <li><a id="backarrow"><span class="glyphicon glyphicon-arrow-left">Назад</span></a></li>
-                    <li><a id="_counter">Шаги: <span></span></a></li>
-                    <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
-                    <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
-                </ul>
+            <ul class="nav navbar-nav" style="margin-top: 0">
+                <li><a class="navbar-brand" href="/">
+                        <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
+                    </a></li>
+                <li><button type="button" id="backarrow" class="btn btn-default navbar-btn backarrow"><span class="glyphicon glyphicon-arrow-left"></span></button></li>
+                <li><div class="navbar-text counter_wrapper"><span class="label label-warning _counter" style="font-size: 100%; padding: 3px 6px;"></span></div></li>
+                <li><div class="navbar-text ellipse endlink_wrapper"><a class="_endlink" target="_blank" href=""><span></span></a></div></li>
+            </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="_nick2"> <span></span></a></li>
-                    <li><a id="_current2"> <span></span></a></li>
-                    <li><a id="_counter2">шагов:<span></span></a></li>
+                    <li><div class="navbar-text" id="_nick2"> <span></span></div></li>
+                    <li><div class="navbar-text" id="_current2"> <span></span></div></li>
+                    <li><div class="navbar-text" id="_counter2">шагов:<span></span></div></li>
                 </ul>
-            </div>
         </div>
     </nav>
 </div>
@@ -61,9 +48,12 @@
     }
     var upd = setTimeout(update, 6000);
 
+
     function fixLinks() {
-        $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a:not([href^='#'], #game-navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        //$("a.image").attr("onclick", "return false");
     }
+
 
     function getWayInfo(fr) {
         $.ajax({
@@ -88,9 +78,9 @@
     }
 
     function refreshWindow() {
-        $("#_counter>span").text(t.counter);
-        $("#_end").text(t.end);
-        $("#_endlink").attr("href", t.endlink);
+        $("._counter").text(t.counter);
+        $("._endlink").attr("href", t.endlink);
+        $("._endlink>span").text(t.end);
         $("#_nick2>span").text(c.nick);
         $("#_counter2>span").text(c.counter);
         $("#_current2>span").text(c.link);
@@ -122,40 +112,5 @@
             getWayInfo();
             $(document).scrollTop(0);
         });
-    });
-
-    $("#dislike").click(function () {
-        if (window.like == "-1") {
-            $.ajax({
-                url: "/main/like"
-            });
-            $("#dislike span").css("border", "none");
-            syncLikes();
-        }
-        else if (window.like == "0" || window.like == "1") {
-            $.ajax({
-                url: "/main/like/-1"
-            });
-            $("#dislike span").css("border", "1px solid");
-            $("#like span").css("border", "none");
-            syncLikes();
-        }
-    });
-    $("#like").click(function () {
-        if (window.like == "1") {
-            $.ajax({
-                url: "/main/like"
-            });
-            $("#like span").css("border", "none");
-            syncLikes();
-        }
-        else if (window.like == "0" || window.like == "-1") {
-            $.ajax({
-                url: "/main/like/1"
-            });
-            $("#like span").css("border", "1px solid");
-            $("#dislike span").css("border", "none");
-            syncLikes();
-        }
     });
 </script>

@@ -5,7 +5,7 @@
                 <li><a class="navbar-brand" href="/">
                         <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
                 </a></li>
-                <li><button type="button" class="btn btn-default navbar-btn backarrow"><span class="glyphicon glyphicon-arrow-left"></span></button></li>
+                <li><button type="button" id="backarrow" class="btn btn-default navbar-btn backarrow"><span class="glyphicon glyphicon-arrow-left"></span></button></li>
                 <li><div class="navbar-text counter_wrapper"><span class="label label-warning _counter" style="font-size: 100%; padding: 3px 6px;"></span></div></li>
                 <li><div class="navbar-text ellipse endlink_wrapper"><a class="_endlink" target="_blank" href=""><span></span></a></div></li>
             </ul>

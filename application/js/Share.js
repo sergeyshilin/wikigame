@@ -75,7 +75,7 @@ function Share(purl, ptitle, text) {
             var canvas = document.createElement('canvas');
             canvas.width = 660;
             canvas.height = 286;
-            document.body.appendChild(canvas);
+            //document.body.appendChild(canvas);
             var context = canvas.getContext('2d');
 
             var scale = pic.width/canvas.width;

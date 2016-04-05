@@ -58,7 +58,7 @@ class Model_challenge extends Model
     function setUpQueue(){
         $this->lockQueueTable();
         $time = time();
-        $check = $this->getAssoc("SELECT * FROM pvp_queues WHERE $time - pvp_queues.date <= 5 LIMIT 1")[0];
+        $check = $this->getAssoc("SELECT * FROM pvp_queues WHERE $time - pvp_queues.date <= 5")[0];
         if($check["id"] > 0){
             $_SESSION["queue"]["id"] = $check["id"];
             $room_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
@@ -72,7 +72,7 @@ class Model_challenge extends Model
         else{
             $time = time();
             $this->query("INSERT INTO pvp_queues VALUES ('',$_SESSION[user_id], $time, '')");
-            $queue_id = $this->getAssoc("SELECT id FROM pvp_queues ORDER BY id DESC LIMIT 1")[0]["id"];
+            $queue_id = $this->getAssoc("SELECT id FROM pvp_queues ORDER BY id DESC")[0]["id"];
             $_SESSION["queue"]["id"] = $queue_id;
         }
         $this->unlockQueueTable();
@@ -108,10 +108,10 @@ class Model_challenge extends Model
     }
 
     function lockQueueTable(){
-        $this->query("LOCK TABLES pvp_queues WRITE");
+//        $this->query("LOCK TABLES pvp_queues WRITE");
     }
 
     function unlockQueueTable(){
-        $this->query("UNLOCK TABLES");
+//        $this->query("UNLOCK TABLES");
     }
 }

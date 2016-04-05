@@ -1,37 +1,24 @@
 <div class="bootstrap-scope">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav id="game-navbar" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
-                    <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
-                    <li><a id="_counter">Количество шагов: <span></span></a></li>
-                    <li><a id="_step">Этап:<span></span> из 5</a></li>
-                    <li>
-                        <div id="countdown" style="line-height: 30.24px!important;" class="timeTo timeTo-white"></div>
-                    </li>
-                </ul>
-
+            <ul class="nav navbar-nav" style="margin-top: 0">
+                <li><a class="navbar-brand" href="/">
+                        <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
+                    </a></li>
+                <li><button type="button" id="backarrow" class="btn btn-default navbar-btn backarrow"><span class="glyphicon glyphicon-arrow-left"></span></button></li>
+                <li><div class="navbar-text counter_wrapper"><span class="label label-warning _counter" style="font-size: 100%; padding: 3px 6px;"></span></div></li>
+                <li><div class="navbar-text ellipse endlink_wrapper"><a class="_endlink" target="_blank" href=""><span></span></a></div></li>
+                <li><div class="navbar-text step"><span></span> из 5</div></li>
+            </ul>
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hovered"><a href="/compete"
-                                           onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
+                    <li><a href="/compete<?= $start_page ?>" style="padding-top: 17px" onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
+
 
 <script>
     window.history.pushState("", "", "/<?=$_SESSION["playlink"]?>");
@@ -48,7 +35,8 @@
     });
 
     function fixLinks() {
-        $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a:not([href^='#'], #game-navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        //$("a.image").attr("onclick", "return false");
     }
 
     function getWayInfo(fr) {
@@ -63,10 +51,10 @@
     }
 
     function refreshWindow() {
-        $("#_end").text(t.end);
-        $("#_endlink").attr("href", t.endlink);
-        $("#_step>span").text(t.compete.step);
-        $("#_counter>span").text(t.counter);
+        $("._counter").text(t.counter);
+        $("._endlink").attr("href", t.endlink);
+        $("._endlink>span").text(t.end);
+        $(".step>span").text(t.compete.step);
     }
 
     function loadAfterClick(ele) {
@@ -74,7 +62,7 @@
             url: $(ele).prop("href")
         }).done(function (data) {
             if (data == "win") {
-                location.href = "/hitler/success";
+                location.href = "/compete/success";
             }
             $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);

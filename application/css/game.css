@@ -71,7 +71,9 @@ sup.reference,
     margin-right: 3px !important;
     color:#333 !important;
 }
+.navbar-right div{
 
+}
 .backarrow {
     height: 34px;
 }
@@ -94,6 +96,9 @@ sup.reference,
 
     .endlink_wrapper:before {
         content: 'Цель: ';
+    }
+    .step:before{
+        content: 'Этап: ';
     }
 }
 

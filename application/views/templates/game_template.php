@@ -38,6 +38,7 @@
         }
         #countdown{
             margin-top: 10px;
+            margin-left: 10px;
             font-weight: normal;
         }
         #backarrow:hover{

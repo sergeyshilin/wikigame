@@ -42,12 +42,14 @@ class Controller_login extends Controller
             // if the used didn't authenticate using the selected provider before
             // we create a new entry on database.users for him
             if (!$user_exist) {
+                $nick = "Walker" . $user_profile->identifier;
                 $code = $this->model->create_new_hybridauth_user(
                     $user_profile->email,
                     $user_profile->firstName,
                     $user_profile->lastName,
                     $provider_name,
-                    $user_profile->identifier
+                    $user_profile->identifier,
+                    $nick
                 );
                 if (!$code) {
                     header("Location: /login/fail");
@@ -62,7 +64,7 @@ class Controller_login extends Controller
             $vkapi_link = "http://api.vk.com/method/users.get?uids=".$user_profile->identifier."&fields=photo_200,status";
             $response = file_get_contents($vkapi_link);
             $info = array_shift(json_decode($response)->response);
-            var_dump($info->photo_200);
+            //var_dump($info->photo_200);
             $_SESSION["user_photo"] = $info->photo_200;
             header("Location: /");
         }

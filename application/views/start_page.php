@@ -179,6 +179,14 @@
             func(arg);
         }
     }
+    $(".upd-stats").click(function(){
+        $.ajax({
+            url: "/main/upd-stats"
+        }).done(function(){
+            location.href = "/";
+        });
+    })
+
 </script>
 
 <?php

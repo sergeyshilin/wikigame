@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <script src="/application/js/jquery.min.js"></script>
+    <script src="/application/js/parse-1.4.0.min.js"></script>
+    <script src="/application/js/Share.js"></script>
 </head>
 
 <body>
@@ -97,8 +99,8 @@
     </p>
 </div>
 </div>
-
 <script src="/application/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>

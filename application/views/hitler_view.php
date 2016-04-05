@@ -1,31 +1,17 @@
 <div class="bootstrap-scope">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav id="game-navbar" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a id="_endlink" target="_blank" href="">Ваша цель: <span id="_end" class="jslink"></span></a></li>
-                    <li><a id="backarrow">Назад <span class="glyphicon glyphicon-arrow-left"></span></a></li>
-                    <li><a id="_counter">Количество шагов: <span></span></a></li>
-                    <li><a id="like"><span class="glyphicon glyphicon-thumbs-up"></span></a></li>
-                    <li><a id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span></a></li>
-                </ul>
-
+            <ul class="nav navbar-nav" style="margin-top: 0">
+                <li><a class="navbar-brand" href="/">
+                        <img class="header_logo" src="/application/images/logo.svg" title="WikiWalker - найди свой путь">
+                    </a></li>
+                <li><button type="button" id="backarrow" class="btn btn-default navbar-btn backarrow"><span class="glyphicon glyphicon-arrow-left"></span></button></li>
+                <li><div class="navbar-text counter_wrapper"><span class="label label-warning _counter" style="font-size: 100%; padding: 3px 6px;"></span></div></li>
+                <li><div class="navbar-text ellipse endlink_wrapper"><a class="_endlink" target="_blank" href=""><span></span></a></div></li>
+            </ul>
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hovered"><a href="/hitler<?= $start_page ?>"
-                                           onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
-
+                    <li><a href="/hitler<?= $start_page ?>" style="padding-top: 17px" onclick="yaCounter28976460.reachGoal('header_playagain'); return true;">Начать заново</a></li>
                 </ul>
             </div>
         </div>
@@ -49,10 +35,12 @@
             window.history.pushState("", "", "/" + data);
         })
     }
+
     function fixLinks() {
-        $("a:not([href^='#'], #navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a:not([href^='#'], #game-navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
         //$("a.image").attr("onclick", "return false");
     }
+
     function syncLikes() {
         $.ajax({
             url: "/main/like/check"
@@ -77,11 +65,13 @@
             refreshWindow();
         });
     }
+
     function refreshWindow() {
-        $("#_counter>span").text(t.counter);
-        $("#_end").text(t.end);
-        $("#_endlink").attr("href", t.endlink);
+        $("._counter").text(t.counter);
+        $("._endlink").attr("href", t.endlink);
+        $("._endlink>span").text(t.end);
     }
+
     function loadAfterClick(ele) {
         $.ajax({
             url: $(ele).prop("href")
