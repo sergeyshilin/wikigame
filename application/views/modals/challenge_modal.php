@@ -9,15 +9,15 @@
                 <div class="game-type-grid" style="color: #000; text-shadow: none">
                     <div class="row row-eq-height">
                         <div class="game-type col-sm-6">
-                            <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('/queue')">
-                            <div class="game-type-text" onclick="gotoChallenge('/queue')">
+                            <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('')">
+                            <div class="game-type-text" onclick="gotoChallenge('')">
                                 <h3>Ожидать соперника</h3>
                                 <p>Сыграть со случайным противником прямо сейчас</p>
                             </div>
                         </div>
                         <div class="game-type col-sm-6">
-                            <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('')">
-                            <div class="game-type-text" onclick="gotoChallenge('')">
+                            <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('/share')">
+                            <div class="game-type-text" onclick="gotoChallenge('/share')">
                                 <h3>Поделиться ссылкой</h3>
                                 <p>Получите ссылку, отправьте ее другу и соревнуйтесь прямо сейчас!</p>
                             </div>

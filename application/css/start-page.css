@@ -116,14 +116,14 @@
 }
 
 #stats .list-group-item.active>.list-group-item-heading {
-    color: #333;
+    /*color: #333;*/
 }
 
 #stats .list-group-item.active,
 #stats .list-group-item .badge {
-    background: #e7e7e7 none;
+    /*background: #e7e7e7 none;*/
     border-color: #666;
-    color: #333;
+    /*color: #333;*/
     text-shadow: none !important;
 }
 

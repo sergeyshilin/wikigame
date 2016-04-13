@@ -32,11 +32,7 @@ class Controller_challenge extends Controller{
             exit();
         }
         if($action_param == "queue"){
-            $this->model->setUpQueue();
-            $userStatistics = $this->getUserStatistics();
-            $this->view->generate("challenge_queue_view.php", "templates/template_with_background.php",
-                $userStatistics);
-            exit();
+
         }
 
         if($action_param == "success"){
@@ -81,7 +77,7 @@ class Controller_challenge extends Controller{
             exit();
         }
         if(($action_param == "join") && ($_SESSION["user_connected"]) && (isset($action_data))){
-            if(!$this->model->joinRoom($action_data)) {header("Location: /");}
+            if(!$this->model->joinRoom($action_data)) {header("Location: /"); exit();}
             $info = $this->model->prepareUser($action_data);
             $_SESSION["challenge"]["game_hash"] = $info["hash"];
             $_SESSION["challenge"]["way_hash"] = $info["way_hash"];
@@ -99,20 +95,32 @@ class Controller_challenge extends Controller{
         unset($_SESSION["queue"]);
         $game_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
         $_SESSION["challenge"] = array("starttime" => time(), "game_hash" => $game_hash);
+
         if($action_param == "custom" && isset($action_data)){
             $_SESSION["challenge"]["way_hash"] = $action_data;
             $_SESSION["challenge"]["way_type"] = 1;
             $this->model->createRoom($game_hash, $action_data, 1);
         }
-        else {
+
+        if($action_param == "share"){
             $way = WayParser::getRandomWay(0, $this->model);
             $hash = $way->getHash();
             $_SESSION["challenge"]["way_hash"] = $hash;
             $this->model->createRoom($game_hash, $hash, 0);
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_start_view.php", "templates/template_with_background.php",
+                $userStatistics, $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+            exit();
         }
-        $userStatistics = $this->getUserStatistics();
-        $this->view->generate("challenge_start_view.php", "templates/template_with_background.php",
-            $userStatistics, $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+
+        else { //Queue mode
+            $this->model->setUpQueue();
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_queue_view.php", "templates/template_with_background.php",
+                $userStatistics);
+            exit();
+        }
+
     }
 
 }

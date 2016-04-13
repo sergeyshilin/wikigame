@@ -9,8 +9,10 @@ class Model_challenge extends Model
         $this->query("INSERT INTO pvp_rooms VALUES('', $_SESSION[user_id], '', '{$game_hash}', '{$hash}', $way_type, NOW(), 0, 0)");
     }
     function joinRoom($game_hash){
-        $check = $this->getAssoc("SELECT id FROM pvp_rooms WHERE hash='{$game_hash}' AND user1_id = '{$_SESSION[user_id]}'")[0]["id"];
-        return ($check > 0) ? false : $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
+        $check = $this->getAssoc("SELECT id FROM pvp_rooms WHERE hash='{$game_hash}' AND user1_id != '{$_SESSION[user_id]}'")[0]["id"];
+        if(sizeof($check) <= 0) return false;
+        else $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
+        return true;
     }
     function prepareUser($game_hash){
         return $this->getAssoc("SELECT hash, way_hash, way_type from pvp_rooms WHERE hash='{$game_hash}'")[0];

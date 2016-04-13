@@ -29,8 +29,6 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
         history.go(1);
     };
 </script>
-<div class="wrapper">
-    <div class="container">
         <div class="row" style="text-align:center; color: #fff;">
 
             <h1 class="cover-heading">Поздравляем!</h1>
@@ -67,8 +65,6 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
                    onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
             </p>
         </div>
-    </div>
-</div>
 
 <script>
     syncLikes();

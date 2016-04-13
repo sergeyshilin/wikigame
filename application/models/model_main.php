@@ -56,10 +56,10 @@ class Model_Main extends Model{
 			if ($out["is_hitler"] == 1) {
 				$fetched[$out["way_id"]]["end"] =
 						"Гитлер, Адольф";
-				$fetched[$out["way_id"]]["way_link"] = "/hitler/".$out["hash"];
+				$fetched[$out["way_id"]]["way_link"] = "/hitler/standart/".$out["hash"];
 			}
 			else {
-				$fetched[$out["way_id"]]["way_link"] = "/wiki/way/".$out["hash"];
+				$fetched[$out["way_id"]]["way_link"] = "/classic/".$out["hash"];
 			}
 		}
 		return $fetched;
@@ -84,10 +84,10 @@ class Model_Main extends Model{
 			if ($out["is_hitler"] == 1) {
 				$fetched[$out["way_id"]]["end"] =
 						"Гитлер, Адольф";
-				$fetched[$out["way_id"]]["way_link"] = "/hitler/".$out["hash"];
+				$fetched[$out["way_id"]]["way_link"] = "/hitler/standart/".$out["hash"];
 			}
 			else {
-				$fetched[$out["way_id"]]["way_link"] = "/wiki/way/".$out["hash"];
+				$fetched[$out["way_id"]]["way_link"] = "/classic/".$out["hash"];
 			}
 		}
 		return $fetched;
