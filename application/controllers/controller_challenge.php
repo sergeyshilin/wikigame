@@ -47,7 +47,7 @@ class Controller_challenge extends Controller{
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
                 $userStatistics = $this->getUserStatistics();
-                $this->view->generate("success_view.php", "template_view.php", "/challenge", $rank);
+                $this->view->generate("success_view.php", "templates/template_with_background.php", $userStatistics, "/challenge");
                 $this->unset_gamesession();
                 exit();
             }
@@ -76,7 +76,16 @@ class Controller_challenge extends Controller{
 
             exit();
         }
-        if(($action_param == "join") && ($_SESSION["user_connected"]) && (isset($action_data))){
+        if(($action_param == "join") && (isset($action_data))){
+            if(!$_SESSION["user_connected"]) {
+                if(!$this->model->tryRoom($action_data)){ header("Location: /"); exit(); }
+                else{
+                    $_SESSION["challenge_temp_link"] = "/join/".$action_data;
+                    $_SESSION["referer_mode"] = "login_modal";
+                    header("Location: /");
+                    exit();
+                }
+            }
             if(!$this->model->joinRoom($action_data)) {header("Location: /"); exit();}
             $info = $this->model->prepareUser($action_data);
             $_SESSION["challenge"]["game_hash"] = $info["hash"];

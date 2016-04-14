@@ -147,3 +147,6 @@
     background-color: rgba(217, 83, 79, 0.8);
     border-color: rgba(212, 63, 58, 0.8);
 }
+.game-type-text>h3 {
+    font-size: 22px;
+}

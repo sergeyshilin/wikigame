@@ -31,22 +31,22 @@
             </div>
             <div class="row row-eq-height">
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-03.png" onclick="runIfLoggedIn(showCustomWayModal)">
-                    <div class="game-type-text" onclick="runIfLoggedIn(showCustomWayModal)">
+                    <img src="application/images/game_types/wki_icon-03.png" onclick="runIfLoggedIn(showCustomWayModal); saveRefererMode('custom')">
+                    <div class="game-type-text" onclick="runIfLoggedIn(showCustomWayModal); saveRefererMode('custom')">
                         <h3>Свой маршрут</h3>
                         <p>Проложите свой маршут, соревнуйтесь с друзьями</p>
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-04.png" onclick="runIfLoggedIn(showChallengeModal)">
-                    <div class="game-type-text" onclick="runIfLoggedIn(showChallengeModal)">
+                    <img src="application/images/game_types/wki_icon-04.png" onclick="runIfLoggedIn(showChallengeModal); saveRefererMode('challenge')">
+                    <div class="game-type-text" onclick="runIfLoggedIn(showChallengeModal); saveRefererMode('challenge')">
                         <h3>Дуэль</h3>
                         <p>Найдите себе соперника и пройдите маршрут первым!</p>
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-06.png" onclick="runIfLoggedIn(goto, 'compete')">
-                    <div class="game-type-text" onclick="runIfLoggedIn(goto, 'compete')">
+                    <img src="application/images/game_types/wki_icon-06.png" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete')">
+                    <div class="game-type-text" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete')">
                         <h3>Турнир</h3>
                         <p>Пройдите 5 маршрутов за 10 минут и получите 1500 очков!</p>
                     </div>
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <div id="stats" class="carousel slide">
+        <div id="stats" class="carousel slide" data-ride="carousel" data-interval="10000">
             <div class="carousel-inner">
                 <div class="active item">
                     <div class="list-group" id="top-users">
@@ -64,7 +64,7 @@
                             <h4 class="list-group-item-heading">Лучшие игроки</h4>
                         </a>
                         <?php $i = 1;
-                        foreach ($info as $key => $value) : ?>
+                        foreach ($info["all_leaders"] as $key => $value) : ?>
                             <a class="list-group-item">
                                 <span class="badge"> <?= $value["value"] ?></span>
                                 <h4 class="list-group-item-heading"><?= $i . ". " ?><i class="fa fa-user"></i>&nbsp<?= $value["nick"] ?></h4>
@@ -90,10 +90,10 @@
                     <div class="list-group" id="top-users">
                         <a class="list-group-item active">
                             <span class="upd-stats badge">Обновить</span>
-                            <h4 class="list-group-item-heading">Популярное сегодня</h4>
+                            <h4 class="list-group-item-heading">Популярное за все время</h4>
                         </a>
                         <?php $i = 1;
-                        foreach ($data2 as $key => $value): ?>
+                        foreach ($info["all_pop_ways"] as $key => $value): ?>
                             <a class="list-group-item" href="<?= $value['way_link'] ?>">
                                 <span class="badge"> <?= $value["rating"] ?></span>
                                 <h4 class="list-group-item-heading"><?= $i . ". " . $value["start"] ?> <i class="fa fa-arrow-right"></i></h4>
@@ -119,10 +119,38 @@
                     <div class="list-group" id="top-users">
                         <a class="list-group-item active">
                             <span class="upd-stats badge">Обновить</span>
-                            <h4 class="list-group-item-heading">Самое популярное</h4>
+                            <h4 class="list-group-item-heading">Лучшие игроки за сегодня</h4>
                         </a>
                         <?php $i = 1;
-                        foreach ($data3 as $key => $value) : ?>
+                        foreach ($info["leaders"] as $key => $value) : ?>
+                            <a class="list-group-item" href="<?= $value['way_link'] ?>">
+                                <span class="badge"> <?= $value["value"] ?></span>
+                                <h4 class="list-group-item-heading"><?= $i . ". " ?><i class="fa fa-user"></i>&nbsp<?= $value["nick"] ?></h4>
+                                <p class="list-group-item-text">Сыграно игр: <?= $value["count"] ?></p>
+                            </a>
+                            <?php $i++; endforeach; ?>
+                        <?php while ($i < 9) : ?>
+                            <a class="list-group-item">
+                                <h4 class="list-group-item-heading">&nbsp</h4>
+                                <p class="list-group-item-text">&nbsp</p>
+                            </a>
+                            <?php $i++; endwhile; ?>
+
+                        <a class="list-group-item">
+                            <div class="carousel-control left" href="#stats" data-slide="prev">‹</div>
+                            <div class="carousel-control right" href="#stats" data-slide="next">›</div>
+                            <p></p>
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="list-group" id="top-users">
+                        <a class="list-group-item active">
+                            <span class="upd-stats badge">Обновить</span>
+                            <h4 class="list-group-item-heading">Популярное за сегодня</h4>
+                        </a>
+                        <?php $i = 1;
+                        foreach ($info["pop_ways"] as $key => $value) : ?>
                             <a class="list-group-item" href="<?= $value['way_link'] ?>">
                                 <span class="badge"> <?= $value["rating"] ?></span>
                                 <h4 class="list-group-item-heading"><?= $i . ". " . $value["start"] ?> <i class="fa fa-arrow-right"></i></h4>
@@ -179,13 +207,38 @@
             func(arg);
         }
     }
+
+    function saveRefererMode(mode){
+        window.referer_mode = mode;
+    }
     $(".upd-stats").click(function(){
         $.ajax({
             url: "/main/upd-stats"
         }).done(function(){
             location.href = "/";
         });
-    })
+    });
+
+    $(document).ready(function(){
+        window.referer_mode_ = "<?=$data2?>";
+        switch (window.referer_mode_) {
+            case "custom":
+                showCustomWayModal();
+                break;
+            case "challenge":
+                showChallengeModal();
+                break;
+            case "compete":
+                goto("compete");
+                break;
+            case "login_modal":
+                showLoginModal();
+                break;
+            default:
+                break;
+        }
+    });
+
 
 </script>
 

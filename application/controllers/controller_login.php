@@ -66,6 +66,14 @@ class Controller_login extends Controller
             $info = array_shift(json_decode($response)->response);
             //var_dump($info->photo_200);
             $_SESSION["user_photo"] = $info->photo_200;
+            if(isset($_SESSION["challenge_temp_link"])){
+                echo $_SESSION["challenge_temp_link"];
+                $temp = $_SESSION["challenge_temp_link"];
+                unset($_SESSION["challenge_temp_link"]);
+                unset($_SESSION["referer_mode"]);
+                header("Location: /challenge" . $temp);
+                exit();
+            }
             header("Location: /");
         }
     }

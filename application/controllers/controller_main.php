@@ -16,10 +16,17 @@ class Controller_Main extends Controller{
 			exit();
 
 		}
+
 		if($action_param == "upd-stats"){
 			$this->model->updateLeadersCache();
 			$this->model->updatePopularWaysCache();
 			$this->model->updateAllPopularWaysCache();
+			$this->model->updateAllLeadersCache();
+			exit();
+		}
+
+		if($action_param == "referer_mode" && $action_data !== ""){
+			$_SESSION["referer_mode"] = $action_data;
 			exit();
 		}
 		//Загрузка главной страницы, передачи списка категорий нет
@@ -27,9 +34,13 @@ class Controller_Main extends Controller{
 
 
 		$userStatistics = $this->getUserStatistics();
+		$rating = array();
+		$rating["leaders"] = $this->model->getLeaders();
+		$rating["all_leaders"] = $this->model->getAllLeaders();
+		$rating["pop_ways"] = $this->model->getPopularWays();
+		$rating["all_pop_ways"] = $this->model->getAllPopularWays();
 		$this->view->generate('start_page.php', 'templates/template_with_background.php',
-				$userStatistics, $this->model->getLeaders(),
-				$this->model->getPopularWays(), $this->model->getAllPopularWays()
-		);
+				$userStatistics, $rating, $_SESSION["referer_mode"]);
+		unset($_SESSION["referer_mode"]);
 	}
 }

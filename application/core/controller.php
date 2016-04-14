@@ -41,11 +41,14 @@ class Controller{
 		$rating = $this->model->GetRating($uid);
 		$rating = ($rating == null) ? 0 : $rating;
 		$nextLevelScore = (floatval($rank) + 1)*(floatval($rank) + 1)*100;
+		$old_rating = 100*pow($rank, 2);
 		return [
 				"rank" => $rank,
 				"rating" => $rating,
+			    "old_rating" => $old_rating,
 				"nextLevelScore" => $nextLevelScore,
-				"progress" => floatval($rating)/$nextLevelScore
+//				"progress" => floatval($rating)/$nextLevelScore,
+				"progress" => intval(($rating - $old_rating)/($nextLevelScore - $old_rating) * 100)
 		];
 	}
 }

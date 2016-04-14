@@ -69,7 +69,7 @@
                                     $nextLevelScore = (floatval($data["rank"]) + 1)*(floatval($data["rank"]) + 1);
                                     $progress = floatval($data["rating"])/$nextLevelScore
                                 ?>
-                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<?= $progress ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $progress ?>%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<?=$data["progress"]?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $data["progress"] ?>%">
                                     <span class="sr-only"><?= $progress ?>%</span>
                                 </div>
                             </div>

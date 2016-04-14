@@ -35,8 +35,8 @@
                                 </div>
                             </div>
                             <div class="game-type col-sm-4">
-                                <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoCustom('challenge')">
-                                <div class="game-type-text" onclick="gotoCustom('challenge')">
+                                <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoCustom('challenge/custom')">
+                                <div class="game-type-text" onclick="gotoCustom('challenge/custom')">
                                     <h3>Дуэль</h3>
                                     <p>Найдите себе соперника и пройдите маршрут первым!</p>
                                 </div>
@@ -86,7 +86,7 @@
                     showMessage("Неправильный адрес");
                     break;
                 default:
-                    wayId = response;
+                    window.wayId = response;
                     $("#before-success").css("display", "none");
                     $("#submit_action").css("display", "none");
                     $("#after-success").css("display", "block");

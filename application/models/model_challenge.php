@@ -14,6 +14,11 @@ class Model_challenge extends Model
         else $this->query("UPDATE pvp_rooms SET user2_id=$_SESSION[user_id] WHERE hash='{$game_hash}'");
         return true;
     }
+
+    function tryRoom($game_hash){
+        $check = $this->getAssoc("SELECT id FROM pvp_rooms WHERE hash='{$game_hash}'")[0]["id"];
+        return(sizeof($check) <= 0) ? false : true;
+    }
     function prepareUser($game_hash){
         return $this->getAssoc("SELECT hash, way_hash, way_type from pvp_rooms WHERE hash='{$game_hash}'")[0];
     }

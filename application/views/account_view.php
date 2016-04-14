@@ -40,7 +40,7 @@
                 $progress = floatval($rating)/$nextLevelScore;
             ?>
             <p>Ваш уровень: <?= $data["rank"] ?></p>
-            <p>Ваш рейтинг: <? echo $rating . " / " . $nextLevelScore . " (" . intval($progress*100) . "%)" ?></p>
+            <p>Ваш рейтинг: <? echo $rating . " / " . $nextLevelScore . " (" . $data["progress"] . "%)" ?></p>
             <p>Позиция среди всех игроков: <?= $data["order"] ?></p>
             <p>&nbsp;</p>
         </div>
