@@ -9,6 +9,9 @@
                 <li><div class="navbar-text counter_wrapper"><span class="label label-warning _counter" style="font-size: 100%; padding: 3px 6px;"></span></div></li>
                 <li><div class="navbar-text ellipse endlink_wrapper"><a class="_endlink" target="_blank" href=""><span></span></a></div></li>
                 <li><div class="navbar-text step"><span></span> из 5</div></li>
+                <li>
+                    <div id="countdown" style="line-height: 30.24px!important;" class="timeTo timeTo-white"></div>
+                </li>
             </ul>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -29,7 +32,7 @@
         $(".bootstrap-scope").after(data);
         fixLinks();
         getWayInfo();
-        $('#countdown').timeTo(600, function () {
+        $('#countdown').timeTo(900, function () {
             location.href = "/compete/lose";
         });
     });

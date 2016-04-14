@@ -33,6 +33,7 @@ class Controller_compete extends Controller{
         unset($_SESSION["compete"]);
         $this->unset_gamesession();
         $_SESSION["compete"] = array("starttime" => time());
+        $_SESSION["playlink"] = "compete";
         if($action_param == "test") { echo $_SESSION["compete"]; exit();}
         $this->view->generate("compete_view.php", "templates/game_template.php");
     }

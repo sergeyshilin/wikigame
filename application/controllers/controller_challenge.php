@@ -100,6 +100,11 @@ class Controller_challenge extends Controller{
             $_SESSION["challenge"]["way_hash"] = $action_data;
             $_SESSION["challenge"]["way_type"] = 1;
             $this->model->createRoom($game_hash, $action_data, 1);
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_start_view.php", "templates/template_with_background.php",
+                $userStatistics, $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+            exit();
+
         }
 
         if($action_param == "share"){

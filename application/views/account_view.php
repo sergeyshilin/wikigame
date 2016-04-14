@@ -19,6 +19,9 @@
         margin: 0;
         height: 19px;
     }
+    .gamemode_icons{
+        height:17px;
+    }
 </style>
 
 <div class="row account-view">
@@ -96,13 +99,13 @@
                         <td><a target='_blank' href='$value[endlink]'>" . $end . "</a></td>
                         <td>
                             <a class='way-action' href=/one_minute/custom_way/" . $value["hash"] . ">
-                                <span class='glyphicon glyphicon-time' title='На время'></span>
+                                <img src='application/images/game_types/wki_icon-01.png' class='gamemode_icons'>
                             </a>
                             <a class='way-action' href=/challenge/custom/" . $value["hash"] . ">
-                                <span class='glyphicon glyphicon-send' title='Дуэль'></span>
+                                <img src='application/images/game_types/wki_icon-04.png' class='gamemode_icons'>
                             </a>
                             <a class='way-action' href=/classic/custom_way/" . $value["hash"] . ">
-                                <span class='glyphicon glyphicon-copyright-mark' title='Классический'></span>
+                                <img src='application/images/game_types/wki_icon-02.png' class='gamemode_icons'>
                             </a>
                         </td></tr>";
                 }
