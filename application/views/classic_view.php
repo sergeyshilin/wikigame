@@ -16,6 +16,7 @@
             </div>
         </div>
     </nav>
+    <?php include_once("modals/load_layer.php"); ?>
 </div>
 
 <script>
@@ -27,11 +28,13 @@
         fixLinks();
         getWayInfo();
         setUpUrl();
+        $(".load-layer").hide();
     });
 
 
     function fixLinks() {
-        $("a:not([href^='#'], #game-navbar *, .navbar-header *)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a:not([href^='#'], #game-navbar *, .navbar-header *, .new)").attr("onclick", "loadAfterClick(this); return false;");
+        $("a.new").attr("onclick","alert('Этой страницы в Википедии нет'); return false;");
         //$("a.image").attr("onclick", "return false");
     }
 
@@ -59,6 +62,10 @@
     }
 
     function loadAfterClick(ele) {
+        $(".load-layer").show();
+        $("#content").hide();
+        $(document).scrollTop(0);
+
         $.ajax({
             url: $(ele).prop("href")
         }).done(function (data) {
@@ -66,6 +73,8 @@
                 location.href = "/classic/success";
             }
             else {
+                $("#content").show();
+                $(".load-layer").hide();
                 $(".bootstrap-scope").nextAll().remove();
                 $(".bootstrap-scope").after(data);
                 fixLinks();
@@ -76,9 +85,14 @@
     }
 
     $("#backarrow").click(function () {
+        $(".load-layer").show();
+        $("#content").hide();
+        $(document).scrollTop(0);
         jQuery.ajax({
             url: "/wiki/" + window.t.previous
         }).done(function (data) {
+            $("#content").show();
+            $(".load-layer").hide();
             $(".bootstrap-scope").nextAll().remove();
             $(".bootstrap-scope").after(data);
             fixLinks();

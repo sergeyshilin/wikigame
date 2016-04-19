@@ -54,6 +54,32 @@
 </div>
 
 <script>
+    window.link1 = "";
+    window.link2 = "";
+    $(document).ready(function(){
+        $("#startlink").change(function(){
+           window.link1 = $(this).val();
+           console.log(window.link1);
+            CheckCustomLink(window.link1,this);
+        });
+        $("#endlink").change(function(){
+            window.link2 = $(this).val();
+            console.log(window.link2);
+            CheckCustomLink(window.link2,this);
+        })
+    });
+
+    function CheckCustomLink(link, elem){
+        $.ajax({
+            url: "/custom_ways/check",
+            method: "POST",
+            data: {"link": link}
+        }).done(function(data){
+            if(data !== ""){
+                $(elem).val(data);
+            }
+        })
+    }
     function showCustomWayModal() {
         $("#before-success").css("display", "block");
         $("#submit_action").css("display", "inline-block");
@@ -73,7 +99,7 @@
         $.ajax({
             url: "/custom_ways/add",
             method: "POST",
-            data: {"startlink": $("#startlink").val(), "endlink": $("#endlink").val()}
+            data: {"startlink": window.link1, "endlink": window.link2}
         }).done(function (response) {
             switch (response) {
                 case "exists":
@@ -101,6 +127,9 @@
         var text_left = $start_link.val();
         $start_link.val($end_link.val());
         $end_link.val(text_left);
+        var temp = window.link1;
+        window.link1 = window.link2;
+        window.link2 = temp;
     }
 
     function gotoCustom(url) {

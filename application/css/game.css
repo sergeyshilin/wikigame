@@ -145,4 +145,25 @@ sup.reference,
 .navbar-nav > li, .navbar-nav {
     float: left !important;
 }
-
+.load-layer img{
+    display:block;
+    margin:0 auto;
+    margin-top:100px;
+    margin-bottom:40px;
+    height:150px;
+    animation-name: example;
+    animation-duration: .5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.load-layer{
+    display: block;
+    margin:0 auto;
+    text-align: center;
+}
+@keyframes example {
+    0% { -webkit-filter: drop-shadow(5px 5px 10px black);
+        filter: drop-shadow(5px 5px 10px black);}
+    100% { -webkit-filter: none;
+        filter:none;}
+}

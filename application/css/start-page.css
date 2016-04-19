@@ -150,3 +150,38 @@
 .game-type-text>h3 {
     font-size: 22px;
 }
+/*img{*/
+    /*animation-name: example;*/
+    /*animation-duration: .5s;*/
+    /*animation-direction: alternate;*/
+    /*animation-iteration-count: infinite;*/
+/*}*/
+/*@keyframes example {*/
+    /*0% { -webkit-filter: drop-shadow(5px 5px 10px black);}*/
+    /*100% { -webkit-filter: none;}*/
+/*}*/
+.load-layer img{
+    display:block;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:40px;
+    height:150px;
+    animation-name: example;
+    animation-duration: .5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.load-layer{
+    display: block;
+    margin:0 auto;
+    text-align: center;
+}
+.load-layer span{
+    display: none;
+}
+@keyframes example {
+    0% { -webkit-filter: drop-shadow(5px 5px 10px white);
+        filter: drop-shadow(5px 5px 10px white);}
+    100% { -webkit-filter: none;
+        filter: none;}
+}

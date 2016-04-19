@@ -56,9 +56,9 @@ class PageResolver {
     }
 
     public function extractRedirectPageName($content) {
-        $needle = "<ul class=\"redirectText\"><li><a href=\"/w/index.php?title=";
+        $needle = "<ul class=\"redirectText\"><li><a href=\"/wiki/";
         $startPos = strpos($content, $needle);
-        $end1 = strpos($content, '&amp;', $startPos + strlen($needle));
+        $end1 = strpos($content, '"', $startPos + strlen($needle));
         return substr($content, $startPos + strlen($needle), $end1 - $startPos - strlen($needle));
     }
 

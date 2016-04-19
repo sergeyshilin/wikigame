@@ -112,6 +112,7 @@ class Controller_wiki extends Controller{
                 if ($resolver->isRedirect($obj["content"])) {
                     $name = $resolver->extractRedirectPageName($obj["content"]);
                     header('Location: /wiki/' . $name);
+
                 } else if ($title == $_SESSION['start']) {
                     $_SESSION['previous'] = "";
                     $_SESSION['current'] = $_SESSION['start'];

@@ -25,6 +25,12 @@ class Controller_Main extends Controller{
 			exit();
 		}
 
+
+		if($action_param == "pgt"){
+			echo StringUtils::pageTitle($_POST["pgt"]);
+			exit();
+		}
+
 		if($action_param == "referer_mode" && $action_data !== ""){
 			$_SESSION["referer_mode"] = $action_data;
 			exit();

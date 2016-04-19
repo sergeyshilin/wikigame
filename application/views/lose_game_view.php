@@ -24,9 +24,9 @@ $playlink = $_SESSION["playlink"];
 
     <p class="lead">
         <a href="<?=$info?>" class="btn btn-lg btn-success congrats_playagain"
-           onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
+           onclick="yaCounter28976460.reachGoal('lose_newgame'); return true;">Новая игра</a>
         <a href="/<?= $playlink ?>" class="btn btn-lg btn-success congrats_playagain"
-           onclick="yaCounter28976460.reachGoal('newgame'); return true;">Попробовать еще раз</a>
+           onclick="yaCounter28976460.reachGoal('lose_playagain'); return true;">Попробовать еще раз</a>
     </p>
 </div>
 
@@ -36,4 +36,7 @@ $playlink = $_SESSION["playlink"];
     window.onpopstate = function (event) {
         history.go(1);
     };
+    $(window).load(function () {
+        yaCounter28976460.reachGoal('lose_game');
+    });
 </script>

@@ -9,20 +9,22 @@
             <div class="row row-eq-height">
                 <div class="game-type col-sm-4">
                     <img src="application/images/game_types/wki_icon-02.png" onclick="goto('classic')">
-                    <div class="game-type-text" onclick="goto('classic')">
+                    <div class="game-type-text" onclick="goto('classic'); yaCounter28976460.reachGoal('classic')">
                         <h3>Классический</h3>
                         <p>Стандартная игра без ограничений</p>
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-01.png" onclick="goto('one_minute')">
+                    <img src="application/images/game_types/wki_icon-01.png" onclick="goto('one_minute');
+                     yaCounter28976460.reachGoal('one_minute')">
                     <div class="game-type-text" onclick="goto('one_minute')">
                         <h3>На время</h3>
                         <p>Пройдите маршрут за 1 минуту. Слабо?</p>
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-05.png" onclick="showHitlerModal()">
+                    <img src="application/images/game_types/wki_icon-05.png" onclick="showHitlerModal();
+                    yaCounter28976460.reachGoal('hitler_popup')">
                     <div class="game-type-text" onclick="showHitlerModal()">
                         <h3>Гитлер</h3>
                         <p>Доберитесь до Гитлера любой ценой!</p>
@@ -31,7 +33,8 @@
             </div>
             <div class="row row-eq-height">
                 <div class="game-type col-sm-4">
-                    <img src="application/images/game_types/wki_icon-03.png" onclick="runIfLoggedIn(showCustomWayModal); saveRefererMode('custom')">
+                    <img src="application/images/game_types/wki_icon-03.png" onclick="runIfLoggedIn(showCustomWayModal);
+                    yaCounter28976460.reachGoal('custom_way'); saveRefererMode('custom')">
                     <div class="game-type-text" onclick="runIfLoggedIn(showCustomWayModal); saveRefererMode('custom')">
                         <h3>Свой маршрут</h3>
                         <p>Проложите свой маршут, соревнуйтесь с друзьями</p>
@@ -39,14 +42,16 @@
                 </div>
                 <div class="game-type col-sm-4">
                     <img src="application/images/game_types/wki_icon-04.png" onclick="runIfLoggedIn(showChallengeModal); saveRefererMode('challenge')">
-                    <div class="game-type-text" onclick="runIfLoggedIn(showChallengeModal); saveRefererMode('challenge')">
+                    <div class="game-type-text" onclick="runIfLoggedIn(showChallengeModal); saveRefererMode('challenge');
+                    yaCounter28976460.reachGoal('challenge_modal')">
                         <h3>Дуэль</h3>
                         <p>Найдите себе соперника и пройдите маршрут первым!</p>
                     </div>
                 </div>
                 <div class="game-type col-sm-4">
                     <img src="application/images/game_types/wki_icon-06.png" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete')">
-                    <div class="game-type-text" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete')">
+                    <div class="game-type-text" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete');
+                    yaCounter28976460.reachGoal('compete')">
                         <h3>Турнир</h3>
                         <p>Пройдите 5 маршрутов за 10 минут и получите 1500 очков!</p>
                     </div>

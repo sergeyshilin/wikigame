@@ -10,14 +10,14 @@
                     <div class="row row-eq-height">
                         <div class="game-type col-sm-6">
                             <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('')">
-                            <div class="game-type-text" onclick="gotoChallenge('')">
+                            <div class="game-type-text" onclick="gotoChallenge(''); yaCounter28976460.reachGoal('challenge_queue')">
                                 <h3>Ожидать соперника</h3>
                                 <p>Сыграть со случайным противником прямо сейчас</p>
                             </div>
                         </div>
                         <div class="game-type col-sm-6">
                             <img src="application/images/game_types/wki_icon-04.png" class="invert" onclick="gotoChallenge('/share')">
-                            <div class="game-type-text" onclick="gotoChallenge('/share')">
+                            <div class="game-type-text" onclick="gotoChallenge('/share'); yaCounter28976460.reachGoal('challenge_share')">
                                 <h3>Поделиться ссылкой</h3>
                                 <p>Получите ссылку, отправьте ее другу и соревнуйтесь прямо сейчас!</p>
                             </div>

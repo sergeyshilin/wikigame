@@ -1,3 +1,4 @@
+<?php include_once("modals/load_layer.php"); ?>
 <p class="lead" style="color: white; text-align: center;">
     В ожидании <span style="text-decoration: line-through;">чуда...</span> соперника
 </p>

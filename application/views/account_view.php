@@ -22,6 +22,12 @@
     .gamemode_icons{
         height:17px;
     }
+    .popover {
+        color: black;
+    }
+    .way-action:hover{
+        text-decoration: none;
+    }
 </style>
 
 <div class="row account-view">
@@ -98,14 +104,20 @@
                         <td><a target='_blank' href='$value[startlink]'>" . $start . "</a></td>
                         <td><a target='_blank' href='$value[endlink]'>" . $end . "</a></td>
                         <td>
-                            <a class='way-action' href=/one_minute/custom_way/" . $value["hash"] . ">
+                            <a class='way-action' href=/classic/custom_way/" . $value["hash"] . "
+                             data-toggle=\"popover\"
+                    data-trigger=\"hover\" data-content=\"Классический\">
+                                <img src='application/images/game_types/wki_icon-02.png' class='gamemode_icons'>
+                            </a>
+                            <a class='way-action' href=/one_minute/custom_way/" . $value["hash"] . "
+                             data-toggle=\"popover\"
+                    data-trigger=\"hover\" data-content=\"На время\">
                                 <img src='application/images/game_types/wki_icon-01.png' class='gamemode_icons'>
                             </a>
-                            <a class='way-action' href=/challenge/custom/" . $value["hash"] . ">
+                            <a class='way-action' href=/challenge/custom/" . $value["hash"] . "
+                            data-toggle=\"popover\"
+                    data-trigger=\"hover\" data-content=\"Дуэль\">
                                 <img src='application/images/game_types/wki_icon-04.png' class='gamemode_icons'>
-                            </a>
-                            <a class='way-action' href=/classic/custom_way/" . $value["hash"] . ">
-                                <img src='application/images/game_types/wki_icon-02.png' class='gamemode_icons'>
                             </a>
                         </td></tr>";
                 }
@@ -160,4 +172,7 @@
         }
 
     })
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
 </script>

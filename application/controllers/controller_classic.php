@@ -20,7 +20,9 @@ class Controller_classic extends Controller{
                     $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
 
-                $this->view->generate("success_view.php", "template_view.php", "/classic", $user_rating);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/classic");
 //                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();
