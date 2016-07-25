@@ -13,6 +13,28 @@ class Controller_challenge extends Controller{
             echo json_encode($_SESSION);
             exit();
         }
+//        if($action_param == "start_queue"){
+//            $this->model->setUpQueue();
+//            exit();
+//        }
+        if($action_param == "check_queue"){
+            $room_data = $this->model->updateQueue();
+            if($room_data != false){
+                $this->model->joinRoom($room_data["way_hash"]);
+                $_SESSION["challenge"]["game_hash"] = $room_data["room_hash"];
+                $_SESSION["challenge"]["way_hash"] = $room_data["way_hash"];
+                $_SESSION["challenge"]["way_type"] = 0;
+                $_SESSION["playlink"] = "challenge";
+                if($this->model->finishQueue()){
+                    echo "ready";
+                }
+            }
+            exit();
+        }
+        if($action_param == "queue"){
+
+        }
+
         if($action_param == "success"){
             if($_SESSION["win"]){
                 if(isset($_SESSION["challenge"]["way_type"]) && $_SESSION["challenge"]["way_type"] == 1){
@@ -24,7 +46,8 @@ class Controller_challenge extends Controller{
                 $id = $way->getId();
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
                 $rank = $this->model->GetRank($_SESSION["user_id"]);
-                $this->view->generate("success_view.php", "template_view.php", "/challenge", $rank);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php", $userStatistics, "/challenge");
                 $this->unset_gamesession();
                 exit();
             }
@@ -53,8 +76,17 @@ class Controller_challenge extends Controller{
 
             exit();
         }
-        if(($action_param == "join") && ($_SESSION["user_connected"]) && (isset($action_data))){
-            if(!$this->model->joinRoom($action_data)) {header("Location: /");}
+        if(($action_param == "join") && (isset($action_data))){
+            if(!$_SESSION["user_connected"]) {
+                if(!$this->model->tryRoom($action_data)){ header("Location: /"); exit(); }
+                else{
+                    $_SESSION["challenge_temp_link"] = "/join/".$action_data;
+                    $_SESSION["referer_mode"] = "login_modal";
+                    header("Location: /");
+                    exit();
+                }
+            }
+            if(!$this->model->joinRoom($action_data)) {header("Location: /"); exit();}
             $info = $this->model->prepareUser($action_data);
             $_SESSION["challenge"]["game_hash"] = $info["hash"];
             $_SESSION["challenge"]["way_hash"] = $info["way_hash"];
@@ -65,25 +97,44 @@ class Controller_challenge extends Controller{
         }
         if($action_param == "play"){
             if(!isset($_SESSION["challenge"])) { header("Location: /");}
-            $this->view->generate("challenge_play_view.php", "dummy.php");
+            $this->view->generate("challenge_play_view.php", "templates/game_template.php");
             exit();
         }
-
-
+        $this->unset_gamesession();
+        unset($_SESSION["queue"]);
         $game_hash = substr(md5(time() . $_SESSION["user_id"]), 0, 8);
         $_SESSION["challenge"] = array("starttime" => time(), "game_hash" => $game_hash);
+
         if($action_param == "custom" && isset($action_data)){
             $_SESSION["challenge"]["way_hash"] = $action_data;
             $_SESSION["challenge"]["way_type"] = 1;
             $this->model->createRoom($game_hash, $action_data, 1);
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_start_view.php", "templates/template_with_background.php",
+                $userStatistics, $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+            exit();
+
         }
-        else {
+
+        if($action_param == "share"){
             $way = WayParser::getRandomWay(0, $this->model);
             $hash = $way->getHash();
             $_SESSION["challenge"]["way_hash"] = $hash;
             $this->model->createRoom($game_hash, $hash, 0);
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_start_view.php", "templates/template_with_background.php",
+                $userStatistics, $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+            exit();
         }
-        $this->view->generate("challenge_start_view.php", "template2_view.php", $_SERVER["SERVER_NAME"]."/challenge/join/".$game_hash);
+
+        else { //Queue mode
+            $this->model->setUpQueue();
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("challenge_queue_view.php", "templates/template_with_background.php",
+                $userStatistics);
+            exit();
+        }
+
     }
 
 }

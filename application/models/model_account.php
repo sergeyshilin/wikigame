@@ -37,7 +37,7 @@ class Model_account extends Model{
                 $fetched[$out["way_id"]]["gamelink"] = "/one_minute/".$out["hash"];
             }
             if($out["game_mode"] == 1){
-                $fetched[$out["way_id"]]["gamelink"] = "/wiki/way/".$out["hash"];
+                $fetched[$out["way_id"]]["gamelink"] = "/classic/".$out["hash"];
             }
             if($out["is_custom"] == 1){
 //                $fetched[$out["way_id"]]["start"] =
@@ -61,7 +61,7 @@ class Model_account extends Model{
                 $fetched2[$id]["gamelink"] = "/challenge/custom/".$out["hash"];
             }
             if($out["game_mode"] == 1){
-                $fetched2[$id]["gamelink"] = "/wiki/custom_way/".$out["hash"];
+                $fetched2[$id]["gamelink"] = "/classic/custom_way/".$out["hash"];
             }
             if($out["game_mode"] == 2){
                 $fetched2[$id]["gamelink"] = "/one_minute/custom_way/".$out["hash"];

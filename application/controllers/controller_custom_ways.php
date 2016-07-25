@@ -31,8 +31,10 @@ class Controller_custom_ways extends Controller{
             }
             else header("Location: /account");
         }
-        else {
-            $this->view->generate("custom_view.php", "template2_view.php");
+
+        else if($action_param == "check"){
+            echo StringUtils::pageTitle($_POST["link"]);
+            exit();
         }
     }
 
@@ -40,7 +42,9 @@ class Controller_custom_ways extends Controller{
         if (!$this->startsWith($link, "//ru.wikipedia.org") &&
             !$this->startsWith($link, "https://ru.wikipedia.org") &&
             !$this->startsWith($link, "http://ru.wikipedia.org"))
+        {
             return false;
+        }
         $handle = curl_init($link);
         curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
         curl_exec($handle);

@@ -81,6 +81,10 @@ class Model extends mysqli{
         return $result->fetch_array();
     }
 
+    function getLastID(){
+        return $this->getAssoc("SELECT MAX( LAST_INSERT_ID( id ) ) as id FROM users")[0]["id"];
+    }
+
     function GetRating($user_id){
         return $this->getAssoc("SELECT SUM(ext_info) as sum FROM stats WHERE user_id=$user_id")[0]["sum"];
 //        return $this->toArray("SELECT SUM(categories.rating) AS sum from categories INNER JOIN ways

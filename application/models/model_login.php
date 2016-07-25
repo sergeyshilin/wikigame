@@ -57,7 +57,7 @@ class Model_login extends Model
     /*
     * insert hybridauth user
     **/
-    function create_new_hybridauth_user($email, $first_name, $last_name, $provider_name, $provider_user_id)
+    function create_new_hybridauth_user($email, $first_name, $last_name, $provider_name, $provider_user_id, $nick)
     {
         // let generate a random password for the user
         $password = md5(str_shuffle("0123456789abcdefghijklmnoABCDEFGHIJ"));
@@ -82,7 +82,7 @@ class Model_login extends Model
 			'$provider_name',
 			'$provider_user_id',
 			NOW(),
-			''
+			'$nick'
 		)"
         );
     }
@@ -94,4 +94,5 @@ class Model_login extends Model
         $result = $this->query("SELECT id FROM users WHERE nick = '$nick'");
         return $result->fetch_row() == 0;
     }
+
 }

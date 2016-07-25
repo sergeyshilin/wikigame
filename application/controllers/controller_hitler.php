@@ -17,22 +17,35 @@ class Controller_hitler extends Controller{
                     $this->model->SaveSuccess();
                     $rank = $this->model->GetRank($_SESSION["user_id"]);
                 }
-                $this->view->generate("success_view.php", "template_view.php", "/hitler", $rank);
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/hitler", $rank);
 //                unset($_SESSION["hitler"]);
-                $this->unset_gamesession();
+//                $this->unset_gamesession();
                 exit();
             }
             else{ header("Location: /"); }
         }
 
-        unset($_SESSION["hitler"]);
-        $_SESSION["hitler"] = array("starttime" => time());
-        if(WayParser::isMD5Hash($action_param)){
-            $_SESSION["hitler"]["way_hash"] = $action_param;
-            $_SESSION["playlink"] = $_SERVER["HTTP_HOST"]."/hitler/".$action_data;
+        if($action_param == "lose"){
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("lose_game_view.php", "templates/template_with_background.php",
+                $userStatistics, "/hitler/5_steps");
+            $this->unset_gamesession();
+            exit();
         }
-        if($action_param == "test") { var_dump($_SESSION); exit();}
-        $this->view->generate("hitler_view.php", "dummy.php");
+
+        unset($_SESSION["hitler"]);
+        $this->unset_gamesession();
+        $_SESSION["hitler"] = array("starttime" => time(), "type" => "standart");
+        if(WayParser::isMD5Hash($action_data)){
+            $_SESSION["hitler"]["way_hash"] = $action_data;
+        }
+        if($action_param != ""){
+            $_SESSION["hitler"]["type"] = $action_param;
+        }
+        else if($action_param == "test") { var_dump($_SESSION); exit();}
+        $this->view->generate("hitler_view.php", "templates/game_template.php");
     }
 
 }

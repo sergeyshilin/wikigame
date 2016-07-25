@@ -1,0 +1,169 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.zeromargin {
+    margin: 0 !important;
+    border: 0 !important;
+}
+
+#coordinates,
+sup.reference,
+.mw-editsection,
+.noprint,
+.metadata {
+    display: none !important;
+}
+
+/* NAVBAR ------------------------------------------------------------------------------------------------------------*/
+
+.bootstrap-scope {
+    position: relative;
+    height: 51px;
+    color:#333 !important;
+
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#game-navbar {
+    border-width: 0 0 1px 0;
+    /*font-size: 100%;*/
+    height: 51px;
+    color:#333 !important;
+
+}
+
+.navbar-brand {
+    padding-top: 15px !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        padding-left: 10px !important;
+    }
+}
+
+.header_logo {
+    height: 20px;
+}
+
+.ellipse {
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-text {
+    margin: 12px!important;
+    color:#333 !important;
+
+}
+
+.navbar-btn, .navbar-text {
+    margin-right: 3px !important;
+    color:#333 !important;
+}
+.navbar-right div{
+
+}
+.backarrow {
+    height: 34px;
+}
+
+@media (max-width: 964px) {
+    .navbar-nav {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .backarrow:after {
+        content: ' Назад';
+    }
+
+    .counter_wrapper:before {
+        content: "Шаги: ";
+    }
+
+    .endlink_wrapper:before {
+        content: 'Цель: ';
+    }
+    .step:before{
+        content: 'Этап: ';
+    }
+}
+
+@media (max-width: 835px) {
+    .navbar-right {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .backarrow {
+        padding-bottom: 10px !important;
+    }
+
+    .counter_wrapper {
+        margin-top: 18px !important;
+    }
+}
+
+@media (max-width: 605px) {
+    .navbar-brand {
+        padding-right: 0 !important;
+    }
+    .backarrow {
+        display: none !important;
+    }
+
+    ._endlink>span {
+        display: none !important;
+    }
+
+    ._endlink:after {
+        content: "Цель";
+    }
+}
+
+
+/* NAVBAR disable collapse -------------------------------------------------------------------------------------------*/
+
+.navbar-collapse.collapse {
+    display: block !important;
+}
+
+.navbar-nav > li, .navbar-nav {
+    float: left !important;
+}
+.load-layer img{
+    display:block;
+    margin:0 auto;
+    margin-top:100px;
+    margin-bottom:40px;
+    height:150px;
+    animation-name: example;
+    animation-duration: .5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.load-layer{
+    display: block;
+    margin:0 auto;
+    text-align: center;
+}
+@keyframes example {
+    0% { -webkit-filter: drop-shadow(5px 5px 10px black);
+        filter: drop-shadow(5px 5px 10px black);}
+    100% { -webkit-filter: none;
+        filter:none;}
+}

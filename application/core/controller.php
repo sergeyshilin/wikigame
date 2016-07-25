@@ -30,5 +30,25 @@ class Controller{
 		unset($_SESSION["hitler"]);
 		unset($_SESSION["compete"]);
 		unset($_SESSION["challenge"]);
+		unset($_SESSION["classic"]);
+		unset($_SESSION["queue"]);
+	}
+
+	function getUserStatistics()
+	{
+		$uid = $_SESSION["user_id"];
+		$rank = $this->model->GetRank($uid);
+		$rating = $this->model->GetRating($uid);
+		$rating = ($rating == null) ? 0 : $rating;
+		$nextLevelScore = (floatval($rank) + 1)*(floatval($rank) + 1)*100;
+		$old_rating = 100*pow($rank, 2);
+		return [
+				"rank" => $rank,
+				"rating" => $rating,
+			    "old_rating" => $old_rating,
+				"nextLevelScore" => $nextLevelScore,
+//				"progress" => floatval($rating)/$nextLevelScore,
+				"progress" => intval(($rating - $old_rating)/($nextLevelScore - $old_rating) * 100)
+		];
 	}
 }

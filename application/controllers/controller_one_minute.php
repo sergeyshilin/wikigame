@@ -11,7 +11,9 @@ class Controller_one_minute extends Controller{
             exit();
         }
         if($action_param == "lose"){
-            $this->view->generate("lose_game_view.php", "template_view.php", "/one_minute");
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("lose_game_view.php", "templates/template_with_background.php",
+                $userStatistics, "/one_minute");
             $this->unset_gamesession();
             exit();
         }
@@ -25,8 +27,10 @@ class Controller_one_minute extends Controller{
                     $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
 
-                $this->view->generate("success_view.php", "template_view.php", "/one_minute", $user_rating);
-                $this->unset_gamesession();
+                $userStatistics = $this->getUserStatistics();
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/one_minute", $user_rating);
+//                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();
                 exit();
@@ -37,22 +41,26 @@ class Controller_one_minute extends Controller{
             $_SESSION["one_minute"] = array("starttime" => time());
             $_SESSION["one_minute"]["custom_way"] = $action_data;
             $_SESSION["playlink"] = "one_minute/custom_way/".$action_data;
-            $this->view->generate("one_minute_view.php", "dummy.php");
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
             exit();
         }
         else if(WayParser::isMD5Hash($action_param)){
             $_SESSION["one_minute"] = array("starttime" => time());
             $_SESSION["one_minute"]["way_hash"] = $action_param;
             $_SESSION["playlink"] = "one_minute/".$action_param;
-            $this->view->generate("one_minute_view.php", "dummy.php");
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
             exit();
         }
         else if($action_param == "playlink") { echo $_SESSION["playlink"]; exit();}
-        unset($_SESSION["one_minute"]);
-        $_SESSION["one_minute"] = array("starttime" => time());
-        if($action_param == "test") { var_dump($_SESSION); exit();}
 
-        $this->view->generate("one_minute_view.php", "dummy.php");
+
+        else if($action_param == "test") { var_dump($_SESSION); exit();}
+
+        else {
+            $this->unset_gamesession();
+            $_SESSION["one_minute"] = array("starttime" => time());
+            $this->view->generate("one_minute_view.php", "templates/game_template.php");
+        }
     }
 
 }

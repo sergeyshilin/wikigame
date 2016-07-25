@@ -29,146 +29,128 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
         history.go(1);
     };
 </script>
-<div class="wrapper">
-    <?php include_once("topbar_frame.php"); ?>
-    <div class="container">
-        <div class="row" style="text-align:center;">
+        <div class="row" style="text-align:center; color: #fff;">
 
-                <h1 class="cover-heading">Поздравляем!</h1>
+            <h1 class="cover-heading">Поздравляем!</h1>
 
-                <p class="lead" style="margin-bottom: 0">
-                    Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
-                    Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
-                    Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
-                    <?php if(isset($_SESSION["user_connected"]) && !empty($data2)):?>
-                        Ваш рейтинг теперь: <?=$data2["new_rating"]?><br>
-                        <?php if($data2["old_rank"] == $data2["new_rank"]):?>
-                            Ваш уровень: <?=$data2["old_rank"]?><br>
-                        <?php endif;?>
-                        <?php if($data2["old_rank"] < $data2["new_rank"]):?>
-                            Ура! Теперь вы на <b><?=$data2["new_rank"]?></b> уровне<br>
-                        <?php endif;?>
+            <p class="lead" style="margin-bottom: 0">
+                Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
+                Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
+                Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
+                <?php if(isset($_SESSION["user_connected"]) && !empty($data2)):?>
+                    Ваш рейтинг теперь: <?=$data2["new_rating"]?><br>
+                    <?php if($data2["old_rank"] == $data2["new_rank"]):?>
+                        Ваш уровень: <?=$data2["old_rank"]?><br>
+                    <?php endif;?>
+                    <?php if($data2["old_rank"] < $data2["new_rank"]):?>
+                        Ура! Теперь вы на <b><?=$data2["new_rank"]?></b> уровне<br>
+                    <?php endif;?>
 
-                    <?php endif; ?>
-                    Понравился маршрут?
-                    <span id="like" class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
-                    <span id="dislike" class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
-                    </br>
-                    Поделись результатом с друзьями!
-                </p>
+                <?php endif; ?>
+                Понравился маршрут?
+                <span id="like" class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
+                <span id="dislike" class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
+                </br>
+                Поделись результатом с друзьями!
+            </p>
 
-                <div id="sharebtns" style="margin-bottom: 20px">
-                    <a id="share_vk" class="sharebtn vk"></a>
-                    <a id="share_fb" class="sharebtn fb"></a>
-                    <a id="share_gp" class="sharebtn gp"></a>
-                    <a id="share_tw" class="sharebtn tw"></a>
-                </div>
-                <p class="lead">
-                    <a href="<?=$data?>" class="btn btn-lg btn-success congrats_playagain"
-                       onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
-                </p>
+            <div id="sharebtns" style="margin-bottom: 20px">
+                <a id="share_vk" class="sharebtn vk"></a>
+                <a id="share_fb" class="sharebtn fb"></a>
+                <a id="share_gp" class="sharebtn gp"></a>
+                <a id="share_tw" class="sharebtn tw"></a>
             </div>
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Содержимое взято с сайта <a target="_blank" href="http://wikipedia.org/wiki/Main_Page">Wikipedia.org</a><br>
-                        Следи за интересными маршрутами в нашей группе
-                        <a class='vklink' target="_blank" href="http://vk.com/wikiwalker">Вконтакте</a>
-                        <!-- , by <a href="http://vk.com/true_pk">true_pk</a> <a href="http://vk.com/id210883700">dimas</a> -->
-                    </p>
-                </div>
-            </div>
+            <p class="lead">
+                <a href="<?=$url?>" class="btn btn-lg btn-success congrats_playagain"
+                   onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
+            </p>
         </div>
-    </div>
-</div>
 
 <script>
-        syncLikes();
-        Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
-        var url = "<?=$url?>";
-        var title = "<?=$title?>";
-        var description = "<?=$desc?>";
-        var share = new Share(url, title, description);
+    syncLikes();
+    Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
+    var url = "<?=$url?>";
+    var title = "<?=$title?>";
+    var description = "<?=$desc?>";
+    var share = new Share(url, title, description);
 
-        $(window).load(function () {
-            yaCounter28976460.reachGoal('wingame');
-        });
-        $(document).ready(function(){
-            share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
-                var parseFile = new Parse.File("share.png", {base64: base64img});
-                parseFile.save().then(function () {
-                    share.pimg = parseFile.url();
-                    $("#share_vk").click(function () {
-                        yaCounter28976460.reachGoal('sharevk');
-                        share.vkontakte();
-                    });
-
-                }, function (error) {
-                    console.log(error);
-                });
+    $(window).load(function () {
+        yaCounter28976460.reachGoal('wingame');
+    });
+    $(document).ready(function(){
+        share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
+            var parseFile = new Parse.File("share.png", {base64: base64img});
+            parseFile.save().then(function () {
+                share.pimg = parseFile.url();
+            }, function (error) {
+                console.log(error);
+            });
         })
 
 
 
-
-            $("#share_fb").click(function () {
-                yaCounter28976460.reachGoal('sharefb');
-                share.facebook();
-            });
-            $("#share_gp").click(function () {
-                yaCounter28976460.reachGoal('sharegoogle');
-                share.googleplus();
-            });
-            $("#share_tw").click(function () {
-                yaCounter28976460.reachGoal('sharetwit');
-                share.twitter();
-            });
+        $("#share_vk").click(function () {
+            yaCounter28976460.reachGoal('sharevk');
+            share.vkontakte();
         });
+        $("#share_fb").click(function () {
+            yaCounter28976460.reachGoal('sharefb');
+            share.facebook();
+        });
+        $("#share_gp").click(function () {
+            yaCounter28976460.reachGoal('sharegoogle');
+            share.googleplus();
+        });
+        $("#share_tw").click(function () {
+            yaCounter28976460.reachGoal('sharetwit');
+            share.twitter();
+        });
+    });
 
-        function syncLikes(){
+    function syncLikes(){
+        $.ajax({
+            url: "/main/like/check"
+        }).done(function(data){
+            console.log(data);
+            window.like = data;
+            if(data == 1){$("#like").css("border", "2px solid white");}
+            if(data == -1){$("#dislike").css("border", "2px solid white");}
+        });
+    }
+    $("#dislike").click(function(){
+        if(window.like == "-1"){
             $.ajax({
-                url: "/main/like/check"
-            }).done(function(data){
-                console.log(data);
-                window.like = data;
-                if(data == 1){$("#like").css("border", "2px solid white");}
-                if(data == -1){$("#dislike").css("border", "2px solid white");}
+                url: "/main/like"
             });
+            $("#dislike").css("border", "none");
+            syncLikes();
         }
-        $("#dislike").click(function(){
-            if(window.like == "-1"){
-                $.ajax({
-                    url: "/main/like"
-                });
-                $("#dislike").css("border", "none");
-                syncLikes();
-            }
-            else if(window.like == "0" || window.like == "1"){
-                $.ajax({
-                    url: "/main/like/-1"
-                });
-                $("#dislike").css("border", "2px solid white");
-                $("#like").css("border", "none");
-                syncLikes();
-            }
-        })
-        $("#like").click(function(){
-            if(window.like == "1"){
-                $.ajax({
-                    url: "/main/like"
-                });
-                $("#like").css("border", "none");
-                syncLikes();
-            }
-            else if(window.like == "0" || window.like == "-1"){
-                $.ajax({
-                    url: "/main/like/1"
-                });
-                $("#like").css("border", "2px solid white")
-                $("#dislike").css("border", "none");
-                syncLikes();
-            }
-        })
+        else if(window.like == "0" || window.like == "1"){
+            $.ajax({
+                url: "/main/like/-1"
+            });
+            $("#dislike").css("border", "2px solid white");
+            $("#like").css("border", "none");
+            syncLikes();
+        }
+    })
+    $("#like").click(function(){
+        if(window.like == "1"){
+            $.ajax({
+                url: "/main/like"
+            });
+            $("#like").css("border", "none");
+            syncLikes();
+        }
+        else if(window.like == "0" || window.like == "-1"){
+            $.ajax({
+                url: "/main/like/1"
+            });
+            $("#like").css("border", "2px solid white");
+            $("#dislike").css("border", "none");
+            syncLikes();
+        }
+    })
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) {
