@@ -1,2 +1,4 @@
 ### JetBrains
 .idea/
+/application/vendor/hybridauth/config.php
+/application/core/mysql_config.php
