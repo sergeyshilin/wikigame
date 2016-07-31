@@ -61,8 +61,10 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
                 <a id="share_tw" class="sharebtn tw"></a>
             </div>
             <p class="lead">
-                <a href="<?=$url?>" class="btn btn-lg btn-success congrats_playagain"
+                <a href="<?=$info?>" class="btn btn-lg btn-success congrats_playagain"
                    onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
+                <a href="/<?= $playlink ?>" class="btn btn-lg btn-success congrats_playagain"
+                   onclick="yaCounter28976460.reachGoal('playagain'); return true;">Попробовать еще раз</a>
             </p>
         </div>
 

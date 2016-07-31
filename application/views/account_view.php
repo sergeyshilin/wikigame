@@ -2,7 +2,7 @@
     .account-view, td, a, a:hover, a:visited {
         color: #fff;
     }
-    
+
     .panel {
         background-color: rgba(112, 66, 20, 0.5);
         padding: 0 10px;
@@ -41,9 +41,9 @@
                 <a id="savenick" style="display: none"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             </p>
             <?php
-                $rating = ($data["rating"] == null) ? 0 : $data["rating"];
-                $nextLevelScore = (floatval($data["rank"]) + 1)*(floatval($data["rank"]) + 1)*100;
-                $progress = floatval($rating)/$nextLevelScore;
+            $rating = ($data["rating"] == null) ? 0 : $data["rating"];
+            $nextLevelScore = (floatval($data["rank"]) + 1)*(floatval($data["rank"]) + 1)*100;
+            $progress = floatval($rating)/$nextLevelScore;
             ?>
             <p>Ваш уровень: <?= $data["rank"] ?></p>
             <p>Ваш рейтинг: <? echo $rating . " / " . $nextLevelScore . " (" . $data["progress"] . "%)" ?></p>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="panel">
-            <h2>Ваша история игр</h2>
+            <h2>Ваша история побед</h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -68,12 +68,12 @@
                     $end = StringUtils::pageTitle($value["end"]);
                     echo "<tr><Td><a target='_blank' href='$value[start]'>" . $start . "</a></Td>
             <td><a target='_blank' href='$value[end]'>" . $end . "</a></td><td>" . $value["steps"] . "</td>" .
-                        "<td><a href = '$value[gamelink]'><span class='glyphicon glyphicon-play-circle'></span></a></td></tr>";
+                        "<td><a data-content=\"Пройти заново\" data-toggle='popover' data-trigger='hover' href = '$value[gamelink]'><span class='glyphicon glyphicon-play-circle'></span></a></td></tr>";
                 }
                 ?>
-<!--                <tr>-->
-<!--                    <td colspan="4" style="text-align: center"><a href="#">Загрузить еще</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                    <td colspan="4" style="text-align: center"><a href="#">Загрузить еще</a></td>-->
+                <!--                </tr>-->
             </table>
         </div>
     </div>
@@ -122,9 +122,9 @@
                         </td></tr>";
                 }
                 ?>
-<!--                <tr>-->
-<!--                    <td colspan="3" style="text-align: center"><a href="#">Загрузить еще</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                    <td colspan="3" style="text-align: center"><a href="#">Загрузить еще</a></td>-->
+                <!--                </tr>-->
             </table>
         </div>
     </div>
@@ -139,7 +139,7 @@
         $("#editnick").show();
         $("#nickval").text(data);
     }
-    
+
     window.nick = "";
     $("#nickform").css("display", "none");
     $("#savenick").css("display", "none");
