@@ -34,7 +34,7 @@ function Share(purl, ptitle, text) {
     this.popup = function (url) {
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     };
-    this.makeImage = function (steps, from, to, callback) {
+    this.makeImage = function (steps, from, to, is_compete, callback) {
         from = from.length > 36 ? from.substring(0, 35) + "..." : from;
         to = to.length > 36 ? to.substring(0, 35) + "..." : to;
 
@@ -58,8 +58,10 @@ function Share(purl, ptitle, text) {
             var padding = 3;
             var x1 = canvas.width/2 + context.measureText(str1 + str2).width/2;
             var x0 = x1 - context.measureText(str2).width;
-            context.fillStyle = color;
-            roundRect(context, x0 - padding, bottom - 21 - padding, x1-x0 + padding*2, 20 + padding * 2, 3);
+            if (str2 != null && str2 != "") {
+                context.fillStyle = color;
+                roundRect(context, x0 - padding, bottom - 21 - padding, x1 - x0 + padding * 2, 20 + padding * 2, 3);
+            }
             context.fillStyle = "#fff";
             context.fillText(str1 + str2, canvas.width/2, bottom);
         }
@@ -101,9 +103,13 @@ function Share(purl, ptitle, text) {
             context.fillText(title, canvas.width/2, 110);
 
             context.font = '21px "Helvetica Neue", Helvetica, Arial, sans-serif';
-            drawLabel(canvas, context, str1, steps, 150, "#d9534f");
-            drawLabel(canvas, context, str2, from, 180, "#f0ad4e");
-            drawLabel(canvas, context, str3, to, 210, "#f0ad4e");
+            if (!is_compete) {
+                drawLabel(canvas, context, str1, steps, 150, "#d9534f");
+                drawLabel(canvas, context, str2, from, 180, "#f0ad4e");
+                drawLabel(canvas, context, str3, to, 210, "#f0ad4e");
+            } else {
+                drawLabel(canvas, context, "Вы завершили турнир!", "", 180, "#d9534f");
+            }
 
             var base64img = canvas.toDataURL("image/png");
             callback(base64img);
