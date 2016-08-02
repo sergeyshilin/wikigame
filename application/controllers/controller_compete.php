@@ -20,12 +20,15 @@ class Controller_compete extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["compete"]["steps"] == 6){
+                $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                 $this->model->SaveSuccess();
-                $rank = $this->model->GetRank($_SESSION["user_id"]);
+                $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 $this->unset_gamesession();
                 $userStatistics = $this->getUserStatistics();
                 $this->view->generate("success_view.php", "templates/template_with_background.php",
-                    $userStatistics, "/compete", $rank);
+                    $userStatistics, "/compete", $user_rating);
                 exit();
             }
             else{ header("Location: /"); }
