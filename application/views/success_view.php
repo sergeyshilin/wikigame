@@ -113,12 +113,16 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
         }).done(function (data) {
             console.log(data);
             window.like = data;
+            $("#like").css("border", "none");
+            $("#dislike").css("border", "none");
             $("#like i").removeClass("fa-thumbs-o-up fa-thumbs-up");
             $("#dislike i").removeClass("fa-thumbs-o-down fa-thumbs-down");
             if (data == 1) {
+                $("#like").css("border", "2px solid white");
                 $("#like i").addClass("fa-thumbs-up");
                 $("#dislike i").addClass("fa-thumbs-o-down");
             } else if (data == -1) {
+                $("#dislike").css("border", "2px solid white");
                 $("#like i").addClass("fa-thumbs-o-up");
                 $("#dislike i").addClass("fa-thumbs-down");
             } else {
