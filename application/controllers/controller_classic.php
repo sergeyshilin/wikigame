@@ -12,17 +12,18 @@ class Controller_classic extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
+                $user_rating = null;
                 if($_SESSION["user_connected"]) {
+                    $user_rating = array();
                     $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                     $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                     $this->model->SaveSuccess();
                     $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                     $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
-
                 $userStatistics = $this->getUserStatistics();
                 $this->view->generate("success_view.php", "templates/template_with_background.php",
-                    $userStatistics, "/classic");
+                    $userStatistics, "/classic", $user_rating);
 //                $this->unset_gamesession();
 //                unset($_SESSION["one_minute"]);
 //                $this->unset_gamesession();

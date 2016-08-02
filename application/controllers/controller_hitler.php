@@ -12,14 +12,16 @@ class Controller_hitler extends Controller{
         }
         if($action_param == "success"){
             if($_SESSION["win"]){
-                $rank = 0;
                 if($_SESSION["user_connected"]) {
+                    $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                    $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                     $this->model->SaveSuccess();
-                    $rank = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                    $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 }
                 $userStatistics = $this->getUserStatistics();
                 $this->view->generate("success_view.php", "templates/template_with_background.php",
-                    $userStatistics, "/hitler", $rank);
+                    $userStatistics, "/hitler", $user_rating);
 //                unset($_SESSION["hitler"]);
 //                $this->unset_gamesession();
                 exit();

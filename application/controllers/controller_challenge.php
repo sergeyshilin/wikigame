@@ -44,10 +44,14 @@ class Controller_challenge extends Controller{
                     $way = WayParser::getWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
                 }
                 $id = $way->getId();
+                $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+                $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
                 $this->model->SaveSuccess($id, $_SESSION["challenge"]["game_hash"]);
-                $rank = $this->model->GetRank($_SESSION["user_id"]);
+                $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+                $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
                 $userStatistics = $this->getUserStatistics();
-                $this->view->generate("success_view.php", "templates/template_with_background.php", $userStatistics, "/challenge");
+                $this->view->generate("success_view.php", "templates/template_with_background.php",
+                    $userStatistics, "/challenge", $user_rating);
                 $this->unset_gamesession();
                 exit();
             }
