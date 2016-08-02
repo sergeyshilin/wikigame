@@ -43,6 +43,12 @@ class Model_challenge extends Model
 //        $result =
 //            $this->query("INSERT INTO stats VALUES('', $_SESSION[user_id], $id, $_SESSION[counter], 0, 0, 0, 2)");
     }
+
+    function SaveLose($id, $game_hash){
+        //todo: count new user rank if lose at challenge type of the game
+        exit();
+    }
+
     function checkForRoommate($game_hash){
         return ($this->getAssoc("SELECT user2_id FROM pvp_rooms WHERE hash='{$game_hash}'")[0]["user2_id"] > 0);
     }

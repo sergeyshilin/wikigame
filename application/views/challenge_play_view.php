@@ -73,8 +73,8 @@
             url: "/challenge/upd"
         }).done(function (response) {
             if (response == "lose") {
-                alert("Вы проиграли! Соперник раньше дошел до конца! :)");
-                location.href = "/";
+                //alert("Вы проиграли! Соперник раньше дошел до конца! :)");
+                location.href = "/challenge/lose";
             }
         })
     }
