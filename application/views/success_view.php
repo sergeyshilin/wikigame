@@ -48,9 +48,9 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
 
                 <?php endif; ?>
                 Понравился маршрут?
-                <span id="like" class="label label-success link-button like"><i class="fa fa-thumbs-o-up"></i></span>
-                <span id="dislike" class="label label-danger link-button dislike"><i class="fa fa-thumbs-o-down"></i></span>
-                </br>
+                <span id="like" class="label label-success link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-up"></i></span>
+                <span id="dislike" class="label label-danger link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-down"></i></span>
+                <br>
                 Поделись результатом с друзьями!
             </p>
 
@@ -107,50 +107,52 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
         });
     });
 
-    function syncLikes(){
+    function syncLikes() {
         $.ajax({
             url: "/main/like/check"
-        }).done(function(data){
+        }).done(function (data) {
             console.log(data);
             window.like = data;
-            if(data == 1){$("#like").css("border", "2px solid white");}
-            if(data == -1){$("#dislike").css("border", "2px solid white");}
+            $("#like").css("border", "none");
+            $("#dislike").css("border", "none");
+            $("#like i").removeClass("fa-thumbs-o-up fa-thumbs-up");
+            $("#dislike i").removeClass("fa-thumbs-o-down fa-thumbs-down");
+            if (data == 1) {
+                $("#like").css("border", "2px solid white");
+                $("#like i").addClass("fa-thumbs-up");
+                $("#dislike i").addClass("fa-thumbs-o-down");
+            } else if (data == -1) {
+                $("#dislike").css("border", "2px solid white");
+                $("#like i").addClass("fa-thumbs-o-up");
+                $("#dislike i").addClass("fa-thumbs-down");
+            } else {
+                $("#like i").addClass("fa-thumbs-o-up");
+                $("#dislike i").addClass("fa-thumbs-o-down");
+            }
         });
     }
-    $("#dislike").click(function(){
-        if(window.like == "-1"){
-            $.ajax({
-                url: "/main/like"
+    $("#dislike").click(function () {
+        if (window.like == "-1") {
+            $.ajax({url: "/main/like"}).done(function () {
+                syncLikes();
             });
-            $("#dislike").css("border", "none");
-            syncLikes();
-        }
-        else if(window.like == "0" || window.like == "1"){
-            $.ajax({
-                url: "/main/like/-1"
+        } else if (window.like == "0" || window.like == "1") {
+            $.ajax({url: "/main/like/-1"}).done(function () {
+                syncLikes();
             });
-            $("#dislike").css("border", "2px solid white");
-            $("#like").css("border", "none");
-            syncLikes();
         }
-    })
-    $("#like").click(function(){
-        if(window.like == "1"){
-            $.ajax({
-                url: "/main/like"
+    });
+    $("#like").click(function () {
+        if (window.like == "1") {
+            $.ajax({url: "/main/like"}).done(function () {
+                syncLikes();
             });
-            $("#like").css("border", "none");
-            syncLikes();
-        }
-        else if(window.like == "0" || window.like == "-1"){
-            $.ajax({
-                url: "/main/like/1"
+        } else if (window.like == "0" || window.like == "-1") {
+            $.ajax({url: "/main/like/1"}).done(function () {
+                syncLikes();
             });
-            $("#like").css("border", "2px solid white");
-            $("#dislike").css("border", "none");
-            syncLikes();
         }
-    })
+    });
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) {
