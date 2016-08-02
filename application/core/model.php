@@ -114,8 +114,8 @@ class Model extends mysqli{
 
     function GetLike($way_id, $is_hitler){
         $result = $this->getAssoc("SELECT like_value from likes where way_id=$way_id AND user_id=$_SESSION[user_id]
-        AND is_hitler=$is_hitler")[0]["like_value"];
-        return ($result == "") ? 0 : $result;
+        AND is_hitler=$is_hitler");
+        return (isset($result[0]) && $result[0]["like_value"] != "") ? $result[0]["like_value"] : 0;
     }
 //    function UpdateRating($user_id, $num){
 //        $this->query("UPDATE users SET rating = rating+'{$num}' WHERE id = $user_id");
