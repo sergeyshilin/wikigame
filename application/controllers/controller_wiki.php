@@ -97,7 +97,9 @@ class Controller_wiki extends Controller{
                     wayToSession($way, 0);
                     header('Location: /wiki/' . $_SESSION["start"]);
                 } else {
-                    $_SESSION["compete"]["step"]++;
+                    if (isset($_SESSION["compete"])) {
+                        $_SESSION["compete"]["step"]++;
+                    }
                     $_SESSION['win'] = true;
                 }
             } else {

@@ -1,5 +1,5 @@
 <?php
-$is_compete = isset($_SESSION["compete"]);
+$is_compete = ($info == '/compete');
 
 $title = "WikiWalker - Пройди свой путь!";
 if (!$is_compete) {
