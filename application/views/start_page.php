@@ -53,7 +53,7 @@
                     <div class="game-type-text" onclick="runIfLoggedIn(goto, 'compete'); saveRefererMode('compete');
                     yaCounter28976460.reachGoal('compete')">
                         <h3>Турнир</h3>
-                        <p>Пройдите 5 маршрутов за 10 минут и получите 1500 очков!</p>
+                        <p>Пройдите 5 маршрутов за 15 минут и получите 1500 очков!</p>
                     </div>
                 </div>
             </div>
