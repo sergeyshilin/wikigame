@@ -27,7 +27,7 @@ class HybridConfig {
 								),
 								"Vkontakte" => array (
 										"enabled" => true,
-										"keys"    => array ( "id" => "4507693", "secret" => "ioryJiWt11F4j5D8hNDC" ),
+										"keys"    => array ( "id" => "4865481 ", "secret" => "APWBeE2WYQjNd1NMP4Ip" ),
 										"display" => "popup",
 								),
 								"Google" => array (
