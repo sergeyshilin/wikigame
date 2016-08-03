@@ -1,11 +1,19 @@
 <?php
-$cat = $_SESSION["cat"] ? "?cat=" . $_SESSION["cat"] : "";
-$count = $_SESSION['counter'];
-$hash = $_SESSION['hash'];
+$is_compete = isset($_SESSION["compete"]);
+
 $title = "WikiWalker - Пройди свой путь!";
-$desc = "Поздравляем! Вы прошли от страницы " . str_replace("_", " ", $_SESSION["start"]) . " до страницы " . str_replace("_", " ", $_SESSION["end"]) . ". Количество шагов: " . $_SESSION["counter"] . ".";
-$start_page = str_replace("_", " ", $_SESSION["start"]);
-$end_page = str_replace("_", " ", $_SESSION["end"]);
+if (!$is_compete) {
+    $count = $_SESSION['counter'];
+    $start_page = str_replace("_", " ", $_SESSION["start"]);
+    $end_page = str_replace("_", " ", $_SESSION["end"]);
+    $description = "Поздравляем! Вы прошли от страницы " . $start_page . " до страницы " . $end_page . ". Количество шагов: " . $count . ".";
+} else {
+    $count = 0;
+    $start_page = "";
+    $end_page = "";
+    $description = "Поздравляем! Вы прошли турнир!";
+}
+
 $playlink = $_SESSION["playlink"];
 $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
 //echo $start_page . $end_page. "&nbsp".$count;
@@ -34,23 +42,29 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
             <h1 class="cover-heading">Поздравляем!</h1>
 
             <p class="lead" style="margin-bottom: 0">
-                Вы завершили свой маршрут! Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
-                Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
-                Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
-                <?php if(isset($_SESSION["user_connected"]) && !empty($data2)):?>
-                    Ваш рейтинг теперь: <?=$data2["new_rating"]?><br>
-                    <?php if($data2["old_rank"] == $data2["new_rank"]):?>
-                        Ваш уровень: <?=$data2["old_rank"]?><br>
-                    <?php endif;?>
-                    <?php if($data2["old_rank"] < $data2["new_rank"]):?>
-                        Ура! Теперь вы на <b><?=$data2["new_rank"]?></b> уровне<br>
-                    <?php endif;?>
-
+                <?php if (!$is_compete): ?>
+                    Вы завершили свой маршрут!
+                    Количество переходов: <span class="label label-danger"><?= $count ?></span><br>
+                    Начальная страница: <span class="label label-warning"><?= $start_page ?></span><br>
+                    Конечная страница: <span class="label label-warning"><?= $end_page ?></span><br>
+                <?php else: ?>
+                    Вы завершили турнир!<br>
                 <?php endif; ?>
-                Понравился маршрут?
-                <span id="like" class="label label-success link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-up"></i></span>
-                <span id="dislike" class="label label-danger link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-down"></i></span>
-                <br>
+                <?php if (isset($_SESSION["user_connected"]) && !empty($data2)): ?>
+                    Ваш рейтинг теперь: <?= $data2["new_rating"] ?><br>
+                    <?php if ($data2["old_rank"] == $data2["new_rank"]): ?>
+                        Ваш уровень: <?= $data2["old_rank"] ?><br>
+                    <?php endif; ?>
+                    <?php if ($data2["old_rank"] < $data2["new_rank"]): ?>
+                        Ура! Теперь вы на <b><?= $data2["new_rank"] ?></b> уровне<br>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if (!$is_compete): ?>
+                    Понравился маршрут?
+                    <span id="like" class="label label-success link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-up"></i></span>
+                    <span id="dislike" class="label label-danger link-button" style="cursor:pointer;"><i class="fa fa-thumbs-o-down"></i></span>
+                    <br>
+                <?php endif; ?>
                 Поделись результатом с друзьями!
             </p>
 
@@ -71,23 +85,21 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
     Parse.initialize("NuuzdEmcbtxcB3AwGOshxD455GTV0EUVbEFL2S4C", "2rwODwVyiSYls9P66iRdZmAlNUL6mlmz5j11dC0R");
     var url = "<?=$url?>";
     var title = "<?=$title?>";
-    var description = "<?=$desc?>";
+    var description = "<?=$description?>";
     var share = new Share(url, title, description);
 
     $(window).load(function () {
         yaCounter28976460.reachGoal('wingame');
     });
     $(document).ready(function(){
-        share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", function (base64img) {
+        share.makeImage("<?=$count?>", "<?=$start_page?>", "<?=$end_page?>", <?=$is_compete?>, function (base64img) {
             var parseFile = new Parse.File("share.png", {base64: base64img});
             parseFile.save().then(function () {
                 share.pimg = parseFile.url();
             }, function (error) {
                 console.log(error);
             });
-        })
-
-
+        });
 
         $("#share_vk").click(function () {
             yaCounter28976460.reachGoal('sharevk');
