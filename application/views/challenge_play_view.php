@@ -20,6 +20,7 @@
 </div>
 
 <script>
+    window.linkHistory = new LinkHistory();
     window.t = "";
     window.c = "";
     jQuery.ajax({
@@ -64,6 +65,7 @@
             jsonp: "false"
         }).done(function (data) {
             window.t = data;
+            linkHistory.put(t.current);
             refreshWindow();
         });
     }
@@ -111,21 +113,21 @@
         });
     }
     $("#backarrow").click(function () {
-        $(".load-layer").show();
-        $("#content").hide();
-        $(document).scrollTop(0);
-
-        jQuery.ajax({
-            url: "/wiki/" + window.t.previous
-        }).done(function (data) {
-            $("#content").show();
-            $(".load-layer").hide();
-
-            $(".bootstrap-scope").nextAll().remove();
-            $(".bootstrap-scope").after(data);
-            fixLinks();
-            getWayInfo();
+        if (linkHistory.hasPrev()) {
+            $(".load-layer").show();
+            $("#content").hide();
             $(document).scrollTop(0);
-        });
+            jQuery.ajax({
+                url: "/wiki/" + linkHistory.prev()
+            }).done(function (data) {
+                $("#content").show();
+                $(".load-layer").hide();
+                $(".bootstrap-scope").nextAll().remove();
+                $(".bootstrap-scope").after(data);
+                fixLinks();
+                getWayInfo();
+                $(document).scrollTop(0);
+            });
+        }
     });
 </script>
