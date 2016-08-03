@@ -91,18 +91,20 @@ class Controller_wiki extends Controller{
                 header('Location: /wiki/' . $_SESSION["current"]);
             } else if ($title == $_SESSION['end']) {
                 $_SESSION['counter']++;
-                if(isset($_SESSION["compete"])){
+                if(isset($_SESSION["compete"]) && $_SESSION["compete"]['step'] < 5){
                     $_SESSION["compete"]["step"]++;
                     $way = WayParser::getRandomWay(0, $this->model);
                     wayToSession($way, 0);
                     header('Location: /wiki/' . $_SESSION["start"]);
-                }
-                else {
+                } else {
+                    if (isset($_SESSION["compete"])) {
+                        $_SESSION["compete"]["step"]++;
+                    }
                     $_SESSION['win'] = true;
                 }
             } else {
                 $germany_link = "%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F";
-                if($_SESSION["hitler"]["type"] == "no_germany" && $action_param == $germany_link){
+                if(array_key_exists("hitler", $_SESSION) && $_SESSION["hitler"]["type"] == "no_germany" && $action_param == $germany_link){
                     echo "return";
                     exit();
                 }
@@ -122,7 +124,7 @@ class Controller_wiki extends Controller{
                     $_SESSION['current'] = $title;
                     if ($_SESSION['current'] != $_SESSION['previous']) {
                         $_SESSION['counter']++;
-                        if($_SESSION["hitler"]["type"] == "5_steps" && $_SESSION["counter"] >= 5) {
+                        if(array_key_exists("hitler", $_SESSION) && $_SESSION["hitler"]["type"] == "5_steps" && $_SESSION["counter"] >= 5) {
                             echo "lose";
                             exit();
                         }
@@ -140,9 +142,8 @@ class Controller_wiki extends Controller{
             }
             $this->view->generate("ingame_view.php","templates/game_template.php", $resolver->printPage($obj["title"], $obj["content"]));
 
-        }
-        else {
-            if(isset($_SESSION["one_minute"])||isset($_SESSION["hitler"]) || $_SESSION["compete"]["steps"] == 6 ||
+        } else {
+            if(isset($_SESSION["one_minute"])|| isset($_SESSION["hitler"]) || (isset($_SESSION["compete"])) ||
             isset($_SESSION["challenge"]) || isset($_SESSION["classic"])){
                 echo "win";
                 exit();
