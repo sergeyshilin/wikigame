@@ -58,6 +58,29 @@ class Controller_challenge extends Controller{
             else{ header("Location: /"); }
         }
 
+        if(($action_param == "lose") && (isset($_SESSION["challenge"]))){
+            if(isset($_SESSION["challenge"]["way_type"]) && $_SESSION["challenge"]["way_type"] == 1){
+                $way = WayParser::getCustomWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
+            }
+            else{
+                $way = WayParser::getWayByHash($_SESSION["challenge"]["way_hash"], $this->model);
+            }
+            $id = $way->getId();
+            $user_rating["old_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+            $user_rating["old_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+            //update user rank
+            $this->model->SaveLose($id, $_SESSION["challenge"]["game_hash"]);
+            //getting updated user rank
+            $user_rating["new_rank"] = $this->model->GetRank($_SESSION["user_id"]);
+            $user_rating["new_rating"] = $this->model->GetRating($_SESSION["user_id"]);
+
+            $userStatistics = $this->getUserStatistics();
+            $this->view->generate("lose_game_view.php", "templates/template_with_background.php",
+                $userStatistics, "/challenge");
+            $this->unset_gamesession();
+            exit();
+        }
+
         if(($action_param == "check") && (isset($_SESSION["challenge"]))){
             $info = $this->model->checkActivity($_SESSION["challenge"]["game_hash"]);
             echo json_encode($info);
