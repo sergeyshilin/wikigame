@@ -30,6 +30,7 @@
 
     <script src="/application/js/jquery.min.js"></script>
     <script src="/application/js/jquery.time-to.min.js"></script>
+    <script src="/application/js/LinkHistory.js"></script>
 
     <style>
         ul[style]{

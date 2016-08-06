@@ -1,5 +1,5 @@
 <?php
-$is_compete = isset($_SESSION["compete"]);
+$is_compete = ($info == '/compete');
 
 $title = "WikiWalker - Пройди свой путь!";
 if (!$is_compete) {
@@ -30,7 +30,6 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
 <!---->
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 <!--<link href="/application/css/cover.css" rel="stylesheet">-->
-<!--<script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>-->
 <script type="text/javascript">
     window.history.pushState("", "", "/<?=$playlink?>");
     history.pushState(null, null, location.href);
@@ -75,8 +74,10 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
                 <a href="" class="ssk ssk-google-plus"></a>
             </div>
             <p class="lead" style="margin-top: 20px">
-                <a href="<?=$url?>" class="btn btn-lg btn-success congrats_playagain"
+                <a href="<?=$info?>" class="btn btn-lg btn-success congrats_playagain"
                    onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
+                <a href="/<?= $playlink ?>" class="btn btn-lg btn-success congrats_playagain"
+                   onclick="yaCounter28976460.reachGoal('playagain'); return true;">Попробовать еще раз</a>
             </p>
         </div>
 

@@ -46,7 +46,8 @@ class Model_challenge extends Model
 
     function SaveLose($id, $game_hash){
         //todo: count new user rank if lose at challenge type of the game
-        exit();
+        return true;
+        //exit();
     }
 
     function checkForRoommate($game_hash){
