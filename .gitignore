@@ -1,2 +1,5 @@
-### JetBrains
+# JetBrains
 .idea/
+
+# Logs
+*.log
