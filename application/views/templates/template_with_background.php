@@ -12,13 +12,12 @@
 
     <meta property="og:title" content="WikiWalker - Пройди свой путь"/>
     <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <meta property="og:url" content="http://wikiwalker.egeshki.ru/"/>
-    <meta property="og:image" content="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
-    <meta property="og:image:url" content="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
+    <meta property="og:url" content="http://<?= $_SERVER['SERVER_NAME']?>"/>
+    <meta property="og:image" content="http://<?= $_SERVER['SERVER_NAME']?>/application/images/forsocials.jpg"/>
 
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <link rel="image_src" href="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
+    <link rel="image_src" href="/application/images/forsocials.jpg"/>
     <title>WikiWalker - Пройди свой путь</title>
 
     <link rel="icon" href="/application/images/favicon.png">
@@ -27,11 +26,13 @@
     <link rel="stylesheet" type="text/css" href="/application/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/application/css/template_with_background.css">
     <link rel="stylesheet" type="text/css" href="/application/css/start-page.css">
+    <!-- Social Share Kit CSS -->
+    <link rel="stylesheet" href="/application/css/social-share-kit.css" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <script src="/application/js/jquery.min.js"></script>
     <script src="/application/js/parse-1.4.0.min.js"></script>
-    <script src="/application/js/Share.js"></script>
+    <script type="text/javascript" src="/application/js/social-share-kit.min.js"></script>
 </head>
 
 <body>

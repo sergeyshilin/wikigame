@@ -10,13 +10,12 @@
 
     <meta property="og:title" content="WikiWalker - Пройди свой путь"/>
     <meta property="og:description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <meta property="og:url" content="http://wikiwalker.egeshki.ru/"/>
-    <meta property="og:image" content="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
-    <meta property="og:image:url" content="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
+    <meta property="og:url" content="http://<?= $_SERVER['SERVER_NAME']?>"/>
+    <meta property="og:image" content="http://<?= $_SERVER['SERVER_NAME']?>/application/images/forsocials.jpg"/>
 
     <meta name="title" content="WikiWalker - Пройди свой путь"/>
     <meta name="description" content="Пройди путь от одной страницы Википедии до другой за минимальное количество шагов."/>
-    <link rel="image_src" href="http://wikiwalker.egeshki.ru/application/images/forsocials.jpg"/>
+    <link rel="image_src" href="http://<?= $_SERVER['SERVER_NAME']?>/application/images/forsocials.jpg"/>
     <title>WikiWalker - Пройди свой путь</title>
 
     <link rel="icon" href="/application/images/favicon.png">

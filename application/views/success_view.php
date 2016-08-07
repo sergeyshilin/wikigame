@@ -67,14 +67,13 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
                 <?php endif; ?>
                 Поделись результатом с друзьями!
             </p>
-
-            <div id="sharebtns" style="margin-bottom: 20px">
-                <a id="share_vk" class="sharebtn vk"></a>
-                <a id="share_fb" class="sharebtn fb"></a>
-                <a id="share_gp" class="sharebtn gp"></a>
-                <a id="share_tw" class="sharebtn tw"></a>
+            <div class="ssk-group ssk-count ssk-rounded ssk-lg">
+                <a href="" class="ssk ssk-vk"></a>
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
             </div>
-            <p class="lead">
+            <p class="lead" style="margin-top: 20px">
                 <a href="<?=$info?>" class="btn btn-lg btn-success congrats_playagain"
                    onclick="yaCounter28976460.reachGoal('newgame'); return true;">Новая игра</a>
                 <a href="/<?= $playlink ?>" class="btn btn-lg btn-success congrats_playagain"
@@ -105,19 +104,15 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
 
         $("#share_vk").click(function () {
             yaCounter28976460.reachGoal('sharevk');
-            share.vkontakte();
         });
         $("#share_fb").click(function () {
             yaCounter28976460.reachGoal('sharefb');
-            share.facebook();
         });
         $("#share_gp").click(function () {
             yaCounter28976460.reachGoal('sharegoogle');
-            share.googleplus();
         });
         $("#share_tw").click(function () {
             yaCounter28976460.reachGoal('sharetwit');
-            share.twitter();
         });
     });
 
@@ -197,4 +192,7 @@ $url = "http://".$_SERVER["SERVER_NAME"]."/".$playlink;
     <div><img src="//mc.yandex.ru/watch/28976460" style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>
 <!-- /Yandex.Metrika counter -->
+<script type="application/javascript">
+    SocialShareKit.init();
+</script>
 </body>
