@@ -46,7 +46,7 @@ class Controller_Main extends Controller{
 		$rating["pop_ways"] = $this->model->getPopularWays();
 		$rating["all_pop_ways"] = $this->model->getAllPopularWays();
 		$this->view->generate('start_page.php', 'templates/template_with_background.php',
-				$userStatistics, $rating, $_SESSION["referer_mode"]);
+				$userStatistics, $rating);
 		unset($_SESSION["referer_mode"]);
 	}
 }

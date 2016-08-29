@@ -3,7 +3,8 @@ class Route{
 	static function start(){
 		$controller_name = "Main";
 		$action_name = 'index';
-		$routes = explode('/', $_SERVER['REQUEST_URI']);
+        $path_only = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		$routes = explode('/', $path_only);
 		// print_r($routes);	
 		//ПОЛУЧАЕМ ИМЯ КОНТРОЛЛЕРА
 
@@ -14,7 +15,7 @@ class Route{
 			require_once( "application/vendor/hybridauth/Hybrid/Endpoint.php" );
 			Hybrid_Endpoint::process();
 		}
-		 if(!empty($routes[1])){
+		 if(!empty($routes[1])) {
 			$controller_name = $routes[1];
 		 }
 		//ПОЛУЧАЕМ ИМЯ ДЕЙСТВИЯ-ЭКШЕНА
