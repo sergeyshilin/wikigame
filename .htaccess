@@ -4,3 +4,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(/|.css)$ [NC]
 RewriteCond %{REQUEST_URI} !(/|.js)$ [NC]
 RewriteRule . index.php [L]
+

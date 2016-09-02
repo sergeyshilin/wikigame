@@ -44,7 +44,7 @@ class Model_Main extends Model{
 	{
 		$fetched = array();
 		$result = $this->query("SELECT way_nodes.id, way_nodes.way_id, link, parent_id, ways.hash as hash,
-		  cache_ways_rating.value as rating, cache_ways_rating.is_hitler
+		  cache_ways_rating.value as rating, cache_ways_rating.is_hitler, 0 as steps
           FROM  `way_nodes` INNER JOIN cache_ways_rating ON cache_ways_rating.way_id = way_nodes.way_id INNER JOIN
           ways ON ways.id = cache_ways_rating.way_id");
 		while ($out = $result->fetch_array()) {
