@@ -1,0 +1,12 @@
+/* Webfont: AvenirNext-DemiBoldItalic */@font-face {
+    font-family: 'AvenirNextDemiBold';
+    src: url('AvenirNext-DemiBoldItalic.eot'); /* IE9 Compat Modes */
+    src: url('AvenirNext-DemiBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('AvenirNext-DemiBoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('AvenirNext-DemiBoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('AvenirNext-DemiBoldItalic.svg#AvenirNext-DemiBoldItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
