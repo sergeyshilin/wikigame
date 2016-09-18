@@ -46,9 +46,15 @@ class Controller_custom_ways extends Controller{
             return false;
         }
         $handle = curl_init($link);
+        curl_setopt($handle,CURLOPT_SSL_VERIFYHOST,0);
+        curl_setopt($handle,CURLOPT_SSL_VERIFYPEER,0);
         curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
         curl_exec($handle);
         $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+        if($httpCode == 0) {
+            $error = curl_error($handle);
+            error_log($error);
+        }
         curl_close($handle);
         return ($httpCode == 200) ? true : false;
     }
