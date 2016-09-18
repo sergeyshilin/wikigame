@@ -1,0 +1,12 @@
+/* Webfont: AvenirNext-Heavy */@font-face {
+    font-family: 'AvenirNextHeavy';
+    src: url('AvenirNext-Heavy.eot'); /* IE9 Compat Modes */
+    src: url('AvenirNext-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('AvenirNext-Heavy.woff') format('woff'), /* Modern Browsers */
+         url('AvenirNext-Heavy.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('AvenirNext-Heavy.svg#AvenirNext-Heavy') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

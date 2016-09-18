@@ -1,0 +1,12 @@
+/* Webfont: AvenirNext-BoldItalic */@font-face {
+    font-family: 'AvenirNext';
+    src: url('AvenirNext-BoldItalic.eot'); /* IE9 Compat Modes */
+    src: url('AvenirNext-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('AvenirNext-BoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('AvenirNext-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('AvenirNext-BoldItalic.svg#AvenirNext-BoldItalic') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+

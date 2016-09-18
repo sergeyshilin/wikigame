@@ -1,0 +1,12 @@
+/* Webfont: AvenirNext-Bold */@font-face {
+    font-family: 'AvenirNext2';
+    src: url('AvenirNext-Bold.eot'); /* IE9 Compat Modes */
+    src: url('AvenirNext-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('AvenirNext-Bold.woff') format('woff'), /* Modern Browsers */
+         url('AvenirNext-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('AvenirNext-Bold.svg#AvenirNext-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
