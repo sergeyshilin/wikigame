@@ -205,12 +205,13 @@ h3 {
 
 .modespage .mode-name {
 	font-family: 'AvenirNextDemiBold', Demi Bold, sans-serif;
-	font-size: 13pt;
+	font-size: 14pt;
+	letter-spacing: 1px;
 }
 
 .modespage .mode-desc {
 	min-height: 83px;
-	font-size: 10pt;
+	font-size: 10.5pt;
 	line-height: 1.8;
 }
 
@@ -219,6 +220,7 @@ h3 {
 	margin-top:50px;
 	font-size: 12pt;
 	line-height: 2;
+	letter-spacing: 0.5pt;
 }
 
 .modespage .stats {
@@ -245,6 +247,27 @@ h3 {
 .modespage .stats .title p {
 	position: absolute;
 	margin:	7px 0 0 10px;
+}
+
+.modespage .stats ul {
+	list-style: none;
+}
+
+.modespage .stats ul li {
+	margin: 4px 0 0 10px;
+	font-size: 11pt;
+	letter-spacing: 1px;
+}
+
+.modespage .stats ul li:before {
+    content: "•";
+    padding-right: 8px;
+    font-size: 6pt;
+
+}
+
+.modespage .stats ul li .rating {
+	color: #ff4e00;
 }
 
 .modespage .auth-button {
