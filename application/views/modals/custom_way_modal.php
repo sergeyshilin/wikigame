@@ -54,19 +54,14 @@
 </div>
 
 <script>
-    window.link1 = "";
-    window.link2 = "";
     $(document).ready(function(){
-        $("#startlink").change(function(){
-           window.link1 = $(this).val();
-           console.log(window.link1);
-            CheckCustomLink(window.link1,this);
-        });
-        $("#endlink").change(function(){
-            window.link2 = $(this).val();
-            console.log(window.link2);
-            CheckCustomLink(window.link2,this);
-        })
+        function onLinkChange() {
+            $(this).data("originalLink", $(this).val());
+            CheckCustomLink($(this).val(), this);
+        }
+
+        $("#startlink").change(onLinkChange);
+        $("#endlink").change(onLinkChange)
     });
 
     function CheckCustomLink(link, elem){
@@ -99,7 +94,7 @@
         $.ajax({
             url: "/custom_ways/add",
             method: "POST",
-            data: {"startlink": window.link1, "endlink": window.link2}
+            data: {"startlink": $('#startlink').data("originalLink"), "endlink": $('#endlink').data("originalLink")}
         }).done(function (response) {
             switch (response) {
                 case "exists":
