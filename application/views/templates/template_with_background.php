@@ -51,11 +51,11 @@
                                     <i class="fa fa-vk"></i></a>
                             </div>
                             <div class="soclogin col-xs-4">
-                                <a class="btn btn-primary btn-block" href="/login/provider/Facebook" disabled>
+                                <a class="btn btn-primary btn-block" href="#" disabled>
                                     <i class="fa fa-facebook"></i></a>
                             </div>
                             <div class="soclogin col-xs-4">
-                                <a class="btn btn-danger btn-block" href="/login/provider/Google" disabled>
+                                <a class="btn btn-danger btn-block" href="#" disabled>
                                     <i class="fa fa-google-plus"></i></a>
                             </div>
                         </div>
