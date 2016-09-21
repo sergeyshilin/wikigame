@@ -53,7 +53,17 @@ h3 {
 	font-size: 13pt;
 }
 
+.orange {
+	color: #ff4e00;
+}
 
+.bold {
+	font-weight: bold;
+}
+
+.small {
+	text-transform: lowercase;
+}
 
 
 /* Main style */
@@ -135,10 +145,11 @@ h3 {
 	color: #ff4e00;
 }
 
-/* Modes page style */
+/**
+ * Modes page style 
+*/
 .modespage {
 	background: url(../images/backgrounds/background_modes.png) no-repeat center center scroll;
-	color: #fff;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -146,35 +157,20 @@ h3 {
     color: #00A19C;
 }
 
-.modespage .container {
-	width: 1100px !important;
+.content .container {
+	width: 1100px;
     margin-top: 50px;
-    /*border: 1px solid red;*/
-}
-
-.modespage .main-block {
-	min-height: 630px;
-}
-
-.modespage .right-block {
-	min-height: 630px;
 }
 
 .modespage .header {
 	min-height: 50px;
 }
 
-.modespage .modes {
-	min-height: 578px;
-}
-
 .modespage .modes .modeline {
 	margin: 0;
-	min-height: 289px;
 }
 
 .modespage .mode {
-	height: 289px;
 	padding: 0;
 	text-align: center;
 }
@@ -186,7 +182,7 @@ h3 {
 }
 
 .modespage .mode-logo {
-	min-height: 180px;
+	height: 180px;
 }
 
 .modespage .mode-logo img.classic {
@@ -210,7 +206,7 @@ h3 {
 }
 
 .modespage .mode-desc {
-	min-height: 83px;
+	height: 83px;
 	font-size: 10.5pt;
 	line-height: 1.8;
 }
@@ -224,7 +220,6 @@ h3 {
 }
 
 .modespage .stats {
-	height: 350px;
 	margin-top: 30px;
 	border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
@@ -246,11 +241,12 @@ h3 {
 
 .modespage .stats .title p {
 	position: absolute;
-	margin:	7px 0 0 10px;
+	margin:	8px 0 0 15px;
 }
 
 .modespage .stats ul {
 	list-style: none;
+	padding: 6px 0 2px 30px;
 }
 
 .modespage .stats ul li {
@@ -262,7 +258,7 @@ h3 {
 .modespage .stats ul li:before {
     content: "•";
     padding-right: 8px;
-    font-size: 6pt;
+    font-size: 8pt;
 
 }
 
@@ -272,7 +268,6 @@ h3 {
 
 .modespage .auth-button {
 	text-align: center;
-	height: 48px;
 	font-size: 25pt;
 	margin: 0;
 }
@@ -295,4 +290,148 @@ h3 {
 	margin: 0 0 0 2px;
 	width: 198px;
 	border-top: 2px solid #00A19C;
+}
+
+/**
+ * PVP Search styles
+*/
+
+.pvp-search {
+	background: #F2F2F2 url(../images/backgrounds/pvpsearch.png) no-repeat center center scroll;
+	-webkit-background-size: contain;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    color: #00A19C;
+}
+
+.pvp-search h2 {
+	text-transform: uppercase;
+	font-size: 16pt;
+}
+
+.pvp-search h3 {
+	margin: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 11pt;
+	letter-spacing: -0.5pt;
+}
+
+.pvp-search .container {
+	margin-top: 0;
+	height: 100%;
+	display: table;
+    position: relative;
+}
+
+.pvp-search .left-block {
+	margin: 0;
+	padding: 0;
+	background-color: #F2F2F2;
+}
+
+.pvp-search .main-block {
+	display: table;
+    position: relative;
+    height: 100%;
+}
+
+.pvp-search .header {
+	height: 50px;
+}
+
+.pvp-search .profile {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.pvp-search .profile h2 {
+	margin: 20px 0 0 0;
+}
+
+.pvp-search .info-block {
+	text-transform: uppercase;
+	margin: 30px 0 0 30px;
+	padding: 0;
+	line-height: 2;
+}
+
+.pvp-search ul.menu {
+	margin: 0;
+	padding: 0;
+	color: #ff4e00;
+	list-style: none;
+	padding: 6px 0 2px 0;
+}
+
+.pvp-search ul.menu li.active {
+	font-family: 'AvenirNextDemiBold', Demi Bold, sans-serif;
+	font-size: 12pt;
+}
+
+.pvp-search ul.menu li:before {
+    content: "•";
+    padding-right: 8px;
+    font-size: 8pt;
+}
+
+.pvp-search .main-block .title h2 {
+	margin: 0;
+	padding: 0;
+}
+
+.pvp-search .main-block .title {
+	float: left;
+}
+
+.pvp-search .main-block .action-buttons {
+	position: relative;
+	float: right;
+	text-align: right;
+}
+
+.pvp-search .main-block .action-buttons .btn {
+	background-color: #00A19C;
+	padding: 7px 5px;
+	width: 150px;
+	margin: 0 0 5px 0;
+	color: #fff;
+	font-size: 8pt;
+}
+
+.pvp-search .main-block .centered-text {
+	float: left;
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.pvp-search .main-block .centered-main {
+	margin: 0 auto;
+	margin-top: 40px;
+	height: 200px;
+	width: 330px;
+	text-align: left;
+	font-size: 11pt;
+}
+
+.pvp-search .main-block .centered-main .btn {
+	width: 330px;
+	background-color: #00A19C;
+	color: #fff;
+	font-size: 17pt;
+	padding: 8px 0;
+	margin-top: 30px;
+}
+
+.pvp-search .main-block .centered-main input {
+	margin: 0;
+	padding: 0;
+}
+
+.pvp-search .main-block .centered-main .form-group.is-focused input {
+	border-color: #ff0000;
 }
